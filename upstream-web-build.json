@@ -1,0 +1,34 @@
+{
+  "gameId": "f7ab238a-cec3-44ad-a517-7a3c1e00faa3",
+  "buildId": "4d547ac9-eecc-45b5-802e-a5b9c81ca3e5",
+  "retrieved": "2026-10-19",
+  "sourceRepository": "https://github.com/greenpower2669/FabYut",
+  "sourceCommit": "81ba459b39306b4f0c36ca69d8483d7bc3d552a8",
+  "note": "Published Unity Play build. Source commit equivalence not established. Lossless Brotli decompression; game code unchanged.",
+  "files": [
+    {
+      "file": "Build/game.data",
+      "size": 46173021,
+      "sha256": "b406d6d1ab60b395a69ecc20d6b4e4f0d550b598e31c6aeb9f0eb738dc2da75f",
+      "source": "https://cdn.play.unity.com/games/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/4d547ac9-eecc-45b5-802e-a5b9c81ca3e5/game.data.br"
+    },
+    {
+      "file": "Build/framework.js",
+      "size": 372572,
+      "sha256": "f4e57efafae205d9f8c46245a1314b0d4ec230041fe2704e051cd6e3eaa0fd78",
+      "source": "https://cdn.play.unity.com/games/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/4d547ac9-eecc-45b5-802e-a5b9c81ca3e5/framework.js.br"
+    },
+    {
+      "file": "Build/game.wasm",
+      "size": 22196778,
+      "sha256": "ca01b61fe71fc604fb0b3316d457e7dfa540e9a2ff26f0136d0797c46bbe540e",
+      "source": "https://cdn.play.unity.com/games/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/4d547ac9-eecc-45b5-802e-a5b9c81ca3e5/game.wasm.br"
+    },
+    {
+      "file": "Build/loader.js",
+      "size": 20672,
+      "sha256": "75083a3271c601c2933e0b94cb8b59c17f7ff8fed2c923868dfd978e82bde964",
+      "source": "https://cdn.play.unity.com/games/f7ab238a-cec3-44ad-a517-7a3c1e00faa3/4d547ac9-eecc-45b5-802e-a5b9c81ca3e5/loader.js"
+    }
+  ]
+}
