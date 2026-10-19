@@ -16,6 +16,7 @@ const errors = [];
 const logs = [];
 const server = http.createServer((request, response) => {
   const name = decodeURIComponent(new URL(request.url, 'http://localhost').pathname).replace(/^\//, '');
+  if (name === 'favicon.ico') { response.writeHead(204); response.end(); return; }
   const file = path.resolve(assets, name || 'index.html');
   if (!file.startsWith(assets + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
     if (name !== 'favicon.ico') missing.push(name);
@@ -37,7 +38,10 @@ try {
   });
   const page = await context.newPage();
   page.on('pageerror', error => errors.push(String(error)));
-  page.on('console', message => logs.push(message.text()));
+  page.on('console', message => {
+    logs.push(`[${message.type()}] ${message.text()}`);
+    if (message.type() === 'error') errors.push(message.text());
+  });
   await page.goto(origin + '/index.html');
   await page.waitForFunction(() => window.__gameReady || window.__gameError, null, {timeout:120000});
   const state = await page.evaluate(() => ({ready:window.__gameReady,error:window.__gameError}));
@@ -49,7 +53,7 @@ try {
     throw new Error(JSON.stringify({lateError,errors,missing,external}));
   }
   fs.writeFileSync(path.join(output, 'web-smoke.json'), JSON.stringify({ready:true,external,missing,errors,logs},null,2));
-  console.log('PASS: real Unity game starts, renders for 10 seconds, no external request or missing asset.');
+  console.log('PASS: real Unity game starts and runs for 10 seconds, no console/JS error, external request or missing asset. Screenshot saved for visual inspection.');
 } finally {
   fs.writeFileSync(path.join(output, 'web-console.txt'), logs.join('\n'));
   if (browser) await browser.close();

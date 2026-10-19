@@ -19,3 +19,4 @@ Implémentation dans la session selon FabCopilot ; autorisation déjà donnée p
 ## Prochain geste
 Tester le démarrage hors ligne et lancer la compilation CI. Aucun APK produit à ce stade.
 Premier commit distant vérifié : `4f4a735ad243e2f6cc839a488d457cab6e04cee3`. Premier run CI bloqué au SDK (MYN-D002), correction ciblée en cours de validation.
+Run 39257579699 : SDK corrigé, export restauré, smoke hors réseau et assembleDebug réussis. Publication retenue par lint Retour (MYN-D004). Relancer avec annotation du fallback et smoke renforcé après revue.

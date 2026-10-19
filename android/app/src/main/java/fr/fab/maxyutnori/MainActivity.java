@@ -175,6 +175,9 @@ public final class MainActivity extends Activity {
         if (webView != null) { webView.resumeTimers(); webView.onResume(); }
         record("Reprise");
     }
+    // Legacy fallback for API 26-32 only. API 33+ uses the platform dispatcher
+    // registered in onCreate; predictive back on Android 16 is therefore handled.
+    @SuppressLint("GestureBackNavigation")
     @SuppressWarnings("deprecation")
     @Override public void onBackPressed() {
         showExitDialog();
