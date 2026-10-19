@@ -6,14 +6,16 @@
 - Aucune fusion vers `main` ni publication définitive sans accord explicite de Fab.
 - Livrer un `.apk` directement installable via GitHub, nommé projet/version, avec icône. Aucun ZIP à extraire sur le téléphone. Emplacement temporaire : `temp/` sur la branche de travail, alimenté par GitHub Actions.
 - Appareil de validation humaine : Samsung SM-A576B, Android 16.
+- Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 ## Missions
-### MYN-001 — APK du jeu existant — En cours
+### MYN-001 — APK du jeu existant — Livré, à valider
 19/10/2026 : Fab demande d'abord de passer FabYut en APK. Direction validée : embarquer l'export Web existant dans une application Android ; vérifier tactile, son et performances. Première livraison de test, sans PC ni éditeur Unity chez Fab.
+Preuve : `temp/Max-YutNori-v0.1.0-debug.apk`, 46 781 687 octets, code 1, target Android 16 ; build 39301357387, source `3042fed5ca7a9a0fa551d5330ef1a5739ef5f9cb`. Signature APK v2 vérifiée. Démarrage Web hors ligne et capture 3D validés ; installation/tactile/audio/pause Samsung attendus.
 
-### MYN-002 — Mémoire vivante FabCopilot — En cours
+### MYN-002 — Mémoire vivante FabCopilot — Mise en place, suivi actif
 19/10/2026 : conserver `ordres-de-mission.md`, `brain.md`, `brainmap.md`, `debughistorical.md`, `todo.md` au fil de l'avancement.
 
-### MYN-003 — Dépôt séparé — En cours
+### MYN-003 — Dépôt séparé — Réalisé
 19/10/2026 : tout le travail Android doit vivre dans Max-YutNori. Branche `feature/android-webview-v001`. Autorisation de démarrage : « Ok, gogogo » après les échanges « code pas » de préparation.
