@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#102b29">
+  <title>Max YutNori</title>
+  <style>
+    * { box-sizing:border-box; }
+    html,body { margin:0; width:100%; height:100%; overflow:hidden; background:#102b29; color:#fff3d7; font:18px system-ui,sans-serif; }
+    #unity-canvas { display:block; width:100%; height:100%; touch-action:none; outline:none; }
+    #loading { position:fixed; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:24px; background:#102b29; text-align:center; }
+    #loading[hidden] { display:none; }
+    h1 { margin:0; font-size:32px; }
+    p { margin:0; max-width:700px; line-height:1.4; }
+    progress { width:min(360px,80vw); height:18px; accent-color:#ebc377; }
+    button { padding:12px 24px; border:0; border-radius:12px; background:#ebc377; color:#142f2c; font:600 18px system-ui; }
+  </style>
+</head>
+<body>
+  <canvas id="unity-canvas" width="960" height="600" tabindex="0" aria-label="Plateau de Yut Nori"></canvas>
+  <div id="loading" role="status" aria-live="polite">
+    <h1>Max YutNori</h1>
+    <p id="status">Chargement du jeu…</p>
+    <progress id="progress" max="1" value="0"></progress>
+    <button id="retry" hidden onclick="location.reload()">Réessayer</button>
+  </div>
+  <script src="Build/loader.js"></script>
+  <script src="launcher.js"></script>
+</body>
+</html>

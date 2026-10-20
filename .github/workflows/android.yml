@@ -1,0 +1,66 @@
+name: Android APK
+on:
+  push:
+    branches: ['feature/android-webview-v001']
+    paths-ignore: ['temp/**', '*.md']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: android-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Retain test signing key between builds
+        uses: actions/cache@v4
+        with:
+          path: ~/.android/debug.keystore
+          key: max-yutnori-debug-key-v1
+      - name: Verify embedded game
+        run: |
+          node scripts/fetch_web_build.mjs
+          python3 scripts/verify_web_build.py
+          node scripts/test_offline_restore.mjs
+      - name: Start the real game with external network blocked
+        run: |
+          npm install --prefix "$RUNNER_TEMP/browser-test" --no-save playwright@1.51.1
+          PLAYWRIGHT_MODULE="$RUNNER_TEMP/browser-test/node_modules/playwright" node scripts/smoke_web.mjs
+      - name: Build and lint Android
+        run: gradle -p android --no-daemon assembleDebug lintDebug
+      - name: Verify APK and prepare direct download
+        run: |
+          mkdir -p temp
+          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.1.0-debug.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.1.0-debug.apk > temp/apk-verification.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.1.0-debug.apk | head -30 >> temp/apk-verification.txt
+          sha256sum temp/Max-YutNori-v0.1.0-debug.apk > temp/SHA256SUMS
+          printf 'Source commit: %s\nBuild run: %s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > temp/build-info.txt
+      - name: Expose APK on the work branch
+        env:
+          BRANCH_NAME: ${{ github.ref_name }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add temp android/app/src/main/assets/game/Build
+          git commit -m 'build: expose Max-YutNori v0.1.0 test APK [skip ci]'
+          git push origin "HEAD:$BRANCH_NAME"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Max-YutNori-v0.1.0-debug
+          path: temp/
