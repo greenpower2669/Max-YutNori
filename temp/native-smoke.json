@@ -75,24 +75,24 @@
       "turn": 0,
       "phase": "move",
       "pending": [
-        3
+        1
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Geol · 3"
+      "last": "Do · 1"
     },
     "rolling": false,
     "paused": false,
     "audio": {
       "loop": true,
       "paused": false,
-      "currentTime": 4.885667,
+      "currentTime": 6.601659,
       "duration": 239.32805
     },
     "logs": [
-      "2026-10-20T20:54:14.597Z Three.js + Rapier WASM prêts.",
-      "2026-10-20T20:54:21.112Z Lancer : 3"
+      "2026-10-20T20:58:36.617Z Three.js + Rapier WASM prêts.",
+      "2026-10-20T20:58:44.949Z Lancer : 1"
     ]
   },
   "audio": {
