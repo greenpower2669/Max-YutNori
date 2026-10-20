@@ -29,3 +29,11 @@ Le jeu n'a pas été testé sur un Samsung physique. Aucun merge main ni publica
 - [ ] Confirmer avec Fab si l'arrêt intervient après un morceau complet ou après une pause/changement d'application.
 - [ ] [AGENT] Si correction demandée : intervenir sur la musique dans la couche Web sans reconstruction Unity/WASM ; valider deux cycles et pause/reprise ; construire ensuite un nouvel APK direct. Proposition non exécutée.
 - Aucune nouvelle compilation ni livraison : APK disponible toujours 0.1.0.
+
+## Mission active MYN-005
+- [x] Direction validée et branche isolée.
+- [x] Reconstitution du moteur de règles après perte du temporaire.
+- [ ] Scène, physique, audio, UI et sauvegarde reconstruits et vérifiés.
+- [ ] Tests navigateur, build Android, relecture et livraison directe.
+- [ ] Validation sur le Samsung de Fab.
+Le « prochain geste » précédent concernait MYN-004 et est historique.

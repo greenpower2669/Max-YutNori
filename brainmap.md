@@ -38,3 +38,6 @@ Lancement Android → page locale → loader Unity → framework/WASM/data locau
 - Lecture effectuée avec UnityPy 1.25.4, sans sauvegarde/réécriture du binaire.
 - `Build/framework.js` : `_JS_Sound_SetLoop` délègue au canal Web Audio ; la capacité de boucler est présente. `_JS_Sound_Init` reprend le contexte audio sur touchstart/mousedown.
 - `launcher.js` ne contient pas de correction de boucle ; l'application charge des assets locaux et n'a pas de mécanisme de mise à jour du jeu installé.
+
+## Refonte v0.2.0 en cours
+web/src/rules.mjs : règles pures ; tests/rules.test.mjs : cas limites et parties IA ; docs/refonte-webgl.md : contrat et suivi. Branche feature/native-webgl-v020.

@@ -2,7 +2,7 @@
 
 ## IMMUTABLE / À PRÉSERVER
 - Dépôt Android : `greenpower2669/Max-YutNori`. FabYut est la référence en lecture seule.
-- Préserver le jeu existant, ses règles et ses graphismes ; cette mission emballe la version Web, sans portage du moteur ni modification du C#.
+- Mission MYN-001 conservée dans sa branche. Avenant MYN-005 autorise la refonte du moteur et des graphismes dans une nouvelle branche ; préserver la référence FabYut.
 - Aucune fusion vers `main` ni publication définitive sans accord explicite de Fab.
 - Livrer un `.apk` directement installable via GitHub, nommé projet/version, avec icône. Aucun ZIP à extraire sur le téléphone. Emplacement temporaire : `temp/` sur la branche de travail, alimenté par GitHub Actions.
 - Appareil de validation humaine : Samsung SM-A576B, Android 16.
@@ -22,3 +22,6 @@ Preuve : `temp/Max-YutNori-v0.1.0-debug.apk`, 46 781 687 octets, code 1, target 
 
 ### MYN-004 — Audit de la boucle audio et de la version — Diagnostic établi, aucune correction appliquée
 20/10/2026 : Fab signale que le son ne se relance pas en boucle, mentionne un dépôt privé doublant le jeu et demande de vérifier la version et les possibilités sans recompilation. Audit en lecture seule du code et des binaires, sans lancer de build. Preuve : MYN-D005. La correction éventuelle et le nouvel APK restent à décider après restitution ; aucune nouvelle version livrée.
+
+### MYN-005 — Refonte sans Unity — En cours
+20/10/2026 : autorisation « Ok, lance toi ». Recréation WebGL / WebAssembly, physique 3D, graphismes améliorés, musique en boucle, capteurs prévus plus tard. Contrat détaillé : `docs/refonte-webgl.md`. Branche `feature/native-webgl-v020`. Pas encore de nouvel APK.
