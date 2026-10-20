@@ -37,3 +37,13 @@ Le jeu n'a pas été testé sur un Samsung physique. Aucun merge main ni publica
 - [ ] Tests navigateur, build Android, relecture et livraison directe.
 - [ ] Validation sur le Samsung de Fab.
 Le « prochain geste » précédent concernait MYN-004 et est historique.
+
+## Reprise — candidat corrigé 0.2.0
+- [x] Scène 3D, physique WASM, interface, sauvegarde et musique originale.
+- [x] Premier test navigateur complet et premier APK natif (CI 39438116160).
+- [x] Relecture indépendante ; corrections des routes de groupes, sélection des piles, délais physiques et crédits internes.
+- [ ] Suite finale et test navigateur des corrections, compilation et vérification APK final.
+- [ ] Livraison directe et validation Samsung par Fab.
+- [ ] Étape ultérieure : accéléromètres, perfectionnement graphique.
+- [ ] Mineur différé : rejeter davantage de sauvegardes falsifiées contradictoires.
+Aucune fusion main ni release définitive.

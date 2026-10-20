@@ -49,3 +49,5 @@ web/src/rules.mjs : règles pures ; tests/rules.test.mjs : cas limites et partie
 - scripts/extract_music.py : extraction vérifiée du morceau original, indépendant de Unity.
 - scripts/smoke_native.mjs : démarrage hors ligne, lancer, sauvegarde, victoire, boucle et formats téléphone.
 - android/app : WebView locale, nouvelle source assets web-dist et prise en charge des requêtes audio Range.
+
+Les preuves de la refonte sont dans `temp/native-*`. Elles se rapportent au commit indiqué par `temp/native-build-info.txt`. Le premier APK 0.2.0 est remplacé après les corrections de la relecture.

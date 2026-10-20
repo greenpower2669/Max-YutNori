@@ -24,3 +24,16 @@ Autorisation de Fab : « Ok, lance toi », après demande d'une recréation sans
 20/10 : la session précédente a perdu ses fichiers temporaires avant leur commit. Les premiers résultats de tests de cette session sont historiques, pas une preuve du code reconstruit. Reconstitution depuis l'audit conservé ; nouveaux tests requis. Checkpoints fréquents sur GitHub.
 
 20/10 : règles 7/7 et physique 1/1 passent après reconstitution ; 50 parties IA complètes. Build Vite réussi. Checkpoints GitHub 29ab9a2 (règles) et 870ffc2 (scène, physique, interface). Boucle audio et intégration Android en vérification.
+
+## Relecture finale et décisions
+Relecture indépendante (review_native_v020) : aucun problème critique, trois importants et trois mineurs.
+- Ruling: les pions réunis au centre héritent de la route du dernier groupe arrivé ; leur numéro ne détermine plus le Back-do. Coût si une autre variante est souhaitée : règle explicite à changer.
+- Ruling: le clic sur un pion supérieur d'une pile est reclassé important : sélectionner un autre groupe peut entraîner un coup involontaire. Résolution vers le représentant de la même pile.
+- Lancer toujours mobile au délai de 12 s : invalide, même si une face est lisible. Amortissement angulaire porté à 1 pour réduire les oscillations longues sans prédéterminer les faces.
+- Licences : boîte de dialogue interne ; ne pas naviguer hors du jeu.
+- Chevauchement mobile observé : adapter la zone 3D à la hauteur réelle des contrôles.
+- Minor deferred: validation de sauvegardes falsifiées contradictoires (adversaires partageant une case, gagnant différent du joueur actif). Les sauvegardes produites par le jeu restent cohérentes ; aucune saisie de sauvegarde externe proposée.
+- La clé debug de cette branche diffère de 0.1.0 : désinstallation de 0.1.0 nécessaire ; l'annoncer avant installation.
+
+Première CI complète réussie : 39438116160, source 3ec21fb. APK 7 923 569 octets, signature v2 vérifiée, Android 16 ciblé, aucun runtime Unity. Candidat intermédiaire remplacé par les corrections finales avant livraison.
+Les tests ajoutés sur regroupement, sélection de pile et délai physique ont été observés rouges avant les corrections. Suite corrigée à vérifier en CI ; ne pas confondre le premier APK et le candidat final.

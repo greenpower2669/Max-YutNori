@@ -39,3 +39,16 @@ test('50 complete computer games do not stall',()=>{
  while(g.phase!=='over'&&actions++<3000){if(g.phase==='throw')recordThrow(g,resultFromFaces(Array.from({length:4},()=>random()>.5)));else {const m=chooseMove(g,random);if(m)move(g,m);else pass(g,0);}}
  assert.equal(g.phase,'over');assert.ok(validateSave(g));}
 });
+
+test('joined groups follow the arriving route for Back-do regardless of pawn IDs',()=>{
+ for(const arriving of [0,1]){const g=createGame();g.teams[0].pieces[arriving]={pos:'B2',route:'b'};g.teams[0].pieces[1-arriving]={pos:'C',route:'a'};
+ recordThrow(g,1);move(g,legalMoves(g).find(m=>m.piece===arriving&&m.to==='C'));
+ recordThrow(g,-1);pass(g,0);recordThrow(g,-1);
+ assert.equal(legalMoves(g).find(m=>m.piece===0).to,'B2');
+ assert.ok(g.teams[0].pieces.filter(p=>p.pos==='C').every(p=>p.route==='b'));}
+});
+test('picking any pawn in a stack resolves to that stack, not another pawn',async()=>{
+ const {groupLeader}=await import('../web/src/rules.mjs');assert.equal(typeof groupLeader,'function');
+ const g=createGame();g.teams[0].pieces[0].pos='O2';g.teams[0].pieces[2].pos='O4';g.teams[0].pieces[3].pos='O4';
+ assert.equal(groupLeader(g,3),2);assert.equal(groupLeader(g,1),1);
+});

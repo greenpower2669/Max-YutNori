@@ -7,6 +7,7 @@ export function resultFromFaces(faces){if(!Array.isArray(faces)||faces.length!==
 export function createGame(options={}){return {version:2,teams:[0,1].map(t=>({names:options.names?.[t]?.slice(0,6)||[t?'Ordinateur':'Fab'],member:0,computer:options.computers?.[t]??t===1,level:options.levels?.[t]??2,aggression:options.aggressions?.[t]??50,pieces:Array.from({length:4},()=>({pos:'S',route:'outer'}))})),turn:0,phase:'throw',pending:[],turnNumber:1,winner:null,captureReroll:!!options.captureReroll,last:'À vous de lancer les bâtonnets.'};}
 export const playerName=g=>g.teams[g.turn].names[g.teams[g.turn].member];
 export const isComputer=g=>g.teams[g.turn].computer;
+export function groupLeader(g,index){const pieces=g.teams[g.turn].pieces,p=pieces[index];if(!p)return -1;return p.pos==='S'||p.pos==='H'?index:pieces.findIndex(other=>other.pos===p.pos);}
 export function destinations(piece,value){
  const {pos}=piece;if(pos==='H'||pos==='S'&&value<0)return [];
  let routes=[piece.route];
@@ -32,7 +33,10 @@ function endTurn(g){if(g.pending.length)return;const t=g.teams[g.turn];t.member=
 export function move(g,choice){const m=legalMoves(g).find(x=>['piece','result','to','route'].every(k=>x[k]===choice[k]));if(!m)throw Error('Déplacement interdit');
  const own=g.teams[g.turn].pieces,from=own[m.piece].pos;const group=own.filter((p,i)=>from==='S'?i===m.piece:p.pos===from);
  let captured=0;if(m.to!=='H'&&m.to!=='S')for(const p of g.teams[1-g.turn].pieces)if(p.pos===m.to){p.pos='S';p.route='outer';captured++;}
- group.forEach(p=>{p.pos=m.to;p.route=m.route;});g.pending.splice(m.result,1);
+ group.forEach(p=>{p.pos=m.to;p.route=m.route;});
+ // A merged group inherits the last arriving group's route, independent of pawn IDs.
+ if(m.to!=='S'&&m.to!=='H')own.filter(p=>p.pos===m.to).forEach(p=>{p.route=m.route;});
+ g.pending.splice(m.result,1);
  const event={captured,count:group.length,to:m.to,team:g.turn};
  g.last=captured?`${captured} pion${captured>1?'s':''} capturé${captured>1?'s':''} !`:m.to==='H'?'Pion arrivé !':'À vous de jouer.';
  if(own.every(p=>p.pos==='H')){g.phase='over';g.winner=g.turn;g.last='Victoire !';}

@@ -1,16 +1,26 @@
-# Max-YutNori
+# Max YutNori — refonte 0.2.0
 
-Version Android du jeu FabYut de Fabrice. Le jeu Unity WebAssembly publié est embarqué dans un APK hors ligne ; ses règles et graphismes sont préservés.
+Jeu de YutNori 3D sans Unity, en français : Three.js / WebGL2 et Rapier / WebAssembly, intégré dans une APK Android hors ligne. Branche de travail feature/native-webgl-v020 ; aucune fusion main. Version de test, validation Samsung par Fab nécessaire.
 
-## Développement
-Lire `ordres-de-mission.md`, puis `todo.md`, `brain.md`, `brainmap.md`, `debughistorical.md`. Méthode : [FabCopilot](https://github.com/greenpower2669/FAB-Copilot-forWorkspacegpt).
+## Jouer et modifier
 
-Projet Android dans `android/` : Java 17, Gradle 8.13, Android SDK 36. Compilation : `gradle -p android assembleDebug lintDebug`. Vérification du jeu : `python3 scripts/verify_web_build.py`.
+```sh
+npm ci
+python3 scripts/extract_music.py
+npm test
+npm run dev
+```
 
-GitHub Actions construit l'APK puis le copie directement dans `temp/` sur la branche de travail. Aucune extraction ZIP nécessaire sur téléphone. Première version : 0.1.0, package `fr.fab.maxyutnori`, signature de test.
+Le morceau original est extrait du build historique uniquement s'il manque ; il est ensuite un fichier AAC indépendant. Le code du jeu est dans web/src/. La sortie de npm run build est web-dist/game/. Seule cette sortie entre dans l'APK ; les anciens binaires Unity restent archivés dans le dépôt.
 
-Les sources originales restent dans [FabYut](https://github.com/greenpower2669/FabYut). L'export publié et les sources Git ne sont pas présumés identiques : `upstream-web-build.json` fige la provenance exacte et les empreintes.
+Deux équipes de quatre pions, jusqu'à six noms tournants par équipe, ordinateur réglable, relances Yut/Mo, résultats stockés, Back-do, captures, groupes et raccourcis. Au centre, un groupe suit la route du dernier groupe arrivé. Musique en boucle, sons, pause, sauvegarde, lancers par bouton ou glissement. Capteurs prévus dans une étape ultérieure.
 
-Retour Android : continuer, quitter ou copier le diagnostic local. Le jeu utilise le WebView système et ne demande pas la permission Internet.
+## APK
 
-La validation tactile/audio sur Samsung reste à faire par Fab. Aucun merge vers main ni publication Play n'est effectué sans son accord.
+GitHub Actions vérifie règles, physique, interface hors ligne, boucle audio et sauvegarde, puis compile et analyse l'APK. Le fichier brut est dans temp/ sur la branche. Le script verify_native_apk.py contrôle l'absence de Unity.
+
+La clé debug diffère de 0.1.0 : désinstaller cette ancienne application avant la refonte. Cela supprime les données locales de l'ancienne application. Ce n'est pas une signature de production Play Store.
+
+## Mémoire FabCopilot
+
+ordres-de-mission.md, brain.md, brainmap.md, debughistorical.md, todo.md. Contrat et choix : docs/refonte-webgl.md. APK 0.1.0 conservé sur feature/android-webview-v001 ; FabYut reste la référence en lecture seule.

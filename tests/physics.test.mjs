@@ -8,3 +8,12 @@ test('real WASM throws settle inside bowl or explicitly report invalid faces',as
  if(!result.invalid){assert.equal(result.faces.length,4);valid++;}}
  assert.ok(valid>=10,`${valid}/12 valid throws`);p.world.free();
 });
+
+test('a continuously moving throw at the deadline must be invalid',async()=>{
+ const p=await createPhysics();p.throwSticks();let result;
+ for(let i=0;i<1600&&!result;i++){
+  p.bodies.forEach((body,j)=>{body.setTranslation({x:(j-1.5)*.5,y:.3,z:0},true);body.setRotation({x:0,y:0,z:0,w:1},true);body.setLinvel({x:1,y:0,z:0},true);body.setAngvel({x:0,y:0,z:0},true);});
+  result=p.step(1/120);
+ }
+ assert.ok(result);assert.ok(result.seconds>=12);assert.equal(result.invalid,true,'readable faces are insufficient while bodies still move');p.world.free();
+});
