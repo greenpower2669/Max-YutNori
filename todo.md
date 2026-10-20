@@ -47,3 +47,5 @@ Le « prochain geste » précédent concernait MYN-004 et est historique.
 - [ ] Étape ultérieure : accéléromètres, perfectionnement graphique.
 - [ ] Mineur différé : rejeter davantage de sauvegardes falsifiées contradictoires.
 Aucune fusion main ni release définitive.
+
+Dernier contrôle de livraison : les 11 tests et les 9 scénarios navigateur passent (39495883163). Rebuild final pour le chemin explicite de signature et validation du cache ; défaut constaté MYN-D008.

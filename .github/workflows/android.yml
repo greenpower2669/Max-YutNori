@@ -38,11 +38,35 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
-      - name: Retain native test signing key between builds
-        uses: actions/cache@v4
+      - name: Restore native test signing key
+        id: native-key
+        uses: actions/cache/restore@v4
         with:
-          path: ~/.android/debug.keystore
-          key: max-yutnori-debug-key-v1
+          path: ~/.android/max-yutnori-debug.keystore
+          key: max-yutnori-native-debug-key-v2
+      - name: Prepare explicit test signing key
+        run: |
+          NATIVE_KEYSTORE_PATH="$HOME/.android/max-yutnori-debug.keystore"
+          if [ ! -s "$NATIVE_KEYSTORE_PATH" ]; then
+            if [ -f temp/native-signing-certificate.pem ]; then
+              echo "::error::The cached test signing key is missing. Restore it before building; do not silently replace the published identity."
+              exit 1
+            fi
+            mkdir -p "$HOME/.android"
+            keytool -genkeypair -keystore "$NATIVE_KEYSTORE_PATH" -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Max YutNori,C=FR"
+          fi
+          test -s "$NATIVE_KEYSTORE_PATH"
+          keytool -exportcert -rfc -keystore "$NATIVE_KEYSTORE_PATH" -storepass android -alias androiddebugkey -file "$RUNNER_TEMP/native-signing-certificate.pem"
+          if [ -f temp/native-signing-certificate.pem ]; then
+            cmp temp/native-signing-certificate.pem "$RUNNER_TEMP/native-signing-certificate.pem"
+          fi
+          cp "$RUNNER_TEMP/native-signing-certificate.pem" temp/native-signing-certificate.pem
+      - name: Save native test signing key
+        if: steps.native-key.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.android/max-yutnori-debug.keystore
+          key: max-yutnori-native-debug-key-v2
       - name: Build and lint Android
         run: gradle -p android --no-daemon assembleDebug lintDebug
       - name: Verify APK and prepare direct download
@@ -57,8 +81,12 @@ jobs:
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.1.0-debug.apk > temp/native-previous-signature.txt
           python3 - <<'PY'
           from pathlib import Path
+          import hashlib, ssl
           def cert(p):
               return next(l for l in Path(p).read_text().splitlines() if 'certificate SHA-256 digest:' in l)
+          expected=hashlib.sha256(ssl.PEM_cert_to_DER_cert(Path('temp/native-signing-certificate.pem').read_text())).hexdigest()
+          actual=cert('temp/native-apk-verification.txt').split(': ')[-1]
+          assert actual==expected, 'APK was signed by an unexpected key'
           same=cert('temp/native-apk-verification.txt')==cert('temp/native-previous-signature.txt')
           with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.1.0: '+str(same)+'\n')
           PY
