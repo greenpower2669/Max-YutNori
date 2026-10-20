@@ -7,14 +7,14 @@ Verified using v4 scheme (APK Signature Scheme v4): false
 Verified for SourceStamp: false
 Number of signers: 1
 Signer #1 certificate DN: C=US, O=Android, CN=Android Debug
-Signer #1 certificate SHA-256 digest: db523a761e567940809854791d5b57106c870b02885839a3682b2d5b934a3fe0
-Signer #1 certificate SHA-1 digest: 75dcca840b79f85ba0daa33c7718076c43c6dfdd
-Signer #1 certificate MD5 digest: bdac28be9debc06b83f6296fb21616b1
+Signer #1 certificate SHA-256 digest: 21631b994fbc205392f930024bbff0af6b8ee3536bd7e1775232749ebd121b21
+Signer #1 certificate SHA-1 digest: 39effdf4611dfd729b7c40aed7c85a2782c7e488
+Signer #1 certificate MD5 digest: 997349cd4fb32ef7bce19205ead8cd43
 Signer #1 key algorithm: RSA
 Signer #1 key size (bits): 2048
-Signer #1 public key SHA-256 digest: a860feb8eb517aac42de4946c90e8a2ee0096b78693639353883a51a9a731ff5
-Signer #1 public key SHA-1 digest: 2cfe6f6f66e0e4eea39b5b6faa6bcc81aaae13aa
-Signer #1 public key MD5 digest: c9da7419eeedc8f926b4360e36f795d5
+Signer #1 public key SHA-256 digest: 77edabdf9cf61f156fef89ff83a85df866a5ab360ed21e82745500199db45b42
+Signer #1 public key SHA-1 digest: d94cd660b1aa0927eea25bad7db57404376a6a43
+Signer #1 public key MD5 digest: c99978ea342f7699bb0daea66a105e0f
 package: name='fr.fab.maxyutnori' versionCode='2' versionName='0.2.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
 sdkVersion:'26'
 targetSdkVersion:'36'

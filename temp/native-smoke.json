@@ -7,7 +7,8 @@
     "Native pause/resume hook",
     "Saved game survives reload",
     "Linked group reaches finish and victory dialog appears",
-    "Landscape phone layout and settings"
+    "Landscape phone layout and settings",
+    "Licences open and close inside the game without navigation"
   ],
   "errors": [],
   "externalRequests": [],
@@ -72,26 +73,26 @@
         }
       ],
       "turn": 0,
-      "phase": "throw",
+      "phase": "move",
       "pending": [
-        4
+        3
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Yut · 4"
+      "last": "Geol · 3"
     },
     "rolling": false,
     "paused": false,
     "audio": {
       "loop": true,
       "paused": false,
-      "currentTime": 9.062336,
+      "currentTime": 4.885667,
       "duration": 239.32805
     },
     "logs": [
-      "2026-10-20T14:19:35.148Z Three.js + Rapier WASM prêts.",
-      "2026-10-20T14:19:46.337Z Lancer : 4"
+      "2026-10-20T20:54:14.597Z Three.js + Rapier WASM prêts.",
+      "2026-10-20T20:54:21.112Z Lancer : 3"
     ]
   },
   "audio": {
