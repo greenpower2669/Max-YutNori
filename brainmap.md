@@ -1,4 +1,5 @@
 # Carte active — refonte 0.2.0
+- Prochaine évolution MYN-006 (conception à relire) : docs/evolution-equipes-capteurs-halos.md ; suivi : todo.md.
 - Contrat et choix : docs/refonte-webgl.md ; état : todo.md ; synthèse : brain.md.
 - web/src/rules.mjs : règles et IA ; physics.mjs : Rapier ; scene.js : Three.js ; main.js : interface/sauvegarde/pause ; audio.js : boucle et sons.
 - tests/ : règles, parties IA et lancers physiques ; scripts/smoke_native.mjs : 9 scénarios UI/audio.

@@ -37,8 +37,13 @@ Audit de la 0.2.0 effectué ; fonctionnalités ci-dessous demandées, non implé
 - [ ] Ajouter des sons de choc/roulement des bâtonnets et des sons du plateau ; conserver la musique en boucle et des volumes distincts.
 - [ ] Proposer le lancer par mouvement du téléphone (accéléromètre), avec sensibilité réglable et commande tactile conservée. Relier le geste à l'impulsion physique ; vérifier sur le Samsung.
 - [ ] Permettre de choisir 2, 3 ou 4 couleurs/équipes simultanées sur le plateau. Adapter les tours, captures, IA, interface et sauvegardes, actuellement limités à deux équipes.
-- [ ] Permettre plusieurs participants par couleur, chacun humain ou IA ; le réglage actuel concerne toute l'équipe.
+- [ ] Permettre plusieurs participants par couleur/équipe, chacun humain ou IA ; Fab confirme quatre couleurs = quatre équipes. Le réglage actuel concerne toute l'équipe.
 - [ ] Améliorer textures, matériaux, ombres et lumière, en préservant la lisibilité et les performances mobiles.
-- [ ] Clarifier la remarque « coups relatifs / pion sorti de sa case » : prévisualisation du trajet et des cases atteignables, problème de placement visuel, ou règle de déplacement manquante ? Ne pas modifier les règles sur une interprétation non confirmée.
+- [x] Fab confirme que les déplacements sont corrects ; aucune correction de règle demandée sur ce point.
+- [ ] Ajouter une aura lumineuse tournante autour du pion/groupe sélectionné et de ses destinations légales, cohérente entre départ et arrivée, sans clignotement.
 
 État confirmé : musique et sons synthétiques de déplacement/capture/victoire existent ; sons de contact physiques et capteurs absents. Le nombre de pions reste de quatre par équipe dans la version actuelle ; la demande sur le nombre de couleurs ne vaut pas décision de modifier ce nombre.
+
+## Cadrage précisé par Fab
+Quatre couleurs correspondent à quatre équipes ; plusieurs participants possibles dans chaque équipe. Les règles de déplacement sont confirmées correctes. Demande précise : le pavé/pion sélectionné doit briller, comme sa destination, avec une aura tournante. Les autres demandes (sons, capteurs, textures et lumière) restent dans le périmètre.
+Fiche de conception proposée : `docs/evolution-equipes-capteurs-halos.md`. Périmètre confirmé dans la conversation ; cette fiche reste à relire avant implémentation. Aucun nouvel APK produit pour cette évolution.

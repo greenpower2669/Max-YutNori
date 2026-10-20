@@ -10,6 +10,9 @@ Installation : la signature debug diffère de 0.1.0. Désinstaller 0.1.0 avant i
 
 Validation physique Samsung par Fab encore nécessaire. Choix détaillés et point mineur différé : docs/refonte-webgl.md. Aucune fusion main ni release définitive.
 
+## Prochaine évolution — MYN-006
+Périmètre précisé par Fab : jusqu'à quatre équipes/couleurs, plusieurs participants par équipe avec choix humain/IA individuel, sons de contact, lancer au mouvement, textures et lumière améliorées. Les déplacements sont confirmés corrects ; ajouter une aura tournante au pion/groupe sélectionné et à ses destinations. Fiche proposée : docs/evolution-equipes-capteurs-halos.md. Conception à relire, non implémentée ; l'APK livré reste 0.2.0.
+
 ---
 
 ## Historique du wrapper et de l'audit
