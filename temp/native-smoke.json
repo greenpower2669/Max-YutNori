@@ -1,0 +1,103 @@
+{
+  "checks": [
+    "WebGL + Rapier WASM start without external network",
+    "Physical throw completes from a real UI action",
+    "Pause freezes gameplay and music; resume works",
+    "Original AAC plays and crosses loop boundary twice",
+    "Native pause/resume hook",
+    "Saved game survives reload",
+    "Linked group reaches finish and victory dialog appears",
+    "Landscape phone layout and settings"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "firstThrow": {
+    "version": "0.2.0",
+    "state": {
+      "version": 2,
+      "teams": [
+        {
+          "names": [
+            "Fab"
+          ],
+          "member": 0,
+          "computer": false,
+          "level": 2,
+          "aggression": 50,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            }
+          ]
+        },
+        {
+          "names": [
+            "Ordinateur"
+          ],
+          "member": 0,
+          "computer": true,
+          "level": 2,
+          "aggression": 50,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            }
+          ]
+        }
+      ],
+      "turn": 0,
+      "phase": "throw",
+      "pending": [
+        4
+      ],
+      "turnNumber": 1,
+      "winner": null,
+      "captureReroll": false,
+      "last": "Yut · 4"
+    },
+    "rolling": false,
+    "paused": false,
+    "audio": {
+      "loop": true,
+      "paused": false,
+      "currentTime": 9.062336,
+      "duration": 239.32805
+    },
+    "logs": [
+      "2026-10-20T14:19:35.148Z Three.js + Rapier WASM prêts.",
+      "2026-10-20T14:19:46.337Z Lancer : 4"
+    ]
+  },
+  "audio": {
+    "duration": 239.32805,
+    "loop": true,
+    "codec": "probably"
+  },
+  "result": "PASS"
+}
