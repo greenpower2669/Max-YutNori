@@ -41,3 +41,11 @@ Lancement Android → page locale → loader Unity → framework/WASM/data locau
 
 ## Refonte v0.2.0 en cours
 web/src/rules.mjs : règles pures ; tests/rules.test.mjs : cas limites et parties IA ; docs/refonte-webgl.md : contrat et suivi. Branche feature/native-webgl-v020.
+
+- web/src/physics.mjs : Rapier WASM et lecture des faces.
+- web/src/scene.js : rendu procédural Three.js.
+- web/src/main.js : UI, sauvegarde, pause et IA.
+- web/src/audio.js : musique originale en boucle et sons synthétisés.
+- scripts/extract_music.py : extraction vérifiée du morceau original, indépendant de Unity.
+- scripts/smoke_native.mjs : démarrage hors ligne, lancer, sauvegarde, victoire, boucle et formats téléphone.
+- android/app : WebView locale, nouvelle source assets web-dist et prise en charge des requêtes audio Range.

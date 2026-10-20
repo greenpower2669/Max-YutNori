@@ -26,6 +26,7 @@ import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.FilterInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
@@ -39,6 +40,8 @@ public final class MainActivity extends Activity {
     private final ArrayDeque<String> log = new ArrayDeque<>();
     private WebView webView;
     private FrameLayout root;
+    private boolean foreground;
+    private AlertDialog exitDialog;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override public void onCreate(Bundle state) {
@@ -72,12 +75,13 @@ public final class MainActivity extends Activity {
         settings.setBuiltInZoomControls(false);
         webView.setWebViewClient(new WebViewClient() {
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
-                return serve(request.getUrl(), request.getMethod());
+                return serve(request.getUrl(), request.getMethod(), request.getRequestHeaders());
             }
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri url = request.getUrl();
                 return !"https".equals(url.getScheme()) || !ORIGIN.equals(url.getHost());
             }
+            @Override public void onPageFinished(WebView view, String url) { sendPauseState(); }
             @Override public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
                 record("Moteur Web arrêté. Crash=" + detail.didCrash());
                 root.removeView(view);
@@ -108,7 +112,7 @@ public final class MainActivity extends Activity {
         hideBars();
     }
 
-    private WebResourceResponse serve(Uri uri, String method) {
+    private WebResourceResponse serve(Uri uri, String method, Map<String, String> requestHeaders) {
         String path = uri.getPath();
         if (!"GET".equals(method) || !"https".equals(uri.getScheme()) || !ORIGIN.equals(uri.getHost())
                 || path == null || !path.startsWith("/game/") || path.contains("..") || path.contains("\\")) {
@@ -120,15 +124,62 @@ public final class MainActivity extends Activity {
             String mime = path.endsWith(".wasm") ? "application/wasm"
                 : path.endsWith(".js") ? "application/javascript"
                 : path.endsWith(".html") ? "text/html"
-                : path.endsWith(".css") ? "text/css" : "application/octet-stream";
+                : path.endsWith(".css") ? "text/css"
+                : path.endsWith(".m4a") ? "audio/mp4"
+                : path.endsWith(".txt") ? "text/plain"
+                : path.endsWith(".json") ? "application/json"
+                : path.endsWith(".svg") ? "image/svg+xml" : "application/octet-stream";
             String encoding = mime.startsWith("text/") || mime.equals("application/javascript") ? "UTF-8" : null;
             Map<String, String> headers = new HashMap<>();
             headers.put("Cache-Control", "no-cache");
             headers.put("X-Content-Type-Options", "nosniff");
+            if (path.endsWith(".m4a")) {
+                long length = stream.available();
+                headers.put("Accept-Ranges", "bytes");
+                headers.put("Content-Length", Long.toString(length));
+                String range = null;
+                for (Map.Entry<String, String> header : requestHeaders.entrySet()) {
+                    if ("Range".equalsIgnoreCase(header.getKey())) range = header.getValue();
+                }
+                if (range != null) {
+                    java.util.regex.Matcher match = java.util.regex.Pattern.compile("bytes=(\\d+)-(\\d*)").matcher(range);
+                    if (!match.matches()) { stream.close(); return error(416, "Range Not Satisfiable"); }
+                    long start, end;
+                    try {
+                        start = Long.parseLong(match.group(1));
+                        end = match.group(2).isEmpty() ? length - 1 : Math.min(length - 1, Long.parseLong(match.group(2)));
+                    } catch (NumberFormatException exception) { stream.close(); return error(416, "Range Not Satisfiable"); }
+                    if (start > end || start >= length) { stream.close(); return error(416, "Range Not Satisfiable"); }
+                    long skipped = 0;
+                    while (skipped < start) {
+                        long n = stream.skip(start - skipped);
+                        if (n == 0) { if (stream.read() < 0) throw new IOException("Unexpected end"); n = 1; }
+                        skipped += n;
+                    }
+                    headers.put("Content-Range", "bytes " + start + "-" + end + "/" + length);
+                    headers.put("Content-Length", Long.toString(end - start + 1));
+                    return new WebResourceResponse(mime, null, 206, "Partial Content", headers, new LimitedStream(stream, end - start + 1));
+                }
+            }
             return new WebResourceResponse(mime, encoding, 200, "OK", headers, stream);
         } catch (IOException exception) {
             record("Fichier local absent : " + path);
             return error(404, "Not Found");
+        }
+    }
+
+    private static final class LimitedStream extends FilterInputStream {
+        private long remaining;
+        LimitedStream(InputStream in, long length) { super(in); remaining = length; }
+        @Override public int read() throws IOException {
+            if (remaining == 0) return -1;
+            int value = super.read(); if (value >= 0) remaining--; return value;
+        }
+        @Override public int read(byte[] buffer, int offset, int length) throws IOException {
+            if (length == 0) return 0;
+            if (remaining == 0) return -1;
+            int count = in.read(buffer, offset, (int) Math.min(length, remaining));
+            if (count > 0) remaining -= count; return count;
         }
     }
 
@@ -165,14 +216,22 @@ public final class MainActivity extends Activity {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) hideBars();
     }
+    private void sendPauseState() {
+        boolean paused = !foreground || (exitDialog != null && exitDialog.isShowing());
+        if (webView != null) webView.evaluateJavascript("window.setNativePaused?.(" + paused + ")", null);
+    }
     @Override protected void onPause() {
-        if (webView != null) { webView.onPause(); webView.pauseTimers(); }
+        foreground = false;
+        sendPauseState();
+        if (webView != null) webView.onPause();
         record("Pause");
         super.onPause();
     }
     @Override protected void onResume() {
         super.onResume();
-        if (webView != null) { webView.resumeTimers(); webView.onResume(); }
+        foreground = true;
+        if (webView != null) webView.onResume();
+        sendPauseState();
         record("Reprise");
     }
     // Legacy fallback for API 26-32 only. API 33+ uses the platform dispatcher
@@ -183,11 +242,18 @@ public final class MainActivity extends Activity {
         showExitDialog();
     }
     private void showExitDialog() {
-        new AlertDialog.Builder(this).setTitle("Max YutNori — " + BuildConfig.VERSION_NAME)
+        if (exitDialog != null && exitDialog.isShowing()) return;
+        exitDialog = new AlertDialog.Builder(this).setTitle("Max YutNori — " + BuildConfig.VERSION_NAME)
             .setMessage("Quitter la partie en cours ?")
             .setPositiveButton("Quitter", (dialog, which) -> finish())
             .setNegativeButton("Continuer", (dialog, which) -> hideBars())
-            .setNeutralButton("Copier le diagnostic", (dialog, which) -> copyDiagnostic()).show();
+            .setNeutralButton("Copier le diagnostic", (dialog, which) -> {
+                if (webView != null) webView.evaluateJavascript("JSON.stringify(window.maxYutDiagnostic?.())", value -> { record(value); copyDiagnostic(); });
+                else copyDiagnostic();
+            }).create();
+        exitDialog.setOnDismissListener(dialog -> { exitDialog = null; sendPauseState(); hideBars(); });
+        exitDialog.show();
+        sendPauseState();
     }
     @Override protected void onDestroy() {
         if (webView != null) {

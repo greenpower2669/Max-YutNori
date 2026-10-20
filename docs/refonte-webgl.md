@@ -22,3 +22,5 @@ Autorisation de Fab : « Ok, lance toi », après demande d'une recréation sans
 
 ## Journal d'exécution
 20/10 : la session précédente a perdu ses fichiers temporaires avant leur commit. Les premiers résultats de tests de cette session sont historiques, pas une preuve du code reconstruit. Reconstitution depuis l'audit conservé ; nouveaux tests requis. Checkpoints fréquents sur GitHub.
+
+20/10 : règles 7/7 et physique 1/1 passent après reconstitution ; 50 parties IA complètes. Build Vite réussi. Checkpoints GitHub 29ab9a2 (règles) et 870ffc2 (scène, physique, interface). Boucle audio et intégration Android en vérification.

@@ -1,8 +1,8 @@
-name: Android APK
+name: Native WebGL Android APK
 on:
   push:
-    branches: ['feature/android-webview-v001']
-    paths-ignore: ['temp/**', '*.md']
+    branches: ['feature/native-webgl-v020']
+    paths-ignore: ['temp/**', '*.md', 'docs/**']
   workflow_dispatch:
 permissions:
   contents: write
@@ -15,6 +15,18 @@ jobs:
     timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Prepare and verify native game
+        run: |
+          npm ci
+          python3 scripts/extract_music.py
+          npm test
+          npm run build
+      - name: Verify rendering, gameplay, save and music offline
+        run: npm run smoke
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -26,41 +38,44 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
-      - name: Retain test signing key between builds
+      - name: Retain native test signing key between builds
         uses: actions/cache@v4
         with:
           path: ~/.android/debug.keystore
           key: max-yutnori-debug-key-v1
-      - name: Verify embedded game
-        run: |
-          node scripts/fetch_web_build.mjs
-          python3 scripts/verify_web_build.py
-          node scripts/test_offline_restore.mjs
-      - name: Start the real game with external network blocked
-        run: |
-          npm install --prefix "$RUNNER_TEMP/browser-test" --no-save playwright@1.51.1
-          PLAYWRIGHT_MODULE="$RUNNER_TEMP/browser-test/node_modules/playwright" node scripts/smoke_web.mjs
       - name: Build and lint Android
         run: gradle -p android --no-daemon assembleDebug lintDebug
       - name: Verify APK and prepare direct download
         run: |
           mkdir -p temp
-          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.1.0-debug.apk
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.1.0-debug.apk > temp/apk-verification.txt
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.1.0-debug.apk | head -30 >> temp/apk-verification.txt
-          sha256sum temp/Max-YutNori-v0.1.0-debug.apk > temp/SHA256SUMS
-          printf 'Source commit: %s\nBuild run: %s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > temp/build-info.txt
-      - name: Expose APK on the work branch
+          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.2.0-debug.apk
+          python3 scripts/verify_native_apk.py temp/Max-YutNori-v0.2.0-debug.apk > temp/native-package.json
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.2.0-debug.apk > temp/native-apk-verification.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.2.0-debug.apk | head -30 >> temp/native-apk-verification.txt
+          sha256sum temp/Max-YutNori-v0.2.0-debug.apk > temp/native-SHA256SUMS
+          printf 'Source commit: %s\nBuild run: %s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > temp/native-build-info.txt
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.1.0-debug.apk > temp/native-previous-signature.txt
+          python3 - <<'PY'
+          from pathlib import Path
+          def cert(p):
+              return next(l for l in Path(p).read_text().splitlines() if 'certificate SHA-256 digest:' in l)
+          same=cert('temp/native-apk-verification.txt')==cert('temp/native-previous-signature.txt')
+          with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.1.0: '+str(same)+'\n')
+          PY
+      - name: Expose APK and original music on the work branch
         env:
           BRANCH_NAME: ${{ github.ref_name }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add temp android/app/src/main/assets/game/Build
-          git commit -m 'build: expose Max-YutNori v0.1.0 test APK [skip ci]'
+          git add temp/native-* temp/Max-YutNori-v0.2.0-debug.apk web/public/audio/arirang.m4a
+          git commit -m 'build: expose native Max-YutNori v0.2.0 test APK [skip ci]'
           git push origin "HEAD:$BRANCH_NAME"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Max-YutNori-v0.1.0-debug
-          path: temp/
+          name: Max-YutNori-v0.2.0-debug
+          path: |
+            temp/native-*
+            temp/Max-YutNori-v0.2.0-debug.apk
+            android/app/build/reports/lint-results-debug.html
