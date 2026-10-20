@@ -30,3 +30,15 @@ La signature diffère de 0.1.0 : désinstallation préalable nécessaire, avec s
 - [ ] [PUBLICATION ÉVENTUELLE] Prévoir une vraie clé durable si Fab demande une publication Play.
 
 Aucune fusion main ni release définitive. L'ancienne 0.1.0 reste dans sa branche ; historique des missions et incidents dans les autres mémoires.
+
+## Demande de Fab — prochaine évolution, 20/10/2026
+Audit de la 0.2.0 effectué ; fonctionnalités ci-dessous demandées, non implémentées à ce stade. Il s'agit d'une évolution de l'architecture des équipes et des commandes.
+
+- [ ] Ajouter des sons de choc/roulement des bâtonnets et des sons du plateau ; conserver la musique en boucle et des volumes distincts.
+- [ ] Proposer le lancer par mouvement du téléphone (accéléromètre), avec sensibilité réglable et commande tactile conservée. Relier le geste à l'impulsion physique ; vérifier sur le Samsung.
+- [ ] Permettre de choisir 2, 3 ou 4 couleurs/équipes simultanées sur le plateau. Adapter les tours, captures, IA, interface et sauvegardes, actuellement limités à deux équipes.
+- [ ] Permettre plusieurs participants par couleur, chacun humain ou IA ; le réglage actuel concerne toute l'équipe.
+- [ ] Améliorer textures, matériaux, ombres et lumière, en préservant la lisibilité et les performances mobiles.
+- [ ] Clarifier la remarque « coups relatifs / pion sorti de sa case » : prévisualisation du trajet et des cases atteignables, problème de placement visuel, ou règle de déplacement manquante ? Ne pas modifier les règles sur une interprétation non confirmée.
+
+État confirmé : musique et sons synthétiques de déplacement/capture/victoire existent ; sons de contact physiques et capteurs absents. Le nombre de pions reste de quatre par équipe dans la version actuelle ; la demande sur le nombre de couleurs ne vaut pas décision de modifier ce nombre.
