@@ -1,51 +1,32 @@
-# Max-YutNori — Plan technique et état
+# Max YutNori — état de travail
 
-Référence initiale Max-YutNori : `868553fde8aabcb8d7d5d1128b848e4f3770bceb`.
-Branche : `feature/android-webview-v001`. Missions : MYN-001 à MYN-004.
+Branche : `feature/native-webgl-v020`. PR brouillon : #2. Mission active MYN-005. Version test : **0.2.0 / code 2**.
 
-## Étapes
-- [x] Lire FabCopilot et examiner les deux dépôts ; confirmer l'absence de mémoires existantes dans Max-YutNori.
-- [x] Localiser l'export Unity Play et son ID immuable.
-- [x] Récupérer, décompresser et vérifier les quatre fichiers publiés ; enregistrer SHA-256 et provenance.
-- [x] Écrire le conteneur Android et la page locale de chargement ; préserver le jeu.
-- [x] Vérifier lancement et requêtes du jeu dans un navigateur avec réseau externe bloqué ; capture 3D inspectée.
-- [x] Compiler APK en CI, vérifier package et signature, copier directement dans `temp/`.
-- [x] Vérifier la présence GitHub de l'APK brut et préparer la livraison à Fab.
-- [ ] Validation humaine : installation Samsung, tactile, lancers, joueurs humains/ordinateur, son, pause/reprise et fermeture.
+## Réalisé
+- [x] Auditer la référence FabYut en lecture seule et formaliser les règles de refonte.
+- [x] Construire le jeu Three.js / WebGL2 et Rapier / WASM, sans runtime Unity.
+- [x] Règles, groupes, captures, raccourcis, Back-do, victoire et ordinateur réglable.
+- [x] Interface tactile, musique originale en boucle, sauvegarde, pause et reprise.
+- [x] Relecture indépendante et corrections importantes : routes de groupes, sélection des piles, lancers non stabilisés, crédits internes, chevauchement mobile.
+- [x] 11 tests passent, dont 50 parties IA complètes.
+- [x] 9 scénarios navigateur passent, aucune requête extérieure ni erreur JS.
+- [x] Compiler et analyser l'APK ; contrôler son contenu, sa signature et le téléchargement brut.
+- [x] Corriger la conservation de la clé debug et ajouter un refus de remplacement silencieux.
+- [x] Mettre à jour les cinq mémoires FabCopilot.
 
-## Décisions d'exécution
-Implémentation dans la session selon FabCopilot ; autorisation déjà donnée pour la direction décrite dans `brain.md`. Aucun portage Unity ni nouvelle mécanique. La version publiée est la référence binaire ; le dépôt source est une référence distincte.
+## Livraison
+[Max-YutNori-v0.2.0-debug.apk](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.2.0-debug.apk) — 7 923 881 octets.
+CI : https://github.com/greenpower2669/Max-YutNori/actions/runs/39496484674
+Source : 6c75714f0e7c2f8dddaaa0b77aec560cfaab1767. Binaire : dd5c1e2a5e12da39650b5bf912764a99b169fa90.
+SHA-256 : 1952ed047c72664f038a4c98d7dea6b6fd82727edb068197453fe2e55ab9a038
+
+La signature diffère de 0.1.0 : désinstallation préalable nécessaire, avec suppression des données locales de cette ancienne version.
 
 ## Prochain geste
-Restituer le diagnostic audio MYN-D005 et confirmer le scénario d'arrêt avec Fab. La correction de boucle et un éventuel nouvel APK n'ont pas été lancés.
+- [ ] [FAB] Tester sur Samsung SM-A576B Android 16 : lisibilité, toucher, lancer, partie complète, son prolongé, changement d'application, fermeture/réouverture.
+- [ ] [AGENT] Traiter les retours du test physique.
+- [ ] [MISSION SUIVANTE] Accéléromètres et nouvelles améliorations graphiques/FX.
+- [ ] [MINEUR DIFFÉRÉ] Rejeter davantage de sauvegardes falsifiées contradictoires ; les sauvegardes produites par le jeu restent cohérentes.
+- [ ] [PUBLICATION ÉVENTUELLE] Prévoir une vraie clé durable si Fab demande une publication Play.
 
-## État livré
-Code compilé `3042fed5ca7a9a0fa551d5330ef1a5739ef5f9cb`, commit binaire CI `4b8ee92f83e65fba8ad7da437bb9b8fa3a9b0366`, run 39301357387. APK 0.1.0, 46 781 687 octets. Les incidents SDK (MYN-D002), bootstrap/smoke (MYN-D003) et lint Retour (MYN-D004) sont traités.
-Le jeu n'a pas été testé sur un Samsung physique. Aucun merge main ni publication définitive. Une clé de signature de production sera nécessaire uniquement si une mission de publication Play est demandée.
-
-## Audit audio du 20/10/2026 — MYN-004 / MYN-D005
-- [x] Comparer la provenance de l'APK et l'état des dépôts accessibles.
-- [x] Inspecter le binaire de l'APK sans compilation : `ARIRinstr`, ~3 min 59 s, boucle désactivée.
-- [ ] Confirmer avec Fab si l'arrêt intervient après un morceau complet ou après une pause/changement d'application.
-- [ ] [AGENT] Si correction demandée : intervenir sur la musique dans la couche Web sans reconstruction Unity/WASM ; valider deux cycles et pause/reprise ; construire ensuite un nouvel APK direct. Proposition non exécutée.
-- Aucune nouvelle compilation ni livraison : APK disponible toujours 0.1.0.
-
-## Mission active MYN-005
-- [x] Direction validée et branche isolée.
-- [x] Reconstitution du moteur de règles après perte du temporaire.
-- [ ] Scène, physique, audio, UI et sauvegarde reconstruits et vérifiés.
-- [ ] Tests navigateur, build Android, relecture et livraison directe.
-- [ ] Validation sur le Samsung de Fab.
-Le « prochain geste » précédent concernait MYN-004 et est historique.
-
-## Reprise — candidat corrigé 0.2.0
-- [x] Scène 3D, physique WASM, interface, sauvegarde et musique originale.
-- [x] Premier test navigateur complet et premier APK natif (CI 39438116160).
-- [x] Relecture indépendante ; corrections des routes de groupes, sélection des piles, délais physiques et crédits internes.
-- [ ] Suite finale et test navigateur des corrections, compilation et vérification APK final.
-- [ ] Livraison directe et validation Samsung par Fab.
-- [ ] Étape ultérieure : accéléromètres, perfectionnement graphique.
-- [ ] Mineur différé : rejeter davantage de sauvegardes falsifiées contradictoires.
-Aucune fusion main ni release définitive.
-
-Dernier contrôle de livraison : les 11 tests et les 9 scénarios navigateur passent (39495883163). Rebuild final pour le chemin explicite de signature et validation du cache ; défaut constaté MYN-D008.
+Aucune fusion main ni release définitive. L'ancienne 0.1.0 reste dans sa branche ; historique des missions et incidents dans les autres mémoires.

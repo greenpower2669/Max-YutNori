@@ -37,3 +37,7 @@ Relecture indépendante (review_native_v020) : aucun problème critique, trois i
 
 Première CI complète réussie : 39438116160, source 3ec21fb. APK 7 923 569 octets, signature v2 vérifiée, Android 16 ciblé, aucun runtime Unity. Candidat intermédiaire remplacé par les corrections finales avant livraison.
 Les tests ajoutés sur regroupement, sélection de pile et délai physique ont été observés rouges avant les corrections. Suite corrigée à vérifier en CI ; ne pas confondre le premier APK et le candidat final.
+
+## État livré
+Les quatre étapes sont réalisées jusqu'au candidat de test. CI 39496484674 : 11/11 tests et 9/9 scénarios navigateur passent ; build/lint Android et signature réussis. Source 6c75714f0e7c2f8dddaaa0b77aec560cfaab1767, binaire dd5c1e2a5e12da39650b5bf912764a99b169fa90. APK brut 7 923 881 octets. Les tests des trois régressions observées rouges passent désormais. Le chemin de signature debug est explicite et la clé a été mise en cache ; disparition de la clé attendue = build bloqué.
+La règle de route du dernier groupe arrivé, la sélection de pile et le refus des lancers non stabilisés sont fixés. Le seul mineur différé concerne les sauvegardes falsifiées contradictoires. Validation Samsung et capteurs ultérieurs restent hors de la validation automatisée.

@@ -1,3 +1,15 @@
+# Carte active — refonte 0.2.0
+- Contrat et choix : docs/refonte-webgl.md ; état : todo.md ; synthèse : brain.md.
+- web/src/rules.mjs : règles et IA ; physics.mjs : Rapier ; scene.js : Three.js ; main.js : interface/sauvegarde/pause ; audio.js : boucle et sons.
+- tests/ : règles, parties IA et lancers physiques ; scripts/smoke_native.mjs : 9 scénarios UI/audio.
+- android/app : conteneur Android hors ligne ; .github/workflows/android.yml : build et clé de test explicite.
+- temp/Max-YutNori-v0.2.0-debug.apk : fichier installable brut.
+- temp/native-* : vérifications, SHA-256, captures, certificat public et source du build 39496484674.
+- PR brouillon #2 ; validation Samsung et capteurs restent à faire.
+
+---
+
+## Carte historique
 # Max-YutNori — Carte technique
 
 ## Références

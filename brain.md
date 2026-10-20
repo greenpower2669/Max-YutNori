@@ -1,3 +1,18 @@
+# État actif — Max YutNori 0.2.0 sans Unity
+
+Candidat de test du 20/10/2026, branche `feature/native-webgl-v020`, PR brouillon #2. [APK direct, 7 923 881 octets](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.2.0-debug.apk).
+
+Le jeu est recréé avec Three.js/WebGL2 et Rapier/WebAssembly : plateau/bol/bâtonnets procéduraux, résultat physique, deux équipes de quatre pions, captures/groupes/raccourcis, Back-do, ordinateur réglable, noms alternants, sauvegarde locale, pause et musique originale en boucle. Boutons tactiles et glissement pour lancer. Capteurs non implémentés, étape ultérieure.
+
+Preuves : CI 39496484674, source 6c75714f0e7c2f8dddaaa0b77aec560cfaab1767, binaire dd5c1e2a5e12da39650b5bf912764a99b169fa90. 11/11 tests, dont 50 parties IA complètes ; 9 scénarios navigateur hors ligne passent, dont deux franchissements de fin du morceau, reprise, sauvegarde et victoire. Build et lint Android réussis ; signature APK v2 vérifiée, Android 16 ciblé ; aucun runtime Unity dans l'APK.
+
+Installation : la signature debug diffère de 0.1.0. Désinstaller 0.1.0 avant installation ; ses données locales sont supprimées. Nouvelle clé de test conservée explicitement en cache CI, certificat public dans temp/native-signing-certificate.pem ; aucune clé privée dans Git. Le build bloque si la clé attendue disparaît. Ce n'est pas une clé de publication Play.
+
+Validation physique Samsung par Fab encore nécessaire. Choix détaillés et point mineur différé : docs/refonte-webgl.md. Aucune fusion main ni release définitive.
+
+---
+
+## Historique du wrapper et de l'audit
 # Max-YutNori — Contrat
 
 ## Intention validée

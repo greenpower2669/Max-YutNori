@@ -24,3 +24,8 @@ La clé debug diffère de 0.1.0 : désinstaller cette ancienne application avant
 ## Mémoire FabCopilot
 
 ordres-de-mission.md, brain.md, brainmap.md, debughistorical.md, todo.md. Contrat et choix : docs/refonte-webgl.md. APK 0.1.0 conservé sur feature/android-webview-v001 ; FabYut reste la référence en lecture seule.
+
+## Version de test disponible
+[Télécharger directement Max-YutNori-v0.2.0-debug.apk](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.2.0-debug.apk) — environ 8 Mo.
+[Vérifications GitHub Actions réussies](https://github.com/greenpower2669/Max-YutNori/actions/runs/39496484674) : 11 tests, 9 scénarios navigateur, build/lint et signature.
+La nouvelle clé de test est conservée en cache CI ; si elle disparaît, le build bloque pour éviter un changement d'identité silencieux. Il faudra une clé durable pour une future publication Play.
