@@ -4,3 +4,13 @@
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 
 #licenseText{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;line-height:1.6}#throw{white-space:nowrap;font-size:14px}
+
+/* Four teams remain visible while view controls stay clear of the score strip. */
+#scores{max-width:calc(100% - 265px);gap:6px;flex-wrap:wrap}.team{min-width:100px;border-color:var(--team-color);padding:6px 9px}.team strong{max-width:128px;font-size:15px}.team.current,.team:nth-child(2).current{color:var(--team-color);border-color:var(--team-color);box-shadow:inset 0 0 0 1px var(--team-color)}.team small{color:var(--team-color)}
+#teamSettings legend{color:var(--team-color)}.participant{padding:10px 0;border-bottom:1px solid var(--line)}.participant:last-of-type{border-bottom:0}.participant button{font-size:12px}.ai-settings{display:grid;grid-template-columns:1fr 1fr;gap:10px}#teamCount{margin-top:6px}.turn strong{max-width:100%;font-size:18px}
+@media(max-width:700px){#scores{max-width:calc(100% - 24px)}.team{min-width:0;flex:1;padding:5px}.team strong{max-width:20vw;font-size:12px}.team small{font-size:10px}#views{top:70px}#throw{font-size:12px;white-space:normal}}
+.turn,#throwControls{min-width:0}
+/* Keep HUD outside the reserve rows at the top and bottom of the board. */
+#scores{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));max-width:260px}
+#notice{left:16px;transform:none;max-width:265px;text-align:left;padding:6px 12px}
+@media(max-width:700px){#scores{display:flex;max-width:calc(100% - 24px)}#views{top:70px;left:12px;right:auto;flex-direction:row}#scene{position:absolute;top:119px;height:calc(100% - 164px)}#notice{left:12px;max-width:calc(100% - 24px);font-size:13px}}

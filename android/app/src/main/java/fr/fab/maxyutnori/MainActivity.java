@@ -14,6 +14,7 @@ import android.view.WindowInsets;
 import android.view.WindowInsetsController;
 import android.view.WindowManager;
 import android.webkit.ConsoleMessage;
+import android.webkit.JavascriptInterface;
 import android.webkit.RenderProcessGoneDetail;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -42,6 +43,8 @@ public final class MainActivity extends Activity {
     private FrameLayout root;
     private boolean foreground;
     private AlertDialog exitDialog;
+    private MotionSensors motion;
+    private boolean motionRequested;
 
     @SuppressLint("SetJavaScriptEnabled")
     @Override public void onCreate(Bundle state) {
@@ -73,16 +76,27 @@ public final class MainActivity extends Activity {
         settings.setMediaPlaybackRequiresUserGesture(true);
         settings.setSupportMultipleWindows(false);
         settings.setBuiltInZoomControls(false);
+        motion = new MotionSensors(this, new MotionSensors.Listener() {
+            @Override public void sample(float x, float y, float z, double time) {
+                if (motionAllowed()) webView.evaluateJavascript("window.onNativeMotion?.(" + x + "," + y + "," + z + "," + time + ")", null);
+            }
+            @Override public void availability(boolean available) {
+                if (webView != null) webView.evaluateJavascript("window.onNativeMotionStatus?.(" + available + ")", null);
+            }
+        });
+        webView.addJavascriptInterface(new MotionBridge(), "MaxYutMotion");
         webView.setWebViewClient(new WebViewClient() {
             @Override public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
                 return serve(request.getUrl(), request.getMethod(), request.getRequestHeaders());
             }
             @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
                 Uri url = request.getUrl();
-                return !"https".equals(url.getScheme()) || !ORIGIN.equals(url.getHost());
+                return !START.equals(url.toString());
             }
             @Override public void onPageFinished(WebView view, String url) { sendPauseState(); }
             @Override public boolean onRenderProcessGone(WebView view, RenderProcessGoneDetail detail) {
+                motionRequested = false;
+                motion.setEnabled(false);
                 record("Moteur Web arrêté. Crash=" + detail.didCrash());
                 root.removeView(view);
                 view.destroy();
@@ -218,7 +232,21 @@ public final class MainActivity extends Activity {
     }
     private void sendPauseState() {
         boolean paused = !foreground || (exitDialog != null && exitDialog.isShowing());
+        if (motion != null) motion.setEnabled(motionAllowed());
         if (webView != null) webView.evaluateJavascript("window.setNativePaused?.(" + paused + ")", null);
+    }
+    private boolean motionAllowed() {
+        return motionRequested && foreground && webView != null && START.equals(webView.getUrl())
+            && (exitDialog == null || !exitDialog.isShowing());
+    }
+    private final class MotionBridge {
+        @JavascriptInterface public boolean available() { return motion != null && motion.available(); }
+        @JavascriptInterface public void setEnabled(boolean enabled) {
+            runOnUiThread(() -> {
+                motionRequested = enabled;
+                if (motion != null) motion.setEnabled(motionAllowed());
+            });
+        }
     }
     @Override protected void onPause() {
         foreground = false;
@@ -256,6 +284,7 @@ public final class MainActivity extends Activity {
         sendPauseState();
     }
     @Override protected void onDestroy() {
+        if (motion != null) motion.setEnabled(false);
         if (webView != null) {
             root.removeView(webView);
             webView.destroy();

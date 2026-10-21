@@ -54,3 +54,10 @@ Fiche de conception proposée : `docs/evolution-equipes-capteurs-halos.md`. Pér
 - [ ] Interface/halos/matières.
 - [ ] Sons et capteurs.
 - [ ] Intégration, revue indépendante, APK/AAB 0.3.0 directs et vérifications de signature.
+
+## Intégration 0.3.0
+- [x] Halos, matières et configuration des participants codés ; tests de scène passent.
+- [x] Impacts physiques/audio et détecteur de geste codés ; suite 25/25.
+- [x] Corriger le débordement portrait dû aux noms longs.
+- [ ] Terminer smoke étendu, revue indépendante, compilation/lint Android et vérification APK/AAB.
+- [ ] Fab : vérifier sensibilité réelle et confort visuel sur Samsung après livraison.

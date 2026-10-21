@@ -7,3 +7,5 @@ Pré-vol : tâches 1→2/5 partagent format v3 et palette ; tâches 3→2/5 part
 Workspace : worktree work/evolution-v030 ; branche distante autorisée feature/native-webgl-v020. Les scripts de pilotage du skill cloud ne sont pas présents localement : suivi équivalent ici, commandes et résultats inscrits par tâche, sans prétendre les exécuter.
 
 Task 1: complete — npm test : 17/17, après échecs ciblés sur ancien moteur à deux équipes. Règles, rotation, équipes mixtes, migration v2 et 24 parties IA à 3/4 équipes validées. Interface/rendu v3 encore à réaliser, aucun APK 0.3.0.
+
+Tasks 2–4: implémentation et tests unitaires terminés (25/25). Intégration navigateur en vérification. Ruling: tâches 2–4 regroupées dans un commit d’intégration car main.js partage réglages, pause et callbacks — évite un checkpoint exécutable incohérent — coût si erroné : revue du commit plus large. Débordement avec nom long reproduit (453 px pour 412), corrigé par min-width:0 (412/412). Harnais capteur initialisé explicitement désactivé comme le fournisseur natif.
