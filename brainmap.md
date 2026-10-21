@@ -1,12 +1,14 @@
-# Carte active — refonte 0.2.0
-- Prochaine évolution MYN-006 (conception à relire) : docs/evolution-equipes-capteurs-halos.md ; suivi : todo.md.
-- Contrat et choix : docs/refonte-webgl.md ; état : todo.md ; synthèse : brain.md.
-- web/src/rules.mjs : règles et IA ; physics.mjs : Rapier ; scene.js : Three.js ; main.js : interface/sauvegarde/pause ; audio.js : boucle et sons.
-- tests/ : règles, parties IA et lancers physiques ; scripts/smoke_native.mjs : 9 scénarios UI/audio.
-- android/app : conteneur Android hors ligne ; .github/workflows/android.yml : build et clé de test explicite.
-- temp/Max-YutNori-v0.2.0-debug.apk : fichier installable brut.
-- temp/native-* : vérifications, SHA-256, captures, certificat public et source du build 39496484674.
-- PR brouillon #2 ; validation Samsung et capteurs restent à faire.
+# Carte active — évolution 0.3.0
+- Mission et autorisation : ordres-de-mission.md, MYN-006 ; contrat approuvé : docs/evolution-equipes-capteurs-halos.md.
+- Plan/suivi : docs/plan-evolution-v030.md, docs/evolution-progress.md ; état : brain.md et todo.md.
+- web/src/teams.mjs et rules.mjs : participants, quatre équipes, migration et IA.
+- team-form.js : réglages individuels ; board-layout.mjs et halos.js : positions et repères ; scene.js : rendu Three.js ; main.js : interface, pause, sauvegarde et animation.
+- physics.mjs et impact.mjs : collisions Rapier bornées ; audio.js : musique en boucle, sons locaux, volume et pause.
+- motion.mjs : détection du geste ; android/app/src/main/java/fr/fab/maxyutnori/MotionSensors.java : capteur natif ; MainActivity.java : pont local et cycle de vie.
+- tests/ : 25 tests ; scripts/smoke_native.mjs : 14 scénarios navigateur avec capteur simulé, rendu et audio hors ligne.
+- .github/workflows/android.yml : APK/AAB, lint, contenu et comparaison des signatures. temp/native-* : preuves du dernier build indiqué dans native-build-info.txt.
+- Dernier paquet livré : temp/Max-YutNori-v0.2.0-debug.apk. Cibles 0.3.0 en préparation, validation physique Samsung ouverte.
+- Branche feature/native-webgl-v020, PR brouillon #2. Aucun merge main ni Release.
 
 ---
 

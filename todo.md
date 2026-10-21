@@ -1,63 +1,27 @@
-# Max YutNori — état de travail
+# Max YutNori — état de travail 0.3.0
 
-Branche : `feature/native-webgl-v020`. PR brouillon : #2. Mission active MYN-005. Version test : **0.2.0 / code 2**.
+Mission active MYN-006, conception approuvée le 21/10/2026. Branche `feature/native-webgl-v020`, PR brouillon #2. Dernier APK livré : 0.2.0 ; 0.3.0/code 3 en vérification.
 
 ## Réalisé
-- [x] Auditer la référence FabYut en lecture seule et formaliser les règles de refonte.
-- [x] Construire le jeu Three.js / WebGL2 et Rapier / WASM, sans runtime Unity.
-- [x] Règles, groupes, captures, raccourcis, Back-do, victoire et ordinateur réglable.
-- [x] Interface tactile, musique originale en boucle, sauvegarde, pause et reprise.
-- [x] Relecture indépendante et corrections importantes : routes de groupes, sélection des piles, lancers non stabilisés, crédits internes, chevauchement mobile.
-- [x] 11 tests passent, dont 50 parties IA complètes.
-- [x] 9 scénarios navigateur passent, aucune requête extérieure ni erreur JS.
-- [x] Compiler et analyser l'APK ; contrôler son contenu, sa signature et le téléchargement brut.
-- [x] Corriger la conservation de la clé debug et ajouter un refus de remplacement silencieux.
-- [x] Mettre à jour les cinq mémoires FabCopilot.
+- [x] 2–4 couleurs/équipes, quatre pions par équipe, 1–6 participants humains/IA et relais au tour complet.
+- [x] Migration des parties v2, conservation du joueur actif, des résultats et d'une sauvegarde v2 intacte.
+- [x] Halo tournant du pion/groupe sélectionné et des destinations, fixe en animations réduites.
+- [x] Sons de contact physique et volumes séparés, musique originale en boucle.
+- [x] Capteur Android optionnel, sensibilité, repos avant geste ; arrêt en pause, dialogue, IA et lancer.
+- [x] Matières/lumières, présentation quatre équipes et noms longs en paysage/portrait.
+- [x] 25 tests unitaires et 14 scénarios navigateur locaux ; zéro erreur JS/requête extérieure.
+- [x] Version 0.3.0/code 3 et pipeline APK/AAB préparés, clé 0.2.0 exigée.
 
-## Livraison
-[Max-YutNori-v0.2.0-debug.apk](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.2.0-debug.apk) — 7 923 881 octets.
-CI : https://github.com/greenpower2669/Max-YutNori/actions/runs/39496484674
-Source : 6c75714f0e7c2f8dddaaa0b77aec560cfaab1767. Binaire : dd5c1e2a5e12da39650b5bf912764a99b169fa90.
-SHA-256 : 1952ed047c72664f038a4c98d7dea6b6fd82727edb068197453fe2e55ab9a038
+## En cours
+- [ ] Corriger l'attente fixe du test des halos et borner le temps initial d'animation ; relancer le smoke.
+- [x] Relecture indépendante : son de victoire corrigé (MYN-D010), aucun autre défaut important.
+- [ ] Compiler/linter Android ; vérifier signatures APK/AAB, mise à jour 0.2.0 et contenu hors ligne.
+- [ ] Exposer les fichiers bruts, vérifier téléchargement/hash, actualiser PR et cinq mémoires.
 
-La signature diffère de 0.1.0 : désinstallation préalable nécessaire, avec suppression des données locales de cette ancienne version.
+## Après livraison
+- [ ] [FAB] Samsung SM-A576B Android 16 : installation en mise à jour, lisibilité/halo, geste et sensibilité en paysage, sons prolongés, pause/reprise et partie complète.
+- [ ] [AGENT] Traiter les retours du téléphone réel.
+- [ ] [MINEUR DIFFÉRÉ] Durcir encore les sauvegardes artificiellement falsifiées au-delà des invariants déjà contrôlés.
+- [ ] [PUBLICATION ÉVENTUELLE] Clé durable de publication Play si Fab la demande ; les paquets actuels sont signés pour les tests.
 
-## Prochain geste
-- [ ] [FAB] Tester sur Samsung SM-A576B Android 16 : lisibilité, toucher, lancer, partie complète, son prolongé, changement d'application, fermeture/réouverture.
-- [ ] [AGENT] Traiter les retours du test physique.
-- [ ] [MISSION SUIVANTE] Accéléromètres et nouvelles améliorations graphiques/FX.
-- [ ] [MINEUR DIFFÉRÉ] Rejeter davantage de sauvegardes falsifiées contradictoires ; les sauvegardes produites par le jeu restent cohérentes.
-- [ ] [PUBLICATION ÉVENTUELLE] Prévoir une vraie clé durable si Fab demande une publication Play.
-
-Aucune fusion main ni release définitive. L'ancienne 0.1.0 reste dans sa branche ; historique des missions et incidents dans les autres mémoires.
-
-## Demande de Fab — prochaine évolution, 20/10/2026
-Audit de la 0.2.0 effectué ; fonctionnalités ci-dessous demandées, non implémentées à ce stade. Il s'agit d'une évolution de l'architecture des équipes et des commandes.
-
-- [ ] Ajouter des sons de choc/roulement des bâtonnets et des sons du plateau ; conserver la musique en boucle et des volumes distincts.
-- [ ] Proposer le lancer par mouvement du téléphone (accéléromètre), avec sensibilité réglable et commande tactile conservée. Relier le geste à l'impulsion physique ; vérifier sur le Samsung.
-- [ ] Permettre de choisir 2, 3 ou 4 couleurs/équipes simultanées sur le plateau. Adapter les tours, captures, IA, interface et sauvegardes, actuellement limités à deux équipes.
-- [ ] Permettre plusieurs participants par couleur/équipe, chacun humain ou IA ; Fab confirme quatre couleurs = quatre équipes. Le réglage actuel concerne toute l'équipe.
-- [ ] Améliorer textures, matériaux, ombres et lumière, en préservant la lisibilité et les performances mobiles.
-- [x] Fab confirme que les déplacements sont corrects ; aucune correction de règle demandée sur ce point.
-- [ ] Ajouter une aura lumineuse tournante autour du pion/groupe sélectionné et de ses destinations légales, cohérente entre départ et arrivée, sans clignotement.
-
-État confirmé : musique et sons synthétiques de déplacement/capture/victoire existent ; sons de contact physiques et capteurs absents. Le nombre de pions reste de quatre par équipe dans la version actuelle ; la demande sur le nombre de couleurs ne vaut pas décision de modifier ce nombre.
-
-## Cadrage précisé par Fab
-Quatre couleurs correspondent à quatre équipes ; plusieurs participants possibles dans chaque équipe. Les règles de déplacement sont confirmées correctes. Demande précise : le pavé/pion sélectionné doit briller, comme sa destination, avec une aura tournante. Les autres demandes (sons, capteurs, textures et lumière) restent dans le périmètre.
-Fiche de conception proposée : `docs/evolution-equipes-capteurs-halos.md`. Périmètre confirmé dans la conversation ; cette fiche reste à relire avant implémentation. Aucun nouvel APK produit pour cette évolution.
-
-## Exécution 0.3.0 — fiche approuvée le 21/10/2026
-- [x] Plan docs/plan-evolution-v030.md et worktree isolée.
-- [x] Moteur équipes/participants/migration : 17 tests passent.
-- [ ] Interface/halos/matières.
-- [ ] Sons et capteurs.
-- [ ] Intégration, revue indépendante, APK/AAB 0.3.0 directs et vérifications de signature.
-
-## Intégration 0.3.0
-- [x] Halos, matières et configuration des participants codés ; tests de scène passent.
-- [x] Impacts physiques/audio et détecteur de geste codés ; suite 25/25.
-- [x] Corriger le débordement portrait dû aux noms longs.
-- [ ] Terminer smoke étendu, revue indépendante, compilation/lint Android et vérification APK/AAB.
-- [ ] Fab : vérifier sensibilité réelle et confort visuel sur Samsung après livraison.
+Aucune fusion main ni Release définitive. Historique 0.1.0/0.2.0, empreintes et incidents dans brain.md, ordres-de-mission.md et debughistorical.md. L'APK 0.2.0 reste disponible dans temp/ sur la branche.
