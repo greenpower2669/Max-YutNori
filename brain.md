@@ -14,6 +14,9 @@ Contrat : docs/evolution-equipes-capteurs-halos.md ; plan et suivi : docs/plan-e
 
 À valider par Fab sur Samsung SM-A576B Android 16 : installation, lisibilité, fluidité, sensibilité et orientation du geste, son prolongé, pause/reprise. Réglages → Lancer au mouvement → Activer l’accéléromètre ; repos bref avant geste. Aucun merge main ni Release définitive.
 
+## Retour actif — MYN-007
+Suite demandée : bac mobile au capteur activé par défaut, yut plus hauts retombant sur la table avec rebords envisagés, aperçu supérieur des quatre yut, « Joueur 1 », textures plus marquées. Destination des matières noir laqué/cèdre rouge à confirmer (faces des bâtonnets ou équipes). Audit : bac et collisions fixes, aucune surface physique de table hors du bol, capteur limité au déclenchement et bois presque identique sur toutes les faces. Dernier APK reste 0.3.0 ; cadrage enregistré dans todo.md et ordres-de-mission.md.
+
 ---
 
 ## Historique du wrapper et de l'audit

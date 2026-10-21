@@ -1,4 +1,5 @@
 # Carte active — livraison de test 0.3.0
+- Retour MYN-007 à cadrer : ordres-de-mission.md et todo.md ; bac/table dans physics.mjs et scene.js, capteur dans MotionSensors.java/main.js, nom par défaut dans teams.mjs, aperçu HUD dans web/index.html.
 - Mission et autorisation : ordres-de-mission.md, MYN-006 ; contrat approuvé : docs/evolution-equipes-capteurs-halos.md.
 - Plan/suivi : docs/plan-evolution-v030.md, docs/evolution-progress.md ; état : brain.md et todo.md.
 - web/src/teams.mjs et rules.mjs : participants, quatre équipes, migration et IA.

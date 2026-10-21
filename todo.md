@@ -1,6 +1,6 @@
 # Max YutNori — état de travail 0.3.0
 
-Mission active MYN-006, conception approuvée le 21/10/2026. Branche `feature/native-webgl-v020`, PR brouillon #2. Version livrée pour test : 0.3.0/code 3.
+Mission livrée MYN-006 ; retour actif MYN-007 à préciser. Branche `feature/native-webgl-v020`, PR brouillon #2. Version livrée pour test : 0.3.0/code 3.
 
 ## Réalisé
 - [x] 2–4 couleurs/équipes, quatre pions par équipe, 1–6 participants humains/IA et relais au tour complet.
@@ -34,3 +34,15 @@ CI [39651736580](https://github.com/greenpower2669/Max-YutNori/actions/runs/3965
 APK : 7,933,969 octets, SHA-256 `fa0d4599b52f660e6e2d293db9a8c87ff834afc22d62d97155ed1d59df618e3e`. AAB : 7,607,974 octets, SHA-256 `98cff74fd899263dd146144341f8f463a5f41f3a1eaf13ba9ffa908ea7e532c7`.
 
 Installer par-dessus 0.2.0 ; signature conservée, sans désinstallation. Réglages du capteur disponibles dans « Lancer au mouvement ». L'AAB est de test, non destiné à une publication Play en l'état.
+
+## MYN-007 — Retour de Fab, à réaliser après cadrage
+- [x] Auditer bac, limites physiques, capteur, couleurs, textures et nom initial.
+- [ ] Préciser si noir laqué/cèdre rouge concernent les faces des bâtonnets ou les équipes.
+- [ ] Relier le mouvement visible du bac au téléphone et aux collisions ; activer le capteur par défaut avec commande d'arrêt et respect des pauses.
+- [ ] Lancers plus hauts et retombées sur une vraie surface de table ; rebords à intégrer au cadrage et caméra gardant le lancer visible.
+- [ ] Afficher en haut du HUD quatre yut alignés vus du dessus, représentant les faces réelles du lancer.
+- [ ] Remplacer le nom initial « Fab » par « Joueur 1 » ; préserver les noms personnalisés.
+- [ ] Renforcer les matières et textures lisibles sur téléphone, sans éblouissement ; garder quatre équipes distinguables.
+- [ ] Vérifier les retombées hors du bac, les résultats, le capteur/pause et la lisibilité, puis livrer APK/AAB nommés avec icône et même signature.
+
+Aucun code produit modifié pour ce retour, aucun nouveau paquet annoncé. Dernière version installable : 0.3.0.
