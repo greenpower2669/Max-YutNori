@@ -1,14 +1,18 @@
-# État actif — Max YutNori 0.3.0 en vérification
+# État actif — Max YutNori 0.3.0 livré pour test
 
-Mission MYN-006 approuvée par Fab le 21/10/2026 (« Oui »). Branche `feature/native-webgl-v020`, PR brouillon #2. Dernier APK livré : 0.2.0 ; nouveau paquet pas encore déclaré prêt.
+Mission MYN-006 approuvée et réalisée. Branche `feature/native-webgl-v020`, PR brouillon #2. [APK direct 0.3.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.apk) (~7,9 Mo) ; [AAB de test](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.aab).
 
-Implémenté : 2–4 équipes de quatre pions, 1–6 participants humains/IA par équipe avec relais après le tour complet ; halos tournants assortis au pion/groupe choisi et aux destinations ; matières bois/tissu et éclairage ; sons des collisions Rapier et volume effets distinct ; lancer au mouvement Android optionnel, désactivé pendant pause/dialogue/IA/lancer. Migration v2→v3 préservant partie et ancien fichier local.
+2–4 équipes de quatre pions, 1–6 participants humains/IA par équipe avec relais au tour complet ; halos tournants assortis à la sélection et aux destinations ; matières bois/tissu et lumière ; sons de collisions et volume effets distinct ; accéléromètre Android optionnel avec sensibilité. Les déplacements restent ceux de la 0.2.0. Sauvegardes v2 migrées en v3 sans perdre le participant ni les résultats ; ancienne sauvegarde conservée.
 
-25 tests unitaires et 14 scénarios navigateur ont passé localement. CI 39597634373 : tests unitaires/build Web réussis, contrôle des halos bloqué par une attente fixe de 120 ms. Attente d'une vraie image et temps d'animation initial non négatif en correction. Revue indépendante terminée : un P2 (son de victoire interrompu) corrigé avec régression rouge avant correction. Validation finale et compilation/signature APK/AAB restent à terminer.
+CI [39651736580](https://github.com/greenpower2669/Max-YutNori/actions/runs/39651736580), source `3ede60382b264521fa1f5b403ceabccaf41cee4b`, binaire `1fe4c9bd8786f21de8962229d3c88eb481176712`. 25/25 tests unitaires et 14/14 scénarios navigateur hors ligne ; aucune erreur JS ni requête extérieure. Compilation APK/AAB et lint Android réussis ; APK signé v2, mêmes certificats APK/AAB et 0.2.0. Téléchargements bruts HTTP 200 et SHA-256 comparés.
 
-Contrat approuvé : docs/evolution-equipes-capteurs-halos.md ; plan : docs/plan-evolution-v030.md ; suivi : docs/evolution-progress.md et todo.md. Identité `fr.fab.maxyutnori`, version 0.3.0/code 3 ; conserver la clé de test 0.2.0, bloquer toute substitution. Aucun merge main ni Release.
+APK : 7,933,969 octets, SHA-256 `fa0d4599b52f660e6e2d293db9a8c87ff834afc22d62d97155ed1d59df618e3e`. AAB : 7,607,974 octets, SHA-256 `98cff74fd899263dd146144341f8f463a5f41f3a1eaf13ba9ffa908ea7e532c7`.
 
-Validation Samsung SM-A576B Android 16 encore nécessaire pour la sensibilité réelle, la lisibilité et le son prolongé. Les capteurs simulés ne valent pas essai matériel.
+Identité `fr.fab.maxyutnori`, version 0.3.0/code 3, icône conservée. Mise à jour par-dessus 0.2.0 sans désinstallation grâce à la même signature vérifiée. Les paquets sont signés pour les tests, pas pour une publication Play. La clé reste en cache CI, sans clé privée dans Git ; sa perte bloque le build.
+
+Contrat : docs/evolution-equipes-capteurs-halos.md ; plan et suivi : docs/plan-evolution-v030.md, docs/evolution-progress.md ; revue : docs/revue-v030.md. Défauts horloge/halos et son de victoire corrigés avec régressions rouges puis vertes (MYN-D009/MYN-D010).
+
+À valider par Fab sur Samsung SM-A576B Android 16 : installation, lisibilité, fluidité, sensibilité et orientation du geste, son prolongé, pause/reprise. Réglages → Lancer au mouvement → Activer l’accéléromètre ; repos bref avant geste. Aucun merge main ni Release définitive.
 
 ---
 

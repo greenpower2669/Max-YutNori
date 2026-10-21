@@ -66,3 +66,10 @@ MYN-D009 — régression observée rouge localement avec un timestamp initial re
 
 ## MYN-D010 — Son de victoire interrompu
 La revue indépendante trouve un défaut P2 : playMove lançait les notes puis ouvrait immédiatement le dialogue de victoire, dont la pause les arrêtait dans la même tâche. Régression navigateur observée rouge (« victory notes must play before the dialog pauses audio »). Correction : état gagné immédiat, présentation du dialogue après 650 ms via l'horloge de jeu ; une pause explicite garde priorité et une nouvelle partie annule l'ouverture en attente. Le test observe les voix actives pendant l'événement de victoire puis attend le dialogue. Aucun autre défaut concret relevé dans la revue.
+
+## MYN-D009 / MYN-D010 — Livraison vérifiée
+CI [39651736580](https://github.com/greenpower2669/Max-YutNori/actions/runs/39651736580), source `3ede60382b264521fa1f5b403ceabccaf41cee4b`, binaire `1fe4c9bd8786f21de8962229d3c88eb481176712`. 25/25 tests unitaires et 14/14 scénarios navigateur hors ligne ; aucune erreur JS ni requête extérieure. Compilation APK/AAB et lint Android réussis ; APK signé v2, mêmes certificats APK/AAB et 0.2.0. Téléchargements bruts HTTP 200 et SHA-256 comparés.
+
+APK : 7,933,969 octets, SHA-256 `fa0d4599b52f660e6e2d293db9a8c87ff834afc22d62d97155ed1d59df618e3e`. AAB : 7,607,974 octets, SHA-256 `98cff74fd899263dd146144341f8f463a5f41f3a1eaf13ba9ffa908ea7e532c7`.
+
+Les deux nouvelles régressions sont vertes dans le smoke final. Certificat commun : 0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a. Cache existant restauré, aucune rotation de clé. Aucune permission Internet et aucun runtime Unity dans le paquet. L'AAB conserve les avertissements habituels du certificat de test autosigné ; il n'est pas un paquet Play de production. Le capteur est testé par injection côté navigateur ; pas d'essai physique Samsung revendiqué.

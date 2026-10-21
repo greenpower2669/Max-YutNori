@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-21",
+  "sourceCommit": "3ede60382b264521fa1f5b403ceabccaf41cee4b",
+  "binaryCommit": "1fe4c9bd8786f21de8962229d3c88eb481176712",
+  "buildRun": "https://github.com/greenpower2669/Max-YutNori/actions/runs/39651736580",
+  "files": [
+    {
+      "file": "Max-YutNori-v0.3.0-debug.apk",
+      "http": 200,
+      "bytes": 7933969,
+      "sha256": "fa0d4599b52f660e6e2d293db9a8c87ff834afc22d62d97155ed1d59df618e3e"
+    },
+    {
+      "file": "Max-YutNori-v0.3.0-debug.aab",
+      "http": 200,
+      "bytes": 7607974,
+      "sha256": "98cff74fd899263dd146144341f8f463a5f41f3a1eaf13ba9ffa908ea7e532c7"
+    }
+  ]
+}

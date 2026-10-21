@@ -31,7 +31,7 @@ MYN-005 — précision de livraison : APK natif 0.2.0, environ 8 Mo, signature d
 ### MYN-005 — Livraison de test vérifiée
 20/10/2026 : APK natif 0.2.0 de 7 923 881 octets, source 6c75714f0e7c2f8dddaaa0b77aec560cfaab1767, binaire dd5c1e2a5e12da39650b5bf912764a99b169fa90, CI 39496484674. Tests et contrôles réussis, relecture traitée. Lien brut dans todo.md. Validation humaine Samsung attendue ; capteurs reportés à une mission suivante. Aucune fusion main ni publication définitive.
 
-### MYN-006 — Équipes, repères lumineux et sensations — En vérification
+### MYN-006 — Équipes, repères lumineux et sensations — Livré, à valider
 20/10/2026 : Fab demande jusqu'à quatre couleurs/équipes, plusieurs participants humains ou IA par équipe, sons, accéléromètre, textures et lumière améliorées. Il confirme ensuite que les déplacements sont corrects et précise la demande visuelle : aura tournante sur le pion sélectionné et ses destinations. Périmètre confirmé ; proposition de conception dans `docs/evolution-equipes-capteurs-halos.md`, à relire avant implémentation. Aucun nouvel APK pour cette mission à ce stade.
 
 MYN-006 — 21/10/2026 : fiche approuvée par Fab (« Oui »). Réalisation 0.3.0/code 3 commencée ; moteur v3 testé localement, interface/capteurs/packaging en cours.
@@ -39,3 +39,5 @@ MYN-006 — 21/10/2026 : fiche approuvée par Fab (« Oui »). Réalisation 0.3.
 MYN-006 — réalisation 21/10 : équipes, repères, sons, textures et pont capteur codés ; 25 tests unitaires passent. Validation de l’intégration et APK en cours, livraison non encore déclarée.
 
 MYN-006 — suivi : premier run 0.3.0 arrêté au test de rotation des halos avant Android. Correction du harnais et du temps initial d’animation, puis vérification complète ; aucun paquet 0.3.0 annoncé avant ces preuves.
+
+MYN-006 — livraison technique du 21/10/2026 : APK/AAB 0.3.0/code 3 exposés et téléchargements bruts vérifiés, 25 tests et 14 scénarios verts ; build/lint Android et signatures conformes à 0.2.0. Source 3ede60382b264521fa1f5b403ceabccaf41cee4b, binaire 1fe4c9bd8786f21de8962229d3c88eb481176712, CI 39651736580. Installation en mise à jour 0.2.0 possible. Validation physique Samsung ouverte ; aucune fusion main ni Release.
