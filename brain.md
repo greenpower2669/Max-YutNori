@@ -45,3 +45,6 @@ La refonte remplace le moteur Unity par Three.js et Rapier/WASM. La description 
 
 ## Candidat natif corrigé
 La première compilation complète 0.2.0 a réussi (CI 39438116160, environ 8 Mo). Corrections de relecture en cours de validation avant livraison finale. Les capteurs restent une étape ultérieure. La signature debug diffère de 0.1.0 : il faut désinstaller 0.1.0 avant installation, ce qui efface ses données locales.
+
+## Travail 0.3.0 — 21/10/2026
+Moteur v3 local : 2–4 équipes, 1–6 participants individuels, migration v2. Interface encore 0.2.0 à adapter ; dernière livraison reste 0.2.0. Plan : docs/plan-evolution-v030.md.

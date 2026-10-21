@@ -1,8 +1,8 @@
 # Max YutNori — équipes, halos, sons et lancer au mouvement
 
 Date : 20 octobre 2026. Branche : `feature/native-webgl-v020`.
-Statut : conception proposée après clarification de Fab ; pas encore implémentée.
-Référence installable : 0.2.0. Le périmètre exprimé par Fab est confirmé ; les choix de réalisation ci-dessous constituent la proposition à relire.
+Statut : conception approuvée par Fab le 21/10/2026 (« Oui ») ; réalisation en cours.
+Référence installable : 0.2.0. Le périmètre exprimé par Fab est confirmé ; les choix de réalisation ci-dessous sont approuvés.
 
 ## Intention et périmètre
 

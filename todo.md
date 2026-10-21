@@ -47,3 +47,10 @@ Audit de la 0.2.0 effectué ; fonctionnalités ci-dessous demandées, non implé
 ## Cadrage précisé par Fab
 Quatre couleurs correspondent à quatre équipes ; plusieurs participants possibles dans chaque équipe. Les règles de déplacement sont confirmées correctes. Demande précise : le pavé/pion sélectionné doit briller, comme sa destination, avec une aura tournante. Les autres demandes (sons, capteurs, textures et lumière) restent dans le périmètre.
 Fiche de conception proposée : `docs/evolution-equipes-capteurs-halos.md`. Périmètre confirmé dans la conversation ; cette fiche reste à relire avant implémentation. Aucun nouvel APK produit pour cette évolution.
+
+## Exécution 0.3.0 — fiche approuvée le 21/10/2026
+- [x] Plan docs/plan-evolution-v030.md et worktree isolée.
+- [x] Moteur équipes/participants/migration : 17 tests passent.
+- [ ] Interface/halos/matières.
+- [ ] Sons et capteurs.
+- [ ] Intégration, revue indépendante, APK/AAB 0.3.0 directs et vérifications de signature.

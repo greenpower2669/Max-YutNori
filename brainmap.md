@@ -64,3 +64,6 @@ web/src/rules.mjs : règles pures ; tests/rules.test.mjs : cas limites et partie
 - android/app : WebView locale, nouvelle source assets web-dist et prise en charge des requêtes audio Range.
 
 Les preuves de la refonte sont dans `temp/native-*`. Elles se rapportent au commit indiqué par `temp/native-build-info.txt`. Le premier APK 0.2.0 est remplacé après les corrections de la relecture.
+
+## Évolution 0.3.0
+web/src/teams.mjs : palette, participants, activePlayer et construction équipes. rules.mjs : rotation modulo nombre équipes, captures et IA multi-adversaires, validation/migration v2→v3. tests/teams.test.mjs : preuves moteur et migration.
