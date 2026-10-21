@@ -6,25 +6,32 @@
     "Original AAC plays and crosses loop boundary twice",
     "Native pause/resume hook",
     "Saved game survives reload",
-    "Linked group reaches finish and victory dialog appears",
+    "Linked group finishes; victory sound starts before the dialog pauses gameplay",
     "Landscape phone layout and settings",
-    "Licences open and close inside the game without navigation"
+    "Licences open and close inside the game without navigation",
+    "Selection and both destinations glow; reduced motion keeps halos fixed; absent sensor leaves touch available",
+    "Four teams and mixed six-person roster; configuration survives count changes; landscape and portrait fit",
+    "Real v2 save migrates to v3 with pending results and original backup intact",
+    "Sensor gesture launches physics once, disabled during pause/roll; effects volume and active voices obey pause",
+    "Sensor cannot throw during an AI turn"
   ],
   "errors": [],
   "externalRequests": [],
   "firstThrow": {
-    "version": "0.2.0",
+    "version": "0.3.0",
     "state": {
-      "version": 2,
+      "version": 3,
       "teams": [
         {
-          "names": [
-            "Fab"
+          "players": [
+            {
+              "name": "Fab",
+              "computer": false,
+              "level": 2,
+              "aggression": 50
+            }
           ],
           "member": 0,
-          "computer": false,
-          "level": 2,
-          "aggression": 50,
           "pieces": [
             {
               "pos": "S",
@@ -45,13 +52,73 @@
           ]
         },
         {
-          "names": [
-            "Ordinateur"
+          "players": [
+            {
+              "name": "Ambre 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
           ],
           "member": 0,
-          "computer": true,
-          "level": 2,
-          "aggression": 50,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Azur 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            },
+            {
+              "pos": "S",
+              "route": "outer"
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Violette 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
           "pieces": [
             {
               "pos": "S",
@@ -75,24 +142,51 @@
       "turn": 0,
       "phase": "move",
       "pending": [
-        1
+        3
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Do · 1"
+      "last": "Geol · 3"
     },
     "rolling": false,
     "paused": false,
+    "motion": {
+      "available": false,
+      "enabled": false
+    },
+    "halos": [
+      {
+        "kind": "selection",
+        "angle": 0.06999999999999999,
+        "position": [
+          -7.5200000000000005,
+          0.185,
+          3.65
+        ]
+      },
+      {
+        "kind": "destination",
+        "angle": 0.06999999999999999,
+        "position": [
+          -2.7347524157501475,
+          0.185,
+          1.6457987064189248
+        ]
+      }
+    ],
     "audio": {
+      "effectsPlayed": 14,
+      "voices": 0,
+      "fxVolume": 0.6,
       "loop": true,
       "paused": false,
-      "currentTime": 6.601659,
+      "currentTime": 9.895946,
       "duration": 239.32805
     },
     "logs": [
-      "2026-10-20T20:58:36.617Z Three.js + Rapier WASM prêts.",
-      "2026-10-20T20:58:44.949Z Lancer : 1"
+      "2026-10-21T18:20:16.274Z Three.js + Rapier WASM prêts.",
+      "2026-10-21T18:20:28.538Z Lancer : 3"
     ]
   },
   "audio": {

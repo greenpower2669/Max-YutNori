@@ -1,0 +1,53 @@
+
+jar verified.
+
+Warning: 
+This jar contains entries whose certificate chain is invalid. Reason: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+This jar contains entries whose signer certificate is self-signed.
+This jar contains signatures that do not include a timestamp. Without a timestamp, users may not be able to validate this jar after any of the signer certificates expire (as early as 2054-03-07).
+POSIX file permission and/or symlink attributes detected. These attributes are ignored when signing and are not protected by the signature.
+
+This JAR file contains internal inconsistencies that may result in different contents when reading via JarFile and JarInputStream:
+- Manifest is missing when reading via JarInputStream
+- Entry BUNDLE-METADATA/com.android.tools.build.gradle/app-metadata.properties is signed in JarFile but is not signed in JarInputStream
+- Entry BundleConfig.pb is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets.pb is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/assets/index-C-RfCLz2.css is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/assets/index-CjLNDlci.js is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/audio/arirang.m4a is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/index.html is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/licenses.txt is signed in JarFile but is not signed in JarInputStream
+- Entry base/dex/classes.dex is signed in JarFile but is not signed in JarInputStream
+- Entry base/dex/classes2.dex is signed in JarFile but is not signed in JarInputStream
+- Entry base/manifest/AndroidManifest.xml is signed in JarFile but is not signed in JarInputStream
+- Entry base/res/drawable/ic_launcher.xml is signed in JarFile but is not signed in JarInputStream
+- Entry base/resources.pb is signed in JarFile but is not signed in JarInputStream
+- Entry base/root/META-INF/com/android/build/gradle/app-metadata.properties is signed in JarFile but is not signed in JarInputStream
+- Entry META-INF/MANIFEST.MF is signed in JarFile but is not signed in JarInputStream
+
+Re-run with the -verbose and -certs options for more details.
+Signer #1:
+
+Certificate #1:
+Owner: CN=Android Debug, O=Max YutNori, C=FR
+Issuer: CN=Android Debug, O=Max YutNori, C=FR
+Serial number: 991570ddc4c8782e
+Valid from: Tue Oct 20 20:59:30 UTC 2026 until: Sat Mar 07 20:59:30 UTC 2054
+Certificate fingerprints:
+	 SHA1: 03:FC:84:46:39:3D:85:F6:D3:A8:13:0B:EE:A8:C1:C6:09:B6:90:1C
+	 SHA256: 0D:F9:D3:27:9C:2B:B6:00:23:CA:3A:4B:EE:FE:01:7C:44:92:49:A4:23:83:F5:3F:1E:52:CE:63:FD:69:91:6A
+Signature algorithm name: SHA256withRSA
+Subject Public Key Algorithm: 2048-bit RSA key
+Version: 3
+
+Extensions: 
+
+#1: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 72 AD 61 FA 30 05 F8 2C   19 D7 B0 A9 39 2F FE 6F  r.a.0..,....9/.o
+0010: 03 4E BA 9A                                        .N..
+]
+]
+
+
