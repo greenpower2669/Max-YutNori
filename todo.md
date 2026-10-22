@@ -1,3 +1,14 @@
+# Travail actif 0.4.1 — MYN-008
+- [x] Reproduire la pénétration du socle : le fond passe à y=0,388 alors que le socle monte à 0,47. Levage limité à 0,2 confirmé par test rouge.
+- [x] Hauteur de sécurité et levage jusqu’à 1,6 ; vérifier transitions et retombées.
+- [x] Saisie tactile du bac, priorité au doigt et arrêt pause/vol/IA ; aide mise à jour.
+- [x] Matières contrastées des quatre équipes et repères cohérents.
+- [ ] Tests/UI, APK+AAB même signature/icône, téléchargements et mémoires/PR.
+- [ ] MYN-009 : décor environnant, explicitement pour plus tard.
+
+38/38 tests unitaires passent. Build Web réussi ; smoke final tactile/visuel et interruption auto en cours. Source 0.4.1 non encore livrée. Revue : docs/revue-v041.md.
+
+## Référence de livraison précédente
 # Max YutNori — état de travail 0.4.0
 
 Mission active MYN-007 autorisée par « Super, on y va ». Branche feature/native-webgl-v020, PR brouillon #2. Version livrée et vérifiée : 0.4.0/code 4 ; historique et empreintes dans brain.md. Aucune fusion main ni Release définitive.

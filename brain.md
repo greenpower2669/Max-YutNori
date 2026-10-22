@@ -1,3 +1,6 @@
+# Travail actif — 0.4.1 / MYN-008
+Pions : chêne clair, cèdre rouge, noir laqué, vert sapin laqué ; marques sombres sur bois clair et blanches sur les trois autres, symboles conservés. Yut 0.4.0 appréciés par Fab et conservés. Bac : hauteur de sécurité liée à l’inclinaison, au volume et au socle ; saisie tactile dans la vue Bol (haut = soulever, côté = incliner, relâcher = reposer). Conserver bouton de lancer, glissement hors bac, capteur et pauses. Autorisation de réalisation explicite ; changements bornés dans les composants existants. Décor reporté MYN-009. Implémentation locale terminée, 38 tests et build Web passent ; revue indépendante traitée, contrôles UI finaux/Android en cours. Le retour du bac est mis en attente pendant le vol puis repris même en phase déplacement ou mode automatique ; le résultat déjà mémorisé ne se recalcule pas. Dernier APK vérifié : 0.4.0 ci-dessous.
+
 # État actif — Max YutNori 0.4.0 livré pour test
 
 MYN-007 autorisé et réalisé le 22/10/2026. Branche feature/native-webgl-v020, PR brouillon #2. [APK 0.4.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.apk) · [AAB de test 0.4.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.aab).

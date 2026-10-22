@@ -91,3 +91,14 @@ CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/3972
 APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
 
 Le test final IA pouvait observer son lancer automatique après 1,6 seconde ; horloge figée uniquement dans la fixture de ce scénario pour tester le refus du capteur au repos, sans modifier le jeu. CI finale verte. AAB autosigné de test, avertissements jarsigner attendus ; aucun runtime Unity, icône et musique originale présents. Test physique Samsung encore attendu.
+
+## MYN-D013 — Socle traversant le bac et pions délavés
+22/10/2026, capture Fab 25378.jpg. Source 0.4.0 : bac cinématique à y=0,65+lift, inclinaison indépendante, sans contrainte de non-pénétration. Le socle fixe culmine à 0,47 ; le fond local descend à −0,24 et son bord descend avec la rotation. Test physique rouge : fond à 0,388 au-dessus du socle (pénétration), levage maximum 0,2 au lieu d’un soulèvement visible. Le tactile en vue Bol déclenche uniquement un lancer : aucun déplacement du bac prévu. Pions : matériau uniforme sans cartes bois, couleurs pastel et écriture sombre pour toutes les équipes. Corrections MYN-008 en cours ; deux matières bois et deux laques demandées, yut actuels validés.
+
+MYN-D013 — correction locale : hauteur de sécurité calculée sur chaque pose intermédiaire ; marge sous le bac devant table et socle, levage borné à 1,6. Deux régressions rouges puis vertes. La hauteur minimale au repos relevée changeait le point de départ des yut : l’ancien contrôle avait 9/12 lancers lisibles. Hauteur de lâcher au repos conservée à 2,35, augmentée seulement si le bac est levé ; aucune face forcée. Suite complète 36/36 verte, build Web réussi. Smoke et revue en cours.
+
+## MYN-D014 — Retour du bac interrompu par le lancer (revue 0.4.1)
+Reproduit par revue indépendante sur 4d65b31 : relâcher puis lancer 100 ms après laisse le bac à y=1,369 au lieu de 0,78. freezeTray écrasait la cible, setTrayPose ignorait le retour demandé pendant active et la boucle ne préparait pas le bac en mode auto/phase déplacement. Correction : returnTray met une cible neutre en attente, freezeTray ne la détruit plus ; prepare est autorisé pour le retour en dehors des conditions de saisie, mais toujours bloqué en vol/pause. Régression rouge (returnTray absent), puis verte ; cas avant et pendant le vol.
+
+## MYN-D015 — Résultat valide rejeté dans le bac soulevé
+Le plafond historique p.y>2 rejetait des yut stables et lisibles au fond du bac soulevé à y=2,38. Régression rouge puis verte avec les vrais corps Rapier. La borne haute dépend maintenant du volume incliné du bac et de l’étendue du yut. Seuils de stabilité, lecture des faces et limites latérales inchangés. Suite complète : 38/38 ; aucun résultat recalculé lors du retour ultérieur du bac.

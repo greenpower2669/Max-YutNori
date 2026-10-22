@@ -53,3 +53,13 @@ MYN-007 — intégration 22/10 : changements 0.4.0 codés ; tests unitaires 32/3
 MYN-007 — revue traitée : retombée recentrée avec marge après contacts entre yut ; nouvelle partie en vol réinitialise la physique. 34 tests verts et build Web. Smoke final et APK/AAB en cours ; aucun paquet 0.4.0 annoncé avant preuve.
 
 MYN-007 — livraison technique vérifiée le 22/10/2026 : APK/AAB 0.4.0/code 4, signature 0.3.0 conservée, icône et identité inchangées. 34 tests et 16 scénarios verts ; build/lint/signatures et téléchargements contrôlés. Source 0155dc784e1583b1ffe4a2ee16c354d02e36b64f, binaires 8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26, CI 39724824806. Choix noir laqué/cèdre rouge appliqué aux faces, quatre équipes conservées. Mémoires/PR mises à jour ; validation Samsung ouverte, aucun merge main/Release.
+
+### MYN-008 — Pions contrastés et bac manipulable sans traversée — En cours
+22/10/2026 : Fab valide l’aspect cèdre/noir des yut et demande ces matières également sur les pions : deux bois naturels (cèdre rouge, bois clair sapin ou chêne) et deux laques (noir, vert au choix, écritures blanches). Choix agent annoncé : chêne clair et vert sapin laqué. Corriger le bac qui ne peut pas être soulevé au toucher et dont le fond est traversé par le socle/table lorsqu’il s’incline (capture 25378.jpg). Autorisation : « si tu peux faire ça… on va déjà tenter comme ça ». Réalisation ciblée 0.4.1 ; aucune demande de changer les règles.
+
+### MYN-009 — Environnement autour de la table — Plus tard, selon Fab
+22/10/2026 : rendre l’environnement moins sobre ; explicitement reporté après les deux corrections MYN-008. Aucun décor supplémentaire à réaliser dans cette intervention.
+
+MYN-008 — code 0.4.1/code 5 réalisé, 36 tests locaux et build Web passent. Matières et interaction tactile attendent contrôle visuel ; APK/AAB à fabriquer.
+
+MYN-008 — 22/10/2026 : implémentation et revue indépendantes réalisées. Retour du bac conservé après interruption par un lancer ; plafond de validité adapté au bac soulevé. 38 tests unitaires passent. Validation UI finale et fabrication Android encore en cours ; aucune livraison 0.4.1 déclarée.

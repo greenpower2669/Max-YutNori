@@ -1,4 +1,6 @@
-# Carte active — livraison de test 0.3.0
+MYN-008 : physics.mjs doit contraindre la pose cinématique au-dessus du socle/table ; scene.js traduit la saisie tactile, main.js arbitre doigt/capteur/pause. teams.mjs porte les matières et accents, scene.js crée les pions texturés. physics.returnTray conserve la demande de repos pendant le vol ; main prépare aussi ce retour hors saisie humaine. Tests physiques dans tests/table.test.mjs et geste réel dans scripts/smoke_native.mjs. Revue : docs/revue-v041.md.
+
+# Carte active — 0.4.1 en cours, référence livrée 0.4.0
 - Retour MYN-007 à cadrer : ordres-de-mission.md et todo.md ; bac/table dans physics.mjs et scene.js, capteur dans MotionSensors.java/main.js, nom par défaut dans teams.mjs, aperçu HUD dans web/index.html.
 - Mission et autorisation : ordres-de-mission.md, MYN-006 ; contrat approuvé : docs/evolution-equipes-capteurs-halos.md.
 - Plan/suivi : docs/plan-evolution-v030.md, docs/evolution-progress.md ; état : brain.md et todo.md.
@@ -81,3 +83,5 @@ MYN-007 livré pour test : docs/plan-bac-v040.md et docs/bac-progress.md ; revue
 0.4.0 : `physics.reset()` annule le vol lors de `newGame`. Preuves et deux corrections de revue dans `docs/revue-v040.md`, régressions dans `tests/table.test.mjs` et `scripts/smoke_native.mjs`.
 
 Livraison 0.4.0 : temp/Max-YutNori-v0.4.0-debug.apk et .aab ; preuves CI temp/native-build-info.txt, native-SHA256SUMS, native-package.json, native-smoke.json, native-apk-verification.txt, native-aab-verification.txt et téléchargement comparé native-download-verification.json. CI 39724824806.
+
+0.4.1 : SUPPORT et TRAY centralisent les dimensions ; advanceTray calcule la hauteur de sécurité à chaque pas contre table et socle. GameScene capture le doigt sur le bac en vue Bol, transmet begin/move/end et libère à pointercancel, changement de vue ou pause. main.js utilise trayEligible pour préparer même sans capteur ; motionEligible exclut trayGrab. TEAM_STYLES distingue color (matière), css/glow (accents lisibles), finish et ink.

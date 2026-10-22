@@ -1,8 +1,8 @@
 export const TEAM_STYLES=[
- {name:'Jade',symbol:'◆',color:0x55d8ca,css:'#55d8ca'},
- {name:'Ambre',symbol:'●',color:0xf5b477,css:'#f5b477'},
- {name:'Azur',symbol:'▲',color:0x79bcff,css:'#79bcff'},
- {name:'Violette',symbol:'✦',color:0xd0a0ff,css:'#d0a0ff'}
+ {name:'Chêne',symbol:'◆',color:0xdbb777,css:'#e7c88e',glow:0xe7c88e,finish:'wood',ink:'#251607'},
+ {name:'Cèdre',symbol:'●',color:0xa83218,css:'#ff957a',glow:0xff957a,finish:'wood',ink:'#ffffff'},
+ {name:'Noir',symbol:'▲',color:0x070a0e,css:'#e0e5ee',glow:0xe0e5ee,finish:'lacquer',ink:'#ffffff'},
+ {name:'Sapin',symbol:'✦',color:0x064528,css:'#7adea7',glow:0x7adea7,finish:'lacquer',ink:'#ffffff'}
 ];
 export function defaultPlayer(team,index=0){return {name:team===0&&index===0?'Joueur 1':`${TEAM_STYLES[team].name} ${index+1}`,computer:team!==0,level:2,aggression:50};}
 export function makeTeams(options={}){
