@@ -1,6 +1,14 @@
-# État actif — Max YutNori 0.4.0 en vérification
+# État actif — Max YutNori 0.4.0 livré pour test
 
-MYN-007 réalisé : bac mobile lié aux capteurs ON par défaut, lancers hauts vers la table avec rebords, faces noire laquée/cèdre rouge, HUD fidèle des quatre yut, Joueur 1 et textures renforcées. 34 tests unitaires et build Web passent ; deux P2 de revue corrigés (docs/revue-v040.md). Smoke final et APK/AAB en cours. Dernière livraison vérifiée : 0.3.0 ci-dessous.
+MYN-007 autorisé et réalisé le 22/10/2026. Branche feature/native-webgl-v020, PR brouillon #2. [APK 0.4.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.apk) · [AAB de test 0.4.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.aab).
+
+Bac mobile lié aux capteurs ON par défaut, lancers hauts vers la table avec rebords, faces noire laquée/cèdre rouge, HUD fidèle des quatre yut, Joueur 1 et textures renforcées. Quatre équipes conservées. Réglage capteur OFF mémorisé, pause/IA/vol protègent le jeu. Résumé indépendant des faces sauvegardé ; nouvelle partie annule le vol physique.
+
+CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/39724824806) réussie : 34/34 tests unitaires, 16/16 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.3.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `0155dc784e1583b1ffe4a2ee16c354d02e36b64f`, binaires/preuves `8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+
+APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
+
+Deux P2 de revue corrigés et régressions ajoutées ; détails docs/revue-v040.md. Une course du scénario IA a été supprimée par horloge figée uniquement dans sa fixture de test ; aucun changement de temporisation IA produit. Installer en mise à jour de 0.3.0, sans désinstallation. Identité/icône conservées. Validation physique Samsung attendue. Aucune fusion main ni Release définitive.
 
 ## Livraison précédente — 0.3.0
 

@@ -1,41 +1,35 @@
-# Max YutNori — évolution 0.3.0
+# Max YutNori — version de test 0.4.0
 
-Jeu de YutNori 3D sans Unity, en français : Three.js / WebGL2 et Rapier / WebAssembly, intégré dans une APK Android hors ligne. Branche de travail feature/native-webgl-v020 ; aucune fusion main. Version de test, validation Samsung par Fab nécessaire.
+Jeu de YutNori 3D en français, sans Unity : Three.js/WebGL2 et Rapier/WebAssembly, dans une APK Android hors ligne. Branche feature/native-webgl-v020, PR brouillon #2 ; aucune fusion main ni publication définitive.
 
-## Jouer et modifier
+[APK 0.4.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.apk) · [AAB de test 0.4.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.aab).
 
+APK d’environ 7,9 Mo, installable par-dessus 0.3.0 ou 0.2.0 sans désinstallation : signature, identité `fr.fab.maxyutnori` et icône conservées. Version 0.4.0/code 4. L’AAB est signé pour les tests, pas une publication Play de production. La 0.1.0 historique avait une autre signature.
+
+## Changements 0.4.0
+Le bac suit l’inclinaison et de petits mouvements du téléphone. Le capteur est activé par défaut à l’entrée dans cette version ; son arrêt est mémorisé dans Réglages → Bac mobile et lancer au mouvement. Tenir le téléphone au repos un instant pour la calibration, puis incliner ou faire un petit geste pour lancer. L’écoute s’arrête pendant pause, dialogue, tour IA et vol ; bouton/glissement restent disponibles.
+
+Les yut montent plus haut et retombent sur la table, bordée de collisions physiques. Faces plates noires laquées et faces bombées en cèdre rouge ; bois texturé et relief plus visibles. Le HUD supérieur aligne les quatre faces du dernier lancer réel, sauvegardé avec le résultat. Nom initial Joueur 1. Les quatre couleurs d’équipes et les règles restent conservées.
+
+De deux à quatre équipes de quatre pions, chacune avec un à six participants humains ou IA, relayés après le tour complet. Réglages individuels IA, relances Yut/Mo, Back-do, captures, groupes et raccourcis. Sélection/destinations avec halos tournants ; animation réduite disponible. Musique originale en boucle, sons de contacts et de plateau, volumes séparés, sauvegarde locale et migration des anciennes parties.
+
+## Modifier
 ```sh
 npm ci
 python3 scripts/extract_music.py
 npm test
 npm run dev
 ```
+Le morceau original est extrait du build historique seulement s’il manque ; le jeu utilise ensuite un AAC indépendant. Sources dans web/src/, sortie `npm run build` dans web-dist/game/. Seule cette sortie entre dans le paquet Android ; aucun runtime Unity.
 
-Le morceau original est extrait du build historique uniquement s'il manque ; il est ensuite un fichier AAC indépendant. Le code du jeu est dans web/src/. La sortie de npm run build est web-dist/game/. Seule cette sortie entre dans l'APK ; les anciens binaires Unity restent archivés dans le dépôt.
+## Vérification de livraison
+CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/39724824806) réussie : 34/34 tests unitaires, 16/16 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.3.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `0155dc784e1583b1ffe4a2ee16c354d02e36b64f`, binaires/preuves `8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
 
-De deux à quatre équipes de quatre pions, avec un à six participants humains ou IA par équipe. Les participants se relaient après le tour complet ; niveau et agressivité de chaque IA sont réglables. Relances Yut/Mo, résultats stockés, Back-do, captures, groupes et raccourcis conservés. Au centre, un groupe suit la route du dernier groupe arrivé.
+APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
 
-Le pion/groupe sélectionné et ses destinations portent des halos assortis tournants, fixes en animations réduites. Matières bois/tissu et éclairage améliorés. Musique originale en boucle, sons de collision physique et de plateau, volumes distincts, pause et sauvegarde locale. Les anciennes parties 0.2.0 sont migrées avec leurs résultats et leur participant actif.
+Deux défauts importants corrigés après revue indépendante : marge de retombée insuffisante après contacts entre yut, et nouvelle partie en vol laissant la simulation active. Régressions physiques/UI ajoutées ; 72 lancers déterministes de contrôle restent sur des surfaces supportées. Preuves dans docs/revue-v040.md et temp/native-*.
 
-Lancers par bouton, glissement ou mouvement du téléphone. Pour le capteur : **Réglages → Lancer au mouvement → Activer l’accéléromètre**, puis ajuster la sensibilité. Rester au repos un instant avant le geste. Le lancer automatique prend la priorité ; le capteur est désactivé pendant pause, dialogue, IA et lancer. Son réglage réel et l'orientation paysage doivent encore être essayés sur le Samsung.
-
-## APK et AAB de test
-
-GitHub Actions vérifie règles, physique, interface hors ligne, boucle audio et sauvegarde, puis compile et analyse l'APK et l'AAB. Le fichier brut est dans temp/ sur la branche. Le script verify_native_apk.py contrôle l'absence de Unity.
-
-La signature 0.2.0 doit être conservée : le pipeline compare les certificats des deux APK et de l'AAB avant livraison. Si la clé attendue manque, le build bloque. La clé de test reste en cache CI ; une publication Play demanderait une clé durable et un paquet de production.
-
-La 0.1.0 possède une autre signature et nécessite une désinstallation préalable (données locales effacées). Cette contrainte ne concerne pas la mise à jour 0.2.0 → 0.3.0 lorsque la comparaison des certificats passe.
+Le confort, la sensibilité/orientation du bac et du geste, ainsi que le son prolongé restent à essayer sur Samsung SM-A576B Android 16. Le pont capteur est testé par injection navigateur ; aucun essai physique du téléphone n’est revendiqué.
 
 ## Mémoire FabCopilot
-
-ordres-de-mission.md, brain.md, brainmap.md, debughistorical.md, todo.md. Contrats et choix : docs/refonte-webgl.md et docs/evolution-equipes-capteurs-halos.md. Plan, suivi et relecture 0.3.0 dans docs/. APK 0.1.0 conservé sur feature/android-webview-v001 ; FabYut reste la référence en lecture seule.
-
-## Version de test disponible
-[Télécharger directement Max-YutNori-v0.3.0-debug.apk](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.apk) — environ 7,9 Mo.
-
-[AAB de test 0.3.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.aab) — environ 7,6 Mo, pour préparation Android ; pas une publication Play de production.
-
-[Vérifications GitHub Actions réussies](https://github.com/greenpower2669/Max-YutNori/actions/runs/39651736580) : 25 tests, 14 scénarios navigateur, compilation/lint et signatures. Les fichiers bruts ont été téléchargés et comparés aux SHA-256 publiés. Même signature que 0.2.0 : installer la mise à jour directement, sans désinstaller cette version.
-
-Validation du confort, du son prolongé et des capteurs sur Samsung SM-A576B Android 16 encore attendue. Branche de test et PR brouillon #2 conservées.
+ordres-de-mission.md, brain.md, brainmap.md, debughistorical.md, todo.md. Plan/suivi 0.4.0 : docs/plan-bac-v040.md et docs/bac-progress.md. Historique 0.1.0/0.2.0/0.3.0 conservé ; FabYut reste la référence en lecture seule.

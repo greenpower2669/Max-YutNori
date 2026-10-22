@@ -11,4 +11,8 @@ Régression physique observée rouge puis verte. Vérification des 48 graines ex
 Le drapeau interface rolling était remis à zéro, mais physics.active restait vrai : le moteur ne terminait plus le lancer et refusait l’inclinaison du bac. Correction : reset physique explicite depuis newGame, remis au repos avec compteurs et vitesses annulés. Régression unitaire observée rouge puis verte ; scénario UI redémarrant en vol puis inclinant le bac avant tout nouveau lancer ajouté.
 
 ## Validation
-34/34 tests unitaires et build Web réussis après corrections. Smoke final, compilation/lint et certificats APK/AAB en attente au moment de cette note. Aucune deuxième revue ni modification de règles de jeu.
+CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/39724824806) réussie : 34/34 tests unitaires, 16/16 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.3.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `0155dc784e1583b1ffe4a2ee16c354d02e36b64f`, binaires/preuves `8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+
+APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
+
+16 scénarios incluent la nouvelle partie pendant un lancer puis une inclinaison avant relancer. Une course du scénario IA a été isolée par horloge de fixture ; pas de modification du jeu. Aucune deuxième revue ni modification des règles.

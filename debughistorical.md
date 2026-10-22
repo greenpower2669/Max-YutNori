@@ -84,3 +84,10 @@ MYN-D011 — tests rouges : résultat hors bac invalide/chute hors plan, rebord 
 
 ## MYN-D012 — Revue 0.4.0 : échappement et nouvelle partie en vol
 22/10/2026 : deux P2 reproduits. Départ avec contacts entre bâtonnets dépassant la visée proche du bord ; cible recentrée sur la table, 72 lancers déterministes sans perte après correction. Nouvelle partie pendant le vol : rolling=false mais physics.active=true bloquait prepare ; reset physique explicite ajouté. Deux régressions unitaires rouges puis vertes, scénario UI ajouté. Suite finale 34/34 et build Web passent. Détails docs/revue-v040.md ; Android encore à vérifier.
+
+## MYN-D012 — Livraison 0.4.0 vérifiée
+CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/39724824806) réussie : 34/34 tests unitaires, 16/16 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.3.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `0155dc784e1583b1ffe4a2ee16c354d02e36b64f`, binaires/preuves `8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+
+APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
+
+Le test final IA pouvait observer son lancer automatique après 1,6 seconde ; horloge figée uniquement dans la fixture de ce scénario pour tester le refus du capteur au repos, sans modifier le jeu. CI finale verte. AAB autosigné de test, avertissements jarsigner attendus ; aucun runtime Unity, icône et musique originale présents. Test physique Samsung encore attendu.

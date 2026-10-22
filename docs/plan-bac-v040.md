@@ -15,7 +15,9 @@ Capteur activé par défaut lors de l'entrée dans cette version, puis le choix 
 - [x] 1. Tests de retombée sur table, rebord, sommet plus haut, bac cinématique et calibration du capteur. Implémenter physics.mjs et tray-motion.mjs. Suite complète verte.
 - [x] 2. Rendu bac synchronisé, deux faces, textures, caméra de lancer, HUD fidèle et noms/réglages migrés. Vérifier géométrie et sauvegarde du résumé.
 - [x] 3. Mesures gravité + accélération Android, cycle de vie, callback d'inclinaison ; intégrer aux seules phases de préparation. Smoke : mouvements/silence pause, défaut ON, choix OFF conservé, HUD/visibilité mobile.
-- [ ] 4. Revue indépendante globale, corriger importants avec régression ; build/lint APK/AAB, vérifier signature précédente et fichiers bruts ; mettre à jour mémoires et PR.
+- [x] 4. Revue indépendante globale, corriger importants avec régression ; build/lint APK/AAB, vérifier signature précédente et fichiers bruts ; mettre à jour mémoires et PR.
 
 ## Contrôles
 Tests physiques vrais WASM, pas de résultat tiré à l'avance. Fallback capteur absent et bouton conservés. Vérifier notamment résultat hors bol valide, caméra à l'apogée, cases non masquées par HUD, valeurs non finies/horodatages/capteur sans gravité, pause/IA/relances. Essai Samsung réel demeure distinct des tests injectés. Publication APK/AAB dans temp/ via CI.
+
+Livraison 22/10/2026 : CI 39724824806, 34 tests/16 scénarios, signatures et téléchargements APK/AAB vérifiés. Essai réel Samsung encore attendu.
