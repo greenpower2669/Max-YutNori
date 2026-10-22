@@ -1,4 +1,8 @@
-# État actif — Max YutNori 0.3.0 livré pour test
+# État actif — Max YutNori 0.4.0 en vérification
+
+MYN-007 réalisé : bac mobile lié aux capteurs ON par défaut, lancers hauts vers la table avec rebords, faces noire laquée/cèdre rouge, HUD fidèle des quatre yut, Joueur 1 et textures renforcées. 34 tests unitaires et build Web passent ; deux P2 de revue corrigés (docs/revue-v040.md). Smoke final et APK/AAB en cours. Dernière livraison vérifiée : 0.3.0 ci-dessous.
+
+## Livraison précédente — 0.3.0
 
 Mission MYN-006 approuvée et réalisée. Branche `feature/native-webgl-v020`, PR brouillon #2. [APK direct 0.3.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.apk) (~7,9 Mo) ; [AAB de test](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.3.0-debug.aab).
 
@@ -14,7 +18,7 @@ Contrat : docs/evolution-equipes-capteurs-halos.md ; plan et suivi : docs/plan-e
 
 À valider par Fab sur Samsung SM-A576B Android 16 : installation, lisibilité, fluidité, sensibilité et orientation du geste, son prolongé, pause/reprise. Réglages → Lancer au mouvement → Activer l’accéléromètre ; repos bref avant geste. Aucun merge main ni Release définitive.
 
-## Retour actif — MYN-007
+## Historique du cadrage — MYN-007
 Suite demandée : bac mobile au capteur activé par défaut, yut plus hauts retombant sur la table avec rebords envisagés, aperçu supérieur des quatre yut, « Joueur 1 », textures plus marquées. Destination des matières noir laqué/cèdre rouge à confirmer (faces des bâtonnets ou équipes). Audit : bac et collisions fixes, aucune surface physique de table hors du bol, capteur limité au déclenchement et bois presque identique sur toutes les faces. Dernier APK reste 0.3.0 ; cadrage enregistré dans todo.md et ordres-de-mission.md.
 
 ---
@@ -54,3 +58,8 @@ La première compilation complète 0.2.0 a réussi (CI 39438116160, environ 8 Mo
 Moteur v3 local : 2–4 équipes, 1–6 participants individuels, migration v2. Interface encore 0.2.0 à adapter ; dernière livraison reste 0.2.0. Plan : docs/plan-evolution-v030.md.
 
 0.3.0 en intégration : interface 2–4 équipes/1–6 joueurs individuels, halos assortis, matières avec relief/reflets, sons des collisions Rapier et accéléromètre Android optionnel. Sauvegardes v3 stockées séparément ; ancienne v2 conservée et migrée. Capteur au repos 350 ms avant geste, non actif en pause, dialogue, lancer, IA ou lancer automatique. Tests unitaires 25/25 ; packaging et revue encore attendus.
+
+## Réalisation active 0.4.0
+MYN-007 autorisée. Bac cinématique, table à rebords physique, lancer plus haut, deux faces noir/cèdre rouge, HUD du dernier lancer, capteur ON par défaut migré puis choix mémorisé, premier nom Joueur 1. Plan docs/plan-bac-v040.md ; dernière livraison reste 0.3.0 tant que packaging non vérifié.
+
+0.4.0 implémentée en vérification : bac cinématique Rapier, plan de table/rebords/plateau solides ; pose partagée avec Three ; trajectoire plus haute vers la table. Corps du bac figé pendant le vol, valeurs du résultat prises au repos. Faces noire plate/cèdre bombée, étoile Back-do, résumé fidèle et sauvegardé dans un stockage distinct. Capteur activé à la migration des réglages v2→v3 puis choix OFF conservé ; premier nom exact Fab migré une fois en Joueur 1. Suite 32/32, rendu navigateur et build Android à vérifier.

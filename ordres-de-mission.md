@@ -42,6 +42,12 @@ MYN-006 — suivi : premier run 0.3.0 arrêté au test de rotation des halos ava
 
 MYN-006 — livraison technique du 21/10/2026 : APK/AAB 0.3.0/code 3 exposés et téléchargements bruts vérifiés, 25 tests et 14 scénarios verts ; build/lint Android et signatures conformes à 0.2.0. Source 3ede60382b264521fa1f5b403ceabccaf41cee4b, binaire 1fe4c9bd8786f21de8962229d3c88eb481176712, CI 39651736580. Installation en mise à jour 0.2.0 possible. Validation physique Samsung ouverte ; aucune fusion main ni Release.
 
-### MYN-007 — Bac mobile, lancer sur table et lisibilité — Cadrage
+### MYN-007 — Bac mobile, lancer sur table et lisibilité — Réalisé, validation en cours
 21/10/2026, retour de Fab sur la 0.3.0 : voir le bac suivre les mouvements du téléphone, activer l'accéléromètre par défaut, lancer les yut plus haut et les laisser retomber sur la table ; envisager des rebords. Demande de noir laqué et de rouge bois de cèdre pour mieux distinguer les éléments, de quatre yut alignés vus du dessus en haut du HUD, du nom par défaut « Joueur 1 » à la place de « Fab », et de textures plus présentes.
 Point à préciser avec Fab : noir/cèdre rouge désignent-ils les deux faces des bâtonnets ou les couleurs des équipes ? Les quatre équipes restent une exigence acquise ; ne pas les supprimer par déduction. Intention de bac mobile comprise comme mouvement visible lié au téléphone, à raccorder aux collisions. Audit réalisé, pas de modification produit ni nouvel APK pour MYN-007 à ce stade.
+
+MYN-007 — 22/10/2026 : Fab autorise « Super, on y va ». Réalisation 0.4.0 engagée ; choix technique annoncé : noir laqué/cèdre rouge sur les deux faces des yut. Quatre équipes conservées. Plan docs/plan-bac-v040.md.
+
+MYN-007 — intégration 22/10 : changements 0.4.0 codés ; tests unitaires 32/32. Vérifications navigateur, revue et fabrication Android en cours. Dernier APK vérifié reste 0.3.0.
+
+MYN-007 — revue traitée : retombée recentrée avec marge après contacts entre yut ; nouvelle partie en vol réinitialise la physique. 34 tests verts et build Web. Smoke final et APK/AAB en cours ; aucun paquet 0.4.0 annoncé avant preuve.

@@ -72,16 +72,16 @@ jobs:
       - name: Verify APK and prepare direct download
         run: |
           mkdir -p temp
-          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.3.0-debug.apk
-          cp android/app/build/outputs/bundle/debug/app-debug.aab temp/Max-YutNori-v0.3.0-debug.aab
-          jarsigner -verify temp/Max-YutNori-v0.3.0-debug.aab > temp/native-aab-verification.txt
-          keytool -printcert -jarfile temp/Max-YutNori-v0.3.0-debug.aab >> temp/native-aab-verification.txt
-          python3 scripts/verify_native_apk.py temp/Max-YutNori-v0.3.0-debug.apk > temp/native-package.json
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.3.0-debug.apk > temp/native-apk-verification.txt
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.3.0-debug.apk | head -30 >> temp/native-apk-verification.txt
-          sha256sum temp/Max-YutNori-v0.3.0-debug.apk temp/Max-YutNori-v0.3.0-debug.aab > temp/native-SHA256SUMS
+          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.4.0-debug.apk
+          cp android/app/build/outputs/bundle/debug/app-debug.aab temp/Max-YutNori-v0.4.0-debug.aab
+          jarsigner -verify temp/Max-YutNori-v0.4.0-debug.aab > temp/native-aab-verification.txt
+          keytool -printcert -jarfile temp/Max-YutNori-v0.4.0-debug.aab >> temp/native-aab-verification.txt
+          python3 scripts/verify_native_apk.py temp/Max-YutNori-v0.4.0-debug.apk > temp/native-package.json
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.4.0-debug.apk > temp/native-apk-verification.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.4.0-debug.apk | head -30 >> temp/native-apk-verification.txt
+          sha256sum temp/Max-YutNori-v0.4.0-debug.apk temp/Max-YutNori-v0.4.0-debug.aab > temp/native-SHA256SUMS
           printf 'Source commit: %s\nBuild run: %s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > temp/native-build-info.txt
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.2.0-debug.apk > temp/native-previous-signature.txt
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.3.0-debug.apk > temp/native-previous-signature.txt
           python3 - <<'PY'
           from pathlib import Path
           import hashlib, ssl
@@ -94,13 +94,13 @@ jobs:
           assert 'jar verified.' in aab_report
           aab_cert=re.search(r'SHA256: ([0-9A-F:]+)',aab_report).group(1).replace(':','').lower()
           assert aab_cert==expected, 'AAB signature differs from expected key'
-          with zipfile.ZipFile('temp/Max-YutNori-v0.3.0-debug.aab') as bundle:
+          with zipfile.ZipFile('temp/Max-YutNori-v0.4.0-debug.aab') as bundle:
               assert 'base/assets/game/index.html' in bundle.namelist()
               assert not any('/Build/' in n for n in bundle.namelist())
           assert actual==expected, 'APK was signed by an unexpected key'
           same=cert('temp/native-apk-verification.txt')==cert('temp/native-previous-signature.txt')
-          assert same, 'Upgrade signature must match 0.2.0'
-          with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.2.0: '+str(same)+'\n')
+          assert same, 'Upgrade signature must match 0.3.0'
+          with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.3.0: '+str(same)+'\n')
           PY
       - name: Expose APK and original music on the work branch
         env:
@@ -108,15 +108,15 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add temp/native-* temp/Max-YutNori-v0.3.0-debug.apk temp/Max-YutNori-v0.3.0-debug.aab web/public/audio/arirang.m4a
-          git commit -m 'build: expose native Max-YutNori v0.3.0 test APK [skip ci]'
+          git add temp/native-* temp/Max-YutNori-v0.4.0-debug.apk temp/Max-YutNori-v0.4.0-debug.aab web/public/audio/arirang.m4a
+          git commit -m 'build: expose native Max-YutNori v0.4.0 test APK [skip ci]'
           git push origin "HEAD:$BRANCH_NAME"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Max-YutNori-v0.3.0-debug
+          name: Max-YutNori-v0.4.0-debug
           path: |
             temp/native-*
-            temp/Max-YutNori-v0.3.0-debug.apk
-            temp/Max-YutNori-v0.3.0-debug.aab
+            temp/Max-YutNori-v0.4.0-debug.apk
+            temp/Max-YutNori-v0.4.0-debug.aab
             android/app/build/reports/lint-results-debug.html

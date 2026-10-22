@@ -80,6 +80,9 @@ public final class MainActivity extends Activity {
             @Override public void sample(float x, float y, float z, double time) {
                 if (motionAllowed()) webView.evaluateJavascript("window.onNativeMotion?.(" + x + "," + y + "," + z + "," + time + ")", null);
             }
+            @Override public void tilt(float x, float y, float z, double time) {
+                if (motionAllowed()) webView.evaluateJavascript("window.onNativeTilt?.(" + x + "," + y + "," + z + "," + time + ")", null);
+            }
             @Override public void availability(boolean available) {
                 if (webView != null) webView.evaluateJavascript("window.onNativeMotionStatus?.(" + available + ")", null);
             }

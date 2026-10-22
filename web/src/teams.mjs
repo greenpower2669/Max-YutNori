@@ -4,7 +4,7 @@ export const TEAM_STYLES=[
  {name:'Azur',symbol:'▲',color:0x79bcff,css:'#79bcff'},
  {name:'Violette',symbol:'✦',color:0xd0a0ff,css:'#d0a0ff'}
 ];
-export function defaultPlayer(team,index=0){return {name:team===0&&index===0?'Fab':`${TEAM_STYLES[team].name} ${index+1}`,computer:team!==0,level:2,aggression:50};}
+export function defaultPlayer(team,index=0){return {name:team===0&&index===0?'Joueur 1':`${TEAM_STYLES[team].name} ${index+1}`,computer:team!==0,level:2,aggression:50};}
 export function makeTeams(options={}){
  const count=options.teams?.length??options.teamCount??2;
  if(!Number.isInteger(count)||count<2||count>4)throw Error('Choisissez de 2 à 4 équipes.');
