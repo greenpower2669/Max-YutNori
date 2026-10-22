@@ -12,8 +12,8 @@ This JAR file contains internal inconsistencies that may result in different con
 - Entry BUNDLE-METADATA/com.android.tools.build.gradle/app-metadata.properties is signed in JarFile but is not signed in JarInputStream
 - Entry BundleConfig.pb is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets.pb is signed in JarFile but is not signed in JarInputStream
-- Entry base/assets/game/assets/index-C-RfCLz2.css is signed in JarFile but is not signed in JarInputStream
-- Entry base/assets/game/assets/index-CjLNDlci.js is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/assets/index-BZsZCGVh.css is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/assets/index-BnRiFJXL.js is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/audio/arirang.m4a is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/index.html is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/licenses.txt is signed in JarFile but is not signed in JarInputStream

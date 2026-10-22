@@ -1,31 +1,82 @@
 {
   "checks": [
     "WebGL + Rapier WASM start without external network",
-    "Physical throw completes from a real UI action",
+    "Higher physical throw stays visible and the overhead HUD shows its real faces",
     "Pause freezes gameplay and music; resume works",
     "Original AAC plays and crosses loop boundary twice",
     "Native pause/resume hook",
-    "Saved game survives reload",
+    "Saved game and actual throw faces survive reload",
     "Linked group finishes; victory sound starts before the dialog pauses gameplay",
     "Landscape phone layout and settings",
     "Licences open and close inside the game without navigation",
     "Selection and both destinations glow; reduced motion keeps halos fixed; absent sensor leaves touch available",
     "Four teams and mixed six-person roster; configuration survives count changes; landscape and portrait fit",
     "Real v2 save migrates to v3 with pending results and original backup intact",
+    "Tray tilts with native samples, freezes during pause; motion defaults ON and explicit OFF survives reload",
     "Sensor gesture launches physics once, disabled during pause/roll; effects volume and active voices obey pause",
+    "New game during flight resets the yut and restores tray tilt before another throw",
     "Sensor cannot throw during an AI turn"
   ],
   "errors": [],
   "externalRequests": [],
   "firstThrow": {
-    "version": "0.3.0",
+    "version": "0.4.0",
+    "lastThrow": {
+      "faces": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "invalid": false,
+      "value": 1
+    },
+    "tray": {
+      "position": {
+        "x": 0,
+        "y": 0.6499999761581421,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      }
+    },
+    "projectedSticks": [
+      {
+        "x": -0.3335566213094981,
+        "y": -0.5490208991859098,
+        "z": 0.9891242018158047,
+        "height": -0.2501221299171448
+      },
+      {
+        "x": -0.1999916029835578,
+        "y": 0.14915235559504328,
+        "z": 0.9918280003164033,
+        "height": -0.2501206696033478
+      },
+      {
+        "x": -0.2849245457137024,
+        "y": -0.6498678877525675,
+        "z": 0.9887029177856896,
+        "height": -0.220611110329628
+      },
+      {
+        "x": -0.06544903065420397,
+        "y": -0.005403580809859215,
+        "z": 0.9903293488951329,
+        "height": 0.7295680046081543
+      }
+    ],
     "state": {
       "version": 3,
       "teams": [
         {
           "players": [
             {
-              "name": "Fab",
+              "name": "Joueur 1",
               "computer": false,
               "level": 2,
               "aggression": 50
@@ -142,12 +193,12 @@
       "turn": 0,
       "phase": "move",
       "pending": [
-        3
+        1
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Geol · 3"
+      "last": "Do · 1"
     },
     "rolling": false,
     "paused": false,
@@ -169,24 +220,24 @@
         "kind": "destination",
         "angle": 0.06999999999999999,
         "position": [
-          -2.7347524157501475,
+          -4.134752415750147,
           0.185,
-          1.6457987064189248
+          2.6629582456264296
         ]
       }
     ],
     "audio": {
-      "effectsPlayed": 14,
+      "effectsPlayed": 33,
       "voices": 0,
       "fxVolume": 0.6,
       "loop": true,
       "paused": false,
-      "currentTime": 9.895946,
+      "currentTime": 24.421586,
       "duration": 239.32805
     },
     "logs": [
-      "2026-10-21T18:20:16.274Z Three.js + Rapier WASM prêts.",
-      "2026-10-21T18:20:28.538Z Lancer : 3"
+      "2026-10-22T04:53:23.166Z Three.js + Rapier WASM prêts.",
+      "2026-10-22T04:53:51.283Z Lancer : 1"
     ]
   },
   "audio": {
