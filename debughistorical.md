@@ -1,3 +1,7 @@
+## 23/10/2026 — Réalisation autorisée 0.5.0
+MYN-D018 : Back-do depuis S sans déplacement déclenchait pass ; portage sans Turnleft/SaveTurns. Correction maintenant autorisée, régressions avant implémentation. Dossier temporaire nettoyé par environnement, reprise du commit distant 5ef3afd sans perte de code produit.
+Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
+
 # Max-YutNori — Historique de diagnostic
 
 ## MYN-D018 — Divergence du recul et du compteur de tours ; audit sans coder

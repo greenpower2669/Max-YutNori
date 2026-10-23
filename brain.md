@@ -1,3 +1,7 @@
+## 23/10/2026 — Réalisation autorisée 0.5.0
+Contrat 0.5.0 : compteur individuel conservé dans les groupes, fin à zéro, capture remet à 1. Migration v4 sans effacer v2/v3. Toucher/glisser et caméra action douce ; animations réduites respectées.
+Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
+
 # État actif — Max YutNori 0.4.1 livré pour test / MYN-008
 
 ## Retour Fab du 23/10/2026 — MYN-010, sans coder

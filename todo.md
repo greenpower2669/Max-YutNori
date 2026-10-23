@@ -1,3 +1,9 @@
+## 23/10/2026 — Réalisation autorisée 0.5.0
+- [ ] MYN-010 : tours v4, migration, gestes et lancers.
+- [ ] MYN-011 : caméra action et zoom second doigt.
+- [ ] Tests, revue, APK/AAB. Dernier APK vérifié : 0.4.1.
+Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
+
 # Max YutNori — 0.4.1 livrée pour test / MYN-008
 ## Retour actif MYN-010 — explication uniquement, code inchangé
 - [x] Comparer le passage et le recul avec FabYut : compteur Turnleft confirmé dans fabchoc.cs, absent des pions Web ; voir MYN-D018.

@@ -1,3 +1,7 @@
+## 23/10/2026 — Réalisation autorisée 0.5.0
+Réalisation 0.5.0 : rules.mjs/teams.mjs, nouveaux chase-camera.mjs/pawn-input.js, scene.js/main.js, physics.mjs. Tests sous tests/ et scripts/smoke_native.mjs.
+Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
+
 # Carte active — 0.4.1 / MYN-008 livré pour test
 - Audit MYN-010 / MYN-D018 : rules.mjs destinations/pass/move et teams.mjs ne portent aucun compteur de tours ; référence FabYut, commit 81ba459b39306b4f0c36ca69d8483d7bc3d552a8, yutFab/Assets/fabchoc.cs releaseGrab/Turnleft et Globals.cs SaveTurns/istrigable. Pending et sélection d’un résultat : main.js render/selectedResult. Toucher des pions : scene.js pointerup + main.js onPick ; déplacement >10 px ignoré pour les pions. Espacement réserve : board-layout.mjs reservePosition. Hauteur auto : main.js launch(settings.power), physics.mjs throwSticks. Audit sans modification produit.
 - ordres-de-mission.md : demandes de Fab ; MYN-009 (décor) reste différé.
