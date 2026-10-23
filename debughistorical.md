@@ -102,3 +102,6 @@ Reproduit par revue indépendante sur 4d65b31 : relâcher puis lancer 100 ms apr
 
 ## MYN-D015 — Résultat valide rejeté dans le bac soulevé
 Le plafond historique p.y>2 rejetait des yut stables et lisibles au fond du bac soulevé à y=2,38. Régression rouge puis verte avec les vrais corps Rapier. La borne haute dépend maintenant du volume incliné du bac et de l’étendue du yut. Seuils de stabilité, lecture des faces et limites latérales inchangés. Suite complète : 38/38 ; aucun résultat recalculé lors du retour ultérieur du bac.
+
+## MYN-D016 — Lecture du rendu trop tôt après Nouvelle partie
+CI 39849699784 : 38 tests et build passent, smoke bloqué sur projectedSticks.every(height<1) juste après le clic Nouvelle partie. reset est synchrone côté physique mais projectedSticks lit les meshes Three.js, actualisés à la prochaine frame. Le scénario vérifiait avant ce rendu selon l’ordonnancement du navigateur. Attendre le même état visuel avec waitForFunction (même borne, timeout conservé), tout en gardant les assertions immédiates rolling=false et lastThrow=null. Aucune temporisation ni logique du jeu modifiée. Reprise CI pour validation.
