@@ -105,3 +105,6 @@ Le plafond historique p.y>2 rejetait des yut stables et lisibles au fond du bac 
 
 ## MYN-D016 — Lecture du rendu trop tôt après Nouvelle partie
 CI 39849699784 : 38 tests et build passent, smoke bloqué sur projectedSticks.every(height<1) juste après le clic Nouvelle partie. reset est synchrone côté physique mais projectedSticks lit les meshes Three.js, actualisés à la prochaine frame. Le scénario vérifiait avant ce rendu selon l’ordonnancement du navigateur. Attendre le même état visuel avec waitForFunction (même borne, timeout conservé), tout en gardant les assertions immédiates rolling=false et lastThrow=null. Aucune temporisation ni logique du jeu modifiée. Reprise CI pour validation.
+
+## MYN-D017 — Ciblage tactile avant fin du mouvement de caméra
+CI 39917097162 : échec intermittent du premier glissement (attente de levage), alors que le même code passait les 20 scénarios localement. Le test attendait 650 ms après le changement de vue, sans vérifier que le point projeté était à l’écran et stable ; le rendu logiciel peut avancer plus lentement. La fixture attend désormais trois frames de stabilité et vérifie elementFromPoint===canvas avant de viser ; assertion de prise immédiate et diagnostic complet en cas d’échec ajoutés. Aucun changement de geste produit. Reprise CI exigée pour conclure.
