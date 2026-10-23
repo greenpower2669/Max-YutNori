@@ -11,5 +11,7 @@ Un yut lisible au fond d’un bac levé dépassait le plafond historique y=2 et 
 ## Autres points relus
 La formule de dégagement enveloppe le volume du bac et le disque du socle à chaque pas cinématique. Capture tactile annulée sur pause, changement de vue, perte de capture ; priorité du doigt sur le capteur. Quatre pions distinguables sur la capture : chêne, cèdre, noir, vert sapin ; marques contrastées et halos séparés de la couleur sombre du corps. Faces des yut conservées. Version Android 0.4.1/code 5 ; clé et icône conservées.
 
-## État de validation
-38 tests unitaires passent et build Web réussi. Smoke final et fabrication Android en cours. Les premiers 19 scénarios navigateur passaient avant les deux corrections finales ; ce résultat intermédiaire ne vaut pas preuve du paquet final. Aucune validation physique Samsung revendiquée.
+## Validation finale
+CI [39917902942](https://github.com/greenpower2669/Max-YutNori/actions/runs/39917902942) réussie : 38/38 tests unitaires, 20/20 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.4.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `f012219b9bf356e4c1c0938729b9007ef49a2e38`, binaires/preuves `95039cf53512f6fb358233ce6f0f8e4fd589079c`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+
+38 tests et 20 scénarios passent aussi localement avant les ajustements de synchronisation des scénarios ; la CI finale valide ces ajustements. Captures des pions et du bac soulevé inspectées ; un Important de revue résolu, aucun Critical relevé. Le capteur est simulé dans le navigateur. Installation en mise à jour de 0.4.0 sans désinstallation : signature, identité et icône conservées. Essai physique Samsung SM-A576B Android 16 attendu pour le confort tactile, la lisibilité et le capteur. Décor environnant reporté MYN-009 ; aucune fusion main ni Release définitive.

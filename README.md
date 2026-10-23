@@ -1,17 +1,17 @@
-# Max YutNori — version de test 0.4.0
+# Max YutNori — version de test 0.4.1
 
-Jeu de YutNori 3D en français, sans Unity : Three.js/WebGL2 et Rapier/WebAssembly, dans une APK Android hors ligne. Branche feature/native-webgl-v020, PR brouillon #2 ; aucune fusion main ni publication définitive.
+Jeu de YutNori 3D en français, sans Unity : Three.js/WebGL2 et Rapier/WebAssembly, dans une APK Android hors ligne. Branche feature/native-webgl-v020, PR brouillon #2.
 
-[APK 0.4.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.apk) · [AAB de test 0.4.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.aab).
+[APK 0.4.1 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.apk) · [AAB de test 0.4.1](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.aab).
 
-APK d’environ 7,9 Mo, installable par-dessus 0.3.0 ou 0.2.0 sans désinstallation : signature, identité `fr.fab.maxyutnori` et icône conservées. Version 0.4.0/code 4. L’AAB est signé pour les tests, pas une publication Play de production. La 0.1.0 historique avait une autre signature.
+APK d’environ 7,9 Mo, version 0.4.1/code 5, identité `fr.fab.maxyutnori`. Mise à jour compatible depuis 0.4.0, 0.3.0 et 0.2.0. L’AAB est signé pour les tests ; la 0.1.0 historique avait une autre signature.
 
-## Changements 0.4.0
-Le bac suit l’inclinaison et de petits mouvements du téléphone. Le capteur est activé par défaut à l’entrée dans cette version ; son arrêt est mémorisé dans Réglages → Bac mobile et lancer au mouvement. Tenir le téléphone au repos un instant pour la calibration, puis incliner ou faire un petit geste pour lancer. L’écoute s’arrête pendant pause, dialogue, tour IA et vol ; bouton/glissement restent disponibles.
+## Changements 0.4.1
+Pions chêne clair, cèdre rouge, noir laqué et vert sapin laqué ; bois texturés, marques contrastées et halos cohérents. Faces des yut conservées. Bac soulevable au doigt dans Bol et lancer : glisser vers le haut pour lever, latéralement pour incliner, relâcher pour reposer. Le dessous du bac reste au-dessus de la table et de son socle pendant les transitions. Retour conservé si un lancer interrompt la descente ; résultats lisibles dans un bac levé acceptés.
 
-Les yut montent plus haut et retombent sur la table, bordée de collisions physiques. Faces plates noires laquées et faces bombées en cèdre rouge ; bois texturé et relief plus visibles. Le HUD supérieur aligne les quatre faces du dernier lancer réel, sauvegardé avec le résultat. Nom initial Joueur 1. Les quatre couleurs d’équipes et les règles restent conservées.
+La saisie du bac est disponible avant un lancer humain et prend temporairement la priorité sur le capteur. Le bouton et le glissement hors du bac permettent de lancer. Le bac est figé pendant le vol et la pause ; son retour reprend ensuite. L’accéléromètre reste activé par défaut, le choix OFF reste mémorisé.
 
-De deux à quatre équipes de quatre pions, chacune avec un à six participants humains ou IA, relayés après le tour complet. Réglages individuels IA, relances Yut/Mo, Back-do, captures, groupes et raccourcis. Sélection/destinations avec halos tournants ; animation réduite disponible. Musique originale en boucle, sons de contacts et de plateau, volumes séparés, sauvegarde locale et migration des anciennes parties.
+De deux à quatre équipes de quatre pions, chacune avec un à six participants humains ou IA ; relances Yut/Mo, Back-do, captures, groupes et raccourcis. Halos de sélection/destinations, HUD des quatre faces réelles du dernier lancer, sons de contacts et musique originale en boucle, volumes séparés et sauvegarde locale. Règles conservées.
 
 ## Modifier
 ```sh
@@ -23,13 +23,13 @@ npm run dev
 Le morceau original est extrait du build historique seulement s’il manque ; le jeu utilise ensuite un AAC indépendant. Sources dans web/src/, sortie `npm run build` dans web-dist/game/. Seule cette sortie entre dans le paquet Android ; aucun runtime Unity.
 
 ## Vérification de livraison
-CI [39724824806](https://github.com/greenpower2669/Max-YutNori/actions/runs/39724824806) réussie : 34/34 tests unitaires, 16/16 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.3.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `0155dc784e1583b1ffe4a2ee16c354d02e36b64f`, binaires/preuves `8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+CI [39917902942](https://github.com/greenpower2669/Max-YutNori/actions/runs/39917902942) réussie : 38/38 tests unitaires, 20/20 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.4.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `f012219b9bf356e4c1c0938729b9007ef49a2e38`, binaires/preuves `95039cf53512f6fb358233ce6f0f8e4fd589079c`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
 
-APK : 7,938,053 octets, SHA-256 `ff5920323e17843bbf4fce1ea49caa0dfa942f11aeeefebd152c3af2bc90158b`. AAB : 7,611,631 octets, SHA-256 `47476f2916660179382cd630ece58c0cf3a1a8b813a03a856899cd0a3b1a22c5`.
+APK : 7,939,321 octets, SHA-256 `29126146aad9b1eacc08571060d2ccc74597b2417555b5ce906c3711eb747fcf`. AAB : 7,612,736 octets, SHA-256 `78ad6e188a8e53ab3b6f1e3a51cd49110e4f98f0106b5b486a814eb6e18222bb`.
 
-Deux défauts importants corrigés après revue indépendante : marge de retombée insuffisante après contacts entre yut, et nouvelle partie en vol laissant la simulation active. Régressions physiques/UI ajoutées ; 72 lancers déterministes de contrôle restent sur des surfaces supportées. Preuves dans docs/revue-v040.md et temp/native-*.
+Revue indépendante traitée ; tests de dégagement socle/table, levage, retour après lancement et résultat à hauteur élevée. Scénarios navigateur pour le vrai glissement, pause, passage automatique et priorité tactile/capteur. Captures inspectées. Détails : docs/revue-v041.md et temp/native-*.
 
-Le confort, la sensibilité/orientation du bac et du geste, ainsi que le son prolongé restent à essayer sur Samsung SM-A576B Android 16. Le pont capteur est testé par injection navigateur ; aucun essai physique du téléphone n’est revendiqué.
+Installation en mise à jour de 0.4.0 sans désinstallation : signature, identité et icône conservées. Essai physique Samsung SM-A576B Android 16 attendu pour le confort tactile, la lisibilité et le capteur. Décor environnant reporté MYN-009 ; aucune fusion main ni Release définitive.
 
 ## Mémoire FabCopilot
-ordres-de-mission.md, brain.md, brainmap.md, debughistorical.md, todo.md. Plan/suivi 0.4.0 : docs/plan-bac-v040.md et docs/bac-progress.md. Historique 0.1.0/0.2.0/0.3.0 conservé ; FabYut reste la référence en lecture seule.
+ordres-de-mission.md, todo.md, brain.md, brainmap.md et debughistorical.md. MYN-008 réalisé ; MYN-009 différé. Historique des versions précédentes conservé ; FabYut reste la référence en lecture seule.

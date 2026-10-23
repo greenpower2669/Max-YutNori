@@ -1,7 +1,20 @@
-# Travail actif — 0.4.1 / MYN-008
-Pions : chêne clair, cèdre rouge, noir laqué, vert sapin laqué ; marques sombres sur bois clair et blanches sur les trois autres, symboles conservés. Yut 0.4.0 appréciés par Fab et conservés. Bac : hauteur de sécurité liée à l’inclinaison, au volume et au socle ; saisie tactile dans la vue Bol (haut = soulever, côté = incliner, relâcher = reposer). Conserver bouton de lancer, glissement hors bac, capteur et pauses. Autorisation de réalisation explicite ; changements bornés dans les composants existants. Décor reporté MYN-009. Implémentation locale terminée, 38 tests et build Web passent ; revue indépendante traitée, contrôles UI finaux/Android en cours. Le retour du bac est mis en attente pendant le vol puis repris même en phase déplacement ou mode automatique ; le résultat déjà mémorisé ne se recalcule pas. Dernier APK vérifié : 0.4.0 ci-dessous.
+# État actif — Max YutNori 0.4.1 livré pour test / MYN-008
 
-# État actif — Max YutNori 0.4.0 livré pour test
+[APK 0.4.1 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.apk) · [AAB de test 0.4.1](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.aab).
+
+Pions chêne clair, cèdre rouge, noir laqué et vert sapin laqué ; bois texturés, marques contrastées et halos cohérents. Faces des yut conservées. Bac soulevable au doigt dans Bol et lancer : glisser vers le haut pour lever, latéralement pour incliner, relâcher pour reposer. Le dessous du bac reste au-dessus de la table et de son socle pendant les transitions. Retour conservé si un lancer interrompt la descente ; résultats lisibles dans un bac levé acceptés.
+
+Le retour demandé se conserve pendant le vol et reprend même en phase déplacement/auto ; le résultat déjà mémorisé ne se recalcule pas. La saisie exige un tour humain, avant le lancer et hors pause/auto.
+
+CI [39917902942](https://github.com/greenpower2669/Max-YutNori/actions/runs/39917902942) réussie : 38/38 tests unitaires, 20/20 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Même certificat APK/AAB que 0.4.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Source `f012219b9bf356e4c1c0938729b9007ef49a2e38`, binaires/preuves `95039cf53512f6fb358233ce6f0f8e4fd589079c`. Téléchargements bruts HTTP 200, intégrité et SHA-256 comparés.
+
+APK : 7,939,321 octets, SHA-256 `29126146aad9b1eacc08571060d2ccc74597b2417555b5ce906c3711eb747fcf`. AAB : 7,612,736 octets, SHA-256 `78ad6e188a8e53ab3b6f1e3a51cd49110e4f98f0106b5b486a814eb6e18222bb`.
+
+Installation en mise à jour de 0.4.0 sans désinstallation : signature, identité et icône conservées. Essai physique Samsung SM-A576B Android 16 attendu pour le confort tactile, la lisibilité et le capteur. Décor environnant reporté MYN-009 ; aucune fusion main ni Release définitive.
+
+Revue : docs/revue-v041.md. Diagnostics MYN-D013 à MYN-D017, suivi todo.md. Branche feature/native-webgl-v020, PR brouillon #2.
+
+## Livraison précédente — Max YutNori 0.4.0
 
 MYN-007 autorisé et réalisé le 22/10/2026. Branche feature/native-webgl-v020, PR brouillon #2. [APK 0.4.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.apk) · [AAB de test 0.4.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.0-debug.aab).
 

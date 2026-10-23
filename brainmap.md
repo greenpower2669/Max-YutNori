@@ -1,19 +1,18 @@
-MYN-008 : physics.mjs doit contraindre la pose cinématique au-dessus du socle/table ; scene.js traduit la saisie tactile, main.js arbitre doigt/capteur/pause. teams.mjs porte les matières et accents, scene.js crée les pions texturés. physics.returnTray conserve la demande de repos pendant le vol ; main prépare aussi ce retour hors saisie humaine. Tests physiques dans tests/table.test.mjs et geste réel dans scripts/smoke_native.mjs. Revue : docs/revue-v041.md.
+# Carte active — 0.4.1 / MYN-008 livré pour test
+- ordres-de-mission.md : demandes de Fab ; MYN-009 (décor) reste différé.
+- todo.md et brain.md : état, livraison et validation Samsung attendue.
+- web/src/teams.mjs : matières/accents ; scene.js : pions, bac et capture tactile.
+- web/src/physics.mjs : géométrie partagée, dégagement à chaque pas, levage, retour en attente pendant le vol et validité du résultat élevé.
+- web/src/main.js : priorité doigt/capteur et retour hors phase de saisie ; pause/vol conservés.
+- web/src/rules.mjs, team-form.js : règles, participants et migration ; halos.js : sélection/destinations.
+- web/src/audio.js, motion.mjs, tray-motion.mjs : boucle/effets et capteurs ; MotionSensors.java/MainActivity.java : pont Android.
+- tests/ : 38 tests ; scripts/smoke_native.mjs : 20 scénarios navigateur hors ligne.
+- docs/revue-v041.md et debughistorical.md MYN-D013/14/15/16/17 : diagnostics et corrections vérifiées.
+- .github/workflows/android.yml : compilation/lint, APK/AAB, signature comparée à 0.4.0 ; temp/native-* : preuves du build indiqué dans native-build-info.txt.
+- temp/Max-YutNori-v0.4.1-debug.apk et .aab ; native-download-verification.json : contrôles des vrais téléchargements.
+- Branche feature/native-webgl-v020, PR brouillon #2 ; aucun merge main ni Release.
 
-# Carte active — 0.4.1 en cours, référence livrée 0.4.0
-- Retour MYN-007 à cadrer : ordres-de-mission.md et todo.md ; bac/table dans physics.mjs et scene.js, capteur dans MotionSensors.java/main.js, nom par défaut dans teams.mjs, aperçu HUD dans web/index.html.
-- Mission et autorisation : ordres-de-mission.md, MYN-006 ; contrat approuvé : docs/evolution-equipes-capteurs-halos.md.
-- Plan/suivi : docs/plan-evolution-v030.md, docs/evolution-progress.md ; état : brain.md et todo.md.
-- web/src/teams.mjs et rules.mjs : participants, quatre équipes, migration et IA.
-- team-form.js : réglages individuels ; board-layout.mjs et halos.js : positions et repères ; scene.js : rendu Three.js ; main.js : interface, pause, sauvegarde et animation.
-- physics.mjs et impact.mjs : collisions Rapier bornées ; audio.js : musique en boucle, sons locaux, volume et pause.
-- motion.mjs : détection du geste ; android/app/src/main/java/fr/fab/maxyutnori/MotionSensors.java : capteur natif ; MainActivity.java : pont local et cycle de vie.
-- docs/revue-v030.md : revue et corrections ; temp/native-download-verification.json : preuve de téléchargement brut.
-- tests/ : 25 tests ; scripts/smoke_native.mjs : 14 scénarios navigateur avec capteur simulé, rendu et audio hors ligne.
-- .github/workflows/android.yml : APK/AAB, lint, contenu et comparaison des signatures. temp/native-* : preuves du dernier build indiqué dans native-build-info.txt.
-- Paquets livrés : temp/Max-YutNori-v0.3.0-debug.apk et .aab ; validation physique Samsung ouverte.
-- Branche feature/native-webgl-v020, PR brouillon #2. Aucun merge main ni Release.
-
+## Historique
 ---
 
 ## Carte historique
