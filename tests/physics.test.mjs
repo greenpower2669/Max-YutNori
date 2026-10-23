@@ -17,3 +17,10 @@ test('a continuously moving throw at the deadline must be invalid',async()=>{
  }
  assert.ok(result);assert.ok(result.seconds>=12);assert.equal(result.invalid,true,'readable faces are insufficient while bodies still move');p.world.free();
 });
+
+test('automatic loft rises higher while returning all sticks inside the table',async()=>{
+ const peak=async loft=>{const p=await createPhysics();let seed=102;const random=()=>((seed=(1664525*seed+1013904223)>>>0)/2**32);p.throwSticks(.6,{x:0,z:0},random,{loft});let height=0,result;
+ for(let i=0;i<1600&&!result;i++){result=p.step(1/120);height=Math.max(height,...p.bodies.map(b=>b.translation().y));}
+ assert.ok(result);for(const b of p.bodies){const q=b.translation();assert.ok(q.x>-16&&q.x<6&&Math.abs(q.z)<5.7);}p.world.free();return height;};
+ assert.ok(await peak(2.5)>await peak(0)+1.3);
+});

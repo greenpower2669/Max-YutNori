@@ -10,5 +10,6 @@ export class SelectionHalos {
    this.group.add(halo);
   });
  }
+ hover(node){for(const halo of this.group.children){const active=halo.userData.kind==='destination'&&halo.userData.pick?.node===node;halo.scale.setScalar(active?1.3:1);halo.children[0].material.opacity=active?.65:.22;}}
  frame(dt,reduced){if(!reduced)for(const halo of this.group.children)halo.rotation.y+=dt*.7;}
 }

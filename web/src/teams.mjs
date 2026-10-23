@@ -12,7 +12,7 @@ export function makeTeams(options={}){
   const input=options.teams?.[t]?.players??options.names?.[t]?.map(name=>({name,computer:options.computers?.[t]??t!==0,level:options.levels?.[t]??2,aggression:options.aggressions?.[t]??50}))??[{...defaultPlayer(t),computer:options.computers?.[t]??t!==0}];
   if(!input.length||input.length>6)throw Error('Une équipe accueille de 1 à 6 participants.');
   const players=input.map((p,i)=>({name:String(p.name||defaultPlayer(t,i).name).trim().slice(0,30)||defaultPlayer(t,i).name,computer:!!p.computer,level:[1,2,3].includes(p.level)?p.level:2,aggression:Number.isFinite(p.aggression)?Math.max(0,Math.min(100,p.aggression)):50}));
-  return {players,member:0,pieces:Array.from({length:4},()=>({pos:'S',route:'outer'}))};
+  return {players,member:0,pieces:Array.from({length:4},()=>({pos:'S',route:'outer',laps:1}))};
  });
 }
 export const activePlayer=g=>g.teams[g.turn].players[g.teams[g.turn].member];

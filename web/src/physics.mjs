@@ -37,13 +37,13 @@ export async function createPhysics({onImpact=()=>{}}={}){
  setTrayPose(next){if(active)return;returning=false;target={roll:clamp(next.roll,-.28,.28),pitch:clamp(next.pitch,-.28,.28),x:clamp(next.x,-.4,.4),z:clamp(next.z,-.4,.4),lift:clamp(next.lift,0,TRAY.maxLift)};},
  returnTray(){target={roll:0,pitch:0,x:0,z:0,lift:0};returning=true;},
  prepare(dt){if(active)return;preparation+=clamp(dt,0,.1);while(preparation>=1/120){advanceTray();world.step();preparation-=1/120;}},
- throwSticks(power=.6,direction={x:0,z:0},random=Math.random){power=clamp(power,.15,1);freezeTray();const at=tray.translation();bodies.forEach((b,i)=>{
+ throwSticks(power=.6,direction={x:0,z:0},random=Math.random,{loft=0}={}){power=clamp(power,.15,1);freezeTray();const at=tray.translation();bodies.forEach((b,i)=>{
  // Preserve the established release height at rest; raise it only for a lifted tray.
  b.setTranslation({x:at.x+(i-1.5)*.5,y:Math.max(2.35,at.y+1.5)+i*.12,z:at.z+(random()-.5)*.7},true);
  const q={x:random()-.5,y:random()-.5,z:random()-.5,w:random()-.5};const norm=Math.hypot(q.x,q.y,q.z,q.w);if(norm<1e-8){q.x=q.y=q.z=0;q.w=1;}else for(const k in q)q[k]/=norm;b.setRotation(q,true);
  // Aim at the open centre of the table, leaving room for stick extent and mutual impacts.
  // The previous target near z=4.5 left too little margin when sticks collided at launch.
- const up=5+power*4,flight=(up+Math.sqrt(up*up+2*9.81*(b.translation().y-TABLE.top)))/9.81;
+ const up=5+power*4+clamp(loft,0,3),flight=(up+Math.sqrt(up*up+2*9.81*(b.translation().y-TABLE.top)))/9.81;
  b.setLinvel({x:(-4+(random()-.5)*1.2+clamp(direction.x,-1,1)*.7-b.translation().x)/flight,y:up,z:(2.3+(random()-.5)*.6+clamp(direction.z,-1,1)*.5-b.translation().z)/flight},true);
  b.setAngvel({x:(random()-.5)*16,y:(random()-.5)*12,z:(random()-.5)*16},true);});active=true;elapsed=stable=accumulator=preparation=0;impacts=new ImpactLimiter();},
  step(dt){if(!active)return null;accumulator+=clamp(dt,0,.1);
