@@ -10,6 +10,9 @@
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 ## Missions
+### MYN-010 — Règles de recul, choix des coups et manipulation des pions — Audit sans coder
+23/10/2026, retour Fab sur 0.4.1 : demande explicitement « sans coder explique-moi ». Bouton ressenti comme « passer ce tour » et impossibilité de sélectionner un yut/pion ; il refuse ce remplacement de sa règle. Un franchissement arrière de la ligne ajoute un tour restant au pion, le franchissement avant le retire ; ne pas déclarer le pion arrivé après un simple aller-retour. Vérifier le libre ordre des résultats accumulés (exemples 4,3,2 et 4,2,3). Souhaite des jets automatiques plus hauts ; sélection en touchant les pions du plateau et de réserve, réserves d’abord un peu plus espacées (disposition en dé seulement envisagée), puis glisser un pion sous le doigt vers une destination autorisée clairement signalée. Pas de zoom du pion vers le joueur demandé. Cette intervention explique et consigne ; aucun code produit, test ou nouvel APK. Le décor MYN-009 reste différé.
+
 ### MYN-001 — APK du jeu existant — Livré, à valider
 19/10/2026 : Fab demande d'abord de passer FabYut en APK. Direction validée : embarquer l'export Web existant dans une application Android ; vérifier tactile, son et performances. Première livraison de test, sans PC ni éditeur Unity chez Fab.
 Preuve : `temp/Max-YutNori-v0.1.0-debug.apk`, 46 781 687 octets, code 1, target Android 16 ; build 39301357387, source `3042fed5ca7a9a0fa551d5330ef1a5739ef5f9cb`. Signature APK v2 vérifiée. Démarrage Web hors ligne et capture 3D validés ; installation/tactile/audio/pause Samsung attendus.

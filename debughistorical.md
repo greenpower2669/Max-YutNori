@@ -1,5 +1,14 @@
 # Max-YutNori — Historique de diagnostic
 
+## MYN-D018 — Divergence du recul et du compteur de tours ; audit sans coder
+23/10/2026 : Fab voit une option ressentie comme « passer ce tour », ne peut choisir de pion/yut, décrit sa règle de tours restants et demande seulement une explication. Version examinée 0.4.1, source f012219b9bf356e4c1c0938729b9007ef49a2e38.
+- Faits Web : destinations refuse pos=S avec valeur négative ; pass supprime le résultat sélectionné s’il n’a aucun déplacement, puis finit le tour joueur si la liste est vide. Il ne valide aucun pion arrivé. main affiche « Passer ce résultat » lorsque le résultat sélectionné n’a aucun coup, et la liste des pions jouables est alors vide. tests/rules.test.mjs encode explicitement cette règle. Sans état Samsung, le lancer exact reste inconnu ; le cas −1 avec tous les pions en réserve explique ces symptômes, sans prouver que c’était le cas joué.
+- Faits original public FabYut, commit 81ba459b39306b4f0c36ca69d8483d7bc3d552a8 : Globals.istrigable autorise −1 depuis dx=0/20 vers 19 ou vers la branche 4/15. fabchoc.releaseGrab lignes 148–162 ajoute Turnleft += 1 dans ces passages arrière ; lignes 163–194 retire un tour au franchissement avant et termine le pion uniquement à zéro ; SaveTurns reçoit Turnleft (ligne 123). Le compteur existe donc bien dans l’original. La réécriture ne garde que pos/route ; le tour global du joueur ne remplace pas les tours restants d’un pion.
+- Résultats accumulés : pending conserve les valeurs, selectedResult permet un ordre libre en phase move ; move n’efface que l’entrée choisie. Avant la fin des relances 4/5, les boutons de résultats sont désactivés.
+- Manipulation : clic/raycast sur pion propre et réserve déjà présent en phase move, hors vue libre ; le mouvement de pointeur >10 px est ignoré au relâchement. Aucun glisser-déposer de pion. Réserve : entraxe .58 pour diamètre .46, donc seulement .12 unité de séparation géométrique avant projection.
+- Hauteur : auto et bouton appellent le même launch(settings.power), défaut .6 ; vitesse verticale 5+4*power. L’auto ne possède pas de renforcement propre. La perception exacte sur Samsung n’a pas été mesurée.
+Aucun correctif, aucune exécution de test ni nouveau paquet. Demandes et limites enregistrées dans MYN-010 ; reprendre après autorisation de réalisation.
+
 ## 2026-10-19 — MYN-D001 — Identifier le bon export
 - Fait : Max-YutNori ne contenait que README et LICENSE ; les cinq mémoires étaient absentes.
 - Fait : FabYut contient les sources Unity et des artefacts intermédiaires sous Library/Bee, pas d'export Web complet trouvé à la racine.

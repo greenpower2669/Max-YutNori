@@ -1,4 +1,13 @@
 # Max YutNori — 0.4.1 livrée pour test / MYN-008
+## Retour actif MYN-010 — explication uniquement, code inchangé
+- [x] Comparer le passage et le recul avec FabYut : compteur Turnleft confirmé dans fabchoc.cs, absent des pions Web ; voir MYN-D018.
+- [x] Vérifier l’ordre libre des résultats stockés, la sélection directe et la hauteur auto dans les sources.
+- [ ] Après accord de réalisation : rétablir les tours restants par pion et l’entrée arrière ; traiter sauvegardes, captures et groupes sans arrivée prématurée ni suppression du résultat de recul.
+- [ ] Après accord de réalisation : rendre la sélection des pions/réserves plus lisible, espacer d’abord la réserve, ajouter le glisser-déposer avec destination claire.
+- [ ] Après accord de réalisation : augmenter la hauteur des jets automatiques ; vérifier la caméra et les retombées.
+Le scénario exact joué sur Samsung n’a pas été fourni. Aucun correctif ni nouveau build dans cet audit ; 0.4.1 reste le dernier paquet livré. Les tests existants valident la règle codée, pas la fidélité au compteur original maintenant identifié.
+
+## Livraison 0.4.1
 - [x] Quatre pions contrastés : chêne clair, cèdre rouge, noir et sapin laqués.
 - [x] Levage tactile et dégagement du bac au-dessus du socle/table à chaque transition.
 - [x] Retour conservé après interruption par lancer/auto ; pause et priorité doigt/capteur.
