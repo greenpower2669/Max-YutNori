@@ -1,0 +1,3 @@
+Source commit: 4a28e1c84ef76f628a85f12dae0b7f2c467d9bfe
+Build run: https://github.com/greenpower2669/Max-YutNori/actions/runs/40078589575
+Same signing certificate as 0.4.1: True

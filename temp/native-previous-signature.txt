@@ -1,0 +1,4 @@
+Signer #1 certificate DN: CN=Android Debug, O=Max YutNori, C=FR
+Signer #1 certificate SHA-256 digest: 0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a
+Signer #1 certificate SHA-1 digest: 03fc8446393d85f6d3a8130beea8c1c609b6901c
+Signer #1 certificate MD5 digest: 9966f8cff5f66a8ad306df12208517de

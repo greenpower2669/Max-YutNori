@@ -1,0 +1,500 @@
+{
+  "checks": [
+    "WebGL + Rapier WASM start without external network",
+    "Finger drag lifts and tilts the tray without a sensor; release lowers it without launching",
+    "Pause cancels a held tray and freezes its pose until resume",
+    "Automatic throwing cancels a held tray and preserves its return after flight",
+    "Higher physical throw stays visible and the overhead HUD shows its real faces",
+    "Pause freezes gameplay and music; resume works",
+    "Original AAC plays and crosses loop boundary twice",
+    "Native pause/resume hook",
+    "Saved game and actual throw faces survive reload",
+    "Linked group finishes; victory sound starts before the dialog pauses gameplay",
+    "Landscape phone layout and settings",
+    "Licences open and close inside the game without navigation",
+    "Selection and both destinations glow; reduced motion keeps halos fixed; absent sensor leaves touch available",
+    "Four teams and mixed six-person roster; configuration survives count changes; landscape and portrait fit",
+    "Real v2 save migrates to v4 with pending results and original backup intact",
+    "Touch owns the held tray; sensor callbacks cannot launch until release",
+    "Tray tilts with native samples, freezes during pause; motion defaults ON and explicit OFF survives reload",
+    "Sensor gesture launches physics once, disabled during pause/roll; effects volume and active voices obey pause",
+    "New game during flight resets the yut and restores tray tilt before another throw",
+    "Sensor cannot throw during an AI turn",
+    "Touch selects a reserve pawn; camera approaches, moves sideways, then reveals action without consuming a result",
+    "Two-finger zoom keeps the pawn under its finger; releasing only the second finger does not drop; legal drag consumes one result",
+    "Invalid drop and pause preserve the result; accumulated results play in chosen order 4 then 2 then 5",
+    "Back-do is playable from reserve; reversing across the line adds a lap and returning does not finish",
+    "Action camera keeps distant-team destinations visible in landscape and portrait, including zoomed-out fog range",
+    "v3 storage migrates to v4 with pending order and untouched original backup",
+    "Automatic throw rises above six metres while all four sticks stay on screen"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "firstThrow": {
+    "version": "0.5.0",
+    "camera": {
+      "phase": "idle",
+      "zoom": 1,
+      "fog": {
+        "near": 29.745985461506457,
+        "far": 53.74598546150646
+      },
+      "position": [
+        4.99999999999998,
+        14.999999999999995,
+        12.999999999999982
+      ],
+      "target": [
+        4.99999999999998,
+        1.4000000000000359,
+        1.5999999999999965
+      ],
+      "dragging": false,
+      "candidate": null
+    },
+    "projectedPawns": [
+      {
+        "team": 0,
+        "piece": 0,
+        "x": 134.64946613026962,
+        "y": 335.28971280394614,
+        "position": [
+          -8.07,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 1,
+        "x": 156.45309401231933,
+        "y": 335.28971280394614,
+        "position": [
+          -7.29,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 2,
+        "x": 178.2567218943691,
+        "y": 335.28971280394614,
+        "position": [
+          -6.510000000000001,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 3,
+        "x": 200.0603497764189,
+        "y": 335.28971280394614,
+        "position": [
+          -5.73,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 0,
+        "x": 240.87226863256328,
+        "y": 335.28971280394614,
+        "position": [
+          -4.27,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 1,
+        "x": 262.67589651461293,
+        "y": 335.28971280394614,
+        "position": [
+          -3.49,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 2,
+        "x": 284.47952439666267,
+        "y": 335.28971280394614,
+        "position": [
+          -2.71,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 3,
+        "x": 306.28315227871246,
+        "y": 335.28971280394614,
+        "position": [
+          -1.9300000000000002,
+          0.15,
+          3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 0,
+        "x": 217.90933879989177,
+        "y": 188.03070211023444,
+        "position": [
+          -8.07,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 1,
+        "x": 234.74412959836803,
+        "y": 188.03070211023444,
+        "position": [
+          -7.29,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 2,
+        "x": 251.57892039684427,
+        "y": 188.03070211023444,
+        "position": [
+          -6.510000000000001,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 3,
+        "x": 268.4137111953206,
+        "y": 188.03070211023444,
+        "position": [
+          -5.73,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 0,
+        "x": 299.9249862796479,
+        "y": 188.03070211023444,
+        "position": [
+          -4.27,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 1,
+        "x": 316.75977707812416,
+        "y": 188.03070211023444,
+        "position": [
+          -3.49,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 2,
+        "x": 333.5945678766005,
+        "y": 188.03070211023444,
+        "position": [
+          -2.71,
+          0.15,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 3,
+        "x": 350.4293586750767,
+        "y": 188.03070211023444,
+        "position": [
+          -1.9300000000000002,
+          0.15,
+          -3.95
+        ]
+      }
+    ],
+    "projectedDestinations": [
+      {
+        "node": "O19",
+        "x": 209.7822047873384,
+        "y": 305.1070726364019
+      },
+      {
+        "node": "B5",
+        "x": 240.27686912329432,
+        "y": 288.07961245337833
+      }
+    ],
+    "lastThrow": {
+      "faces": [
+        true,
+        false,
+        false,
+        false
+      ],
+      "invalid": false,
+      "value": -1
+    },
+    "tray": {
+      "position": {
+        "x": 0,
+        "y": 0.7799999713897705,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      }
+    },
+    "projectedSticks": [
+      {
+        "x": -0.24959535048305218,
+        "y": -0.27226733143774434,
+        "z": 0.9915370363511222,
+        "height": -0.22061093151569366
+      },
+      {
+        "x": -0.2950576975052011,
+        "y": -0.4334906932058178,
+        "z": 0.9910362099125242,
+        "height": -0.25012221932411194
+      },
+      {
+        "x": -0.07706411523957045,
+        "y": 0.15420823445426668,
+        "z": 0.9921886861028028,
+        "height": 0.8595311045646667
+      },
+      {
+        "x": -0.018590665473131582,
+        "y": 0.2892109498232166,
+        "z": 0.9926600804397538,
+        "height": 0.8596085906028748
+      }
+    ],
+    "projectedTray": {
+      "x": 1.0562542565739721e-15,
+      "y": 0.010422880430625852
+    },
+    "trayGrab": false,
+    "state": {
+      "version": 4,
+      "teams": [
+        {
+          "players": [
+            {
+              "name": "Joueur 1",
+              "computer": false,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Cèdre 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Noir 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Sapin 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        }
+      ],
+      "turn": 0,
+      "phase": "move",
+      "pending": [
+        -1
+      ],
+      "turnNumber": 1,
+      "winner": null,
+      "captureReroll": false,
+      "last": "Back-do · −1"
+    },
+    "rolling": false,
+    "paused": false,
+    "motion": {
+      "available": false,
+      "enabled": false
+    },
+    "halos": [
+      {
+        "kind": "selection",
+        "angle": 0.06999999999999999,
+        "position": [
+          -8.07,
+          0.185,
+          3.95
+        ]
+      },
+      {
+        "kind": "destination",
+        "angle": 0.06999999999999999,
+        "position": [
+          -5.865247584249853,
+          0.185,
+          2.6629582456264296
+        ]
+      },
+      {
+        "kind": "destination",
+        "angle": 0.06999999999999999,
+        "position": [
+          -5.000000000000001,
+          0.185,
+          1.866666666666667
+        ]
+      }
+    ],
+    "audio": {
+      "effectsPlayed": 37,
+      "voices": 0,
+      "fxVolume": 0.6,
+      "loop": true,
+      "paused": false,
+      "currentTime": 9.697315,
+      "duration": 239.32805
+    },
+    "logs": [
+      "2026-10-24T08:35:40.997Z Three.js + Rapier WASM prêts.",
+      "2026-10-24T08:35:51.355Z Lancer : -1"
+    ]
+  },
+  "audio": {
+    "duration": 239.32805,
+    "loop": true,
+    "codec": "probably"
+  },
+  "result": "PASS"
+}

@@ -1,0 +1,37 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Android Debug, O=Max YutNori, C=FR
+Signer #1 certificate SHA-256 digest: 0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a
+Signer #1 certificate SHA-1 digest: 03fc8446393d85f6d3a8130beea8c1c609b6901c
+Signer #1 certificate MD5 digest: 9966f8cff5f66a8ad306df12208517de
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: af711988982a5b366206accde4e746086865eb97e6be2574ff1069c4ed5acb33
+Signer #1 public key SHA-1 digest: 5ca591e7668a0adecf62441de4cac50da9d7ee35
+Signer #1 public key MD5 digest: 0209095a470e8815f59c5f52aa828f3b
+package: name='fr.fab.maxyutnori' versionCode='6' versionName='0.5.0' platformBuildVersionName='16' platformBuildVersionCode='36' compileSdkVersion='36' compileSdkVersionCodename='16'
+sdkVersion:'26'
+targetSdkVersion:'36'
+uses-permission: name='android.permission.VIBRATE'
+application-label:'Max YutNori'
+application-icon-160:'res/drawable/ic_launcher.xml'
+application: label='Max YutNori' icon='res/drawable/ic_launcher.xml'
+application-debuggable
+launchable-activity: name='fr.fab.maxyutnori.MainActivity'  label='' icon=''
+feature-group: label=''
+  uses-gl-es: '0x30000'
+  uses-feature: name='android.hardware.faketouch'
+  uses-implied-feature: name='android.hardware.faketouch' reason='default feature for all apps'
+  uses-feature: name='android.hardware.screen.landscape'
+  uses-implied-feature: name='android.hardware.screen.landscape' reason='one or more activities have specified a landscape orientation'
+main
+supports-screens: 'small' 'normal' 'large' 'xlarge'
+supports-any-density: 'true'
+locales: '--_--'
+densities: '160'

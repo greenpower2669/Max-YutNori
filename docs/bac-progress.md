@@ -1,0 +1,13 @@
+# SDD ledger — plan: docs/plan-bac-v040.md
+
+22/10/2026 : reprise de la 0.3.0, autorisation de réalisation donnée. Plan local, exécution directe (executing-plans). Scripts du skill cloud indisponibles localement ; suivi équivalent consigné ici.
+Pré-vol : tâche 1 produit le corps/pose du bac consommé par scène et main (tâche 2), et le filtre d'inclinaison consommé par le pont Android (tâche 3). Résumé de faces calculé uniquement depuis le résultat physique et utilisé par HUD/sauvegarde. Interfaces communes définies dans le plan.
+Ruling: noir/cèdre rouge appliqués aux deux faces des yut — cohérent avec la demande de lecture du lancer et le HUD — coût si l'intention concernait les équipes : ajustement ultérieur de palette, aucune règle touchée.
+Ruling: nouvelle autorisation de Fab permet la réalisation de la proposition déjà présentée ; pas de nouveau cycle de validation documentaire.
+
+Tasks 1–3: implémentation complète ; npm test 32/32 et build Web passent. Tests table/hauteur/bac/calibration et résumé/géométrie observés rouges avant implémentation. Le premier essai à impulsion horizontale constante faisait passer un bâton au-dessus du rebord (y=1,94 m à z=5,82) ; direction désormais bornée par estimation balistique vers l'intérieur de la table, sans prédéterminer les faces. Ancien test 12 lancers et nouveaux tests verts. Smoke mobile/native injecté en cours.
+Ruling: tâches liées regroupées dans un commit d'intégration (même pose pour physique/rendu/capteur et HUD alimenté par résultat) — garde les interfaces cohérentes — coût : revue plus large.
+
+Revue finale indépendante : deux défauts P2 confirmés puis corrigés. Les collisions entre bâtonnets au départ pouvaient encore projeter un yut au-delà du rebord (LCG graine 10) : cible déplacée vers la zone libre centrale de la table pour garder une marge de retombée, sans correction des faces. 72 lancers déterministes (48 extrêmes et 24 normaux) restent sur des surfaces supportées. La nouvelle partie annule désormais la simulation en vol et remet bac/bâtonnets au repos ; test physique rouge puis vert et scénario navigateur ajouté. Suite finale 34/34 et build Web verts. Compilation Android et smoke final en cours. Revue : docs/revue-v040.md.
+
+Final : CI 39724824806 réussie, 34 tests et 16 scénarios, build/lint APK/AAB, signatures 0.3.0 conservées. Téléchargements bruts et SHA-256 vérifiés. Source 0155dc784e1583b1ffe4a2ee16c354d02e36b64f, binaire 8b1da4710fc4b4dd16b0a102e84d85bf0a5e4d26. Les cinq mémoires et PR sont actualisées pour la livraison de test ; validation Samsung demeure ouverte.

@@ -1,0 +1,31 @@
+{
+  "sourceCommit": "f012219b9bf356e4c1c0938729b9007ef49a2e38",
+  "artifactCommit": "95039cf53512f6fb358233ce6f0f8e4fd589079c",
+  "buildRun": "https://github.com/greenpower2669/Max-YutNori/actions/runs/39917902942",
+  "files": [
+    {
+      "filename": "Max-YutNori-v0.4.1-debug.apk",
+      "url": "https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.apk",
+      "httpStatus": 200,
+      "bytes": 7939321,
+      "sha256": "29126146aad9b1eacc08571060d2ccc74597b2417555b5ce906c3711eb747fcf",
+      "matchesPublishedSha256": true,
+      "originalMusic": true,
+      "launcherIcon": true,
+      "unityRuntime": false,
+      "zipIntegrity": "PASS"
+    },
+    {
+      "filename": "Max-YutNori-v0.4.1-debug.aab",
+      "url": "https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.4.1-debug.aab",
+      "httpStatus": 200,
+      "bytes": 7612736,
+      "sha256": "78ad6e188a8e53ab3b6f1e3a51cd49110e4f98f0106b5b486a814eb6e18222bb",
+      "matchesPublishedSha256": true,
+      "originalMusic": true,
+      "launcherIcon": true,
+      "unityRuntime": false,
+      "zipIntegrity": "PASS"
+    }
+  ]
+}
