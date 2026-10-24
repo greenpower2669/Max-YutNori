@@ -17,3 +17,8 @@ Le test réel à deux doigts reproduisait un pion sous le doigt mais une destina
 
 ## Seconde lecture ciblée
 Cadrage confirmé corrigé. Nouveau P2 : le brouillard fixe 26–50 masquait les pions lors d’un recul supérieur à 50. Sa plage suit désormais la distance de la caméra, avec une marge conservée autour du plateau. Régression navigateur sur le dézoom à deux doigts et la distance au brouillard ajoutée. Aucun autre défaut relevé.
+
+## Vérification finale
+CI [40078589575](https://github.com/greenpower2669/Max-YutNori/actions/runs/40078589575) réussie : 51/51 tests unitaires, 27/27 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `4a28e1c84ef76f628a85f12dae0b7f2c467d9bfe`, binaires/preuves `c37c719642b5e8b6bb14c40fb2a5ef4e054061f9`. Téléchargements HTTP 200, ZIP et SHA-256 contrôlés ; certificat APK v2 et certificat AAB extraits des fichiers téléchargés identiques à 0.4.1 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
+
+Les régressions tactiles et de cadrage sont également passées en navigateur. Le relecteur a confirmé la correction du brouillard après contrôle de la distance effective.
