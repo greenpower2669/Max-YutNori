@@ -1,3 +1,11 @@
+## Point de vérification 0.5.0 — 23/10/2026
+- [x] MYN-010 : tours v4, migration, ordre libre, réserves et lancers auto plus hauts.
+- [x] MYN-011 : toucher/glisser, caméra proche/latérale/recul/suivi et zoom second doigt.
+- [x] 51 tests unitaires, 20 scénarios historiques et 4 nouveaux scénarios tactiles vérifiés localement.
+- [x] Revue : cadrage et brouillard corrigés.
+- [ ] Scénarios complémentaires cadrage/migration/auto dans la suite finale.
+- [ ] CI, APK/AAB et téléchargements vérifiés. Dernier APK livré : 0.4.1.
+
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 - [ ] MYN-010 : tours v4, migration, gestes et lancers.
 - [ ] MYN-011 : caméra action et zoom second doigt.

@@ -14,9 +14,24 @@ test('pinch interrupts cinema, follows the pawn and clamps manual zoom',()=>{
  const shifted=origin.clone().add(new T.Vector3(1,0,1)),b=chase.frame(.1,shifted,1.8,false);
  assert.equal(chase.phase,'follow');assert.ok(b.target.distanceTo(shifted)<.01);assert.ok(b.position.clone().sub(a.position).distanceTo(new T.Vector3(1,0,1))<.01);
  chase.zoomBy(1e10);const close=chase.frame(.1,shifted,1.8,false);assert.ok(close.position.distanceTo(close.target)>=2.9);
- chase.zoomBy(1e-20);const far=chase.frame(.1,shifted,1.8,false);assert.ok(far.position.distanceTo(far.target)<=28);
+ chase.zoomBy(1e-20);const far=chase.frame(.1,shifted,1.8,false);assert.ok(far.position.distanceTo(far.target)<=60);
 });
 test('reduced animations skip the close-up and reset returns normal board control',()=>{
  const chase=new ChaseCamera();chase.select(origin,[]);const frame=chase.frame(.01,origin,1.8,true);
  assert.equal(chase.phase,'follow');assert.ok(frame.position.distanceTo(frame.target)>8);chase.reset();assert.equal(chase.frame(.1,origin,1.8,false),null);
+});
+
+test('action framing includes every reserve-to-destination route in landscape and portrait',async()=>{
+ const {createGame,recordThrow,legalMoves}=await import('../web/src/rules.mjs');const {pawnPosition,buildSelection}=await import('../web/src/board-layout.mjs');
+ for(const aspect of [2.5,.7])for(let team=0;team<4;team++)for(const result of [-1,1,5]){
+  const g=createGame({teamCount:4});g.turn=team;g.phase='move';g.pending=[result];const source=new T.Vector3(...pawnPosition(g,team,0));
+  const points=buildSelection(g,legalMoves(g).filter(m=>m.piece===0),0).destinations.map(p=>new T.Vector3(...p));
+  const chase=new ChaseCamera();chase.select(source,points);const pose=chase.frame(3,source,aspect,false);const camera=new T.PerspectiveCamera(42,aspect,.1,80);camera.position.copy(pose.position);camera.lookAt(pose.target);camera.updateMatrixWorld();
+  for(const point of points){const p=point.clone().project(camera);assert.ok(Math.abs(p.x)<.95&&Math.abs(p.y)<.95,`team ${team} result ${result} aspect ${aspect}: ${p.x},${p.y}`);}
+ }
+});
+
+test('drag follow remains a contraction even at close zoom after a distant view',()=>{
+ const chase=new ChaseCamera();chase.select(origin,[]);
+ for(const zoom of [.3,.5,1,1.8])for(const reference of [5,18,60]){chase.zoom=zoom;const gain=chase.dragGain(reference,1.8);assert.ok(gain>0);assert.ok(gain*reference/chase.followDistance(1.8)<.5,'camera displacement cannot outrun the finger correction');}
 });

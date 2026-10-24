@@ -19,9 +19,9 @@ export async function actionScenarios(page,ready,report){
  await page.waitForFunction(()=>window.maxYutDiagnostic().camera.dragging);
  const second={id:2,x:first.x+65,y:first.y-30};await send('touchStart',[first,second]);await send('touchMove',[first,{...second,x:second.x+65}]);
  await page.waitForFunction(()=>window.maxYutDiagnostic().camera.zoom<.8);await stable();await page.screenshot({path:'temp/native-action-pinch.png'});p=await pawn(2);assert.ok(Math.hypot(p.x-first.x,p.y-first.y)<3,'held pawn stays under the first finger during zoom');
- await send('touchMove',[first]);assert.equal((await diagnostic()).camera.dragging,true,JSON.stringify(await page.evaluate(()=>window.__pointers)));assert.deepEqual((await diagnostic()).state.pending,[4,5,2]);
+ await send('touchEnd',[{...second,x:second.x+65}]);assert.equal((await diagnostic()).camera.dragging,true,JSON.stringify(await page.evaluate(()=>window.__pointers)));assert.deepEqual((await diagnostic()).state.pending,[4,5,2]);
  let destination;
- for(let i=0;i<5;i++){destination=(await diagnostic()).projectedDestinations[0];first={...first,x:destination.x,y:destination.y};await send('touchMove',[first]);await page.evaluate(()=>new Promise(r=>requestAnimationFrame(r)));}
+ for(let i=0;i<5;i++){destination=(await diagnostic()).projectedDestinations[0];first={...first,x:destination.x,y:destination.y};await send('touchMove',[first]);await stable();}
  const beforeDrop=await diagnostic();assert.equal(beforeDrop.camera.candidate,'O4');await send('touchEnd',[]);
  const moved=await diagnostic();assert.equal(moved.state.teams[0].pieces[2].pos,'O4');assert.deepEqual(moved.state.pending,[5,2]);report.checks.push('Two-finger zoom keeps the pawn under its finger; releasing only the second finger does not drop; legal drag consumes one result');
  // Order can be changed after a move, and a cancelled or invalid drag does not spend it.
@@ -31,5 +31,22 @@ export async function actionScenarios(page,ready,report){
  await page.locator('#destinations button').first().click();assert.deepEqual((await diagnostic()).state.pending,[5]);assert.equal((await diagnostic()).state.teams[0].pieces[2].pos,'O6');report.checks.push('Invalid drop and pause preserve the result; accumulated results play in chosen order 4 then 2 then 5');
  const back=createGame({computers:[false,false]});back.phase='move';back.pending=[-1,1];await load(back);assert.equal(await page.getByText('Passer ce résultat',{exact:true}).count(),0);
  await page.locator('#destinations button').filter({hasText:'Case 19'}).click();let d=await diagnostic();assert.equal(d.state.teams[0].pieces[0].laps,2);await page.locator('#destinations button').filter({hasText:'Case 20'}).click();d=await diagnostic();assert.equal(d.state.teams[0].pieces[0].pos,'O20');assert.equal(d.state.teams[0].pieces[0].laps,1);report.checks.push('Back-do is playable from reserve; reversing across the line adds a lap and returning does not finish');
+ // Exercise the real OrbitControls limit as well as the camera's pure framing calculation.
+ const far=createGame({teams:Array.from({length:4},(_,i)=>({players:[{name:`Humain ${i+1}`,computer:false,level:2,aggression:50}]}))});far.turn=2;far.phase='move';far.pending=[1];
+ for(const viewport of [{width:1000,height:600},{width:412,height:915}]){await page.setViewportSize(viewport);await load(far);await page.locator('#pieces button').first().click();await page.waitForFunction(()=>window.maxYutDiagnostic().camera.phase==='follow');await stable();
+  const box=await page.locator('#scene').boundingBox();for(const p of (await diagnostic()).projectedDestinations)assert.ok(p.x>box.x&&p.x<box.x+box.width&&p.y>box.y&&p.y<box.y+box.height,'destination must remain in the actual canvas after OrbitControls');
+ }
+ // Zoom out with actual fingers: fog must not hide the newly framed game.
+ p=(await diagnostic()).projectedPawns.find(p=>p.team===2&&p.piece===0);first={id:1,x:p.x,y:p.y};const other={id:2,x:p.x+120,y:p.y};
+ await send('touchStart',[first]);await send('touchStart',[first,other]);await send('touchMove',[first,{...other,x:first.x+50}]);await page.waitForFunction(()=>window.maxYutDiagnostic().camera.zoom>1.5);await stable();
+ const farView=await diagnostic();const selected=farView.projectedPawns.find(p=>p.team===2&&p.piece===0);assert.ok(norm(selected.position,farView.camera.position)<farView.camera.fog.near,'zoomed-out pawn must remain outside the fog');await send('touchEnd',[]);
+ report.checks.push('Action camera keeps distant-team destinations visible in landscape and portrait, including zoomed-out fog range');
+ await page.setViewportSize({width:1000,height:600});
+ const legacy=createGame({computers:[false,false]});legacy.version=3;legacy.phase='move';legacy.pending=[4,2];for(const t of legacy.teams)for(const p of t.pieces)delete p.laps;
+ await page.evaluate(g=>{localStorage.removeItem('max-yutnori-native-v4');localStorage.setItem('max-yutnori-native-v3',JSON.stringify(g));},legacy);await page.reload();await ready();
+ d=await diagnostic();assert.equal(d.state.version,4);assert.deepEqual(d.state.pending,[4,2]);assert.equal(d.state.teams[0].pieces[0].laps,1);assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('max-yutnori-native-v3'))),legacy);
+ report.checks.push('v3 storage migrates to v4 with pending order and untouched original backup');
+ const automatic=createGame({computers:[false,false]});await load(automatic);await page.locator('#auto').check();await page.waitForFunction(()=>window.maxYutDiagnostic().projectedSticks.some(p=>p.height>6),{},{timeout:40000});
+ d=await diagnostic();assert.equal(d.rolling,true);assert.ok(d.projectedSticks.every(p=>Math.abs(p.x)<1&&Math.abs(p.y)<1),'higher automatic throw stays visible');await page.locator('#auto').uncheck();report.checks.push('Automatic throw rises above six metres while all four sticks stay on screen');
  await cdp.detach();
 }

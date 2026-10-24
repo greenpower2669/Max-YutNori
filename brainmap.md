@@ -1,3 +1,6 @@
+## Point de vérification 0.5.0 — 23/10/2026
+0.5.0 : chase-camera.mjs (séquence, cadrage, zoom, gain de suivi), pawn-input.js (propriété des pointeurs), scene.js (projection et brouillard adapté), rules.mjs/teams.mjs (laps), main.js (v4/UI/annulation). Tests ciblés scripts/smoke_action.mjs importés dans smoke_native.mjs. Revue docs/revue-v050.md.
+
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 Réalisation 0.5.0 : rules.mjs/teams.mjs, nouveaux chase-camera.mjs/pawn-input.js, scene.js/main.js, physics.mjs. Tests sous tests/ et scripts/smoke_native.mjs.
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.

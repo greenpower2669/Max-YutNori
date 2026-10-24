@@ -1,3 +1,6 @@
+## Point de vérification 0.5.0 — 23/10/2026
+0.5.0 intégrée : caméra action ON par défaut, option Confort pour la couper ; animations réduites sautent la cinématique. Glisser n’engage le moteur que sur un halo légal ; le deuxième doigt zoome et son relâchement conserve la prise. Le recul caméra cadre les destinations selon les deux dimensions et éloigne le brouillard. Sauvegarde v4 distincte, anciens v2/v3 conservés.
+
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 Contrat 0.5.0 : compteur individuel conservé dans les groupes, fin à zéro, capture remet à 1. Migration v4 sans effacer v2/v3. Toucher/glisser et caméra action douce ; animations réduites respectées.
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.

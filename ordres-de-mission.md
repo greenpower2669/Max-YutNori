@@ -1,3 +1,6 @@
+## Point de vérification 0.5.0 — 23/10/2026
+MYN-010/MYN-011 implémentées en 0.5.0/code6 : règles à tours individuels, gestes et caméra action. Tests et revue traités ; fabrication Android et livraison à vérifier. Aucune fusion main/Release.
+
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 MYN-010 : correction autorisée par « Ok, code » (tours, ordre libre, glisser, réserves, lancers auto). MYN-011 : caméra action proche/latérale/recul/suivi et zoom deuxième doigt. Version visée 0.5.0, non livrée.
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.

@@ -1,3 +1,6 @@
+## Point de vérification 0.5.0 — 23/10/2026
+MYN-D019 : revue caméra trouvait une limite OrbitControls18 incompatible avec recul28 et un cadrage portrait trop étroit ; calcul par champ minimal, limite action60, régression de projection rouge puis verte. MYN-D020 : brouillard26–50 rendait les pions invisibles après fort dézoom ; plage ajustée après controls.update, confirmation du relecteur. Glissement : gain borné selon rapport de distances pour empêcher la cible de se dérober ; scénario tactile réel désormais vert. Caractérisation CDP : touchEnd([second]) lève uniquement ce doigt, contrairement au commentaire généré du protocole. 36 lancers auto contrôlés : tous dans les limites, 32 lisibles, 4 relances légitimes.
+
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 MYN-D018 : Back-do depuis S sans déplacement déclenchait pass ; portage sans Turnleft/SaveTurns. Correction maintenant autorisée, régressions avant implémentation. Dossier temporaire nettoyé par environnement, reprise du commit distant 5ef3afd sans perte de code produit.
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
