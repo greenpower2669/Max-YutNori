@@ -1,3 +1,7 @@
+## Contrat suivant MYN-013 — précision Fab du 25/10/2026, non implémenté
+La table flotte volontairement dans le décor. Corriger uniquement les pions : au repos sur table/plateau/pile selon leur position ; dès sélection, soulèvement visible, dégagement du plateau avant translation depuis la réserve ; déplacement sous le doigt et descente sur destination. Un retour invalide/annulation conserve le résultat et évite toute traversée. Halos, ombres, labels et caméra doivent rester cohérents.
+Autres demandes : bandeaux haut/bas semi-transparents, vraie vue de dessus avec pinch in/out, effets localisés doux du panorama (eau, brume, nuages, lumières) et fresque agrandissable dans les règles. Aucun changement de règles demandé. Original de la fresque conservé sous docs/references/rules-fresco-25492.png ; pas encore embarqué. Prompt de reprise : docs/passation-2026-10-25.md. Passation documentaire uniquement ; 0.6.0 demeure la référence livrée.
+
 ## Livraison vérifiée 0.6.0/code7 — 25/10/2026
 Sens latéral du bol corrigé ; tous les pions et réserves de l’équipe active portent une lumière douce, sélection plus marquée. Bol soulevable au doigt, effacé après un résultat stabilisé, réapparu pour ranger les quatre yut avant le tour suivant ou une relance. Faces/résultats conservés, pause et nouvelle partie respectées. Titre transparent original, panorama 360° et décor bois avec cartes de gravure en creux, normales et rugosité.
 

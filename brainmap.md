@@ -1,3 +1,12 @@
+## Carte de reprise MYN-013 — 25/10/2026, sans modification produit
+Prompt complet : docs/passation-2026-10-25.md. Fresque originale/provenance : docs/references/rules-fresco-25492.png et README.md voisin.
+- Hauteurs : board-layout.mjs reservePosition/pawnPosition/buildSelection → scene.js maillages/labels/activeGlow/onPlane/frame → halos.js ; pawn-input.js et chase-camera.mjs à préserver. Y réserve=.15 identique plateau malgré support plus bas ; ne pas corriger sans trajectoire de levage/sélection/retour.
+- HUD : main.js fit() exclut actuellement header/controls de la surface du stage ; la semi-transparence exige une scène derrière et le maintien du cadrage/tactile.
+- Vue verticale : scene.js view/focus/frame/OrbitControls ; ajouter mode/zoom persistants sans écrasement par chase. Deux doigts avec et sans pion tenu.
+- Panorama : scene.background equirectangulaire et environnement PMREM, actuellement statiques ; prochains effets localisés à concevoir avec masques/coût/pause/qualité réduite.
+- Règles : intégrer plus tard la fresque et l'agrandissement, garder explication Do/Back-do avec bâton marqué.
+Clarification résolue : la table flottante est voulue. Aucun code de MYN-013 écrit.
+
 ## Référence active 0.6.0
 Plan docs/plan-ambience-v060.md ; revue docs/revue-v060.md. BowlCycle orchestre présentation et restitution des corps ; Physics garde les vrais résultats et collisions ; Main gère les transitions et annule le retour caméra périmé. Scene rend l’équipe active et charge les PNG locaux ; engravingMaps et engravedMaterial dérivent les cartes de matière. Smoke_ambience ajoute 7 scénarios aux 27 historiques.
 

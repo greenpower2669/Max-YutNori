@@ -1,3 +1,8 @@
+## MYN-D025 — Pions trop hauts ; précision de sélection — 25/10/2026, ouvert
+Fab confirme que le flottement signalé concerne les pions ; la table flottante est volontaire. Il demande de les poser plus bas au repos mais de les faire se soulever dès sélection depuis la réserve pour qu'ils ne traversent pas le plateau.
+Lecture source 0.6.0 : reservePosition et pawnPosition utilisent y=.15 ; dessous du corps local=.005, décor de table vers y=-.312, soit environ .47 unité d'écart sous une réserve. Cases du plateau autour de .1225 ; plan de glissement actuel y=.25, labels de réserve .09. Le décalage de hauteur est constaté dans les sources. La traversée après abaissement est un **risque anticipé par Fab**, pas un nouveau bug déjà reproduit après correction.
+Prévention à réaliser : hauteurs selon support ; montée avant translation, descente contrôlée ; traiter sélection simple, glissement, piles, annulation/retour, halos/ombres/labels et mode réduit. Aucun correctif ni test exécuté dans cette passation ; lié à MYN-013, détails docs/passation-2026-10-25.md.
+
 ## Validation finale 0.6.0 — MYN-D021 à MYN-D024
 CI [40168413538](https://github.com/greenpower2669/Max-YutNori/actions/runs/40168413538) réussie : 62/62 tests unitaires, 34/34 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `a5d12ed492e0ad0656184cb68ab977280ef15c48`, binaires/preuves `03b939304c60a7923f99d560c906015cd6782614`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés ; certificat APK v2 et certificat AAB extraits des vrais fichiers téléchargés identiques à 0.5.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Les trois PNG embarqués sont identiques aux originaux fournis par Fab.
 

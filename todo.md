@@ -1,3 +1,14 @@
+# Prochaine reprise — MYN-013 / passation du 25/10/2026
+- [x] Clarification Fab : les pions flottent ; la table flottante est volontaire, ne pas l'abaisser.
+- [x] Passation complète et fresque originale conservées : docs/passation-2026-10-25.md et docs/references/rules-fresco-25492.png.
+- [ ] Pions posés selon leur support ; soulèvement doux dès sélection, dégagement avant traversée réserve→plateau, descente et retour invalide sûrs ; piles/halos/labels cohérents.
+- [ ] Bandeaux haut/bas semi-transparents avec scène derrière, texte et touches lisibles.
+- [ ] Vue de dessus avec pinch in/out, sélection/glissement conservés et caméra action compatible.
+- [ ] Panorama animé par zones (eau/brume/nuages/lumières), pauses et animations réduites respectées.
+- [ ] Fresque dans les règles, agrandissement et explication textuelle dont distinction Do/Back-do.
+- [ ] À la reprise de réalisation : régressions, revue, build Web/Android et vrais APK/AAB vérifiés ; mêmes identité/icône/signature, sans merge main/Release.
+Aucune implémentation de MYN-013 dans cette intervention de passation. Version effectivement livrée : 0.6.0. Les cases anciennes sous Historique décrivent leurs dates, pas le travail encore ouvert aujourd'hui.
+
 # État de livraison 0.6.0 — 25/10/2026
 
 [APK 0.6.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.6.0-debug.apk) · [AAB de test 0.6.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.6.0-debug.aab).
