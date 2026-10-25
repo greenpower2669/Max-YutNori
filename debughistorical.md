@@ -1,3 +1,6 @@
+## Vérification fraîche 0.7.0 — gestes
+71 tests unitaires verts, build Web réussi. Le nouveau scénario tactile échouait après un zoom volontaire : la réserve projetée à y=464 passait derrière le bandeau inférieur (y=446). Cause du harnais confirmée par coordonnées et capture ; dézoomer avant de reprendre un autre pion, puis exiger une prise réellement sur canvas. Aucun clic compensatoire après dépôt invalide, aucun changement produit.
+
 ## MYN-D025 à MYN-D028 — 0.7.0 en cours
 D025 supports : base réserve .15 au-dessus de table −.312 ; correction −.31 et montée avant traversée. D026 : mot GLSL réservé patch provoquait fond noir ; renommé regionMask. D027 revue : lifted conservé après dépôt invalide/pointercancel, retour suspendu ; distinguer interruption et supprimer levage en fin de glissement. D028 revue : pile montant vers cible commune compressée ; conserver offsets d’origine. Régressions fraîches à vérifier après reconstitution du checkout nettoyé automatiquement ; ancienne livraison GitHub intacte.
 

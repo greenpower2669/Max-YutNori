@@ -1,5 +1,5 @@
 # MYN-013 en cours — 0.7.0/code8
-Toutes les demandes sont implémentées localement et deux défauts de revue traités ; code reconstitué après nettoyage du workspace. Réexécuter tests, smoke, CI et contrôles APK/AAB. Suivi docs/comfort-progress.md. Dernière version livrée 0.6.0.
+Toutes les demandes sont implémentées localement et deux défauts de revue traités ; code reconstitué après nettoyage du workspace. 71/71 tests unitaires, build Web et 7/7 nouveaux scénarios navigateur vérifiés. Lancer la suite complète en CI et contrôler les APK/AAB téléchargés. Suivi docs/comfort-progress.md. Dernière version livrée 0.6.0.
 
 # Prochaine reprise — MYN-013 / passation du 25/10/2026
 - [x] Clarification Fab : les pions flottent ; la table flottante est volontaire, ne pas l'abaisser.
