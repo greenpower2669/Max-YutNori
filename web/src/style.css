@@ -28,3 +28,15 @@ header{height:auto;min-height:78px;gap:12px;padding:6px 18px}#throwSummary{displ
 .team.current,.team:nth-child(2).current{box-shadow:inset 0 0 0 1px var(--team-color),0 0 16px color-mix(in srgb,var(--team-color) 40%,transparent);background:#203e34}
 @media(max-width:1000px){.brand img{width:190px;max-height:58px}}
 @media(max-width:700px){.brand img{width:148px;max-height:46px}}
+
+/* The world extends behind the panels; the camera keeps a safe playing frame. */
+header{background:linear-gradient(90deg,#18362ebd,#102b28b8);backdrop-filter:blur(5px)}
+#controls{z-index:3;background:#132e2bbd;backdrop-filter:blur(5px)}
+#stage{inset:0!important}#scene{position:absolute;inset:0;width:100%;height:100%}
+#scores{top:calc(var(--header-height,78px) + 14px)}
+#views{top:calc(var(--header-height,78px) + 14px);max-width:calc(100% - 300px);flex-wrap:wrap;justify-content:flex-end}
+#notice{bottom:calc(var(--controls-height,148px) + 8px)}
+.team.current,.team:nth-child(2).current{box-shadow:inset 0 0 0 1px var(--team-color),0 0 calc(6px + 18px * var(--team-pulse,.65)) color-mix(in srgb,var(--team-color) 65%,transparent)}
+.rules-fresco{margin:16px 0}.rules-fresco button{display:block;width:100%;padding:0;overflow:hidden}.rules-fresco img{display:block;width:100%;height:auto}.rules-fresco span{display:block;padding:10px;color:var(--gold);font-weight:700}.rules-fresco figcaption{font-size:14px;margin-top:6px}
+#fresco{width:min(1100px,96vw);max-width:96vw;height:88dvh;padding:16px}#fresco[open]{display:flex;flex-direction:column;gap:8px}#fresco p{margin:0;font-size:14px}.fresco-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.fresco-toolbar h1{font-size:20px;margin:0 auto 0 0}.fresco-toolbar button{margin:0}.fresco-toolbar output{min-width:54px;text-align:center}#frescoViewport{flex:1;min-height:80px;overflow:auto;touch-action:none;border-radius:8px;background:#091b18}#frescoImage{display:block;max-width:none;height:auto;user-select:none;-webkit-user-drag:none}
+@media(max-width:700px){#scores{top:calc(var(--header-height,78px) + 9px)}#views{top:calc(var(--header-height,78px) + 70px);max-width:calc(100% - 24px);flex-direction:row;justify-content:flex-start}#views button{padding:5px 7px;font-size:11px}#notice{bottom:calc(var(--controls-height,184px) + 4px)}#scene{top:0;height:100%}}

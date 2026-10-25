@@ -11,20 +11,20 @@ export class PawnInput {
  get active(){return this.primary!==null;}
  stop(e){e.stopImmediatePropagation();e.preventDefault();}
  down(e){if(e.button!==0)return;
-  if(!this.active){const pick=this.cb.pick(point(e));if(!pick||!this.cb.select(pick))return;this.primary=e.pointerId;this.start=point(e);this.dragged=false;this.cb.begin(point(e),pick);}
+  if(!this.active){const pick=this.cb.pick(point(e));this.viewOnly=!pick;if(this.viewOnly?!this.cb.allowView?.():!this.cb.select(pick))return;this.primary=e.pointerId;this.start=point(e);this.dragged=false;this.hadPinch=false;if(!this.viewOnly)this.cb.begin(point(e),pick);}
   else if(this.points.size>=2){this.stop(e);return;}
-  this.points.set(e.pointerId,point(e));this.canvas.setPointerCapture(e.pointerId);this.stop(e);
+  this.points.set(e.pointerId,point(e));if(this.points.size===2)this.hadPinch=true;this.canvas.setPointerCapture(e.pointerId);this.stop(e);
  }
  move(e){if(!this.points.has(e.pointerId))return;this.stop(e);const old=[...this.points.values()];this.points.set(e.pointerId,point(e));
   if(this.points.size===2){const now=[...this.points.values()],a=distance(...old),b=distance(...now);if(a>8&&b>8)this.cb.zoom(b/a);}
   if(e.pointerId===this.primary&&distance(this.start,point(e))>8)this.dragged=true;
-  if(this.dragged)this.cb.drag(this.points.get(this.primary));
+  if(this.dragged&&!this.viewOnly)this.cb.drag(this.points.get(this.primary));
  }
  up(e){if(!this.points.has(e.pointerId))return;this.stop(e);
   if(e.pointerId!==this.primary){this.points.delete(e.pointerId);this.release(e.pointerId);return;}
-  this.finish(point(e),!this.dragged);
+  if(this.viewOnly&&!this.dragged&&!this.hadPinch)this.cb.viewTap?.(point(e));this.finish(point(e),!this.dragged);
  }
  release(id){if(this.canvas.hasPointerCapture(id))this.canvas.releasePointerCapture(id);}
- finish(p,cancel){const ids=[...this.points.keys()];this.primary=null;this.points.clear();this.cb.end(p,cancel);for(const id of ids)this.release(id);}
- cancel(){if(this.active)this.finish(this.points.get(this.primary),true);}
+ finish(p,cancel,interrupted=false){const ids=[...this.points.keys()];this.primary=null;this.points.clear();if(!this.viewOnly)this.cb.end(p,cancel,interrupted);for(const id of ids)this.release(id);}
+ cancel(){if(this.active)this.finish(this.points.get(this.primary),true,true);}
 }

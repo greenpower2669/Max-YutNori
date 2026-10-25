@@ -1,0 +1,7 @@
+# Revue 0.7.0 — 25/10/2026
+Revue indépendante read-only par review_v070/Astra, première implémentation locale fae4a79..8e385c0. Aucun Critical ni Minor ; deux Important :
+1. Dépôt invalide/pointercancel : drag supprimé mais lifted conservé, pion restant suspendu. Le scénario cliquait Vue de dessus avant de vérifier, ce qui masquait le défaut. Retirer ce clic et distinguer tap/interruption ; effacer lifted pour glissement terminé et interruption.
+2. Pile non soulevée (IA/bouton destination direct) : montée indépendante vers même hauteur, espacement réduit à .132 au lieu de .21 après deux frames. Conserver offsets d'origine dans la hauteur de passage ; tester déplacement et retour capture.
+Points confirmés : identités/configuration de signature inchangées, fresque originale identique, séparation zoom vertical/chase, projection cohérente, profondeur et pause panorama.
+Limites de revue : confort/capteur/GPU Samsung, binaires finaux non fournis, balayage visuel exhaustif du panorama non réalisé ; suite navigateur gérée par l'agent principal. Ces éléments restent à vérifier ou expliciter.
+Après nettoyage automatique du workspace, code reconstitué et ces deux correctifs intégrés. Preuves finales à inscrire après exécution fraîche.

@@ -1,3 +1,6 @@
+## Réalisation MYN-013 — 0.7.0, non livrée
+Réserve −.31, plateau .126, pile .21 ; montée/déplacement/descente et offsets de pile préservés, annulation repose le pion. Vue verticale et pinch indépendants, HUD translucide sur décor, fresque originale agrandissable, panorama animé par zones. Pulsation équipe 2.8s douce et sélection plus forte ; fixe en mode réduit. Table flottante et règles inchangées.
+
 ## Contrat suivant MYN-013 — précision Fab du 25/10/2026, non implémenté
 La table flotte volontairement dans le décor. Corriger uniquement les pions : au repos sur table/plateau/pile selon leur position ; dès sélection, soulèvement visible, dégagement du plateau avant translation depuis la réserve ; déplacement sous le doigt et descente sur destination. Un retour invalide/annulation conserve le résultat et évite toute traversée. Halos, ombres, labels et caméra doivent rester cohérents.
 Autres demandes : bandeaux haut/bas semi-transparents, vraie vue de dessus avec pinch in/out, effets localisés doux du panorama (eau, brume, nuages, lumières) et fresque agrandissable dans les règles. Aucun changement de règles demandé. Original de la fresque conservé sous docs/references/rules-fresco-25492.png ; pas encore embarqué. Prompt de reprise : docs/passation-2026-10-25.md. Passation documentaire uniquement ; 0.6.0 demeure la référence livrée.

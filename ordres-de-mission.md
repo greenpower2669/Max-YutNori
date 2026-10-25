@@ -9,6 +9,9 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
+## MYN-013 — Réalisation autorisée 0.7.0
+25/10 : Fab autorise de coder toute la passation sur son Git, avec intensité variable quasi clignotante de l’équipe active. Pulsation douce annoncée ; mode réduit fixe. Plan docs/plan-comfort-v070.md. Reconstitution locale après nettoyage automatique, tests et livraison en cours ; dernière livraison 0.6.0.
+
 ## MYN-013 — HUD, vue de dessus, pions posés et panorama vivant — À réaliser
 25/10/2026 : Fab demande des bandeaux haut/bas semi-transparents, une vue de dessus avec pinch in/out, des pions posés sur leur support, des effets localisés dans le panorama (eau, brume des chutes, nuages, lumières) et la nouvelle fresque dans les règles. Précision explicite : **la table flottante est voulue et doit rester à sa place** ; les pions doivent se soulever dès la sélection, notamment depuis la réserve, pour passer au-dessus du plateau sans le traverser. Préserver le glissement sous le doigt, les piles, les destinations et le retour sûr en cas d'annulation.
 Fab demande ensuite une passation complète « on ne sait jamais ». Cette intervention sauvegarde la demande, les mémoires et la fresque ; aucun code produit ni nouveau build. Référence livrée : 0.6.0/code7. Prompt complet : docs/passation-2026-10-25.md. Fresque originale : docs/references/rules-fresco-25492.png. Ce point courant prévaut sur les statuts intermédiaires historiques ci-dessous.

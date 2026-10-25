@@ -1,3 +1,6 @@
+## MYN-D025 à MYN-D028 — 0.7.0 en cours
+D025 supports : base réserve .15 au-dessus de table −.312 ; correction −.31 et montée avant traversée. D026 : mot GLSL réservé patch provoquait fond noir ; renommé regionMask. D027 revue : lifted conservé après dépôt invalide/pointercancel, retour suspendu ; distinguer interruption et supprimer levage en fin de glissement. D028 revue : pile montant vers cible commune compressée ; conserver offsets d’origine. Régressions fraîches à vérifier après reconstitution du checkout nettoyé automatiquement ; ancienne livraison GitHub intacte.
+
 ## MYN-D025 — Pions trop hauts ; précision de sélection — 25/10/2026, ouvert
 Fab confirme que le flottement signalé concerne les pions ; la table flottante est volontaire. Il demande de les poser plus bas au repos mais de les faire se soulever dès sélection depuis la réserve pour qu'ils ne traversent pas le plateau.
 Lecture source 0.6.0 : reservePosition et pawnPosition utilisent y=.15 ; dessous du corps local=.005, décor de table vers y=-.312, soit environ .47 unité d'écart sous une réserve. Cases du plateau autour de .1225 ; plan de glissement actuel y=.25, labels de réserve .09. Le décalage de hauteur est constaté dans les sources. La traversée après abaissement est un **risque anticipé par Fab**, pas un nouveau bug déjà reproduit après correction.
