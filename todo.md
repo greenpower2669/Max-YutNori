@@ -1,3 +1,23 @@
+## Régression finale en cours
+Une nouvelle exécution complète a reproduit le retour du bol interrompu après un résultat sans relance. Régression unitaire ajoutée, neutralisation après disparition appliquée. Suite finale relancée ; aucune livraison 0.6.0 encore annoncée.
+
+## Vérification 0.6.0
+- [x] Revue indépendante : deux défauts importants identifiés et corrigés (docs/revue-v060.md).
+- [x] 61/61 tests unitaires, build Web ; première suite 33/33, suite finale enrichie en cours.
+- [ ] Suite finale puis CI APK/AAB/lint/signatures et vérification des téléchargements.
+
+## Point de travail 0.6.0
+- [x] Inclinaison, cycle bol et verrouillage, équipe lumineuse, art original et maps de gravure.
+- [x] 60 tests unitaires passent ; premier smoke ciblé a détecté la pause victoire trop tôt. Correction et suite navigateur en cours.
+- [ ] Revue, captures finales, CI et APK/AAB vérifiés.
+
+# Intervention 0.6.0 — 25/10/2026
+- [x] Lire missions/mémoires et confirmer HEAD distant 8009540, baseline 51/51.
+- [ ] Corriger l'inclinaison ; gérer disparition/rangement avant relance et fin de tour.
+- [ ] Équipe lumineuse ; images locales et gravure avec maps.
+- [ ] Régressions, captures, revue, CI Android et APK/AAB vérifiés.
+Plan docs/plan-ambience-v060.md. Dernière version livrée 0.5.0. Décor MYN-009 désormais autorisé ; les mentions historiques « reporté » ci-dessous décrivent les anciennes versions.
+
 # État de livraison 0.5.0 — 24/10/2026
 
 [APK 0.5.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.5.0-debug.apk) · [AAB de test 0.5.0](https://github.com/greenpower2669/Max-YutNori/raw/refs/heads/feature/native-webgl-v020/temp/Max-YutNori-v0.5.0-debug.aab).

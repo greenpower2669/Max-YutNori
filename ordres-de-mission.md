@@ -1,3 +1,23 @@
+# Ordres de mission — Max-YutNori
+
+## IMMUTABLE / À PRÉSERVER
+- Dépôt Android : `greenpower2669/Max-YutNori`. FabYut est la référence en lecture seule.
+- Mission MYN-001 conservée dans sa branche. Avenant MYN-005 autorise la refonte du moteur et des graphismes dans une nouvelle branche ; préserver la référence FabYut.
+- Aucune fusion vers `main` ni publication définitive sans accord explicite de Fab.
+- Livrer un `.apk` directement installable via GitHub, nommé projet/version, avec icône. Aucun ZIP à extraire sur le téléphone. Emplacement temporaire : `temp/` sur la branche de travail, alimenté par GitHub Actions.
+- Appareil de validation humaine : Samsung SM-A576B, Android 16.
+- Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
+- Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
+
+## Point 0.6.0 — revue traitée, vérification en cours
+Les deux cas limites (rangement au travers du rebord et retour caméra différé après coup rapide) sont corrigés localement avec régressions. 61 tests unitaires passent ; build Web réussi. Première suite navigateur complète 33/33 verte avant le dernier correctif caméra ; suite finale en cours. Dernier APK livré reste 0.5.0.
+
+
+MYN-012 / MYN-009 : implémentation 0.6.0 locale, inclinaison/cycle/équipe/images. Non livrée ; revue et compilation Android à venir.
+
+## 25/10/2026 — MYN-012 / MYN-009 autorisées, 0.6.0 en cours
+Fab signale le bol inversé en inclinant à gauche ; demande le sens naturel, l'équipe active lumineuse, le rangement en fin de tour, le bol soulevable puis invisible après lancer et réapparu au rangement. Fournit le titre transparent, le panorama (dit « 260 degrés », compris 360° et annoncé), le bois vu du dessus et exige des cartes de matière pour la gravure. Discussion sans coder respectée ; « Ok, code ça » autorise maintenant la réalisation. Levage au doigt retenu comme comportement existant, aucune demande confirmée de mesure absolue de hauteur par téléphone. MYN-009 réactivée par cette nouvelle demande d'intégration du décor. Plan docs/plan-ambience-v060.md. Dernière livraison vérifiée : 0.5.0 ; 0.6.0 non livrée.
+
 ### MYN-010/MYN-011 — Livrées, à valider sur Samsung
 Caméra action douce (proche, latérale, recul, suivi), zoom avec le second doigt, pions sélectionnables directement et glissables sur un halo légal, réserves espacées. Tours restants individuels rétablis, Back-do jouable au départ, aucun passage de résultat ; résultats accumulés jouables dans l’ordre voulu. Lancers auto/IA plus hauts. Les invalidités physiques proposent toujours une relance.
 
@@ -16,14 +36,6 @@ Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
 
 # Ordres de mission — Max-YutNori
 
-## IMMUTABLE / À PRÉSERVER
-- Dépôt Android : `greenpower2669/Max-YutNori`. FabYut est la référence en lecture seule.
-- Mission MYN-001 conservée dans sa branche. Avenant MYN-005 autorise la refonte du moteur et des graphismes dans une nouvelle branche ; préserver la référence FabYut.
-- Aucune fusion vers `main` ni publication définitive sans accord explicite de Fab.
-- Livrer un `.apk` directement installable via GitHub, nommé projet/version, avec icône. Aucun ZIP à extraire sur le téléphone. Emplacement temporaire : `temp/` sur la branche de travail, alimenté par GitHub Actions.
-- Appareil de validation humaine : Samsung SM-A576B, Android 16.
-- Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
-- Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 ## Missions
 ### MYN-010 — Règles de recul, choix des coups et manipulation des pions — Audit sans coder

@@ -17,3 +17,12 @@ export function woodTextures(){
  ctx.putImageData(a,0,0);nc.putImageData(n,0,0);rc.putImageData(r,0,0);
  const map=c=>{const t=new T.CanvasTexture(c);t.wrapS=t.wrapT=T.RepeatWrapping;return t;};const maps={map:map(color),normalMap:map(normal),roughnessMap:map(rough)};maps.map.colorSpace=T.SRGBColorSpace;return maps;
 }
+
+/** One UV projection shared by colour, recess, normals and roughness. */
+export async function engravedMaterial(url,renderer){
+ const {engravingMaps}=await import('./engraving.mjs');
+ const map=await new T.TextureLoader().loadAsync(url);map.colorSpace=T.SRGBColorSpace;map.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+ const c=document.createElement('canvas');c.width=1024;c.height=Math.round(c.width*map.image.height/map.image.width);const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(map.image,0,0,c.width,c.height);
+ const data=engravingMaps(ctx.getImageData(0,0,c.width,c.height).data,c.width,c.height),texture=rgba=>{const canvas=document.createElement('canvas');canvas.width=c.width;canvas.height=c.height;canvas.getContext('2d').putImageData(new ImageData(rgba,c.width,c.height),0,0);const t=new T.CanvasTexture(canvas);t.anisotropy=map.anisotropy;return t;};
+ return new T.MeshStandardMaterial({map,normalMap:texture(data.normal),normalScale:new T.Vector2(.55,.55),displacementMap:texture(data.height),displacementScale:.035,displacementBias:-.035,roughnessMap:texture(data.roughness),roughness:1,metalness:0});
+}

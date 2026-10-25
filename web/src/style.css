@@ -22,3 +22,9 @@ header{height:auto;min-height:78px;gap:12px;padding:6px 18px}#throwSummary{displ
 
 /* A material swatch identifies dark lacquer teams without dark HUD text. */
 .team strong::before{content:'';display:inline-block;width:.7em;height:.7em;margin-right:.35em;background:var(--pawn-color);border:1px solid var(--team-color);border-radius:50%;vertical-align:baseline}
+
+/* Original transparent title and a steady, readable active-team light. */
+.brand{flex-shrink:1;min-width:100px}.brand img{display:block;width:240px;max-width:100%;height:auto;max-height:68px;object-fit:contain}
+.team.current,.team:nth-child(2).current{box-shadow:inset 0 0 0 1px var(--team-color),0 0 16px color-mix(in srgb,var(--team-color) 40%,transparent);background:#203e34}
+@media(max-width:1000px){.brand img{width:190px;max-height:58px}}
+@media(max-width:700px){.brand img{width:148px;max-height:46px}}

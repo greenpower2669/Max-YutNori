@@ -8,6 +8,6 @@ export class TrayMotion {
   if(time-this.last>500)this.base=null;this.last=time;
   const angles=[Math.atan2(x,Math.hypot(y,z)),Math.atan2(y,Math.hypot(x,z))];this.base??=angles;
   const clean=v=>Math.abs(v)<.015?0:bound(v*.85,.28);
-  return {roll:clean(-(angles[0]-this.base[0])),pitch:clean(angles[1]-this.base[1])};
+  return {roll:clean(angles[0]-this.base[0]),pitch:clean(angles[1]-this.base[1])};
  }
 }

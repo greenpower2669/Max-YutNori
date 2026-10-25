@@ -6,6 +6,8 @@ with zipfile.ZipFile(apk) as z:
     assert 'assets/game/index.html' in names
     assert 'assets/game/audio/arirang.m4a' in names
     assert not any('/Build/' in n or n.endswith(('game.data','game.wasm','game.loader.js')) for n in names),'Unity build accidentally packaged'
+    for art in Path('web/public/art').glob('*.png'):
+        assert z.read('assets/game/art/'+art.name)==art.read_bytes(), 'Original art missing or changed: '+art.name
     scripts=[n for n in names if n.startswith('assets/game/assets/') and n.endswith('.js')]
     assert scripts
     code=b''.join(z.read(n) for n in scripts)

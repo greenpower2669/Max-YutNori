@@ -1,3 +1,15 @@
+## Bol invisible au repos
+Après disparition complète, le bol et son socle sont désactivés physiquement et le bol retrouve sa pose neutre. Cela termine aussi un retour interrompu par un lancer, sans déplacer les yut déjà figés.
+
+## Précisions 0.6.0 après revue
+Le rangement se dégage du bord avant montée/traversée/descente, avec marge pour toute la longueur des yut. Rotation pendant la traversée en hauteur. Un coup rapide annule le retour différé au plateau dès qu’il demande le rangement ; le bol reste cadré. La victoire attend le rangement terminé avant d’ouvrir le dialogue.
+
+## Réalisation locale 0.6.0
+BowlCycle sépare les phases ready/hiding/hidden/appearing/stowing des règles. Les yut dans le bol montent au-dessus du rebord puis rejoignent la table ; résultat sauvegardé inchangé. Corps cinématiques pendant présentation, collisions bol/socle désactivées lorsqu’ils disparaissent. Rangement avant tout nouveau lancer, y compris victoire avant dialogue. PNG originaux embarqués, surface bois au ratio 16:9 ; gravure dérivée du contraste local, pas une géométrie sculptée mesurée.
+
+## Contrat 0.6.0 autorisé, en cours — 25/10/2026
+MYN-012 : bol suit le sens latéral du téléphone ; levage tactile conservé. Après résultat stable, disparition et maintien du résultat ; réapparition/rangement avant chaque nouveau lancer (fin de tour, bonus, capture optionnelle, invalidité). Bloquer lancer/capteur pendant transition ; pause/reset sûrs. Équipe active : lueur permanente douce sur ses pions/réserves et HUD, sélection distincte. MYN-009 : intégrer images Fab titre/panorama/bois, matériau gravé en creux (hauteur/normale/rugosité). Moteur v4/caméra action/signature inchangés. 0.6.0/code7 prévue, non livrée.
+
 ## Livraison vérifiée 0.5.0/code6
 Caméra action douce (proche, latérale, recul, suivi), zoom avec le second doigt, pions sélectionnables directement et glissables sur un halo légal, réserves espacées. Tours restants individuels rétablis, Back-do jouable au départ, aucun passage de résultat ; résultats accumulés jouables dans l’ordre voulu. Lancers auto/IA plus hauts. Les invalidités physiques proposent toujours une relance.
 

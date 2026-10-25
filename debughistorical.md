@@ -1,3 +1,15 @@
+## MYN-D024 — Retour caché après lancer en descente
+Suite complète : ancienne régression du lancer automatique pendant une descente échoue lorsque le résultat impose un déplacement (donc aucun rangement immédiat). holdSticks bloque prepare et laisse le bac invisible suspendu avec returning=true. Test unitaire reproduit rouge ; correction : dockTray seulement une fois opacité zéro/collision désactivée. Aucun saut visible, corps/résultat préservés. Vérifications reprises.
+
+## MYN-D023 — Revue 0.6.0 : rebord et caméra
+Reproduction physique : arc fixe de rangement traverse le rebord pour départ proche x=-3.4. Test rouge puis vert avec dégagement extérieur, montée/traversée/descente et rotation en hauteur ; 61 tests unitaires verts. Reproduction navigateur rouge : graine 2, résultat Do joué immédiatement ; returnToBoard non annulé recadrait le plateau pendant le rangement. Annulation dans playMove appliquée, suite navigateur finale en cours. Test victoire déjà vert dans la première suite complète 33/33.
+
+## MYN-D021 confirmé / MYN-D022 transitions — 25/10/2026
+Test réel TrayMotion→Rapier gauche/droite rouge puis vert : le signe latéral moins inversait le bord abaissé. Capteur Android reste remappé ; validation matérielle Samsung attendue. BowlCycle : test de passage au-dessus du rebord rouge sur interpolation directe, corrigé par montée/traversée/descente. Smoke ciblé révèle dialogue victoire avant fin du rangement ; attente ready ajoutée, vérification navigateur en cours. 60 tests unitaires passent.
+
+## MYN-D021 — Sens latéral du bol, retour Samsung — 25/10/2026
+Fab observe une inclinaison opposée à gauche. Code 0.5.0 : Android remappe les axes selon rotation écran, puis TrayMotion applique un signe moins à l'angle latéral avant la rotation Z du bol. Hypothèse cohérente avec le retour, à reproduire sur rotation physique gauche/droite ; test matériel Samsung restera attendu. Aucun changement durant la discussion « ne code pas » ; réalisation maintenant autorisée. Base 51/51 tests verte.
+
 ## Validation finale MYN-010/MYN-011 — 24/10/2026
 CI [40078589575](https://github.com/greenpower2669/Max-YutNori/actions/runs/40078589575) réussie : 51/51 tests unitaires, 27/27 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `4a28e1c84ef76f628a85f12dae0b7f2c467d9bfe`, binaires/preuves `c37c719642b5e8b6bb14c40fb2a5ef4e054061f9`. Téléchargements HTTP 200, ZIP et SHA-256 contrôlés ; certificat APK v2 et certificat AAB extraits des fichiers téléchargés identiques à 0.4.1 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
 

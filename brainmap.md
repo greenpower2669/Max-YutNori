@@ -1,3 +1,15 @@
+## Retour invisible 0.6.0
+BowlCycle termine hiding par setTrayEnabled(false) puis dockTray : neutralise un retour interrompu, même sans relance. Test unitaire dédié + ancien scénario UI auto depuis un bol saisi.
+
+## Revue 0.6.0 et régressions
+BowlCycle.startStow calcule outside et clearance ; update stowing effectue dégagement/montée/traversée/descente. Main.playMove annule returnToBoard quand il demande le rangement. Tests/bowl-cycle.test.mjs vérifie proche/loin et sortie ; smoke_ambience.mjs joue un résultat physique déterministe immédiatement pour couvrir le minuteur caméra. docs/revue-v060.md garde les preuves et limites de revue.
+
+## Interfaces réalisées 0.6.0
+BowlCycle(physics) : settle/requestStow/update/reset/restoreResult, ready/phase/opacity. Physics : holdSticks/placeSticks/releaseSticks/setTrayEnabled/dockTray, garde de lancer tant que tenus/invisibles. main.js orchestre résultat→cycle et attend ready pour lancer/victoire ; pause ne fait aucun update. Scene charge art via loadArtwork, anneaux activeGlow, opacité et recompilation shader quand transparence change. engravingMaps -> buffers RGBA height/normal/roughness ; engravedMaterial crée textures Canvas et displacement ; couleur PNG d’origine. Smoke_ambience : assets/équipe/transitions/pause/reset/capteur/victoire.
+
+## Travail 0.6.0 — 25/10/2026
+Plan docs/plan-ambience-v060.md. tray-motion.mjs : signe latéral ; nouveau bowl-cycle.mjs : cycle résultat/disparition/rangement séparé des règles. physics.mjs : immobilisation et restitution des corps, collisions du bol/socle cohérentes avec visibilité. main.js : orchestration et verrouillage, scene.js : opacité/lumière/chargement art ; engraving.mjs et materials.js : cartes de matériau depuis dessin original. web/public/art : trois PNG fournis par Fab, sans changement. Tests ciblés puis smoke complet et workflow Android.
+
 ## Référence active 0.5.0
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md ; revue docs/revue-v050.md. rules.mjs/teams.mjs : compteurs laps et migration v4. chase-camera.mjs : séquence/cadrage/zoom/gain. pawn-input.js : propriété des doigts. scene.js : projections et brouillard adapté. main.js : sauvegarde et actions validées. scripts/smoke_action.mjs : sept nouveaux scénarios intégrés au smoke complet.
 
