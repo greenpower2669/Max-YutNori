@@ -14,6 +14,7 @@ export class LivingPanorama {
     void main(){direction=position;vec4 p=projectionMatrix*mat4(mat3(viewMatrix))*modelMatrix*vec4(position,1.);gl_Position=p.xyww;}`,
    fragmentShader:`uniform sampler2D picture;uniform sampler2D lowMistData;uniform float time;uniform float strength;varying vec3 direction;
     float regionMask(vec2 p,vec2 c,vec2 radius){vec2 q=abs(p-c);q.x=min(q.x,1.-q.x);return 1.-smoothstep(.45,1.,length(q/radius));}
+    float fallMask(vec2 p,vec2 c,vec2 radius,inout float nearest){vec2 q=abs(p-c);q.x=min(q.x,1.-q.x);float d=length(q/radius);nearest=min(nearest,d);return 1.-smoothstep(.45,1.,d);}
     vec3 sampleImage(vec2 uv){return texture2D(picture,vec2(fract(uv.x),clamp(uv.y,.001,.999))).rgb;}
     float randomCell(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
     void main(){
@@ -22,18 +23,21 @@ export class LivingPanorama {
      float water=max(regionMask(p,vec2(.52,.565),vec2(.27,.085)),regionMask(p,vec2(.745,.64),vec2(.11,.10)));
      water=max(water,regionMask(p,vec2(.30,.61),vec2(.095,.065)));
      water*=smoothstep(.0,.10,original.b-original.r*.55);
-     float falls=max(regionMask(p,vec2(.079,.719),vec2(.018,.090)),regionMask(p,vec2(.230,.717),vec2(.023,.066)));
-     falls=max(falls,regionMask(p,vec2(.294,.580),vec2(.014,.043)));
-     falls=max(falls,regionMask(p,vec2(.600,.746),vec2(.026,.067)));
-     falls=max(falls,regionMask(p,vec2(.822,.721),vec2(.026,.085)));
-     falls=max(falls,regionMask(p,vec2(.946,.728),vec2(.018,.070)));
+     float nearestFall=100.;
+     float falls=fallMask(p,vec2(.079,.719),vec2(.018,.090),nearestFall);
+     falls=max(falls,fallMask(p,vec2(.230,.717),vec2(.023,.066),nearestFall));
+     falls=max(falls,fallMask(p,vec2(.294,.580),vec2(.014,.043),nearestFall));
+     falls=max(falls,fallMask(p,vec2(.600,.746),vec2(.026,.067),nearestFall));
+     falls=max(falls,fallMask(p,vec2(.822,.721),vec2(.026,.085),nearestFall));
+     falls=max(falls,fallMask(p,vec2(.946,.728),vec2(.018,.070),nearestFall));
      float lowMistExclusion=falls;
+     vec4 regions=texture2D(lowMistData,p);
+     // Preserve the full 0.8.1 composite in approved waterfall regions.
+     water=mix(water,regions.a,smoothstep(1.,1.20,nearestFall));
      falls*=smoothstep(.12,.38,max(original.b,original.g));
      float mist=max(falls*.8,regionMask(p,vec2(.53,.73),vec2(.24,.055)));
      mist=max(mist,regionMask(p,vec2(.21,.79),vec2(.17,.045)));
-     float clouds=smoothstep(.015,.06,p.y)*(1.-smoothstep(.30,.40,p.y));
-     clouds*=1.-regionMask(p,vec2(.725,.32),vec2(.055,.075));
-     clouds*=smoothstep(.07,.3,max(original.r,original.g));
+     float clouds=regions.b;
      vec2 offset=vec2(sin(p.y*240.+time*1.6)*.0038,sin(p.x*260.-time*2.1)*.0017)*water;
      offset+=vec2(sin(p.y*180.-time*3.2)*.0012,sin(time*3.8-p.y*220.)*.0033)*falls;
      offset.x+=(sin(time*.12+p.y*18.)*.005+sin(time*.07)*.003)*clouds;
@@ -56,14 +60,15 @@ export class LivingPanorama {
      color*=1.+lamps*(.22*sin(time*1.3+p.x*97.)+.08*sin(time*.57))*strength;
      // Independent low clouds over valleys/lake. Keep the approved waterfall
      // treatment above unchanged, including its spray and the whole fall region.
-     if(strength>0. && p.y>.49 && p.y<.83 && lowMistExclusion<=0.){
-      float valleyMask=texture2D(lowMistData,p).g;
-      if(valleyMask>.002){
+     if(strength>0. && lowMistExclusion<=0.){
+      float valleyMask=regions.g;
+      if(max(valleyMask,clouds)>.002){
        float first=texture2D(lowMistData,p*vec2(3.,7.)-vec2(time*.004,0.)).r;
        float second=texture2D(lowMistData,p*vec2(5.,11.)+vec2(time*.002,time*.0004)).r;
        float density=smoothstep(.28,.68,first*.65+second*.35);
        float alpha=valleyMask*density*.18*strength;
        color=mix(color,vec3(.62,.72,.76),alpha);
+       color=mix(color,vec3(.67,.73,.76),clouds*density*.10*strength);
       }
      }
      gl_FragColor=vec4(color,1.);

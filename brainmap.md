@@ -1,3 +1,10 @@
+## Carte MYN-016 — travail en cours
+
+
+MYN-016 : scripts/fixtures/panorama-v081-{reference.js,noise.mjs} figent les sources 0.8.1 seulement pour QA ; verifier compare deux temps/six cœurs. 14 sondes isolent séparément G/B/A ; le diagnostic des masques est exporté. La carte statique atténue la brume avant les régions de chutes pour éviter une découpe visible.
+
+web/src/panorama-zones.mjs (à créer) : contours en coordonnées du panorama original ; low-mist.mjs : bruit R et masques G/B/A brume/ciel/eau préparés une fois ; living-panorama.js : utilisation des masques, six régions des chutes préservées par calcul de référence. Plan docs/plan-panorama-zones-v082.md.
+
 ## Livraison vérifiée 0.8.1 — MYN-015
 
 CI [40288471190](https://github.com/greenpower2669/Max-YutNori/actions/runs/40288471190) réussie : 73/73 tests unitaires et 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Pixels réels : nappes visibles/mobiles en qualité normale/légère, six cœurs de cascades identiques avec/sans nouvelle couche, un dessin et 64 Kio, mode réduit fixe. Revue indépendante favorable. Source `adf0c9f75d914016cae9b2ba3aedc6662f3fd78c`, binaires `fa1871f945b0c093f7580ce3c761078b836352ec`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.

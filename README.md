@@ -1,3 +1,7 @@
+# 0.8.2 en préparation — régions du panorama affinées
+
+MYN-016 : nappes de brume et nuages du ciel selon le repérage de Fab ; eau tracée autour des îlots/rives. 76 tests et comparaisons de pixels locaux passent ; revue/CI/livraison à venir. Dernière livraison vérifiée : 0.8.1 ci-dessous.
+
 # Max YutNori — version de test 0.8.1
 
 [APK 0.8.1 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/fa1871f945b0c093f7580ce3c761078b836352ec/temp/Max-YutNori-v0.8.1-debug.apk) · [AAB de test 0.8.1](https://github.com/greenpower2669/Max-YutNori/raw/fa1871f945b0c093f7580ce3c761078b836352ec/temp/Max-YutNori-v0.8.1-debug.aab).

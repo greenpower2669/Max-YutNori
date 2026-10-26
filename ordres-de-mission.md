@@ -9,6 +9,10 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
+## MYN-016 — Repérage violet, turquoise, jaune — En cours — 26/10/2026
+
+Fab valide la livraison précédente et demande avec son image annotée 25651.jpg : étendre la méthode à la totalité des nappes repérées en violet, inclure les nuages turquoise, mieux délimiter l’eau jaune. Préserver les effets approuvés des chutes/embruns. Méthode légère existante retenue ; plan docs/plan-panorama-zones-v082.md, cible 0.8.2/code11, dernière livraison vérifiée 0.8.1.
+
 ## MYN-015 — Livrée, à valider sur Samsung — 26/10/2026
 
 Nuages bas indépendants dans les vallées et au-dessus du lac : deux défilements doux de densité, masque statique, opacité maximale 18 %. Les calculs des cascades/embruns validés par Fab restent inchangés ; leur région géométrique complète est exclue du nouveau voile. Texture périodique 128×128 RGBA (64 Kio) préparée une fois, une seule passe de panorama, aucun objet/particule supplémentaire ni transfert/recréation de texture par frame. Pause et animations réduites respectées ; qualité légère conserve les nappes. HUD, vues, caméra, pions, musique Arisongs, règles, sauvegarde v4, identité fr.fab.maxyutnori, icône et signature de test conservés.

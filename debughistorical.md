@@ -1,3 +1,12 @@
+## MYN-D034 — repérage utilisateur des régions
+
+MYN-D035 : raccord d’eau relevé par la revue, fondu extérieur corrigé ; même sonde GPU isolée rouge→vert et suite finale verte. Revue traitée ; CI complète/paquets à vérifier.
+
+
+MYN-D034 : régression GPU identifiée sur l’îlot x1005/y490 : masque texel nul mais interpolation de voisins aquatiques. Exclusion des îlots avec marge de rive 3–9 px avant téléversement ; test réel rouge→vert, contribution nulle. 76 tests et 14 régions réelles verts, six cœurs égaux à 0.8.1.
+
+Fab valide 0.8.1 et fournit 25651.jpg : extension aux nappes violettes et nuages turquoise, eau jaune mieux délimitée. Cause des limites actuelles observée dans le code : trois ellipses pour la brume/eau et bande de ciel large. Remplacer par une cartographie statique suivant l’image ; préserver la contribution antérieure dans les six régions des chutes. Vérifications à faire, aucun résultat nouveau revendiqué.
+
 ## Validation finale 0.8.1 — MYN-D033
 
 CI [40288471190](https://github.com/greenpower2669/Max-YutNori/actions/runs/40288471190) réussie : 73/73 tests unitaires et 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Pixels réels : nappes visibles/mobiles en qualité normale/légère, six cœurs de cascades identiques avec/sans nouvelle couche, un dessin et 64 Kio, mode réduit fixe. Revue indépendante favorable. Source `adf0c9f75d914016cae9b2ba3aedc6662f3fd78c`, binaires `fa1871f945b0c093f7580ce3c761078b836352ec`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.

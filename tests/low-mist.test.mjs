@@ -6,8 +6,8 @@ const maskAt=(texture,u,v)=>{const {data,width,height}=texture.image;return data
 test('low clouds use one small static periodic texture restricted to the valleys',()=>{
  const p=new LivingPanorama(new T.Texture()),map=p.uniforms.lowMistData?.value;
  assert.ok(map,'the independent low-cloud density texture must exist');
- assert.ok(map.image.data.byteLength<=65536,'fog density stays within 64 KiB');
- assert.ok(maskAt(map,.50,.63)>100,'lake valleys receive low clouds');
+ assert.ok(map.image.data.byteLength<=131072,'all four packed channels stay within 128 KiB');
+ assert.ok(maskAt(map,1050/1536,636/768)>100,'foreground valleys receive low clouds');
  assert.equal(maskAt(map,.50,.20),0,'sky remains outside the low-cloud layer');
  assert.equal(maskAt(map,.50,.95),0,'foreground remains outside the low-cloud layer');
  assert.equal(map.wrapS,T.RepeatWrapping);assert.equal(map.wrapT,T.RepeatWrapping);

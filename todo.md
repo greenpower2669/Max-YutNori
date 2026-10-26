@@ -1,3 +1,13 @@
+# MYN-016 — 0.8.2 en cours
+
+MYN-D035 : raccord d’eau relevé par la revue, fondu extérieur corrigé ; même sonde GPU isolée rouge→vert et suite finale verte. Revue traitée ; CI complète/paquets à vérifier.
+
+
+État local MYN-016 : 76 tests et pixels réels verts, référence 0.8.1 des six chutes identique ; revue/CI/livraison à faire. Suivi docs/panorama-zones-progress.md.
+
+- [ ] Cartographie précise violet/turquoise/jaune ; tests, pixels, revue, CI et livraison.
+Dernière livraison vérifiée : 0.8.1. Plan : docs/plan-panorama-zones-v082.md.
+
 # État courant 0.8.1/code10 — MYN-015 livrée pour test
 
 [APK 0.8.1 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/fa1871f945b0c093f7580ce3c761078b836352ec/temp/Max-YutNori-v0.8.1-debug.apk) · [AAB de test 0.8.1](https://github.com/greenpower2669/Max-YutNori/raw/fa1871f945b0c093f7580ce3c761078b836352ec/temp/Max-YutNori-v0.8.1-debug.aab).

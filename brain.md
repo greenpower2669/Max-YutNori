@@ -1,3 +1,10 @@
+## Contrat MYN-016 — repérage du panorama
+
+
+Réalisation locale MYN-016 : masque RGBA 128 Kio partagé par vallées/ciel/eau, rive conservatrice et îlots exclus ; contribution 0.8.1 entière préservée dans les chutes. Non livré ; 76 tests et pixels verts.
+
+Étendre la brume à toutes les nappes violettes, animer les nuages turquoise et suivre les surfaces d’eau jaunes avec exclusions des îlots/rives. Garder les chutes/embruns validés et le jeu. Réutiliser une carte statique et la passe existante ; 128 Kio proposés pour le tracé. Non livré ; référence 0.8.1.
+
 ## Contrat courant 0.8.1/code10 — MYN-015 livrée, à valider
 
 Nuages bas indépendants dans les vallées et au-dessus du lac : deux défilements doux de densité, masque statique, opacité maximale 18 %. Les calculs des cascades/embruns validés par Fab restent inchangés ; leur région géométrique complète est exclue du nouveau voile. Texture périodique 128×128 RGBA (64 Kio) préparée une fois, une seule passe de panorama, aucun objet/particule supplémentaire ni transfert/recréation de texture par frame. Pause et animations réduites respectées ; qualité légère conserve les nappes. HUD, vues, caméra, pions, musique Arisongs, règles, sauvegarde v4, identité fr.fab.maxyutnori, icône et signature de test conservés.
