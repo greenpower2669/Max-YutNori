@@ -1,3 +1,10 @@
+# MYN-015 — Nuages bas 0.8.1 en cours
+- [x] Clarification, autorisation et référence 4e282d6 lues ; chutes actuelles validées à préserver.
+- [x] Texture fixe64Kio, nappes basses séparées et dérive ; une passe, six cœurs de cascades pixel-identiques, mode réduit fixe.
+- [x] 73 tests,7parcours confort, build, pixels et revue indépendante favorables.
+- [ ] CI complète, APK/AAB et téléchargements/signatures.
+Dernière livraison vérifiée : 0.8.0. Plan docs/plan-low-mist-v081.md.
+
 # État courant 0.8.0/code9 — MYN-014 livrée pour test
 
 [APK 0.8.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3/temp/Max-YutNori-v0.8.0-debug.apk) · [AAB de test 0.8.0](https://github.com/greenpower2669/Max-YutNori/raw/79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3/temp/Max-YutNori-v0.8.0-debug.aab).

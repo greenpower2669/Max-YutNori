@@ -9,6 +9,9 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
+## MYN-015 — Nuages bas distincts des chutes — Autorisée, en cours — 26/10/2026
+Fab demande des animations à faible coût pour les nuages bas. Clarification explicite : ne pas les confondre avec l'effet de fumée/particules des chutes d'eau, que Fab juge parfait et veut conserver. Phase « ne code pas » respectée ; après localisation des nappes dans les vallées/îlots au-dessus du lac, Fab autorise « Ok code là-dessus ». Dérive lente, nappes qui s'étirent et se fondent ; préserver les chutes existantes, le reste du jeu et les invariants. Plan docs/plan-low-mist-v081.md ; version visée 0.8.1/code10, dernière livraison vérifiée 0.8.0.
+
 ## MYN-014 — Livrée, à valider sur Samsung — 26/10/2026
 
 Bandeaux et fiches plus compacts/transparents, espace central accru et cadrage rapproché. Équipes 1–2 à gauche et 3–4 à droite (interprétation annoncée de la dictée ; à 2 équipes, une de chaque côté). Bouton Vue unique avant musique ; quatre commandes réexécutables, même Plateau pendant un suivi, libellé synchronisé aux changements automatiques. Pions élargis horizontalement, symboles plus lisibles et pointage 28 px ; joueur actif avec deux couleurs pulsées et mention « À TOI DE JOUER ». Panorama sans pointillés de couture, eau/chutes/brume/nuages/lumières/embruns animés. MP3 Arisongs de 36 minutes embarqué en boucle, aucune récupération depuis le téléphone. Table flottante, fresque agrandissable, règles, gestes, sauvegarde v4, identité fr.fab.maxyutnori, icône et signature de test conservés.

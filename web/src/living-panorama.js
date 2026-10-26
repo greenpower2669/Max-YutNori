@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {createLowMistTexture} from './low-mist.mjs';
 // Animate local regions of Fab's original image; keep the supplied PNG unchanged.
 export class LivingPanorama {
  constructor(texture){
@@ -6,12 +7,12 @@ export class LivingPanorama {
   // selected the image average and drew a dotted golden diagonal. Linear
   // background sampling avoids that false mip level; PMREM lighting is separate.
   texture.generateMipmaps=false;texture.minFilter=T.LinearFilter;texture.wrapS=T.RepeatWrapping;texture.needsUpdate=true;
-  this.uniforms={picture:{value:texture},time:{value:0},strength:{value:1}};
+  this.uniforms={picture:{value:texture},lowMistData:{value:createLowMistTexture()},time:{value:0},strength:{value:1}};
   this.mesh=new T.Mesh(new T.SphereGeometry(1,48,24),new T.ShaderMaterial({
    uniforms:this.uniforms,side:T.BackSide,depthWrite:false,depthTest:false,
    vertexShader:`varying vec3 direction;
     void main(){direction=position;vec4 p=projectionMatrix*mat4(mat3(viewMatrix))*modelMatrix*vec4(position,1.);gl_Position=p.xyww;}`,
-   fragmentShader:`uniform sampler2D picture;uniform float time;uniform float strength;varying vec3 direction;
+   fragmentShader:`uniform sampler2D picture;uniform sampler2D lowMistData;uniform float time;uniform float strength;varying vec3 direction;
     float regionMask(vec2 p,vec2 c,vec2 radius){vec2 q=abs(p-c);q.x=min(q.x,1.-q.x);return 1.-smoothstep(.45,1.,length(q/radius));}
     vec3 sampleImage(vec2 uv){return texture2D(picture,vec2(fract(uv.x),clamp(uv.y,.001,.999))).rgb;}
     float randomCell(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
@@ -26,6 +27,7 @@ export class LivingPanorama {
      falls=max(falls,regionMask(p,vec2(.600,.746),vec2(.026,.067)));
      falls=max(falls,regionMask(p,vec2(.822,.721),vec2(.026,.085)));
      falls=max(falls,regionMask(p,vec2(.946,.728),vec2(.018,.070)));
+     float lowMistExclusion=falls;
      falls*=smoothstep(.12,.38,max(original.b,original.g));
      float mist=max(falls*.8,regionMask(p,vec2(.53,.73),vec2(.24,.055)));
      mist=max(mist,regionMask(p,vec2(.21,.79),vec2(.17,.045)));
@@ -52,6 +54,18 @@ export class LivingPanorama {
      lamps=max(lamps,regionMask(p,vec2(.15,.40),vec2(.055,.09)));
      lamps*=smoothstep(.03,.15,original.r)*smoothstep(.01,.12,original.r-original.b);
      color*=1.+lamps*(.22*sin(time*1.3+p.x*97.)+.08*sin(time*.57))*strength;
+     // Independent low clouds over valleys/lake. Keep the approved waterfall
+     // treatment above unchanged, including its spray and the whole fall region.
+     if(strength>0. && p.y>.49 && p.y<.83 && lowMistExclusion<=0.){
+      float valleyMask=texture2D(lowMistData,p).g;
+      if(valleyMask>.002){
+       float first=texture2D(lowMistData,p*vec2(3.,7.)-vec2(time*.004,0.)).r;
+       float second=texture2D(lowMistData,p*vec2(5.,11.)+vec2(time*.002,time*.0004)).r;
+       float density=smoothstep(.28,.68,first*.65+second*.35);
+       float alpha=valleyMask*density*.18*strength;
+       color=mix(color,vec3(.62,.72,.76),alpha);
+      }
+     }
      gl_FragColor=vec4(color,1.);
      #include <tonemapping_fragment>
      #include <colorspace_fragment>
@@ -60,5 +74,5 @@ export class LivingPanorama {
   this.mesh.rotation.y=-Math.PI*.3;this.mesh.frustumCulled=false;this.mesh.renderOrder=-1000;
  }
  frame(dt,reduced,low){if(!reduced)this.uniforms.time.value+=Math.max(0,dt);this.uniforms.strength.value=reduced?0:low?.7:1;}
- diagnostic(){return {time:this.uniforms.time.value,strength:this.uniforms.strength.value,zones:['water','waterfalls','mist','clouds','lamps','spray']};}
+ diagnostic(){return {time:this.uniforms.time.value,strength:this.uniforms.strength.value,lowClouds:{layers:2,textureBytes:this.uniforms.lowMistData.value.image.data.byteLength},zones:['water','waterfalls','mist','clouds','lamps','spray','low-clouds']};}
 }

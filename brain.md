@@ -1,3 +1,6 @@
+## Contrat MYN-015 — Nuages bas, réalisation 0.8.1
+Animer séparément les nuages bas des vallées et du lac. Fab valide les chutes/embruns actuels : les préserver. Texture préparée une fois et advection douce dans le panorama, faible travail CPU ; pause et animations réduites respectées. Aucun autre changement de comportement.
+
 ## Contrat courant 0.8.0/code9 — livré, à valider sur Samsung
 
 Bandeaux et fiches plus compacts/transparents, espace central accru et cadrage rapproché. Équipes 1–2 à gauche et 3–4 à droite (interprétation annoncée de la dictée ; à 2 équipes, une de chaque côté). Bouton Vue unique avant musique ; quatre commandes réexécutables, même Plateau pendant un suivi, libellé synchronisé aux changements automatiques. Pions élargis horizontalement, symboles plus lisibles et pointage 28 px ; joueur actif avec deux couleurs pulsées et mention « À TOI DE JOUER ». Panorama sans pointillés de couture, eau/chutes/brume/nuages/lumières/embruns animés. MP3 Arisongs de 36 minutes embarqué en boucle, aucune récupération depuis le téléphone. Table flottante, fresque agrandissable, règles, gestes, sauvegarde v4, identité fr.fab.maxyutnori, icône et signature de test conservés.

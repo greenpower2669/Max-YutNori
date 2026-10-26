@@ -1,3 +1,9 @@
+# Max YutNori — 0.8.1 en vérification
+
+Nuages bas animés dans les vallées et au-dessus du lac, séparés des cascades/embruns validés par Fab. Texture fixe64Kio et une passe de panorama ; données et calculs de densité préparés une fois. Dernière livraison vérifiée :0.8.0 ; CI0.8.1 en préparation.
+
+## Dernière livraison0.8.0 conservée
+
 # Max YutNori — version de test 0.8.0
 
 Jeu 3D en français sans Unity : Three.js/WebGL2 et Rapier/WebAssembly, Android hors ligne. Branche feature/native-webgl-v020, PR brouillon #2.

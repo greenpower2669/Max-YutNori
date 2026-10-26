@@ -24,6 +24,22 @@ try{
   await page.evaluate(([u,v])=>window.panoramaProbe.aim(u,v),[u,v]);result[name]=await page.evaluate(()=>window.panoramaProbe.compare());await page.screenshot({path:resolve(output,'native-panorama-'+name+'.png')});
   if(name!=='seam')assert.ok(result[name].meanDelta>.15,name+' must visibly change actual rendered pixels');
  }
+ // Isolate only the new low-cloud layer using a zero-density copy of its
+ // static map in this test fixture, without adding hooks to product classes.
+ await page.evaluate(()=>window.panoramaProbe.aim(.50,.63));
+ result.lowClouds=await page.evaluate(()=>window.panoramaProbe.lowCloudCompare());
+ assert.ok(result.lowClouds.contribution>.5,'independent low clouds must be visible over the lake valleys');
+ assert.ok(result.lowClouds.advection>.2,'the low-cloud layer must drift, not merely reuse old waterfall animation');
+ assert.equal(result.lowClouds.drawCalls,1,'low clouds must keep the existing single panorama draw');
+ assert.ok(result.lowClouds.textureBytes<=65536,'low-cloud density remains within 64 KiB');
+ result.lowCloudsLight=await page.evaluate(()=>window.panoramaProbe.lowCloudCompare(false,true));
+ assert.ok(result.lowCloudsLight.contribution>.2&&result.lowCloudsLight.advection>.1);
+ for(const time of [0,12]){await page.evaluate(t=>window.panoramaProbe.showTime(t),time);await page.screenshot({path:resolve(output,'native-low-clouds-'+time+'.png')});}
+ result.preservedWaterfalls=[];
+ for(const [u,v]of [[.079,.719],[.230,.717],[.294,.580],[.600,.746],[.822,.721],[.946,.728]]){
+  await page.evaluate(([u,v])=>window.panoramaProbe.aim(u,v),[u,v]);const sample=await page.evaluate(()=>window.panoramaProbe.lowCloudCompare(true));
+  assert.equal(sample.contribution,0,'the new low clouds must leave waterfall/spray cores pixel-identical');result.preservedWaterfalls.push({u,v,...sample});
+ }
  result.reducedStill=await page.evaluate(()=>window.panoramaProbe.still());assert.equal(result.reducedStill,true);assert.deepEqual(errors,[]);
- await writeFile(resolve(output,'native-panorama-animation.json'),JSON.stringify(result,null,2)+'\n');console.log('PASS: real panorama pixels move in five regions; reduced animation is identical');
+ await writeFile(resolve(output,'native-panorama-animation.json'),JSON.stringify(result,null,2)+'\n');console.log('PASS: panorama and low clouds move; six waterfall cores unchanged, one draw, 64 KiB; reduced mode identical');
 }finally{await browser?.close();server?.close();await rm(scratch,{recursive:true,force:true});}

@@ -1,3 +1,9 @@
+## MYN-D033 — Vérification de séparation
+Deux régressions unitaires rouges puis vertes : densité fixe, mémoire64Kio, ciel/avant-plan exclus, aucun transfert/recréation par frame. Rendu réel : nappes nouvelles visibles et mobiles, y compris qualité légère ; cœurs des six cascades exactement identiques avec/sans nouvelle couche, mode réduit immobile. Une erreur de la fixture a été corrigée : Texture.clone partage Source ; la copie de masque témoin utilise maintenant sa propre DataTexture, sans muter la source réelle. Aucun changement produit pour contourner ce défaut de test.
+
+## MYN-D033 — Nuages bas et embruns à distinguer
+Fab confirme que les effets actuels des chutes lui conviennent. Sa demande de brume vise les nappes horizontales basses entre reliefs/îlots et au-dessus du lac, pas un remplacement des embruns. Aucun défaut des chutes à corriger. Régression visuelle à exiger : leur cœur reste identique avec/sans le nouveau voile, alors que les nappes basses se déplacent.
+
 ## Validation finale 0.8.0 — D030/D031/D032
 
 Pointillés isolés/corrigés par filtrage, vrai menu natif rappelant Plateau rouge→vert. Budget mural du renderer logiciel adapté à la limite physique inchangée de 12 s simulées ; la CI finale confirme toutes les assertions.

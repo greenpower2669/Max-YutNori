@@ -1,3 +1,6 @@
+## Carte MYN-015 — 0.8.1 en cours
+low-mist.mjs prépare une densité/masque périodiques ; living-panorama.js les défile en une passe existante, dans les vallées hors cascades. Vérification réelle via fixture panorama et tests de texture/lifecycle ; CI et vérificateur de livraison 0.8.1 à produire.
+
 ## Livraison vérifiée 0.8.0 — MYN-014
 
 CI [40259390198](https://github.com/greenpower2669/Max-YutNori/actions/runs/40259390198) réussie : 71/71 tests unitaires, 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; cinq zones du panorama vérifiées sur leurs pixels réels et mode réduit identique. Compilation APK/AAB et lint Android réussis. Source `7ab9f8761c56bc899242a234b24a406e0e17d909`, binaires `79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône/PNG et MP3 vérifiés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.7.0.
