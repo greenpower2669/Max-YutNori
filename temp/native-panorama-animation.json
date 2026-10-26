@@ -1,39 +1,39 @@
 {
   "water": {
-    "meanDelta": 7.901282242063492,
-    "changedFraction": 0.4926860119047619
+    "meanDelta": 11.433559027777777,
+    "changedFraction": 0.38976934523809526
   },
   "waterfall": {
-    "meanDelta": 2.0600049603174604,
-    "changedFraction": 0.18918154761904762
+    "meanDelta": 1.9970907738095238,
+    "changedFraction": 0.13835565476190476
   },
   "mist": {
-    "meanDelta": 12.639124503968254,
-    "changedFraction": 0.5837053571428571
+    "meanDelta": 19.69610615079365,
+    "changedFraction": 0.7901041666666667
   },
   "clouds": {
-    "meanDelta": 0.43187996031746034,
-    "changedFraction": 0.032819940476190475
+    "meanDelta": 2.8290376984126984,
+    "changedFraction": 0.19277529761904763
   },
   "lamps": {
-    "meanDelta": 1.0576785714285715,
-    "changedFraction": 0.1072470238095238
+    "meanDelta": 1.4849280753968255,
+    "changedFraction": 0.17584077380952381
   },
   "seam": {
-    "meanDelta": 0.6142733134920635,
-    "changedFraction": 0.040877976190476194
+    "meanDelta": 0.5118948412698413,
+    "changedFraction": 0.02955357142857143
   },
   "lowClouds": {
-    "contribution": 39.79372767857143,
-    "advection": 4.901927083333334,
+    "contribution": 9.730354662698412,
+    "advection": 1.6205034722222222,
     "drawCalls": 1,
-    "textureBytes": 65536
+    "textureBytes": 131072
   },
   "lowCloudsLight": {
-    "contribution": 30.31969246031746,
-    "advection": 3.7653968253968255,
+    "contribution": 7.201158234126984,
+    "advection": 1.2431026785714285,
     "drawCalls": 1,
-    "textureBytes": 65536
+    "textureBytes": 131072
   },
   "preservedWaterfalls": [
     {
@@ -42,7 +42,11 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     },
     {
       "u": 0.23,
@@ -50,7 +54,11 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     },
     {
       "u": 0.294,
@@ -58,7 +66,11 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     },
     {
       "u": 0.6,
@@ -66,7 +78,11 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     },
     {
       "u": 0.822,
@@ -74,7 +90,11 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     },
     {
       "u": 0.946,
@@ -82,8 +102,172 @@
       "contribution": 0,
       "advection": 0,
       "drawCalls": 1,
-      "textureBytes": 65536
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
     }
   ],
+  "annotatedRegions": [
+    {
+      "name": "valley-left",
+      "x": 32,
+      "y": 345,
+      "channel": 1,
+      "active": true,
+      "contribution": 33.083333333333336,
+      "advection": 2.8919270833333335,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-back",
+      "x": 810,
+      "y": 360,
+      "channel": 1,
+      "active": true,
+      "contribution": 31.934895833333332,
+      "advection": 5.5390625,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-front",
+      "x": 350,
+      "y": 644,
+      "channel": 1,
+      "active": true,
+      "contribution": 43.986979166666664,
+      "advection": 9.227864583333334,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-right",
+      "x": 1200,
+      "y": 645,
+      "channel": 1,
+      "active": true,
+      "contribution": 55.958333333333336,
+      "advection": 4.39453125,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-left",
+      "x": 180,
+      "y": 268,
+      "channel": 2,
+      "active": true,
+      "contribution": 25.9765625,
+      "advection": 27.533854166666668,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-middle",
+      "x": 520,
+      "y": 240,
+      "channel": 2,
+      "active": true,
+      "contribution": 31.095052083333332,
+      "advection": 4.239583333333333,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-right",
+      "x": 1410,
+      "y": 220,
+      "channel": 2,
+      "active": true,
+      "contribution": 70.48828125,
+      "advection": 48.544270833333336,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "water-main",
+      "x": 1110,
+      "y": 475,
+      "channel": 3,
+      "active": true,
+      "contribution": 7.515625,
+      "advection": 3.20703125,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "water-channel",
+      "x": 605,
+      "y": 401,
+      "channel": 3,
+      "active": true,
+      "contribution": 74.01692708333333,
+      "advection": 46.303385416666664,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "island-right",
+      "x": 1200,
+      "y": 445,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "islet",
+      "x": 1005,
+      "y": 490,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "shore",
+      "x": 920,
+      "y": 560,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "moon",
+      "x": 1110,
+      "y": 250,
+      "channel": 2,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "stars",
+      "x": 780,
+      "y": 135,
+      "channel": 2,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    }
+  ],
+  "waterfallBoundary": {
+    "at0": 0.3333333333333333,
+    "at12": 0.2708333333333333
+  },
   "reducedStill": true
 }

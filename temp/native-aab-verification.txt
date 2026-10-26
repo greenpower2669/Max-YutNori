@@ -18,7 +18,7 @@ This JAR file contains internal inconsistencies that may result in different con
 - Entry base/assets/game/art/moonlit-panorama.png is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/art/rules-fresco.png is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/assets/engraving-CCB1Hyut.js is signed in JarFile but is not signed in JarInputStream
-- Entry base/assets/game/assets/index-VuveBFuL.js is signed in JarFile but is not signed in JarInputStream
+- Entry base/assets/game/assets/index-BcT5Curj.js is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/assets/index-fb0T_NU8.css is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/audio/README.md is signed in JarFile but is not signed in JarInputStream
 - Entry base/assets/game/audio/arirang.m4a is signed in JarFile but is not signed in JarInputStream
