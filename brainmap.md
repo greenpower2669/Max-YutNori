@@ -1,3 +1,6 @@
+## Marge des commandes 0.7.0
+main.fit inclut aussi le bas réel de #views + 8px dans safeInsets.top ; réserve projetée hors boutons en vue verticale. Tests navigateur sur trois formats, même matrice pour dessin et pointage.
+
 ## Carte 0.7.0 en cours
 pawn-motion.mjs advancePawn/stackOffsets : hauteur de passage et offsets de groupe ; comfort.mjs : TopView/teamPulse ; living-panorama.js : sphère shader et horloge ; fresco.js : zoom/pan. Scene partage projection étendue rendu/raycast ; PawnInput possède aussi les gestes du fond en vue verticale. Main renseigne les marges par ResizeObserver et la pulsation HUD.
 

@@ -1,3 +1,6 @@
+## MYN-D029 — Réserves derrière les vues
+Capture vue verticale par défaut : deux réserves hautes sont derrière les boutons. Assertion elementFromPoint sur les 16 réserves reproduite rouge en 1000×600. Cause : marge supérieure desktop limitée au bandeau, sans la rangée de vues. fit mesure maintenant le bas réel de cette rangée plus 8px, projection/raycast communs conservés ; régression étendue à 844×390 et 390×844. Vérification locale fraîche : 71 tests unitaires, build Web et 7 parcours confort verts, dont les trois formats et tous les retours/piles. CI finale à produire.
+
 ## Vérification fraîche 0.7.0 — gestes
 71 tests unitaires verts, build Web réussi. Le nouveau scénario tactile échouait après un zoom volontaire : la réserve projetée à y=464 passait derrière le bandeau inférieur (y=446). Cause du harnais confirmée par coordonnées et capture ; dézoomer avant de reprendre un autre pion, puis exiger une prise réellement sur canvas. Aucun clic compensatoire après dépôt invalide, aucun changement produit.
 

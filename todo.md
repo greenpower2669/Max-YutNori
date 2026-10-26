@@ -1,3 +1,6 @@
+## Dernier contrôle de cadrage
+MYN-D029 reproduit rouge : réserves hautes derrière les commandes de vue. Marge corrigée ; 7/7 parcours confort aux trois formats passent. La CI intermédiaire 40220650889 a réussi ; lancer la CI finale incluant cette marge avant livraison.
+
 # MYN-013 en cours — 0.7.0/code8
 Toutes les demandes sont implémentées localement et deux défauts de revue traités ; code reconstitué après nettoyage du workspace. 71/71 tests unitaires, build Web et 7/7 nouveaux scénarios navigateur vérifiés. Lancer la suite complète en CI et contrôler les APK/AAB téléchargés. Suivi docs/comfort-progress.md. Dernière version livrée 0.6.0.
 

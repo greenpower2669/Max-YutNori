@@ -8,3 +8,7 @@ Décisions : hardware Samsung reste à Fab ; signatures des nouveaux paquets con
 Checkpoint distant faadbc251d3ab87b769b57065c99ebd50b857890 confirmé. 71 tests unitaires et build frais passent ; deux régressions rouges vérifiées avant rétablissement. Smoke confort en cours : préparation du geste corrigée pour dézoomer avant prise en réserve, qui était cachée par le HUD après le zoom précédent.
 
 Vérification fraîche locale : 71/71 tests unitaires, build Web et 7/7 scénarios confort passent, erreurs JS et requêtes externes vides. Annulation/retour et pile directe couverts sans réparation par changement de vue. Prochain geste : suite complète en CI et compilation Android, puis contrôle des vrais téléchargements.
+
+Suite CI intermédiaire 40220650889 lancée sur a4545cb. Contrôle visuel supplémentaire : D029 réserves sous boutons en vue verticale, assertion rouge puis marge de projection corrigée ; nouvelle validation nécessaire.
+
+26/10 : D029 corrigé et vérifié localement, 71 unitaires/build Web/7 scénarios confort verts, réserves accessibles aux formats 1000×600, 844×390 et 390×844. CI intermédiaire 40220650889 réussie (source a4545cb), binaires 2cc6e4dec0f0fc15e000334ce9bcd9c1d58e473f. La marge de cadrage doit encore être incluse dans la CI finale ; ne pas livrer le paquet intermédiaire.
