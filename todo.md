@@ -1,3 +1,11 @@
+# MYN-018 — 26 octobre 2026 — codage autorisé, CI à vérifier
+
+Demande explicite de Fab : « Ok code tout toi même ». Images de référence : 25663.jpg (24 traces roses des cascades), 25651.jpg (violet = brume vallée, vert turquoise = nuages du ciel, jaune = lac à préserver). **Ondulation du lac 0.8.3 absolument gelée** ; anciens mousse/embruns conservés. Ne pas confondre pluie de particules des cascades et nuages bas.
+
+Branche unique : feature/native-webgl-v020, PR #2. Implémentation code : dc8c69d (24 trajectoires + cinq bandes violettes + sept bandes vertes), préparation 0.8.4/code13 et tests b2f9224. Atlas statique RGBA 512×256 (512 Kio) séparé de l'ancien RGBA 256×128 (128 Kio), aucune modification de la carte d'eau existante, aucune texture/particule uploadée par frame ; une seule passe du panorama, une lecture supplémentaire d'atlas par fragment. Le shader court-circuite les nouveaux effets sur le masque eau (regions.a). Les six anciennes ellipses et formules foam/spray, refraction lac, ripples et vérification matière source/destination restent intactes. Image originale, icône, musique, HUD, pions, règles et sauvegarde intacts.
+
+QA introduite : 24 masques individuels, 5 bandes basses, 7 bandes de ciel, exclusion disque lunaire, contrats d'expressions du shader eau et mode réduit. CI GitHub v0.8.4 : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189 ; **ne pas déclarer réussie avant résultat**, puis confirmer APK/AAB, signatures et téléchargement. Contrôle esthétique/FPS matériel Samsung SM-A576B Android 16 toujours non réalisé ; ne jamais annoncer couverture visuelle exhaustive sans validation de Fab. Aucun merge main/Release finale.
+
 # État courant 0.8.3/code12 — MYN-017 livrée pour test
 
 [APK 0.8.3 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.apk) · [AAB de test 0.8.3](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.aab).
