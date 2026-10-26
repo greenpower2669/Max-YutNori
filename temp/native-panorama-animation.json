@@ -1,27 +1,89 @@
 {
   "water": {
-    "meanDelta": 8.201034226190476,
-    "changedFraction": 0.4076636904761905
+    "meanDelta": 7.901282242063492,
+    "changedFraction": 0.4926860119047619
   },
   "waterfall": {
-    "meanDelta": 1.964813988095238,
-    "changedFraction": 0.13376488095238095
+    "meanDelta": 2.0600049603174604,
+    "changedFraction": 0.18918154761904762
   },
   "mist": {
-    "meanDelta": 12.885342261904762,
-    "changedFraction": 0.5321651785714285
+    "meanDelta": 12.639124503968254,
+    "changedFraction": 0.5837053571428571
   },
   "clouds": {
-    "meanDelta": 0.4318923611111111,
+    "meanDelta": 0.43187996031746034,
     "changedFraction": 0.032819940476190475
   },
   "lamps": {
-    "meanDelta": 1.057559523809524,
+    "meanDelta": 1.0576785714285715,
     "changedFraction": 0.1072470238095238
   },
   "seam": {
-    "meanDelta": 0.5118948412698413,
-    "changedFraction": 0.02955357142857143
+    "meanDelta": 0.6142733134920635,
+    "changedFraction": 0.040877976190476194
   },
+  "lowClouds": {
+    "contribution": 39.79372767857143,
+    "advection": 4.901927083333334,
+    "drawCalls": 1,
+    "textureBytes": 65536
+  },
+  "lowCloudsLight": {
+    "contribution": 30.31969246031746,
+    "advection": 3.7653968253968255,
+    "drawCalls": 1,
+    "textureBytes": 65536
+  },
+  "preservedWaterfalls": [
+    {
+      "u": 0.079,
+      "v": 0.719,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    },
+    {
+      "u": 0.23,
+      "v": 0.717,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    },
+    {
+      "u": 0.294,
+      "v": 0.58,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    },
+    {
+      "u": 0.6,
+      "v": 0.746,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    },
+    {
+      "u": 0.822,
+      "v": 0.721,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    },
+    {
+      "u": 0.946,
+      "v": 0.728,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 65536
+    }
+  ],
   "reducedStill": true
 }
