@@ -8,7 +8,7 @@ CI [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/4037
 
 ## Historique — 0.8.3 et versions antérieures
 
- — MYN-017 livrée, à valider
+### Contrat archivé : 0.8.3/code12 — MYN-017 livrée, à valider
 
 MYN-017 corrige la déformation des arbres signalée sur 25656.jpg : eau autorisée au pixel courant ET au prélèvement déplacé, exclusion des cimes et clapot réduit. Supprimer l’héritage de masque d’eau autour des chutes. Le ciel conserve l’advection de densité avec géométrie fixe ; les calculs de mousse/embruns et la brume sont conservés. L’ancienne égalité complète du composite 0.8.1 ne s’applique plus lorsqu’elle conserve la déformation fautive. Image originale, jeu, HUD/vues/pions, musique, sauvegarde, identité Android, icône et signature conservés.
 

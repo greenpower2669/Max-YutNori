@@ -17,7 +17,7 @@ SHA-256 APK : `47ba5e113dd1c4ab6ba780fe1d839f4813de9d32fa4922bb7c19be9dbc117d6f`
 
 ## Historique — états antérieurs (0.8.3 et avant)
 
- — MYN-017 livrée pour test
+### État archivé : 0.8.3/code12 — MYN-017 livrée pour test
 
 [APK 0.8.3 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.apk) · [AAB de test 0.8.3](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.aab).
 
