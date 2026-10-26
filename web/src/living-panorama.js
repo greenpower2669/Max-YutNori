@@ -1,5 +1,6 @@
 import * as T from 'three';
 import {createLowMistTexture} from './low-mist.mjs';
+import {createAnnotatedTexture,FALL_PATHS} from './annotated-zones.mjs';
 // Animate local regions of Fab's original image; keep the supplied PNG unchanged.
 export class LivingPanorama {
  constructor(texture){
@@ -7,12 +8,12 @@ export class LivingPanorama {
   // selected the image average and drew a dotted golden diagonal. Linear
   // background sampling avoids that false mip level; PMREM lighting is separate.
   texture.generateMipmaps=false;texture.minFilter=T.LinearFilter;texture.wrapS=T.RepeatWrapping;texture.needsUpdate=true;
-  this.uniforms={picture:{value:texture},lowMistData:{value:createLowMistTexture()},time:{value:0},strength:{value:1}};
+  this.uniforms={picture:{value:texture},lowMistData:{value:createLowMistTexture()},annotatedData:{value:createAnnotatedTexture()},time:{value:0},strength:{value:1}};
   this.mesh=new T.Mesh(new T.SphereGeometry(1,48,24),new T.ShaderMaterial({
    uniforms:this.uniforms,side:T.BackSide,depthWrite:false,depthTest:false,
    vertexShader:`varying vec3 direction;
     void main(){direction=position;vec4 p=projectionMatrix*mat4(mat3(viewMatrix))*modelMatrix*vec4(position,1.);gl_Position=p.xyww;}`,
-   fragmentShader:`uniform sampler2D picture;uniform sampler2D lowMistData;uniform float time;uniform float strength;varying vec3 direction;
+   fragmentShader:`uniform sampler2D picture;uniform sampler2D lowMistData;uniform sampler2D annotatedData;uniform float time;uniform float strength;varying vec3 direction;
     float regionMask(vec2 p,vec2 c,vec2 radius){vec2 q=abs(p-c);q.x=min(q.x,1.-q.x);return 1.-smoothstep(.45,1.,length(q/radius));}
     float lakeColor(vec3 c){return max(step(.025,c.b-c.g)*step(.035,c.b),step(.60,min(c.r,c.g))*step(.45,c.b));}
     float fallColor(vec3 c){return step(.20,min(c.r,min(c.g,c.b)))*step(c.r*.97,c.b)*step(c.g*.97,c.b);}
@@ -32,6 +33,13 @@ export class LivingPanorama {
      float water=step(.98,regions.a)*lakeColor(original);
      falls*=smoothstep(.12,.38,max(original.b,original.g));
      float movingFalls=falls*fallColor(original);
+     // Independently trace 24 pink cascades without modifying the six old effects.
+     vec4 annotation=texture2D(annotatedData,p);
+     float dry=1.-step(.005,regions.a);
+     float newFallMask=annotation.r*dry*(1.-step(.005,lowMistExclusion));
+     float newFalls=newFallMask*smoothstep(.075,.23,min(original.g,original.b))
+       *smoothstep(-.025,.055,original.b-original.r);
+     movingFalls=max(movingFalls,newFalls);
      float mist=max(falls*.8,regionMask(p,vec2(.53,.73),vec2(.24,.055)));
      mist=max(mist,regionMask(p,vec2(.21,.79),vec2(.17,.045)));
      float clouds=regions.b;
@@ -47,6 +55,7 @@ export class LivingPanorama {
      }
      float foam=.5+.5*sin(p.y*620.-time*9.+sin(p.x*480.+time));
      color+=vec3(.075,.11,.13)*falls*foam*strength;
+     color+=vec3(.035,.052,.060)*newFalls*(.5+.5*sin(p.y*650.-time*8.+p.x*43.))*strength;
      float ripples=sin(p.y*900.+sin(p.x*100.-time*1.8)*2.+time*4.);
      color+=vec3(.018,.035,.045)*ripples*water*strength;
      float breath=.5+.5*sin(time*.6+p.x*55.+sin(p.y*40.-time*.4));
@@ -71,6 +80,13 @@ export class LivingPanorama {
        float alpha=valleyMask*density*.18*strength;
        color=mix(color,vec3(.62,.72,.76),alpha);
        color=mix(color,vec3(.67,.73,.76),clouds*density*.10*strength);
+       // Extra atmosphere stays outside lake pixels; original lake ripples
+       // and their existing low-cloud contribution are identical to 0.8.3.
+       float advected=clamp(density*.6+(.5+(first-second)*1.5)*.4,0.,1.);
+       float extraValley=max(annotation.g,valleyMask*.45)*(1.-annotation.r)*dry;
+       color=mix(color,vec3(.62,.72,.76),extraValley*(.035+.15*advected)*strength);
+       float extraSky=max(annotation.b,clouds*.40);
+       color=mix(color,vec3(.67,.73,.76),extraSky*(.025+.105*advected)*strength);
       }
      }
      gl_FragColor=vec4(color,1.);
@@ -81,5 +97,5 @@ export class LivingPanorama {
   this.mesh.rotation.y=-Math.PI*.3;this.mesh.frustumCulled=false;this.mesh.renderOrder=-1000;
  }
  frame(dt,reduced,low){if(!reduced)this.uniforms.time.value+=Math.max(0,dt);this.uniforms.strength.value=reduced?0:low?.7:1;}
- diagnostic(){return {time:this.uniforms.time.value,strength:this.uniforms.strength.value,lowClouds:{layers:2,textureBytes:this.uniforms.lowMistData.value.image.data.byteLength},zones:['water','waterfalls','mist','clouds','lamps','spray','low-clouds']};}
+ diagnostic(){return {time:this.uniforms.time.value,strength:this.uniforms.strength.value,lowClouds:{layers:2,textureBytes:this.uniforms.lowMistData.value.image.data.byteLength},annotated:{falls:FALL_PATHS.length,textureBytes:this.uniforms.annotatedData.value.image.data.byteLength},zones:['water','waterfalls','mist','clouds','lamps','spray','low-clouds']};}
 }
