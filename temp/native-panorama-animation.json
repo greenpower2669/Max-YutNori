@@ -1,27 +1,304 @@
 {
+  "landDistortion": [
+    {
+      "x": 720,
+      "y": 420,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 780,
+      "y": 510,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 930,
+      "y": 500,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 620,
+      "y": 390,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 1200,
+      "y": 445,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 920,
+      "y": 560,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 452,
+      "y": 478,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 520,
+      "y": 240,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    }
+  ],
+  "waterDistortion": [
+    {
+      "t": 0,
+      "meanDelta": 0.9583333333333334,
+      "changedFraction": 0
+    },
+    {
+      "t": 1,
+      "meanDelta": 1.3541666666666667,
+      "changedFraction": 0.25
+    },
+    {
+      "t": 3,
+      "meanDelta": 0.5625,
+      "changedFraction": 0
+    },
+    {
+      "t": 7,
+      "meanDelta": 1.2708333333333333,
+      "changedFraction": 0
+    },
+    {
+      "t": 12,
+      "meanDelta": 1.1666666666666667,
+      "changedFraction": 0.0625
+    }
+  ],
   "water": {
-    "meanDelta": 11.433559027777777,
-    "changedFraction": 0.38976934523809526
+    "meanDelta": 1.4955357142857142,
+    "changedFraction": 0.08168154761904763
   },
   "waterfall": {
-    "meanDelta": 1.9970907738095238,
-    "changedFraction": 0.13835565476190476
+    "meanDelta": 1.7484871031746032,
+    "changedFraction": 0.13127232142857143
   },
   "mist": {
-    "meanDelta": 19.69610615079365,
-    "changedFraction": 0.7901041666666667
+    "meanDelta": 12.667557043650794,
+    "changedFraction": 0.5815997023809524
   },
   "clouds": {
-    "meanDelta": 2.8290376984126984,
-    "changedFraction": 0.19277529761904763
+    "meanDelta": 0.29473710317460317,
+    "changedFraction": 0.04040922619047619
   },
   "lamps": {
     "meanDelta": 1.4849280753968255,
     "changedFraction": 0.17584077380952381
   },
   "seam": {
-    "meanDelta": 0.5118948412698413,
-    "changedFraction": 0.02955357142857143
+    "meanDelta": 0.14668650793650795,
+    "changedFraction": 0.01933779761904762
   },
   "lowClouds": {
     "contribution": 9.730354662698412,
@@ -44,8 +321,8 @@
       "drawCalls": 1,
       "textureBytes": 131072,
       "reference": {
-        "at0": 0,
-        "at12": 0
+        "at0": 1.6106770833333333,
+        "at12": 0.9440104166666666
       }
     },
     {
@@ -56,8 +333,8 @@
       "drawCalls": 1,
       "textureBytes": 131072,
       "reference": {
-        "at0": 0,
-        "at12": 0
+        "at0": 1.4205729166666667,
+        "at12": 0.9908854166666666
       }
     },
     {
@@ -68,8 +345,8 @@
       "drawCalls": 1,
       "textureBytes": 131072,
       "reference": {
-        "at0": 0,
-        "at12": 0
+        "at0": 12.666666666666666,
+        "at12": 16.50390625
       }
     },
     {
@@ -92,8 +369,8 @@
       "drawCalls": 1,
       "textureBytes": 131072,
       "reference": {
-        "at0": 0,
-        "at12": 0
+        "at0": 1.3138020833333333,
+        "at12": 0.8138020833333334
       }
     },
     {
@@ -104,8 +381,8 @@
       "drawCalls": 1,
       "textureBytes": 131072,
       "reference": {
-        "at0": 0,
-        "at12": 0
+        "at0": 0.6979166666666666,
+        "at12": 0.6875
       }
     }
   ],
@@ -160,8 +437,8 @@
       "y": 268,
       "channel": 2,
       "active": true,
-      "contribution": 25.9765625,
-      "advection": 27.533854166666668,
+      "contribution": 26.1796875,
+      "advection": 2.2591145833333335,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -171,8 +448,8 @@
       "y": 240,
       "channel": 2,
       "active": true,
-      "contribution": 31.095052083333332,
-      "advection": 4.239583333333333,
+      "contribution": 31.50390625,
+      "advection": 3.6549479166666665,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -182,8 +459,8 @@
       "y": 220,
       "channel": 2,
       "active": true,
-      "contribution": 70.48828125,
-      "advection": 48.544270833333336,
+      "contribution": 7.3515625,
+      "advection": 0.8841145833333334,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -193,19 +470,19 @@
       "y": 475,
       "channel": 3,
       "active": true,
-      "contribution": 7.515625,
-      "advection": 3.20703125,
+      "contribution": 1.22265625,
+      "advection": 1.2877604166666667,
       "drawCalls": 1,
       "textureBytes": 131072
     },
     {
       "name": "water-channel",
-      "x": 605,
-      "y": 401,
+      "x": 616,
+      "y": 420,
       "channel": 3,
       "active": true,
-      "contribution": 74.01692708333333,
-      "advection": 46.303385416666664,
+      "contribution": 4.11328125,
+      "advection": 4.893229166666667,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -266,8 +543,8 @@
     }
   ],
   "waterfallBoundary": {
-    "at0": 0.3333333333333333,
-    "at12": 0.2708333333333333
+    "at0": 16.729166666666668,
+    "at12": 21.125
   },
   "reducedStill": true
 }
