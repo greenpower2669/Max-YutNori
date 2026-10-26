@@ -1,3 +1,14 @@
+## Validation finale 0.8.0 — D030/D031/D032
+
+Pointillés isolés/corrigés par filtrage, vrai menu natif rappelant Plateau rouge→vert. Budget mural du renderer logiciel adapté à la limite physique inchangée de 12 s simulées ; la CI finale confirme toutes les assertions.
+
+CI [40259390198](https://github.com/greenpower2669/Max-YutNori/actions/runs/40259390198) réussie : 71/71 tests unitaires, 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; cinq zones du panorama vérifiées sur leurs pixels réels et mode réduit identique. Compilation APK/AAB et lint Android réussis. Source `7ab9f8761c56bc899242a234b24a406e0e17d909`, binaires `79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône/PNG et MP3 vérifiés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.7.0.
+
+APK : 62,491,892 octets ; SHA-256 `06d8a8dc4b790f47e7d0f68d67413f6a262b5b6a0f2eaabaa8502743c803bdc2`.
+AAB : 62,002,566 octets ; SHA-256 `2a8e3c8831926acb01d0c58f53de78cd9a8ce51dc17659a378a2637a120b4b45`.
+
+Installation en mise à jour de 0.7.0 sans désinstallation. APK paysage, portrait vérifié pour le Web. Confort tactile, intensité esthétique, performance et capteur restent à valider sur Samsung SM-A576B Android 16. Aucun essai physique revendiqué. Aucun merge main ni Release définitive.
+
 ## MYN-D032 — CI : budget mural trop court pour le rendu logiciel
 Run40258850450 : 71 tests, build et pixels réels passent ; attente de résultat échoue à40s dans smoke_native:39. Diagnostic : rolling=true, paused=false, horloge d'animation seulement7.4666s depuis démarrage. Le moteur borne dt à0.1/frame et ne conclut au plus tard qu'à12s simulées ; ce délai physique n'avait donc pas été atteint sur le renderer logiciel lent. Les positions sont bornées, aucune erreur JS. Budget mural de l'attente du résultat porté à120s, assertion d'arrêt/lecture des faces inchangée ; aucun changement de durée physique ni contournement de résultat. CI complète à relancer.
 

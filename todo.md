@@ -1,3 +1,21 @@
+# État courant 0.8.0/code9 — MYN-014 livrée pour test
+
+[APK 0.8.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3/temp/Max-YutNori-v0.8.0-debug.apk) · [AAB de test 0.8.0](https://github.com/greenpower2669/Max-YutNori/raw/79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3/temp/Max-YutNori-v0.8.0-debug.aab).
+
+- [x] Toutes les demandes de la passation réalisées ; revue et régression native du menu corrigées.
+- [x] CI, téléchargements, paquets/signatures et originaux vérifiés.
+- [ ] [FAB] Samsung : installer en mise à jour, vérifier taille/pions/glisser/pinch, bouton Vue, joueur actif bicolore, décor vivant, son prolongé et sens du bol dans les deux paysages.
+- [ ] [AGENT] Traiter les retours matériels.
+
+CI [40259390198](https://github.com/greenpower2669/Max-YutNori/actions/runs/40259390198) réussie : 71/71 tests unitaires, 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; cinq zones du panorama vérifiées sur leurs pixels réels et mode réduit identique. Compilation APK/AAB et lint Android réussis. Source `7ab9f8761c56bc899242a234b24a406e0e17d909`, binaires `79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône/PNG et MP3 vérifiés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.7.0.
+
+APK : 62,491,892 octets ; SHA-256 `06d8a8dc4b790f47e7d0f68d67413f6a262b5b6a0f2eaabaa8502743c803bdc2`.
+AAB : 62,002,566 octets ; SHA-256 `2a8e3c8831926acb01d0c58f53de78cd9a8ce51dc17659a378a2637a120b4b45`.
+
+Installation en mise à jour de 0.7.0 sans désinstallation. APK paysage, portrait vérifié pour le Web. Confort tactile, intensité esthétique, performance et capteur restent à valider sur Samsung SM-A576B Android 16. Aucun essai physique revendiqué. Aucun merge main ni Release définitive.
+
+## Historique — états antérieurs conservés
+
 # MYN-014 — 0.8.0 en cours
 - [x] Autorisation, missions et mémoires lues ; référence 975b7f0, baseline 71/71 et build Web.
 - [x] Interface compacte, vues regroupées, cadrage et gestes aux trois formats.

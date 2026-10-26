@@ -1,0 +1,41 @@
+{
+  "version": "0.8.0",
+  "versionCode": 9,
+  "sourceCommit": "7ab9f8761c56bc899242a234b24a406e0e17d909",
+  "binaryCommit": "79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3",
+  "workflowRun": "40259390198",
+  "http": {
+    "native-SHA256SUMS": 200,
+    "native-build-info.txt": 200,
+    "native-apk-verification.txt": 200,
+    "native-aab-verification.txt": 200,
+    "native-package.json": 200,
+    "native-smoke.json": 200,
+    "native-panorama-animation.json": 200,
+    "native-signing-certificate.pem": 200,
+    "Max-YutNori-v0.8.0-debug.apk": 200,
+    "Max-YutNori-v0.8.0-debug.aab": 200
+  },
+  "checks": 45,
+  "unitTests": 71,
+  "certificateSha256": "0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a",
+  "packages": {
+    "apk": {
+      "bytes": 62491892,
+      "sha256": "06d8a8dc4b790f47e7d0f68d67413f6a262b5b6a0f2eaabaa8502743c803bdc2",
+      "zipIntegrity": true,
+      "originalArtCount": 4,
+      "arisongsMusic": true,
+      "certificateExtractedAndMatched": true
+    },
+    "aab": {
+      "bytes": 62002566,
+      "sha256": "2a8e3c8831926acb01d0c58f53de78cd9a8ce51dc17659a378a2637a120b4b45",
+      "zipIntegrity": true,
+      "originalArtCount": 4,
+      "arisongsMusic": true,
+      "certificateExtractedAndMatched": true
+    }
+  },
+  "physicalSamsungTest": "pending"
+}

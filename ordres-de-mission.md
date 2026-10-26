@@ -9,7 +9,18 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
-## MYN-014 — Visibilité, joueur actif, vues et musique — Autorisée, en cours — 26/10/2026
+## MYN-014 — Livrée, à valider sur Samsung — 26/10/2026
+
+Bandeaux et fiches plus compacts/transparents, espace central accru et cadrage rapproché. Équipes 1–2 à gauche et 3–4 à droite (interprétation annoncée de la dictée ; à 2 équipes, une de chaque côté). Bouton Vue unique avant musique ; quatre commandes réexécutables, même Plateau pendant un suivi, libellé synchronisé aux changements automatiques. Pions élargis horizontalement, symboles plus lisibles et pointage 28 px ; joueur actif avec deux couleurs pulsées et mention « À TOI DE JOUER ». Panorama sans pointillés de couture, eau/chutes/brume/nuages/lumières/embruns animés. MP3 Arisongs de 36 minutes embarqué en boucle, aucune récupération depuis le téléphone. Table flottante, fresque agrandissable, règles, gestes, sauvegarde v4, identité fr.fab.maxyutnori, icône et signature de test conservés.
+
+CI [40259390198](https://github.com/greenpower2669/Max-YutNori/actions/runs/40259390198) réussie : 71/71 tests unitaires, 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; cinq zones du panorama vérifiées sur leurs pixels réels et mode réduit identique. Compilation APK/AAB et lint Android réussis. Source `7ab9f8761c56bc899242a234b24a406e0e17d909`, binaires `79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône/PNG et MP3 vérifiés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.7.0.
+
+APK : 62,491,892 octets ; SHA-256 `06d8a8dc4b790f47e7d0f68d67413f6a262b5b6a0f2eaabaa8502743c803bdc2`.
+AAB : 62,002,566 octets ; SHA-256 `2a8e3c8831926acb01d0c58f53de78cd9a8ce51dc17659a378a2637a120b4b45`.
+
+Installation en mise à jour de 0.7.0 sans désinstallation. APK paysage, portrait vérifié pour le Web. Confort tactile, intensité esthétique, performance et capteur restent à valider sur Samsung SM-A576B Android 16. Aucun essai physique revendiqué. Aucun merge main ni Release définitive.
+
+### Demande originale et suivi de réalisation conservés
 Fab autorise « Ok, code tout sur mon git » après la passation. Réduire bandeaux et fiches, augmenter transparence et place centrale/cadrage/pions tactiles. Deux équipes de chaque côté : 1–2 gauche/3–4 droite, interprétation annoncée de la dictée contenant deux fois 4. Bouton Vue unique à plusieurs valeurs à gauche de 🎵 ; joueur actif lumineux bicolore à intensité variable. Supprimer les pointillés signalés et rendre visibles eau/chutes/brume/nuages/lumières et particules du panorama. Embarquer ariranlike25102026.mp3 de la release Arisongs en boucle. Table flottante et fresque agrandissable validées à préserver, règles/gestes/sauvegarde/identité/signature inchangés. Plan docs/plan-visibility-v080.md. Version visée 0.8.0/code9 ; 0.7.0 reste la livraison vérifiée. Aucun merge main ni Release définitive autorisé.
 
 ## MYN-013 — Livrée, à valider sur Samsung — 26/10/2026
