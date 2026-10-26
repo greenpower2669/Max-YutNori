@@ -1,7 +1,7 @@
 {
-  "apk": "Max-YutNori-v0.7.0-debug.apk",
-  "bytes": 10102517,
+  "apk": "Max-YutNori-v0.8.0-debug.apk",
+  "bytes": 62491892,
   "unityRuntime": false,
-  "originalMusic": true,
+  "arisongsMusic": true,
   "wasmPhysics": true
 }

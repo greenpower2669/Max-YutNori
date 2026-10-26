@@ -1,0 +1,27 @@
+{
+  "water": {
+    "meanDelta": 8.201034226190476,
+    "changedFraction": 0.4076636904761905
+  },
+  "waterfall": {
+    "meanDelta": 1.964813988095238,
+    "changedFraction": 0.13376488095238095
+  },
+  "mist": {
+    "meanDelta": 12.885342261904762,
+    "changedFraction": 0.5321651785714285
+  },
+  "clouds": {
+    "meanDelta": 0.4318923611111111,
+    "changedFraction": 0.032819940476190475
+  },
+  "lamps": {
+    "meanDelta": 1.057559523809524,
+    "changedFraction": 0.1072470238095238
+  },
+  "seam": {
+    "meanDelta": 0.5118948412698413,
+    "changedFraction": 0.02955357142857143
+  },
+  "reducedStill": true
+}

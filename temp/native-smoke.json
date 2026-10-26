@@ -6,7 +6,7 @@
     "Automatic throwing cancels a held tray and preserves its return after flight",
     "Higher physical throw stays visible and the overhead HUD shows its real faces",
     "Pause freezes gameplay and music; resume works",
-    "Original AAC plays and crosses loop boundary twice",
+    "Arisongs MP3 plays and crosses loop boundary twice",
     "Native pause/resume hook",
     "Saved game and actual throw faces survive reload",
     "Linked group finishes; victory sound starts before the dialog pauses gameplay",
@@ -40,12 +40,16 @@
     "Invalid drop and pointer cancellation independently return to reserve without spending a result",
     "Team pulse and localized panorama animate, pause freezes both, reduced mode keeps both still",
     "Original fresco loads offline, zooms by buttons and pinch, and keeps game paused until rules close",
-    "Direct destination move lifts and transports an unselected four-pawn stack without compression"
+    "Direct destination move lifts and transports an unselected four-pawn stack without compression",
+    "Single view picker left of music, compact landscape HUD, teams split on both sides and reachable reserves across three sizes",
+    "New 36-minute MP3 plays offline, crosses its loop boundary twice and pauses/resumes without duplication",
+    "Two-team saves keep one team on each side and identify the current player",
+    "Real native menu can recall the current Plateau view after following a pawn"
   ],
   "errors": [],
   "externalRequests": [],
   "firstThrow": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "camera": {
       "mode": "bowl",
       "topZoom": 1,
@@ -53,18 +57,18 @@
       "phase": "idle",
       "zoom": 1,
       "fog": {
-        "near": 29.745985461506496,
-        "far": 53.74598546150649
+        "near": 28.337686473127075,
+        "far": 52.33768647312708
       },
       "position": [
-        4.999999999999999,
-        15,
-        12.999999999999998
+        4.999999995000436,
+        13.999999998655468,
+        11.999999996577975
       ],
       "target": [
-        4.999999999999999,
-        1.400000000000003,
-        1.5999999999999999
+        4.999999995000436,
+        1.4000000244991582,
+        1.59999999920007
       ],
       "dragging": false,
       "candidate": null
@@ -73,8 +77,8 @@
       {
         "team": 0,
         "piece": 0,
-        "x": 206.02402799341667,
-        "y": 360.71616671692163,
+        "x": 132.64383810553537,
+        "y": 331.331964084571,
         "position": [
           -8.07,
           -0.31,
@@ -84,8 +88,8 @@
       {
         "team": 0,
         "piece": 1,
-        "x": 223.5681181361202,
-        "y": 360.71616671692163,
+        "x": 154.56715917571822,
+        "y": 331.331964084571,
         "position": [
           -7.29,
           -0.31,
@@ -95,8 +99,8 @@
       {
         "team": 0,
         "piece": 2,
-        "x": 241.11220827882374,
-        "y": 360.71616671692163,
+        "x": 176.49048024590104,
+        "y": 331.331964084571,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -106,8 +110,8 @@
       {
         "team": 0,
         "piece": 3,
-        "x": 258.65629842152725,
-        "y": 360.71616671692163,
+        "x": 198.41380131608383,
+        "y": 331.331964084571,
         "position": [
           -5.73,
           -0.31,
@@ -117,8 +121,8 @@
       {
         "team": 1,
         "piece": 0,
-        "x": 291.49523638094666,
-        "y": 360.71616671692163,
+        "x": 239.44976126796453,
+        "y": 331.331964084571,
         "position": [
           -4.27,
           -0.31,
@@ -128,8 +132,8 @@
       {
         "team": 1,
         "piece": 1,
-        "x": 309.0393265236502,
-        "y": 360.71616671692163,
+        "x": 261.37308233814736,
+        "y": 331.331964084571,
         "position": [
           -3.49,
           -0.31,
@@ -139,8 +143,8 @@
       {
         "team": 1,
         "piece": 2,
-        "x": 326.5834166663537,
-        "y": 360.71616671692163,
+        "x": 283.29640340833015,
+        "y": 331.331964084571,
         "position": [
           -2.71,
           -0.31,
@@ -150,8 +154,8 @@
       {
         "team": 1,
         "piece": 3,
-        "x": 344.12750680905725,
-        "y": 360.71616671692163,
+        "x": 305.219724478513,
+        "y": 331.331964084571,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -161,8 +165,8 @@
       {
         "team": 2,
         "piece": 0,
-        "x": 271.9743078290929,
-        "y": 240.45884818641605,
+        "x": 219.82813294734999,
+        "y": 181.3774568954331,
         "position": [
           -8.07,
           -0.31,
@@ -172,8 +176,8 @@
       {
         "team": 2,
         "piece": 1,
-        "x": 285.58257407953727,
-        "y": 240.45884818641605,
+        "x": 236.5484127013409,
+        "y": 181.3774568954331,
         "position": [
           -7.29,
           -0.31,
@@ -183,8 +187,8 @@
       {
         "team": 2,
         "piece": 2,
-        "x": 299.19084032998154,
-        "y": 240.45884818641605,
+        "x": 253.2686924553318,
+        "y": 181.3774568954331,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -194,8 +198,8 @@
       {
         "team": 2,
         "piece": 3,
-        "x": 312.7991065804259,
-        "y": 240.45884818641605,
+        "x": 269.98897220932264,
+        "y": 181.3774568954331,
         "position": [
           -5.73,
           -0.31,
@@ -205,8 +209,8 @@
       {
         "team": 3,
         "piece": 0,
-        "x": 338.27098956202684,
-        "y": 240.45884818641605,
+        "x": 301.2859061078185,
+        "y": 181.3774568954331,
         "position": [
           -4.27,
           -0.31,
@@ -216,8 +220,8 @@
       {
         "team": 3,
         "piece": 1,
-        "x": 351.8792558124713,
-        "y": 240.45884818641605,
+        "x": 318.0061858618094,
+        "y": 181.3774568954331,
         "position": [
           -3.49,
           -0.31,
@@ -227,8 +231,8 @@
       {
         "team": 3,
         "piece": 2,
-        "x": 365.48752206291556,
-        "y": 240.45884818641605,
+        "x": 334.72646561580035,
+        "y": 181.3774568954331,
         "position": [
           -2.71,
           -0.31,
@@ -238,8 +242,8 @@
       {
         "team": 3,
         "piece": 3,
-        "x": 379.0957883133599,
-        "y": 240.45884818641605,
+        "x": 351.4467453697912,
+        "y": 181.3774568954331,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -250,15 +254,15 @@
     "projectedDestinations": [
       {
         "node": "O3",
-        "x": 336.45845523482245,
-        "y": 313.0710961513248
+        "x": 296.4969571312854,
+        "y": 271.4771576036243
       }
     ],
     "lastThrow": {
       "faces": [
+        true,
+        true,
         false,
-        true,
-        true,
         true
       ],
       "invalid": false,
@@ -279,33 +283,33 @@
     },
     "projectedSticks": [
       {
-        "x": -0.1671060263467751,
-        "y": -0.159068254176462,
-        "z": 0.9913237954228287,
-        "height": -0.25018247961997986
+        "x": -0.4306410907030362,
+        "y": -0.14602764515980007,
+        "z": 0.9897877162218461,
+        "height": -0.22061020135879517
       },
       {
-        "x": -0.24618120310618777,
-        "y": -0.17941779712802333,
-        "z": 0.9911713414100869,
-        "height": -0.22060997784137726
+        "x": -0.06600866536545354,
+        "y": 0.17145615034207276,
+        "z": 0.9907501360132306,
+        "height": 0.8891759514808655
       },
       {
-        "x": -0.1687764860978633,
-        "y": -0.01676009311941335,
-        "z": 0.9922163186807115,
-        "height": -0.22061099112033844
+        "x": -0.20809150671752805,
+        "y": 0.01712160043436998,
+        "z": 0.9907779582765797,
+        "height": -0.2501220405101776
       },
       {
-        "x": -0.18150485857352233,
-        "y": -0.19068441461960864,
-        "z": 0.9910222817780101,
-        "height": -0.11895430088043213
+        "x": -0.07919671465868819,
+        "y": 0.15009335807150406,
+        "z": 0.9906127663026317,
+        "height": 0.8893828392028809
       }
     ],
     "projectedTray": {
-      "x": 3.7710031782951963e-17,
-      "y": 0.020263554617468017
+      "x": 2.6433047559892075e-10,
+      "y": 0.1744632092933156
     },
     "trayGrab": false,
     "bowl": {
@@ -317,14 +321,15 @@
     "art": {
       "panorama": true,
       "animation": {
-        "time": 7.749799999999989,
+        "time": 4.5832,
         "strength": 1,
         "zones": [
           "water",
           "waterfalls",
           "mist",
           "clouds",
-          "lamps"
+          "lamps",
+          "spray"
         ]
       },
       "engraved": true,
@@ -339,112 +344,176 @@
         "team": 0,
         "piece": 0,
         "glowing": true,
-        "glowOpacity": 0.39914630600072903,
-        "emissive": 0.24525795782083992
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.38115621497720753
       },
       {
         "team": 0,
         "piece": 1,
         "glowing": true,
-        "glowOpacity": 0.39914630600072903,
-        "emissive": 0.09657597589762282
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.1742321228441186
       },
       {
         "team": 0,
         "piece": 2,
         "glowing": true,
-        "glowOpacity": 0.39914630600072903,
-        "emissive": 0.09657597589762282
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.1742321228441186
       },
       {
         "team": 0,
         "piece": 3,
         "glowing": true,
-        "glowOpacity": 0.39914630600072903,
-        "emissive": 0.09657597589762282
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.1742321228441186
       },
       {
         "team": 1,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
         "emissive": 0
       },
       {
         "team": 1,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
         "emissive": 0
       },
       {
         "team": 1,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
         "emissive": 0
       },
       {
         "team": 1,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
         "emissive": 0
       },
       {
         "team": 2,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 2,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 2,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 2,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 3,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 3,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 3,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
         "emissive": 0
       },
       {
         "team": 3,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.39914630600072903,
+        "glowOpacity": 0.805311550105738,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
         "emissive": 0
       }
     ],
@@ -621,21 +690,21 @@
       }
     ],
     "audio": {
-      "effectsPlayed": 45,
+      "effectsPlayed": 20,
       "voices": 0,
       "fxVolume": 0.6,
       "loop": true,
       "paused": false,
-      "currentTime": 20.320829,
-      "duration": 239.32805
+      "currentTime": 18.607875,
+      "duration": 2182.698095
     },
     "logs": [
-      "2026-10-26T00:35:36.820Z Three.js + Rapier WASM prêts.",
-      "2026-10-26T00:36:00.524Z Lancer : 3"
+      "2026-10-26T02:32:06.131Z Three.js + Rapier WASM prêts.",
+      "2026-10-26T02:32:28.353Z Lancer : 3"
     ]
   },
   "audio": {
-    "duration": 239.32805,
+    "duration": 2182.698095,
     "loop": true,
     "codec": "probably"
   },
