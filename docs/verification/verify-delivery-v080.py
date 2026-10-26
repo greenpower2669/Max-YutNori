@@ -6,7 +6,7 @@ from cryptography import x509
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.serialization import pkcs7
 ref, source, run = sys.argv[1:4]
-out=Path('.runtime-browser/delivery-v080');out.mkdir(parents=True,exist_ok=True)
+out=Path('.superpowers/delivery-v080');out.mkdir(parents=True,exist_ok=True)
 base=f'https://raw.githubusercontent.com/greenpower2669/Max-YutNori/{ref}/temp/'
 names=['native-SHA256SUMS','native-build-info.txt','native-apk-verification.txt','native-aab-verification.txt','native-package.json','native-smoke.json','native-panorama-animation.json','native-signing-certificate.pem','Max-YutNori-v0.8.0-debug.apk','Max-YutNori-v0.8.0-debug.aab']
 http={}

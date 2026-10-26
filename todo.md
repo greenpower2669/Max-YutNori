@@ -3,7 +3,8 @@
 - [x] Interface compacte, vues regroupées, cadrage et gestes aux trois formats.
 - [x] Bicolore actif ; pointillés isolés/corrigés ; cinq régions du panorama vérifiées par pixels.
 - [x] Nouvelle musique MP3 et boucle hors ligne vérifiées ; MIME/Range Android codés, CI attendue.
-- [ ] Régressions/revue/CI et livraison APK/AAB vérifiée.
+- [x] Revue indépendante et rappel natif de Plateau rouge→vert ; 44 parcours complets puis 4 ciblés/pixels verts.
+- [ ] CI complète relancée après budget mural du test de lancer (D032), puis APK/AAB et téléchargements/signatures.
 Plan docs/plan-visibility-v080.md. Dernière livraison vérifiée 0.7.0.
 
 # État courant — 0.7.0 livrée le 26/10/2026

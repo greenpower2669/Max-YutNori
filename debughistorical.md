@@ -1,3 +1,6 @@
+## MYN-D032 — CI : budget mural trop court pour le rendu logiciel
+Run40258850450 : 71 tests, build et pixels réels passent ; attente de résultat échoue à40s dans smoke_native:39. Diagnostic : rolling=true, paused=false, horloge d'animation seulement7.4666s depuis démarrage. Le moteur borne dt à0.1/frame et ne conclut au plus tard qu'à12s simulées ; ce délai physique n'avait donc pas été atteint sur le renderer logiciel lent. Les positions sont bornées, aucune erreur JS. Budget mural de l'attente du résultat porté à120s, assertion d'arrêt/lecture des faces inchangée ; aucun changement de durée physique ni contournement de résultat. CI complète à relancer.
+
 ## MYN-D031 — Rappeler la vue courante depuis le menu natif
 Revue indépendante : après sélection d'un pion, la caméra suit ce pion mais le select vaut déjà board. Home/Enter sur Plateau ne produit aucun change et ne revient pas au cadrage général. Reproduction navigateur rouge confirmée (follow au lieu de idle). Correction : option courante masquée d'affichage, distincte des quatre commandes ; chaque commande est réexécutable et met à jour le libellé courant, y compris les transitions automatiques. Régression native ajoutée, validation verte confirmée par le même vrai menu natif.
 

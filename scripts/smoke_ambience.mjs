@@ -6,7 +6,7 @@ export async function ambienceScenarios(page,ready,report){
  await page.setViewportSize({width:1000,height:600});
  const teams=Array.from({length:4},(_,i)=>({players:[{name:`Joueur ${i+1}`,computer:false}]}));
  // Reproduce a last move before the deferred camera return fires.
- const quick=createGame({teams});await load(quick);await page.evaluate(()=>{let seed=2;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);});await page.locator('#throw').click();await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling&&window.maxYutDiagnostic().state.phase==='move',{},{timeout:40000});
+ const quick=createGame({teams});await load(quick);await page.evaluate(()=>{let seed=2;Math.random=()=>((seed=(Math.imul(seed,1664525)+1013904223)>>>0)/4294967296);});await page.locator('#throw').click();await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling&&window.maxYutDiagnostic().state.phase==='move',{},{timeout:120000});
  await page.locator('#destinations button').first().click();await page.waitForFunction(()=>window.maxYutDiagnostic().bowl.ready);assert.ok((await diagnostic()).camera.target[0]>0,'a quick final move must keep the bowl camera during tidying');report.checks.push('A move immediately after the throw cancels the deferred board camera and keeps the bowl framed during tidying');
  if(process.env.CAMERA_RETURN_ONLY)return;
  const g=createGame({teams});g.phase='move';g.pending=[1];g.turn=2;await load(g);
@@ -19,7 +19,7 @@ export async function ambienceScenarios(page,ready,report){
  // Verify sign through the actual native entry point and real kinematic body.
  await page.evaluate(()=>{window.onNativeTilt(0,7,7,0);window.onNativeTilt(4,7,7,40);});await page.waitForFunction(()=>window.maxYutDiagnostic().tray.rotation.z>.05);
  await page.evaluate(()=>{window.onNativeTilt(-4,7,7,80);});await page.waitForFunction(()=>window.maxYutDiagnostic().tray.rotation.z<-.05);report.checks.push('Native left/right tilt lowers the corresponding bowl edge after screen-axis mapping');
- const bonus=createGame({teams});bonus.pending=[4];await load(bonus);await page.locator('#throw').click();await page.waitForFunction(()=>window.maxYutDiagnostic().rolling);await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling,{},{timeout:40000});d=await diagnostic();const savedFaces=d.lastThrow;
+ const bonus=createGame({teams});bonus.pending=[4];await load(bonus);await page.locator('#throw').click();await page.waitForFunction(()=>window.maxYutDiagnostic().rolling);await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling,{},{timeout:120000});d=await diagnostic();const savedFaces=d.lastThrow;
  assert.equal(d.state.pending[0],4);if(d.state.phase==='throw'){assert.equal(await page.locator('#throw').isDisabled(),true);await page.waitForFunction(()=>window.maxYutDiagnostic().bowl.ready);}else{await page.waitForFunction(()=>window.maxYutDiagnostic().bowl.phase==='hidden');assert.equal((await diagnostic()).bowl.collider,false);}
  assert.deepEqual((await diagnostic()).lastThrow,savedFaces);report.checks.push('Real throw preserves accumulated Yut results and its actual faces throughout disappearance or bonus tidying');
  // Reset during an in-progress stow, through the real new-game UI.

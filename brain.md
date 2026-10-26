@@ -1,3 +1,6 @@
+## Vérification CI MYN-014
+Run40258850450 arrêté sur budget mural de la smoke physique : seulement7.4666s simulées au timeout40s, contre limite physique12s. Budget de test120s pour résultat/retour, mêmes assertions. Aucun changement de règles/durée moteur ; CI relancée avant livraison.
+
 ## Contrat demandé MYN-014 — 0.8.0 en cours
 Plus de place centrale et pions tactiles, bandeaux/fiches compacts et plus transparents ; équipes 1–2 gauche/3–4 droite (interprétation annoncée). Vue unique à gauche de musique ; actif bicolore pulsé. Panorama réellement visible sans pointillés ; nouvelle musique Arisongs MP3 locale en boucle. Table flottante/fresque/règles/gestes/v4/identité/signature conservés. Voir docs/plan-visibility-v080.md ; non livré.
 
