@@ -1,3 +1,16 @@
+## Validation finale 0.7.0 — D025 à D029 — 26/10/2026
+
+Revue indépendante traitée : retour invalide/pointercancel et espacement des piles. Régressions observées rouges puis vertes ; ajout du cadrage des réserves hors commandes, vérifié en 1000×600, 844×390 et 390×844. Pause et mode réduit couvrent aussi lumière et panorama.
+
+D025 supports et levage ; D026 mot GLSL réservé renommé regionMask ; D027 fin de geste invalide/annulé enlève lifted ; D028 offsets de pile conservés ; D029 marge supérieure inclut les commandes. La simulation et la CI ne remplacent pas le contrôle matériel Samsung.
+
+CI [40250007382](https://github.com/greenpower2669/Max-YutNori/actions/runs/40250007382) réussie : 71/71 tests unitaires, 41/41 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `378f987875774d90bca29b5b5acbdf2a1588f962`, binaires/preuves `a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.6.0. Les quatre PNG embarqués et la musique originale sont conservés octet pour octet.
+
+APK : 10,102,517 octets, SHA-256 `5d92d8ffbcdf724444fb2d63c2433e48bef3e79c11bbd970066da196a058be5a`.
+AAB : 9,719,109 octets, SHA-256 `0ed577f5b85b2aceaa1d1133a864b80e43f30e209f44c82c6a5c0307827c3e36`.
+
+## Historique — états antérieurs conservés
+
 ## MYN-D029 — Réserves derrière les vues
 Capture vue verticale par défaut : deux réserves hautes sont derrière les boutons. Assertion elementFromPoint sur les 16 réserves reproduite rouge en 1000×600. Cause : marge supérieure desktop limitée au bandeau, sans la rangée de vues. fit mesure maintenant le bas réel de cette rangée plus 8px, projection/raycast communs conservés ; régression étendue à 844×390 et 390×844. Vérification locale fraîche : 71 tests unitaires, build Web et 7 parcours confort verts, dont les trois formats et tous les retours/piles. CI finale à produire.
 

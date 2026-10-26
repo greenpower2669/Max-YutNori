@@ -1,3 +1,19 @@
+## Carte courante 0.7.0 — 26/10/2026
+
+- board-layout.mjs : PAWN_TABLE_Y=-.31, PAWN_BOARD_Y=.126, PAWN_STACK=.21 ; reservePosition/pawnPosition/buildSelection alignent supports et destinations.
+- pawn-motion.mjs : advancePawn monte avant translation puis descend ; stackOffsets mémorise les espacements d’origine. scene.sync garde travelOffset, frame applique dégagement et lévitation de sélection ; les piles restent espacées à chaque frame.
+- pawn-input.js : propriété des deux doigts, zoom sans lâcher, geste de fond autorisé en vue verticale ; finish distingue tap et interruption. scene.end annule lifted après glissement/pointercancel, retour sans consommation de résultat.
+- comfort.mjs : TopView distance/zoom bornés indépendants ; teamPulse cycle doux 2.8s, fixe en mode réduit. scene.frame utilise la même phase pour halos et émissions ; main la partage au HUD.
+- main.fit : ResizeObserver header/controls ; CSS de scène plein écran, safeInsets inclut le bas réel des vues +8px. scene.resize étend une projection commune au dessin et aux raycasts, sans laisser les réserves sous les boutons au cadrage initial.
+- living-panorama.js : sphère à l’infini, shader avec masques UV d’eau/chutes/brume/nuages/lampes ; horloge par dt, force réduite en qualité faible, effets figés en pause/réduit. Image et éclairage PMREM originaux conservés.
+- fresco.js : FrescoViewer, zoom 1–4, panoramique, deux doigts et boutons ; dialogue imbriqué conserve la pause des règles. web/public/art/rules-fresco.png est l’original docs/references/rules-fresco-25492.png.
+- scripts/smoke_comfort.mjs : sept scénarios ajoutés aux 34 historiques ; vrai tactile CDP, annulation autonome, pile directe échantillonnée à chaque frame, trois formats. Tests unitaires de support/mouvement/input/zoom/pulsation.
+- Android 0.7.0/code8 ; CI .github/workflows/android.yml vérifie aussi certificat précédent 0.6.0. Preuve téléchargements : temp/native-delivery-verification-v070.json. Revue docs/revue-v070.md, passation docs/passation-2026-10-26.md.
+
+CI [40250007382](https://github.com/greenpower2669/Max-YutNori/actions/runs/40250007382) réussie : 71/71 tests unitaires, 41/41 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `378f987875774d90bca29b5b5acbdf2a1588f962`, binaires/preuves `a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.6.0. Les quatre PNG embarqués et la musique originale sont conservés octet pour octet.
+
+## Historique — états antérieurs conservés
+
 ## Marge des commandes 0.7.0
 main.fit inclut aussi le bas réel de #views + 8px dans safeInsets.top ; réserve projetée hors boutons en vue verticale. Tests navigateur sur trois formats, même matrice pour dessin et pointage.
 

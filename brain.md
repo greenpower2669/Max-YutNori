@@ -1,3 +1,15 @@
+## Contrat courant 0.7.0/code8 — 26/10/2026
+
+Pions posés sur la table, les cases ou les piles ; soulèvement avant traversée, dépôt et annulation sûrs. Vue de dessus avec pincement à deux doigts, même en tenant un pion. Bandeaux semi-transparents et réserves accessibles au cadrage initial. Panorama animé par zones : eau, chutes, brume, nuages et lumières. Fresque originale agrandissable dans les règles. Intensité de l’équipe active variable sur un cycle doux de 2,8 secondes, pion choisi plus lumineux ; éclairage fixe en animations réduites. La table flottante est volontaire et préservée, les règles sont inchangées.
+
+La pulsation reste visible au minimum, sans coupure franche ; pause fige tous les effets, animations réduites les rendent fixes. Le pion sélectionné monte même si la caméra action est désactivée. Zoom de dessus indépendant du suivi caméra. Le Back-do exige le bâton marqué : explication textuelle conservée auprès de la fresque.
+
+CI [40250007382](https://github.com/greenpower2669/Max-YutNori/actions/runs/40250007382) réussie : 71/71 tests unitaires, 41/41 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `378f987875774d90bca29b5b5acbdf2a1588f962`, binaires/preuves `a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.6.0. Les quatre PNG embarqués et la musique originale sont conservés octet pour octet.
+
+Mise à jour de 0.6.0 sans désinstallation : identité fr.fab.maxyutnori, icône, signature de test et sauvegarde v4 conservées. APK paysage (les deux orientations), portrait vérifié pour le Web. Confort tactile, visibilité des halos, performance des effets et capteurs restent à valider sur Samsung SM-A576B Android 16. Aucun merge main ni Release définitive.
+
+## Historique — états antérieurs conservés
+
 ## Réalisation MYN-013 — 0.7.0, non livrée
 Réserve −.31, plateau .126, pile .21 ; montée/déplacement/descente et offsets de pile préservés, annulation repose le pion. Vue verticale et pinch indépendants, HUD translucide sur décor, fresque originale agrandissable, panorama animé par zones. Pulsation équipe 2.8s douce et sélection plus forte ; fixe en mode réduit. Table flottante et règles inchangées.
 

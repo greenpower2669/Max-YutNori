@@ -1,3 +1,23 @@
+# État courant — 0.7.0 livrée le 26/10/2026
+
+[APK 0.7.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f/temp/Max-YutNori-v0.7.0-debug.apk) · [AAB de test 0.7.0](https://github.com/greenpower2669/Max-YutNori/raw/a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f/temp/Max-YutNori-v0.7.0-debug.aab).
+
+- [x] MYN-013 : HUD, vue verticale/pinch, hauteurs/soulèvement/piles/retours, panorama vivant, fresque et pulsation de l’équipe.
+- [x] Revue et régressions D025–D029, 71 tests unitaires et 41 parcours navigateur, build/lint et vrais téléchargements/signatures vérifiés.
+- [ ] [FAB] Tester la mise à jour Samsung : réserve→plateau, annulation, piles, pinch avec/sans pion, luminosité, panorama et confort global. Vérifier aussi le sens du bol dans les deux paysages.
+- [ ] [AGENT] Traiter les retours matériels ; main/Release seulement sur demande explicite.
+
+CI [40250007382](https://github.com/greenpower2669/Max-YutNori/actions/runs/40250007382) réussie : 71/71 tests unitaires, 41/41 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `378f987875774d90bca29b5b5acbdf2a1588f962`, binaires/preuves `a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.6.0. Les quatre PNG embarqués et la musique originale sont conservés octet pour octet.
+
+APK : 10,102,517 octets, SHA-256 `5d92d8ffbcdf724444fb2d63c2433e48bef3e79c11bbd970066da196a058be5a`.
+AAB : 9,719,109 octets, SHA-256 `0ed577f5b85b2aceaa1d1133a864b80e43f30e209f44c82c6a5c0307827c3e36`.
+
+Mise à jour de 0.6.0 sans désinstallation : identité fr.fab.maxyutnori, icône, signature de test et sauvegarde v4 conservées. APK paysage (les deux orientations), portrait vérifié pour le Web. Confort tactile, visibilité des halos, performance des effets et capteurs restent à valider sur Samsung SM-A576B Android 16. Aucun merge main ni Release définitive.
+
+Les anciennes cases et mentions « en cours » ci-dessous décrivent leur date, pas des fonctionnalités encore à produire.
+
+## Historique — états antérieurs conservés
+
 ## Dernier contrôle de cadrage
 MYN-D029 reproduit rouge : réserves hautes derrière les commandes de vue. Marge corrigée ; 7/7 parcours confort aux trois formats passent. La CI intermédiaire 40220650889 a réussi ; lancer la CI finale incluant cette marge avant livraison.
 
