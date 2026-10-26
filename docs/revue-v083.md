@@ -1,0 +1,7 @@
+# Revue 0.8.3 — MYN-017
+
+Revue indépendante favorable, aucun défaut Critical/Important. Vérifications : contrôle cohérent du pixel courant et du prélèvement, signe Y de sourceP correct, ciel géométriquement fixe ; aucun résidu concret de déformation arbre/rocher trouvé lors de l’inspection de l’image/masques. Pixels : huit sondes fixes × cinq phases, eau déformée positivement (deltas moyens 0.56–1.35). 76 tests et build passent ; versions 0.8.3/code12, comparaison de signature 0.8.2 cohérentes. Même passe et carte 128 Kio ; une lecture conditionnelle de masque de plus sur l’eau.
+
+Minor différé : le nom historique preservedWaterfalls et le commentaire de raccord 0.8.1 restent dans les diagnostics. Les six cas contrôlent maintenant l’exclusion de nouvelle brume dans les régions de chutes, pas l’animation de six filets d’eau physiques. L’égalité ancienne a été levée à juste titre pour corriger la déformation terrestre ; ne pas surinterpréter ces diagnostics.
+
+Limites : une ellipse historique (.600,.746) est centrée sur la forêt plutôt que sur le filet d’eau visible plus loin ; les masques ne constituent pas un relevé exhaustif de chutes. Le nouveau filtre y interdit la déformation des pixels non aquatiques identifiés. Coût GPU/température, esthétique et validation exhaustive Samsung non mesurés. Aucun fichier/Git modifié par le reviewer. CI et paquets encore attendus au moment de la revue.

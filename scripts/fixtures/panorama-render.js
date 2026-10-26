@@ -34,6 +34,13 @@ function lowCloudCompare(centre=false,low=false,channel=1){
  }finally{uniform.value=real;draw(12,low);}
 }
 const reference=new ReferencePanorama(texture);
+const unwarpedMaterial=panorama.mesh.material.clone();unwarpedMaterial.uniforms=panorama.uniforms;
+unwarpedMaterial.fragmentShader=unwarpedMaterial.fragmentShader.replace('sampleImage(uv+offset*strength)','sampleImage(uv)');
+function distortion(){
+ const real=panorama.mesh.material,phases=[];
+ try{for(const t of [0,1,3,7,12]){panorama.mesh.material=real;const on=draw(t);panorama.mesh.material=unwarpedMaterial;const off=draw(t);phases.push({t,...difference(on,off,4)});}return phases;}
+ finally{panorama.mesh.material=real;draw(12);}
+}
 function compareReference(centre=true,withoutFog=false){
  const currentMap=panorama.uniforms.lowMistData.value,referenceMap=reference.uniforms.lowMistData.value;
  try{
@@ -48,6 +55,7 @@ window.panoramaProbe={
  compare(){return difference(draw(0),draw(3));},
  lowCloudCompare,
  compareReference,
+ distortion,
  maskOverview(){
   const canvas=document.createElement('canvas');canvas.width=1536;canvas.height=768;const ctx=canvas.getContext('2d');ctx.drawImage(texture.image,0,0);
   const {data,width,height}=panorama.uniforms.lowMistData.value.image;

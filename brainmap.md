@@ -1,3 +1,9 @@
+## MYN-017 — déplacement UV et prélèvement aux berges
+
+Correction locale : lakeColor/fallColor sur RGB linéaire ; A>.98 pour le lac au pixel courant et au pixel prélevé, cimes du premier plan exclues. offsets de ciel retirés, densité conservée ; déplacement de chute distinct de ses mousse/embruns. Fixture distortion() compare le même temps avec/sans seul prélèvement UV déplacé, ROI 4×4.
+
+living-panorama.js calcule des offsets eau/chutes/ciel puis prélève l’image déplacée. panorama-zones.mjs fournit un masque de lac approché ; un contrôle limité au masque d’arrivée ne suffit pas à garantir que le pixel prélevé vient aussi de l’eau. La QA doit isoler le déplacement UV au même temps, indépendamment des changements de brume/lumière.
+
 ## Livraison vérifiée 0.8.2 — MYN-016
 
 Architecture actuelle MYN-016 : panorama-zones.mjs → panoramaMasks(u,v), contours statiques de vallées/ciel/eau, marges d’îlots et fondu avant les chutes ; low-mist.mjs → createLowMistTexture(), R bruit et G/B/A masques, 256×128 préparé une fois ; living-panorama.js → fallMask conserve la distance minimale sans répéter length, eau historique conservée dans les chutes et mix progressif à l’extérieur, deux densités partagées par brume/ciel. QA : panorama-v081-reference.js et panorama-v081-noise.mjs figent 0.8.1 ; compareReference utilise 16×16 pour les cœurs et 4×4 sans brume pour isoler le raccord d’eau. verify-delivery-v082.py contrôle les vrais binaires et leurs preuves.

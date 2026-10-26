@@ -1,3 +1,11 @@
+# MYN-017 — correction 0.8.3 en cours
+
+76 tests, build et pixels verts : huit sondes fixes × cinq phases, eau positive ; revue/CI/livraison attendues. Suivi docs/water-only-progress.md.
+
+- [ ] Reproduire la déformation des arbres, isoler le déplacement UV et corriger les limites départ/arrivée.
+- [ ] Pixels, tests, build, revue, CI et APK/AAB/signatures.
+Dernière livraison vérifiée 0.8.2 ; docs/plan-water-only-v083.md.
+
 # État courant 0.8.2/code11 — MYN-016 livrée pour test
 
 [APK 0.8.2 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/3756c18859faec9da5e37e92239f77310d3aba4e/temp/Max-YutNori-v0.8.2-debug.apk) · [AAB de test 0.8.2](https://github.com/greenpower2669/Max-YutNori/raw/3756c18859faec9da5e37e92239f77310d3aba4e/temp/Max-YutNori-v0.8.2-debug.aab).

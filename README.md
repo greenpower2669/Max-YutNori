@@ -1,3 +1,7 @@
+# 0.8.3 en préparation — eau seule
+
+MYN-017 : déformation des arbres corrigée localement ; mouvement UV contrôlé au départ/arrivée, clapot réduit et ciel animé par densité. 76 tests, build et pixels passent ; revue/CI/paquets à venir. Dernière livraison vérifiée : 0.8.2 ci-dessous.
+
 # Max YutNori — version de test 0.8.2
 
 [APK 0.8.2 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/3756c18859faec9da5e37e92239f77310d3aba4e/temp/Max-YutNori-v0.8.2-debug.apk) · [AAB de test 0.8.2](https://github.com/greenpower2669/Max-YutNori/raw/3756c18859faec9da5e37e92239f77310d3aba4e/temp/Max-YutNori-v0.8.2-debug.aab).

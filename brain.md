@@ -1,3 +1,9 @@
+## Contrat MYN-017 — eau seule
+
+Réalisation locale : UV fixes hors eau autorisée, contrôle du prélèvement et exclusion des cimes ; ciel animé par densité, clapot réduit. Une passe, 128 Kio réutilisés ; aucune nouvelle texture. Non livré ; pixels et tests verts.
+
+La déformation géométrique doit rester sur l’eau ; arbres, terres, ciel et bâtiments stables. Brume et nuages restent animés par leur densité. Préserver mousse/embruns/éclairage, le jeu et les invariants. La conservation exacte de la déformation fautive 0.8.1/0.8.2 est levée par la correction demandée. Non livré.
+
 ## Contrat courant 0.8.2/code11 — MYN-016 livrée, à valider
 
 La brume basse suit toutes les nappes repérées en violet, les nuages du ciel suivent le repérage turquoise et l’eau le repérage jaune avec îlots/rives exclus. Les six régions des chutes gardent le rendu composite 0.8.1 ; fondu doux à l’extérieur pour éviter une découpe elliptique. Les couleurs du repérage restent dans le diagnostic, pas dans le jeu. Image originale, HUD/vues/pions, musique, règles, sauvegarde, identité, icône et signature conservés.

@@ -9,6 +9,10 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
+## MYN-017 — Déformer uniquement l’eau — En cours — 26/10/2026
+
+Fab signale sur 25656.jpg que l’eau déforme les arbres dans la 0.8.2 et demande « ne déformer que l’eau ». Corriger le débordement de la déformation, conserver les animations de brume/ciel et les effets de chutes/embruns appréciés. Cette correction prévaut sur l’ancienne exigence de composite pixel-identique qui conservait la déformation fautive. Version visée 0.8.3/code12, dernière livraison vérifiée 0.8.2. Plan docs/plan-water-only-v083.md.
+
 ## MYN-016 — Livrée, à valider sur Samsung — 26/10/2026
 
 La brume basse suit toutes les nappes repérées en violet, les nuages du ciel suivent le repérage turquoise et l’eau le repérage jaune avec îlots/rives exclus. Les six régions des chutes gardent le rendu composite 0.8.1 ; fondu doux à l’extérieur pour éviter une découpe elliptique. Les couleurs du repérage restent dans le diagnostic, pas dans le jeu. Image originale, HUD/vues/pions, musique, règles, sauvegarde, identité, icône et signature conservés.
