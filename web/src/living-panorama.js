@@ -73,7 +73,7 @@ export class LivingPanorama {
      // Independent low clouds stay outside the approved waterfall/spray region.
      if(strength>0. && lowMistExclusion<=0.){
       float valleyMask=regions.g;
-      if(max(valleyMask,clouds)>.002){
+      if(max(max(valleyMask,clouds),max(annotation.g,annotation.b))>.002){
        float first=texture2D(lowMistData,p*vec2(3.,7.)-vec2(time*.004,0.)).r;
        float second=texture2D(lowMistData,p*vec2(5.,11.)+vec2(time*.002,time*.0004)).r;
        float density=smoothstep(.28,.68,first*.65+second*.35);
@@ -85,7 +85,7 @@ export class LivingPanorama {
        float advected=clamp(density*.6+(.5+(first-second)*1.5)*.4,0.,1.);
        float extraValley=max(annotation.g,valleyMask*.45)*(1.-annotation.r)*dry;
        color=mix(color,vec3(.62,.72,.76),extraValley*(.035+.15*advected)*strength);
-       float extraSky=max(annotation.b,clouds*.40);
+       float extraSky=max(annotation.b,clouds*.40)*dry;
        color=mix(color,vec3(.67,.73,.76),extraSky*(.025+.105*advected)*strength);
       }
      }
