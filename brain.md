@@ -1,12 +1,14 @@
-# MYN-018 — 26 octobre 2026 — codage autorisé, CI à vérifier
+## Contrat courant — MYN-018 / 0.8.4-code13 LIVRÉE
 
-Demande explicite de Fab : « Ok code tout toi même ». Images de référence : 25663.jpg (24 traces roses des cascades), 25651.jpg (violet = brume vallée, vert turquoise = nuages du ciel, jaune = lac à préserver). **Ondulation du lac 0.8.3 absolument gelée** ; anciens mousse/embruns conservés. Ne pas confondre pluie de particules des cascades et nuages bas.
+Panorama 360° Three.js/WebGL : `web/src/annotated-zones.mjs` trace 24 cascades roses (25663.jpg), 5 nappes violettes et 7 rubans turquoise (25651.jpg). Atlas statique RGBA 512×256 / 512 Kio ajouté à l'ancien atlas 256×128 / 128 Kio. `living-panorama.js` anime les nouvelles zones dans la passe existante ; les anciens embruns/mousse et la physique/gameplay restent inchangés.
 
-Branche unique : feature/native-webgl-v020, PR #2. Implémentation code : dc8c69d (24 trajectoires + cinq bandes violettes + sept bandes vertes), préparation 0.8.4/code13 et tests b2f9224. Atlas statique RGBA 512×256 (512 Kio) séparé de l'ancien RGBA 256×128 (128 Kio), aucune modification de la carte d'eau existante, aucune texture/particule uploadée par frame ; une seule passe du panorama, une lecture supplémentaire d'atlas par fragment. Le shader court-circuite les nouveaux effets sur le masque eau (regions.a). Les six anciennes ellipses et formules foam/spray, refraction lac, ripples et vérification matière source/destination restent intactes. Image originale, icône, musique, HUD, pions, règles et sauvegarde intacts.
+**Invariant non négociable** : ondulations et réfraction du lac 0.8.3 figées, pas de déformation des arbres/berges. Régression automatisée par comparaison du rendu à la vraie fixture `scripts/fixtures/panorama-v083-reference.js` : deltas nuls sur cinq temps aux pixels de lac contrôlés. Tests brume/chute positifs ; mode réduit stable. La couverture exhaustive esthétique des 24 chutes n'est **pas prouvée** par ces tests et attend l'essai Samsung.
 
-QA introduite : 24 masques individuels, 5 bandes basses, 7 bandes de ciel, exclusion disque lunaire, contrats d'expressions du shader eau et mode réduit. CI GitHub v0.8.4 : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189 ; **ne pas déclarer réussie avant résultat**, puis confirmer APK/AAB, signatures et téléchargement. Contrôle esthétique/FPS matériel Samsung SM-A576B Android 16 toujours non réalisé ; ne jamais annoncer couverture visuelle exhaustive sans validation de Fab. Aucun merge main/Release finale.
+CI [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) réussie : tests unitaires, 45 scénarios, WebGL, APK/AAB, lint et signature Android identique à 0.8.3. Source `ac1763d`, binaires `a9c79276e64d2216ab7711843ba8778066f47c56`, version 0.8.4/code13. Aucun merge main ni Release sans Fab ; ne pas confondre « build validé » et « essai physique effectué ». Plan : `docs/plan-annotated-effects-v084.md`.
 
-## Contrat courant 0.8.3/code12 — MYN-017 livrée, à valider
+## Historique — 0.8.3 et versions antérieures
+
+ — MYN-017 livrée, à valider
 
 MYN-017 corrige la déformation des arbres signalée sur 25656.jpg : eau autorisée au pixel courant ET au prélèvement déplacé, exclusion des cimes et clapot réduit. Supprimer l’héritage de masque d’eau autour des chutes. Le ciel conserve l’advection de densité avec géométrie fixe ; les calculs de mousse/embruns et la brume sont conservés. L’ancienne égalité complète du composite 0.8.1 ne s’applique plus lorsqu’elle conserve la déformation fautive. Image originale, jeu, HUD/vues/pions, musique, sauvegarde, identité Android, icône et signature conservés.
 

@@ -13,9 +13,13 @@
 - `web/src/living-panorama.js` : deux effets indépendants ajoutés sans toucher au calcul original des six régions et de leurs embruns. Guard `dry=1.-step(.005,regions.a)` sur tous les nouveaux effets au contact du lac ; exclusion de l'ancienne géométrie des chutes. Nouveaux filaments descendants par formule légère et dérive des nuages par réemploi des deux lectures de densité déjà existantes.
 - `tests/annotated-zones.test.mjs` : 24/24 trajectoires dans l'atlas, bandes atmosphériques, masques négatifs, expressions d'ondulation gelées et mode réduit.
 
-## QA et livraison
+## QA et livraison — résultat confirmé
 
-CI Android/Web : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189. Résultat à constater. Comparaison animée et coût GPU Samsung restant à faire, ne pas inventer de FPS. Version 0.8.4/code13 dans package, Android, UI, workflow et checks signature 0.8.3->0.8.4. Deux APK/AAB nommés correctement et disponibles uniquement si CI les produit et les pousse réellement. Ne pas fusionner sur main ni publier de Release sans Fab.
+CI [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) **réussie** sur la source `ac1763dcc19a26518fd7ce97613810aee7359771` ; 45 parcours navigateur hors ligne, rendu WebGL, tests unitaires, APK/AAB 0.8.4/code13, lint et signatures validés. Paquets versionnés disponibles : [APK](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.apk), [AAB](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.aab) ; commit binaires `a9c79276e64d2216ab7711843ba8778066f47c56`.
+
+SHA-256 : APK `47ba5e113dd1c4ab6ba780fe1d839f4813de9d32fa4922bb7c19be9dbc117d6f` ; AAB `70270433a51d79d33ac3b78e7d425d2d7a6173ec4fb639e41989c09c55440c1e`.
+
+Comparaison de pixels du lac avec shader réel 0.8.3 : **aucune différence** aux cinq phases contrôlées. Une passe de panorama, anciens embruns préservés ; masques et mouvements supplémentaires contrôlés par sondes. La correction de la fixture (import relatif) et la condition d'activation des nouveaux masques ont été intégrées avant livraison. **La démonstration visuelle exhaustive des 24 cascades et la mesure FPS sur Samsung restent à faire**. Aucun merge main / Release définitive.
 
 ## TODO humain
 

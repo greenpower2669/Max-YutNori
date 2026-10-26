@@ -1,12 +1,16 @@
-# MYN-018 — 26 octobre 2026 — codage autorisé, CI à vérifier
+## MYN-D037 — audit et correctifs des cascades/brumes (26/10/2026)
 
-Demande explicite de Fab : « Ok code tout toi même ». Images de référence : 25663.jpg (24 traces roses des cascades), 25651.jpg (violet = brume vallée, vert turquoise = nuages du ciel, jaune = lac à préserver). **Ondulation du lac 0.8.3 absolument gelée** ; anciens mousse/embruns conservés. Ne pas confondre pluie de particules des cascades et nuages bas.
+**Signalement** : la scène semblait ne pas animer toutes les chutes roses ni les brumes violettes et turquoise. Analyse : six ellipses historiques, dont une mal centrée sur la forêt, ne représentaient pas toutes les cascades réelles. Fab a fourni 25663.jpg et 25651.jpg et autorisé le codage.
 
-Branche unique : feature/native-webgl-v020, PR #2. Implémentation code : dc8c69d (24 trajectoires + cinq bandes violettes + sept bandes vertes), préparation 0.8.4/code13 et tests b2f9224. Atlas statique RGBA 512×256 (512 Kio) séparé de l'ancien RGBA 256×128 (128 Kio), aucune modification de la carte d'eau existante, aucune texture/particule uploadée par frame ; une seule passe du panorama, une lecture supplémentaire d'atlas par fragment. Le shader court-circuite les nouveaux effets sur le masque eau (regions.a). Les six anciennes ellipses et formules foam/spray, refraction lac, ripples et vérification matière source/destination restent intactes. Image originale, icône, musique, HUD, pions, règles et sauvegarde intacts.
+**Correction** : `annotated-zones.mjs` ajoute 24 rubans roses, 5 violets et 7 turquoise ; atlas statique séparé 512 Kio. `living-panorama.js` contient des effets atmosphériques distincts et un masque `dry` excluant le lac ; calcul de l'ondulation 0.8.3 et anciens embruns préservés. Deux correctifs techniques : chemin `../../web/src/low-mist.mjs` dans la fixture 0.8.3 ; condition du shader étendue aux nouveaux masques de brume/ciel.
 
-QA introduite : 24 masques individuels, 5 bandes basses, 7 bandes de ciel, exclusion disque lunaire, contrats d'expressions du shader eau et mode réduit. CI GitHub v0.8.4 : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189 ; **ne pas déclarer réussie avant résultat**, puis confirmer APK/AAB, signatures et téléchargement. Contrôle esthétique/FPS matériel Samsung SM-A576B Android 16 toujours non réalisé ; ne jamais annoncer couverture visuelle exhaustive sans validation de Fab. Aucun merge main/Release finale.
+**Historique CI** : premier passage `40374825564` échoué sur délai d'un test de démarrage ; passage `40376910942` échoué sur import incorrect de fixture ; autres anciens jobs annulés au profit du dernier commit. Passage final [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) **SUCCESS** : tests unitaires, 45 scénarios navigateur, WebGL, lint, APK/AAB et signature réussis. Résultat `native-panorama-animation.json` : lac comparé à la référence 0.8.3 aux temps 0/1/3/7/12, delta 0 ; points chute/brume/ciel animés, mode réduit fixe. Source `ac1763d` ; binaires `a9c79276e64d2216ab7711843ba8778066f47c56`.
 
-## MYN-D036 — correction livrée 0.8.3
+**Dette de validation** : pas d'inspection visuelle exhaustive des 24 filets dans la vraie APK, pas de FPS/chauffe Samsung mesurés. Les masques testés ne prouvent pas l'absence de faux positif visuel sur chaque rocher. Ne pas inventer une validation matérielle ; traiter les retours de Fab dans `todo.md`.
+
+## Historique — anomalies précédentes
+
+
 
 CI [40329703094](https://github.com/greenpower2669/Max-YutNori/actions/runs/40329703094) réussie : 76/76 tests et 45/45 parcours navigateur hors ligne, aucune erreur JS/requête externe, APK/AAB et lint Android réussis. Pixels : huit sondes de géométrie à cinq phases, sans déformation ; eau avec réfraction positive, brume/ciel/chutes animés, mode réduit fixe. Régression de l’arbre 720/420 observée rouge puis verte. Revue indépendante effectuée. Source `9adc09709dead8bfd5695b39eca01c2b8a0b63a2`, binaires `84d49c1c216002e3913b540feb1bcefaa15808c1`. Vrais téléchargements HTTP 200, ZIP/SHA-256, versions, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.2 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
 

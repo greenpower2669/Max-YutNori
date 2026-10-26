@@ -1,3 +1,13 @@
+# PASSATION ACTUELLE — MAX YUTNORI 0.8.4 — MYN-018 (26/10/2026)
+
+**Référence courante** : branche `feature/native-webgl-v020`, source `ac1763d`, binaires `a9c79276e64d2216ab7711843ba8778066f47c56`. CI [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) réussie : 45 scénarios navigateur hors ligne, tests unitaires, rendu WebGL, APK/AAB, lint Android et signature identique à 0.8.3. [APK 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.apk) · [AAB 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.aab).
+
+Mission MYN-018 : 24 rubans de cascades roses (25663.jpg), 5 nappes de brume violette et 7 bandes de nuages turquoise (25651.jpg) via atlas RGBA statique 512×256 / 512 Kio. L'**eau ondulée de la 0.8.3 ne doit plus être modifiée** : comparaison pixels aux temps 0,1,3,7,12 égale à la référence sur le lac testé ; ancien masque/équations, mousse et embruns maintenus. FPS, visuel des 24 chutes et fluidité sur Samsung SM-A576B Android 16 restent à valider par Fab. Ne pas annoncer ce test physique comme réalisé. Les anciennes passations ci-dessous sont historiques et ne représentent plus le statut actif.
+
+Plan `docs/plan-annotated-effects-v084.md` · todo et cinq mémoires du projet à jour. Aucun merge `main` / Release définitive.
+
+---
+
 # PASSATION ACTUELLE — MAX YUTNORI 0.8.3 — MYN-017
 
 [APK 0.8.3 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.apk) · [AAB de test 0.8.3](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.aab).

@@ -1,12 +1,23 @@
-# MYN-018 — 26 octobre 2026 — codage autorisé, CI à vérifier
+# État courant — Max-YutNori 0.8.4/code13 — MYN-018 LIVRÉE (26/10/2026)
 
-Demande explicite de Fab : « Ok code tout toi même ». Images de référence : 25663.jpg (24 traces roses des cascades), 25651.jpg (violet = brume vallée, vert turquoise = nuages du ciel, jaune = lac à préserver). **Ondulation du lac 0.8.3 absolument gelée** ; anciens mousse/embruns conservés. Ne pas confondre pluie de particules des cascades et nuages bas.
+[📱 APK 0.8.4 direct](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.apk) · [📦 AAB 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.aab) · [CI réussie](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315)
 
-Branche unique : feature/native-webgl-v020, PR #2. Implémentation code : dc8c69d (24 trajectoires + cinq bandes violettes + sept bandes vertes), préparation 0.8.4/code13 et tests b2f9224. Atlas statique RGBA 512×256 (512 Kio) séparé de l'ancien RGBA 256×128 (128 Kio), aucune modification de la carte d'eau existante, aucune texture/particule uploadée par frame ; une seule passe du panorama, une lecture supplémentaire d'atlas par fragment. Le shader court-circuite les nouveaux effets sur le masque eau (regions.a). Les six anciennes ellipses et formules foam/spray, refraction lac, ripples et vérification matière source/destination restent intactes. Image originale, icône, musique, HUD, pions, règles et sauvegarde intacts.
+- [x] Codage 24 tracés roses de cascades + 5 zones violettes + 7 zones turquoise ; atlas séparé 512 Kio, aucune retouche au code de l'ondulation du lac.
+- [x] Tests unitaires, rendu WebGL et 45 parcours navigateur hors ligne (PASS, 0 erreur, 0 requête externe).
+- [x] Comparaison pixels 0.8.3 ↔ 0.8.4 : zéro différence sur le lac aux cinq phases testées ; eau toujours réfractée ; brumes/chutes animées aux points sondés ; mode réduit fixe.
+- [x] Build, lint et signatures APK/AAB ; certificat de test identique à 0.8.3. Binaires publiés sur branche : `a9c79276e64d2216ab7711843ba8778066f47c56` (source `ac1763d`).
+- [ ] **[FAB]** Tester sur Samsung SM-A576B Android 16 les **24 chutes** individuellement, grandes et lointaines, écoulement et embruns.
+- [ ] **[FAB]** Comparer toutes les brumes violettes et turquoise, normale/légère, vue 360°, raccords et mouvement perceptible.
+- [ ] **[FAB]** Confirmer subjectivement la parfaite conservation de l'ondulation de l'eau, sans déformation des arbres/berges, en vue réelle.
+- [ ] **[FAB/AGENT]** Mesurer ou relever FPS, chauffe et confort ; traiter les éventuels retours par correctifs ciblés.
+- [ ] **[FAB]** Décider séparément d'une éventuelle fusion vers `main` / Release définitive (aucune autorisation à ce stade).
 
-QA introduite : 24 masques individuels, 5 bandes basses, 7 bandes de ciel, exclusion disque lunaire, contrats d'expressions du shader eau et mode réduit. CI GitHub v0.8.4 : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189 ; **ne pas déclarer réussie avant résultat**, puis confirmer APK/AAB, signatures et téléchargement. Contrôle esthétique/FPS matériel Samsung SM-A576B Android 16 toujours non réalisé ; ne jamais annoncer couverture visuelle exhaustive sans validation de Fab. Aucun merge main/Release finale.
+SHA-256 APK : `47ba5e113dd1c4ab6ba780fe1d839f4813de9d32fa4922bb7c19be9dbc117d6f`. SHA-256 AAB : `70270433a51d79d33ac3b78e7d425d2d7a6173ec4fb639e41989c09c55440c1e`.
+**Ne pas rouvrir les anciennes cases « en cours » archivées ci-dessous comme si elles étaient encore l'état actif.**
 
-# État courant 0.8.3/code12 — MYN-017 livrée pour test
+## Historique — états antérieurs (0.8.3 et avant)
+
+ — MYN-017 livrée pour test
 
 [APK 0.8.3 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.apk) · [AAB de test 0.8.3](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.aab).
 

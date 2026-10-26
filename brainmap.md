@@ -1,12 +1,14 @@
-# MYN-018 — 26 octobre 2026 — codage autorisé, CI à vérifier
+## Point d'entrée actif — MYN-018 / 0.8.4 (26/10/2026)
 
-Demande explicite de Fab : « Ok code tout toi même ». Images de référence : 25663.jpg (24 traces roses des cascades), 25651.jpg (violet = brume vallée, vert turquoise = nuages du ciel, jaune = lac à préserver). **Ondulation du lac 0.8.3 absolument gelée** ; anciens mousse/embruns conservés. Ne pas confondre pluie de particules des cascades et nuages bas.
+- **État** : 0.8.4/code13 livrée sur `feature/native-webgl-v020`, PR brouillon #2 ; [CI 40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) réussie ; APK/AAB dans `temp/` au commit `a9c79276e64d2216ab7711843ba8778066f47c56`. Aucun merge main.
+- **Tiroir animations** : `docs/plan-annotated-effects-v084.md`, `web/src/annotated-zones.mjs` (24 cascades roses, 5 bandes violettes, 7 turquoise), `web/src/living-panorama.js`. Référence images 25663.jpg et 25651.jpg.
+- **Tiroir non-régression lac** : `scripts/fixtures/panorama-v083-reference.js`, `scripts/verify_panorama.mjs` ; cinq phases testées, delta pixel nul sur le lac. Ondulation 0.8.3 et anciens embruns à préserver impérativement.
+- **Tiroir historique/anomalies** : `debughistorical.md`, `docs/water-only-progress.md`. Distinguer zones masquées et couverture sémantique réelle ; ancien masque d'ellipse centré sur forêt.
+- **Travail restant** : `todo.md` : validation Samsung de la totalité des cascades, brumes, vue 360°, berges et FPS/chauffe. Les archives ci-dessous ne sont pas l'état courant.
 
-Branche unique : feature/native-webgl-v020, PR #2. Implémentation code : dc8c69d (24 trajectoires + cinq bandes violettes + sept bandes vertes), préparation 0.8.4/code13 et tests b2f9224. Atlas statique RGBA 512×256 (512 Kio) séparé de l'ancien RGBA 256×128 (128 Kio), aucune modification de la carte d'eau existante, aucune texture/particule uploadée par frame ; une seule passe du panorama, une lecture supplémentaire d'atlas par fragment. Le shader court-circuite les nouveaux effets sur le masque eau (regions.a). Les six anciennes ellipses et formules foam/spray, refraction lac, ripples et vérification matière source/destination restent intactes. Image originale, icône, musique, HUD, pions, règles et sauvegarde intacts.
+## Historique — point d'entrée 0.8.3
 
-QA introduite : 24 masques individuels, 5 bandes basses, 7 bandes de ciel, exclusion disque lunaire, contrats d'expressions du shader eau et mode réduit. CI GitHub v0.8.4 : https://github.com/greenpower2669/Max-YutNori/actions/runs/40374981189 ; **ne pas déclarer réussie avant résultat**, puis confirmer APK/AAB, signatures et téléchargement. Contrôle esthétique/FPS matériel Samsung SM-A576B Android 16 toujours non réalisé ; ne jamais annoncer couverture visuelle exhaustive sans validation de Fab. Aucun merge main/Release finale.
-
-## Carte courante et livraison 0.8.3 — MYN-017
+ — MYN-017
 
 Architecture courante : living-panorama.js utilise lakeColor/fallColor sur RGB linéaire ; lac = intérieur A>.98 et matière autorisée. Le prélèvement est contrôlé par le même masque et sa couleur, avec inversion correcte de la composante y dans sourceP. Les offsets de ciel sont retirés, la densité B reste animée. panorama-zones.mjs exclut aussi les cimes du premier plan. Fixture distortion() compare au même temps la matière réelle et un témoin modifiant uniquement sampleImage(uv+offset*strength) en sampleImage(uv), ROI 4×4. verify_panorama.mjs contrôle huit points × cinq phases et l’eau positive ; les références historiques restent documentées mais l’ancien composite n’est plus imposé.
 
