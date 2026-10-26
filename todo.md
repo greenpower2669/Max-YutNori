@@ -1,3 +1,21 @@
+# État courant 0.8.3/code12 — MYN-017 livrée pour test
+
+[APK 0.8.3 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.apk) · [AAB de test 0.8.3](https://github.com/greenpower2669/Max-YutNori/raw/84d49c1c216002e3913b540feb1bcefaa15808c1/temp/Max-YutNori-v0.8.3-debug.aab).
+
+- [x] Déformation sur la végétation reproduite puis corrigée ; contrôle au départ/arrivée et clapot réduit.
+- [x] Tests/pixels/revue/CI Android et paquets téléchargés/signatures vérifiés.
+- [ ] [FAB] Installer sur Samsung, revoir les arbres/berges dans toutes les vues, eau/chutes/brume/nuages et fluidité.
+- [ ] [AGENT] Traiter les retours matériels et conserver les autres validations humaines ouvertes.
+
+CI [40329703094](https://github.com/greenpower2669/Max-YutNori/actions/runs/40329703094) réussie : 76/76 tests et 45/45 parcours navigateur hors ligne, aucune erreur JS/requête externe, APK/AAB et lint Android réussis. Pixels : huit sondes de géométrie à cinq phases, sans déformation ; eau avec réfraction positive, brume/ciel/chutes animés, mode réduit fixe. Régression de l’arbre 720/420 observée rouge puis verte. Revue indépendante effectuée. Source `9adc09709dead8bfd5695b39eca01c2b8a0b63a2`, binaires `84d49c1c216002e3913b540feb1bcefaa15808c1`. Vrais téléchargements HTTP 200, ZIP/SHA-256, versions, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.2 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
+
+APK : 62,495,080 octets ; SHA-256 `6a33dad7d6e8e5fa2a1894a5b6b2412b920282afea93315320289547f1da80f3`.
+AAB : 62,005,457 octets ; SHA-256 `ede3d29837de081081f7e367d8d4532d6151e76076f12e394eb0a7dd615c4ee2`.
+
+Installation en mise à jour de 0.8.2 sans désinstallation. Les sondes automatiques ne prouvent pas une segmentation sémantique exhaustive de chaque pixel ; vérifier les autres berges/cimes et la fluidité sur Samsung SM-A576B Android 16. Aucun essai matériel/FPS revendiqué. Aucun merge main ni Release définitive.
+
+## Historique — états antérieurs conservés
+
 # MYN-017 — correction 0.8.3 en cours
 
 76 tests, build et pixels verts : huit sondes fixes × cinq phases, eau positive ; revue/CI/livraison attendues. Suivi docs/water-only-progress.md.
