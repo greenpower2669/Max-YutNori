@@ -1,13 +1,13 @@
 {
   "name": "max-yutnori",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "test": "node --test tests/*.test.mjs",
-    "smoke": "node scripts/smoke_native.mjs"
+    "smoke": "node scripts/verify_panorama.mjs && node scripts/smoke_native.mjs"
   },
   "dependencies": {
     "three": "0.186.1",

@@ -1,3 +1,6 @@
+## Contrat demandé MYN-014 — 0.8.0 en cours
+Plus de place centrale et pions tactiles, bandeaux/fiches compacts et plus transparents ; équipes 1–2 gauche/3–4 droite (interprétation annoncée). Vue unique à gauche de musique ; actif bicolore pulsé. Panorama réellement visible sans pointillés ; nouvelle musique Arisongs MP3 locale en boucle. Table flottante/fresque/règles/gestes/v4/identité/signature conservés. Voir docs/plan-visibility-v080.md ; non livré.
+
 ## Contrat courant 0.7.0/code8 — 26/10/2026
 
 Pions posés sur la table, les cases ou les piles ; soulèvement avant traversée, dépôt et annulation sûrs. Vue de dessus avec pincement à deux doigts, même en tenant un pion. Bandeaux semi-transparents et réserves accessibles au cadrage initial. Panorama animé par zones : eau, chutes, brume, nuages et lumières. Fresque originale agrandissable dans les règles. Intensité de l’équipe active variable sur un cycle doux de 2,8 secondes, pion choisi plus lumineux ; éclairage fixe en animations réduites. La table flottante est volontaire et préservée, les règles sont inchangées.

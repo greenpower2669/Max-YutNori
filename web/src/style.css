@@ -40,3 +40,28 @@ header{background:linear-gradient(90deg,#18362ebd,#102b28b8);backdrop-filter:blu
 .rules-fresco{margin:16px 0}.rules-fresco button{display:block;width:100%;padding:0;overflow:hidden}.rules-fresco img{display:block;width:100%;height:auto}.rules-fresco span{display:block;padding:10px;color:var(--gold);font-weight:700}.rules-fresco figcaption{font-size:14px;margin-top:6px}
 #fresco{width:min(1100px,96vw);max-width:96vw;height:88dvh;padding:16px}#fresco[open]{display:flex;flex-direction:column;gap:8px}#fresco p{margin:0;font-size:14px}.fresco-toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.fresco-toolbar h1{font-size:20px;margin:0 auto 0 0}.fresco-toolbar button{margin:0}.fresco-toolbar output{min-width:54px;text-align:center}#frescoViewport{flex:1;min-height:80px;overflow:auto;touch-action:none;border-radius:8px;background:#091b18}#frescoImage{display:block;max-width:none;height:auto;user-select:none;-webkit-user-drag:none}
 @media(max-width:700px){#scores{top:calc(var(--header-height,78px) + 9px)}#views{top:calc(var(--header-height,78px) + 70px);max-width:calc(100% - 24px);flex-direction:row;justify-content:flex-start}#views button{padding:5px 7px;font-size:11px}#notice{bottom:calc(var(--controls-height,184px) + 4px)}#scene{top:0;height:100%}}
+
+/* MYN-014: compact translucent HUD and two team rails leave the centre open. */
+:root{--team-rail:clamp(108px,14vw,150px)}
+header{min-height:64px;gap:8px;padding:4px 12px;background:linear-gradient(90deg,#18362e80,#102b2870);backdrop-filter:blur(3px)}
+.brand img{width:190px;max-height:54px}
+nav{align-items:center;gap:6px;flex:none}
+nav button{min-height:44px;padding:6px 11px;background:#102b287d;text-shadow:0 1px 3px #000}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.view-picker{display:block;min-width:0}
+#viewMode{width:145px;min-height:44px;padding:6px 8px;border-radius:10px;border-color:var(--line);background:#102b287d;color:var(--cream);cursor:pointer;font-size:14px}
+#throwSummary{min-width:120px}.yut-face{height:27px;width:16px}
+#throwSummary small{font-size:9px}
+#scores{top:calc(var(--header-height,64px) + 10px);left:12px;right:12px;max-width:none;display:grid;grid-template-columns:var(--team-rail) minmax(0,1fr) var(--team-rail);grid-template-rows:auto auto;gap:10px 0;pointer-events:none}
+.team{grid-column:1;min-width:0;width:100%;padding:7px 9px;background:#102b2866;backdrop-filter:blur(2px);border-color:color-mix(in srgb,var(--team-color) 65%,transparent);text-shadow:0 1px 3px #000;position:relative}
+.team:nth-child(2){grid-row:2}.team:nth-child(3){grid-column:3;grid-row:1}.team:nth-child(4){grid-column:3;grid-row:2}.team:nth-child(2):last-child{grid-column:3;grid-row:1}
+.team strong{max-width:100%;font-size:15px;line-height:1.35}.team small{font-size:12px}
+.team.current,.team:nth-child(2).current{color:var(--cream);background:#102b287d;border-color:var(--team-color);box-shadow:inset 0 0 0 1px var(--team-color),0 0 0 2px color-mix(in srgb,var(--team-accent) calc(40% + 50% * var(--team-pulse,.65)),transparent),0 0 calc(8px + 18px * var(--team-pulse,.65)) color-mix(in srgb,var(--team-color) 70%,transparent),0 0 calc(10px + 15px * var(--team-pulse,.65)) color-mix(in srgb,var(--team-accent) 55%,transparent)}
+.turn-marker{display:block;color:var(--team-accent);font-size:10px;font-weight:850;letter-spacing:.03em;line-height:1.4;margin-top:3px}
+#controls{min-height:0;padding:7px 14px;gap:12px;grid-template-columns:minmax(130px,180px) minmax(0,1fr) 235px;background:#132e2b78;backdrop-filter:blur(3px)}
+.turn strong{font-size:17px}.turn span{margin-top:2px}.turn small{font-size:10px}
+#throwControls{gap:2px}#throw{min-height:44px}.power{font-size:12px}.power input{height:16px}#throwControls .check{margin:0;font-size:12px}
+#results:empty,#pieces:empty,#destinations:empty{display:none}
+#notice{max-width:min(350px,calc(100% - 24px));bottom:calc(var(--controls-height,100px) + 6px);padding:4px 10px;background:#102b2885;font-size:13px;text-shadow:0 1px 3px #000}
+@media(max-height:570px) and (min-width:701px){header{min-height:56px;padding:3px 10px}.brand img{width:155px;max-height:46px}#throwSummary{min-width:100px}.yut-face{height:22px;width:14px}#throwSummary small{display:none}#throwLabel{font-size:11px}#viewMode{width:135px;font-size:13px}nav{gap:5px}nav button{font-size:13px;padding:5px 8px}#music{font-size:21px;padding:1px 12px}#controls{padding:5px 12px;grid-template-columns:135px minmax(0,1fr) 215px;gap:10px}.turn strong{font-size:16px}.turn span{font-size:12px}.team{padding:6px 7px}.team strong{font-size:14px}.team small{font-size:11px}#pieces button,#destinations button,#results button{font-size:12px;min-height:32px;padding:4px 8px}}
+@media(max-width:700px){header{min-height:0;padding:5px 8px;gap:5px;flex-wrap:wrap}.brand{flex:1}.brand img{width:145px;max-height:44px}nav{order:2;width:100%;justify-content:space-between;gap:4px}nav button{font-size:13px;padding:5px 8px}#viewMode{width:125px;font-size:12px}#throwSummary{order:1;width:auto;flex-direction:column;gap:0;padding:0;min-width:100px}.yut-face{height:23px;width:13px}#scores{left:10px;right:10px;grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr);gap:7px 0}.team{padding:5px 8px}.team strong{font-size:14px;max-width:100%}.team small{font-size:11px}#controls{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:6px;padding:7px 10px}.actions{gap:4px}.turn strong{font-size:16px}.turn span{font-size:12px}#throw{font-size:13px}#throwControls .check{font-size:11px}#notice{font-size:12px}#scores .turn-marker{font-size:10px}}

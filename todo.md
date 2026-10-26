@@ -1,3 +1,11 @@
+# MYN-014 — 0.8.0 en cours
+- [x] Autorisation, missions et mémoires lues ; référence 975b7f0, baseline 71/71 et build Web.
+- [x] Interface compacte, vues regroupées, cadrage et gestes aux trois formats.
+- [x] Bicolore actif ; pointillés isolés/corrigés ; cinq régions du panorama vérifiées par pixels.
+- [x] Nouvelle musique MP3 et boucle hors ligne vérifiées ; MIME/Range Android codés, CI attendue.
+- [ ] Régressions/revue/CI et livraison APK/AAB vérifiée.
+Plan docs/plan-visibility-v080.md. Dernière livraison vérifiée 0.7.0.
+
 # État courant — 0.7.0 livrée le 26/10/2026
 
 [APK 0.7.0 directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f/temp/Max-YutNori-v0.7.0-debug.apk) · [AAB de test 0.7.0](https://github.com/greenpower2669/Max-YutNori/raw/a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f/temp/Max-YutNori-v0.7.0-debug.aab).

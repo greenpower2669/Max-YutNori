@@ -9,6 +9,9 @@
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
+## MYN-014 — Visibilité, joueur actif, vues et musique — Autorisée, en cours — 26/10/2026
+Fab autorise « Ok, code tout sur mon git » après la passation. Réduire bandeaux et fiches, augmenter transparence et place centrale/cadrage/pions tactiles. Deux équipes de chaque côté : 1–2 gauche/3–4 droite, interprétation annoncée de la dictée contenant deux fois 4. Bouton Vue unique à plusieurs valeurs à gauche de 🎵 ; joueur actif lumineux bicolore à intensité variable. Supprimer les pointillés signalés et rendre visibles eau/chutes/brume/nuages/lumières et particules du panorama. Embarquer ariranlike25102026.mp3 de la release Arisongs en boucle. Table flottante et fresque agrandissable validées à préserver, règles/gestes/sauvegarde/identité/signature inchangés. Plan docs/plan-visibility-v080.md. Version visée 0.8.0/code9 ; 0.7.0 reste la livraison vérifiée. Aucun merge main ni Release définitive autorisé.
+
 ## MYN-013 — Livrée, à valider sur Samsung — 26/10/2026
 
 Pions posés sur la table, les cases ou les piles ; soulèvement avant traversée, dépôt et annulation sûrs. Vue de dessus avec pincement à deux doigts, même en tenant un pion. Bandeaux semi-transparents et réserves accessibles au cadrage initial. Panorama animé par zones : eau, chutes, brume, nuages et lumières. Fresque originale agrandissable dans les règles. Intensité de l’équipe active variable sur un cycle doux de 2,8 secondes, pion choisi plus lumineux ; éclairage fixe en animations réduites. La table flottante est volontaire et préservée, les règles sont inchangées.

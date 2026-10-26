@@ -1,6 +1,6 @@
 import {ImpactLimiter} from './impact.mjs';
 export class GameAudio {
- constructor(log){this.log=log;this.music=new Audio('./audio/arirang.m4a');this.music.loop=true;this.music.preload='metadata';this.music.volume=.22;this.enabled=true;this.fx=true;this.fxVolume=.6;this.paused=false;this.unlocked=false;this.context=null;this.voices=new Set();this.limiter=new ImpactLimiter();this.effectsPlayed=0;this.music.addEventListener('error',()=>log('Musique indisponible : '+this.music.error?.code));}
+ constructor(log){this.log=log;this.music=new Audio('./audio/ariranlike25102026.mp3');this.music.loop=true;this.music.preload='metadata';this.music.volume=.22;this.enabled=true;this.fx=true;this.fxVolume=.6;this.paused=false;this.unlocked=false;this.context=null;this.voices=new Set();this.limiter=new ImpactLimiter();this.effectsPlayed=0;this.music.addEventListener('error',()=>log('Musique indisponible : '+this.music.error?.code));}
  async unlock(){this.unlocked=true;try{this.context??=new AudioContext();if(!this.master){this.master=this.context.createGain();this.master.gain.value=this.fx?this.fxVolume:0;this.master.connect(this.context.destination);}if(!this.paused)await this.context.resume();}catch{}this.resume();}
  resume(){if(this.enabled&&this.unlocked&&!this.paused&&!document.hidden)this.music.play().catch(()=>{});}
  silence(){for(const source of this.voices){try{source.stop();}catch{}}this.voices.clear();}

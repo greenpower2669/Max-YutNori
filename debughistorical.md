@@ -1,3 +1,12 @@
+## MYN-D031 — Rappeler la vue courante depuis le menu natif
+Revue indépendante : après sélection d'un pion, la caméra suit ce pion mais le select vaut déjà board. Home/Enter sur Plateau ne produit aucun change et ne revient pas au cadrage général. Reproduction navigateur rouge confirmée (follow au lieu de idle). Correction : option courante masquée d'affichage, distincte des quatre commandes ; chaque commande est réexécutable et met à jour le libellé courant, y compris les transitions automatiques. Régression native ajoutée, validation verte confirmée par le même vrai menu natif.
+
+## MYN-D030 — Cause des pointillés confirmée
+Reproduction navigateur isolée : pointillés présents avec panorama seul et effets coupés, absents lorsque le panorama est masqué. Une seule variable changée (minification sans mipmaps, filtrage linéaire) enlève la diagonale, sans modifier le PNG. Cause : dérivées implicites au saut atan de la couture équirectangulaire sélectionnant un mip de moyenne dorée. Échantillonnage linéaire horizontal répété, éclairage PMREM séparé. Masques des chutes recalés sur les cascades de l'image ; validation finale encore en cours.
+
+## MYN-D030 — Retour utilisateur 0.7.0 — 26/10/2026
+Captures : pointillés clairs/jaunes au-dessus et près de la table, effets panorama non perceptibles, table/pions trop petits et joueur actif trop discret. Causes des pointillés à reproduire. Encombrement confirmé par lecture : bandeau bas min-height 148/122px, header min-height 78px et quatre boutons Vue superposés. Aucune correction encore déclarée vérifiée.
+
 ## Validation finale 0.7.0 — D025 à D029 — 26/10/2026
 
 Revue indépendante traitée : retour invalide/pointercancel et espacement des piles. Régressions observées rouges puis vertes ; ajout du cadrage des réserves hors commandes, vérifié en 1000×600, 844×390 et 390×844. Pause et mode réduit couvrent aussi lumière et panorama.

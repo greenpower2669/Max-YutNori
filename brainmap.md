@@ -1,3 +1,16 @@
+## Carte réalisée MYN-014 — 0.8.0/code9, CI attendue
+- index.html : select Vue unique en header avant musique ; option courante masquée distincte des quatre commandes. main.setView synchronise le libellé après commandes et transitions automatiques ; Plateau reste réexécutable pendant un suivi.
+- main.fit : mesure header/controls/notice/fiches avec ResizeObserver ; insets latéraux pour les fiches en paysage, marge supérieure incluant les fiches en portrait. scene.resize utilise la même projection décalée pour rendu/project/raycast.
+- style.css : transparence renforcée, header56px en paysage court, contrôles compacts, grilles équipes1–2 gauche/3–4 droite (2 équipes réparties des deux côtés), mention active et lueur bicolore synchronisée à teamPulse.
+- scene.pieces : corps élargi horizontalement, symbole plus lisible, deux anneaux actifs team/accent ; pointage écran28px, hauteur/piles/gestes inchangés. teams.mjs ajoute accent contrasté.
+- living-panorama.js : filtrage linéaire sans mipmaps sur fond, wrap horizontal ; masques recalés, rides/écoulement/brume/nuages/lampes/embruns localisés. Le PNG et le PMREM d'éclairage sont préservés.
+- fetch_music.py : MP3 Arisongs épinglé taille/SHA, écriture atomique ; CI le conserve dans Git et l'embarque. GameAudio réutilise son unique Audio en boucle ; MainActivity sert MP3 avec MIME et Range.
+- verify_panorama.mjs + fixture isolée : rend le shader réel à0/3s et compare les pixels de cinq zones ; mode réduit strictement fixe. smoke_visibility : interface, caméra automatique, réserves3formats, musique2boucles,2équipes et rappel natif Home/Enter.
+- Workflow Android0.8.0/code9 ; identité/icône/clé de test conservées, comparaison certificat0.7.0. verify-delivery-v080.py contrôlera les vrais téléchargements et certificats.
+
+## Intervention MYN-014 — 0.8.0 en cours
+UI/cadrage : index.html, style.css, main.js, scene.js. Pulsation/zoom : comfort.mjs ; panorama : living-panorama.js. Audio : audio.js, récupération épinglée en CI, MainActivity MIME/Range ; tests et vérificateurs de paquet à adapter. Plan docs/plan-visibility-v080.md.
+
 ## Carte courante 0.7.0 — 26/10/2026
 
 - board-layout.mjs : PAWN_TABLE_Y=-.31, PAWN_BOARD_Y=.126, PAWN_STACK=.21 ; reservePosition/pawnPosition/buildSelection alignent supports et destinations.

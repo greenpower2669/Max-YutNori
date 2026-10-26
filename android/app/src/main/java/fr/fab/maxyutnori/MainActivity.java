@@ -142,6 +142,7 @@ public final class MainActivity extends Activity {
                 : path.endsWith(".js") ? "application/javascript"
                 : path.endsWith(".html") ? "text/html"
                 : path.endsWith(".css") ? "text/css"
+                : path.endsWith(".mp3") ? "audio/mpeg"
                 : path.endsWith(".m4a") ? "audio/mp4"
                 : path.endsWith(".txt") ? "text/plain"
                 : path.endsWith(".json") ? "application/json"
@@ -150,7 +151,7 @@ public final class MainActivity extends Activity {
             Map<String, String> headers = new HashMap<>();
             headers.put("Cache-Control", "no-cache");
             headers.put("X-Content-Type-Options", "nosniff");
-            if (path.endsWith(".m4a")) {
+            if (path.endsWith(".m4a") || path.endsWith(".mp3")) {
                 long length = stream.available();
                 headers.put("Accept-Ranges", "bytes");
                 headers.put("Content-Length", Long.toString(length));

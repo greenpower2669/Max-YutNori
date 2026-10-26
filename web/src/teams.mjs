@@ -1,8 +1,8 @@
 export const TEAM_STYLES=[
- {name:'Chêne',symbol:'◆',color:0xdbb777,css:'#e7c88e',glow:0xe7c88e,finish:'wood',ink:'#251607'},
- {name:'Cèdre',symbol:'●',color:0xa83218,css:'#ff957a',glow:0xff957a,finish:'wood',ink:'#ffffff'},
- {name:'Noir',symbol:'▲',color:0x070a0e,css:'#e0e5ee',glow:0xe0e5ee,finish:'lacquer',ink:'#ffffff'},
- {name:'Sapin',symbol:'✦',color:0x064528,css:'#7adea7',glow:0x7adea7,finish:'lacquer',ink:'#ffffff'}
+ {name:'Chêne',accent:'#91f3ff',symbol:'◆',color:0xdbb777,css:'#e7c88e',glow:0xe7c88e,finish:'wood',ink:'#251607'},
+ {name:'Cèdre',accent:'#91f3ff',symbol:'●',color:0xa83218,css:'#ff957a',glow:0xff957a,finish:'wood',ink:'#ffffff'},
+ {name:'Noir',accent:'#ffd37d',symbol:'▲',color:0x070a0e,css:'#e0e5ee',glow:0xe0e5ee,finish:'lacquer',ink:'#ffffff'},
+ {name:'Sapin',accent:'#ffd37d',symbol:'✦',color:0x064528,css:'#7adea7',glow:0x7adea7,finish:'lacquer',ink:'#ffffff'}
 ];
 export function defaultPlayer(team,index=0){return {name:team===0&&index===0?'Joueur 1':`${TEAM_STYLES[team].name} ${index+1}`,computer:team!==0,level:2,aggression:50};}
 export function makeTeams(options={}){
