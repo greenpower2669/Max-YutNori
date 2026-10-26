@@ -276,39 +276,66 @@
       "changedFraction": 0.0625
     }
   ],
+  "frozenLake": [
+    {
+      "time": 0,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 1,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 3,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 7,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 12,
+      "meanDelta": 0,
+      "changedFraction": 0
+    }
+  ],
   "water": {
-    "meanDelta": 1.4955357142857142,
-    "changedFraction": 0.08168154761904763
+    "meanDelta": 1.6071924603174603,
+    "changedFraction": 0.09087797619047619
   },
   "waterfall": {
-    "meanDelta": 1.7484871031746032,
-    "changedFraction": 0.13127232142857143
+    "meanDelta": 1.757874503968254,
+    "changedFraction": 0.1324627976190476
   },
   "mist": {
-    "meanDelta": 12.667557043650794,
-    "changedFraction": 0.5815997023809524
+    "meanDelta": 11.762554563492063,
+    "changedFraction": 0.578578869047619
   },
   "clouds": {
-    "meanDelta": 0.29473710317460317,
-    "changedFraction": 0.04040922619047619
+    "meanDelta": 0.5914136904761905,
+    "changedFraction": 0.07897321428571429
   },
   "lamps": {
-    "meanDelta": 1.4849280753968255,
-    "changedFraction": 0.17584077380952381
+    "meanDelta": 1.5682862103174604,
+    "changedFraction": 0.18988839285714285
   },
   "seam": {
-    "meanDelta": 0.14668650793650795,
-    "changedFraction": 0.01933779761904762
+    "meanDelta": 0.15164930555555556,
+    "changedFraction": 0.02019345238095238
   },
   "lowClouds": {
-    "contribution": 9.730354662698412,
-    "advection": 1.6205034722222222,
+    "contribution": 6.354655257936508,
+    "advection": 0.9221106150793651,
     "drawCalls": 1,
     "textureBytes": 131072
   },
   "lowCloudsLight": {
-    "contribution": 7.201158234126984,
-    "advection": 1.2431026785714285,
+    "contribution": 5.248397817460318,
+    "advection": 0.8252455357142857,
     "drawCalls": 1,
     "textureBytes": 131072
   },
@@ -393,8 +420,8 @@
       "y": 345,
       "channel": 1,
       "active": true,
-      "contribution": 33.083333333333336,
-      "advection": 2.8919270833333335,
+      "contribution": 19.834635416666668,
+      "advection": 1.3984375,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -404,8 +431,8 @@
       "y": 360,
       "channel": 1,
       "active": true,
-      "contribution": 31.934895833333332,
-      "advection": 5.5390625,
+      "contribution": 51.865885416666664,
+      "advection": 5.354166666666667,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -415,8 +442,8 @@
       "y": 644,
       "channel": 1,
       "active": true,
-      "contribution": 43.986979166666664,
-      "advection": 9.227864583333334,
+      "contribution": 26.169270833333332,
+      "advection": 3.7526041666666665,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -426,8 +453,8 @@
       "y": 645,
       "channel": 1,
       "active": true,
-      "contribution": 55.958333333333336,
-      "advection": 4.39453125,
+      "contribution": 27.32421875,
+      "advection": 1.6432291666666667,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -437,8 +464,8 @@
       "y": 268,
       "channel": 2,
       "active": true,
-      "contribution": 26.1796875,
-      "advection": 2.2591145833333335,
+      "contribution": 27.919270833333332,
+      "advection": 2.2721354166666665,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -448,8 +475,8 @@
       "y": 240,
       "channel": 2,
       "active": true,
-      "contribution": 31.50390625,
-      "advection": 3.6549479166666665,
+      "contribution": 34.880208333333336,
+      "advection": 3.0546875,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -459,8 +486,8 @@
       "y": 220,
       "channel": 2,
       "active": true,
-      "contribution": 7.3515625,
-      "advection": 0.8841145833333334,
+      "contribution": 14.631510416666666,
+      "advection": 1.2265625,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -481,8 +508,8 @@
       "y": 420,
       "channel": 3,
       "active": true,
-      "contribution": 4.11328125,
-      "advection": 4.893229166666667,
+      "contribution": 4.243489583333333,
+      "advection": 4.903645833333333,
       "drawCalls": 1,
       "textureBytes": 131072
     },
@@ -543,8 +570,8 @@
     }
   ],
   "waterfallBoundary": {
-    "at0": 16.729166666666668,
-    "at12": 21.125
+    "at0": 13.875,
+    "at12": 17.041666666666668
   },
   "reducedStill": true
 }
