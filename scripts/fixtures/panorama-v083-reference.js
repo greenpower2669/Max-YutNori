@@ -1,5 +1,5 @@
 import * as T from 'three';
-import {createLowMistTexture} from './low-mist.mjs';
+import {createLowMistTexture} from '../../web/src/low-mist.mjs';
 // Animate local regions of Fab's original image; keep the supplied PNG unchanged.
 export class V083Panorama {
  constructor(texture){
