@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {LivingPanorama} from '../../web/src/living-panorama.js';
 import {LivingPanorama as ReferencePanorama} from './panorama-v081-reference.js';
+import {V083Panorama} from './panorama-v083-reference.js';
 const renderer=new T.WebGLRenderer({canvas:document.querySelector('canvas'),preserveDrawingBuffer:true,antialias:false});
 renderer.setSize(480,280);renderer.toneMapping=T.ACESFilmicToneMapping;
 const scene=new T.Scene(),camera=new T.PerspectiveCamera(32,480/280,.1,10),texture=await new T.TextureLoader().loadAsync('/image.png');
@@ -34,6 +35,7 @@ function lowCloudCompare(centre=false,low=false,channel=1){
  }finally{uniform.value=real;draw(12,low);}
 }
 const reference=new ReferencePanorama(texture);
+const waterReference=new V083Panorama(texture);
 const unwarpedMaterial=panorama.mesh.material.clone();unwarpedMaterial.uniforms=panorama.uniforms;
 unwarpedMaterial.fragmentShader=unwarpedMaterial.fragmentShader.replace('sampleImage(uv+offset*strength)','sampleImage(uv)');
 function distortion(){
@@ -50,7 +52,25 @@ function compareReference(centre=true,withoutFog=false){
   return {at0:difference(current0,pixels(0),centre).meanDelta,at12:difference(current12,pixels(12),centre).meanDelta};
  }finally{panorama.uniforms.lowMistData.value=currentMap;reference.uniforms.lowMistData.value=referenceMap;scene.remove(reference.mesh);scene.add(panorama.mesh);draw(12);}
 }
+function compareLakeV083(){
+ // Compare actual production pixels against immutable 0.8.3 reference.
+ // Camera must be aimed at a confirmed lake interior point before calling.
+ const samples=[];
+ for(const t of [0,1,3,7,12]){
+  const current=draw(t);
+  scene.remove(panorama.mesh);scene.add(waterReference.mesh);
+  waterReference.uniforms.time.value=t;waterReference.frame(0,false,false);
+  renderer.render(scene,camera);
+  const gl=renderer.getContext(),oldPixels=new Uint8Array(current.length);
+  gl.readPixels(0,0,480,280,gl.RGBA,gl.UNSIGNED_BYTE,oldPixels);
+  scene.remove(waterReference.mesh);scene.add(panorama.mesh);
+  samples.push({time:t,...difference(current,oldPixels,4)});
+ }
+ draw(12);
+ return samples;
+}
 window.panoramaProbe={
+ compareLakeV083,
  aim(u,p){const a=(u-.5)*2*Math.PI,b=(.5-p)*Math.PI;camera.lookAt(new T.Vector3(Math.cos(a)*Math.cos(b),Math.sin(b),Math.sin(a)*Math.cos(b)).applyAxisAngle(new T.Vector3(0,1,0),-.3*Math.PI));},
  compare(){return difference(draw(0),draw(3));},
  lowCloudCompare,

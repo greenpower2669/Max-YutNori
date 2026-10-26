@@ -27,6 +27,12 @@ try{
  }
  await page.evaluate(()=>window.panoramaProbe.aim(910/1536,455/768));result.waterDistortion=await page.evaluate(()=>window.panoramaProbe.distortion());
  assert.ok(result.waterDistortion.some(p=>p.meanDelta>.1),'water itself must retain refraction');
+ // The old v0.8.3 wave shader is frozen: compare actual rendered pixels
+ // frame-for-frame at the centre of the known water channel.
+ await page.evaluate(()=>window.panoramaProbe.aim(910/1536,455/768));
+ result.frozenLake=await page.evaluate(()=>window.panoramaProbe.compareLakeV083());
+ assert.ok(result.frozenLake.every(p=>p.meanDelta===0),
+  '0.8.3 lake wave pixels MUST remain identical: '+JSON.stringify(result.frozenLake));
  for(const [name,u,v]of [['water',.52,.565],['waterfall',.079,.719],['mist',.53,.73],['clouds',520/1536,240/768],['lamps',.04,.51],['seam',.001,.70]]){
   await page.evaluate(([u,v])=>window.panoramaProbe.aim(u,v),[u,v]);result[name]=await page.evaluate(()=>window.panoramaProbe.compare());await page.screenshot({path:resolve(output,'native-panorama-'+name+'.png')});
   if(name!=='seam')assert.ok(result[name].meanDelta>.15,name+' must visibly change actual rendered pixels');
