@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "65517302a815e5b31f2ec120827c473cb51571ce",
+  "webSourceCommit": "4a4811790fbeff8ca038ec05f7124df0732a8b4a",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -218,7 +218,7 @@
     "byteIdentical": true
   },
   "unitTests": {
-    "passed": 110,
+    "passed": 111,
     "failed": 0
   },
   "builds": {
@@ -227,26 +227,27 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "e2cb0e6dbc58435a10bccbf586b1abf5f43fe319",
+    "sourceCommit": "edd60a821422b2fc09100d365819445fc75d8a49",
     "status": "succeeded",
-    "audience": "owner-private",
-    "id": "appgdep_6ae12126181081919a64fa0cc1d76254"
+    "audience": "public",
+    "id": "appgdep_6ae126ce9b14819182b5e5c4c9b527d9"
   },
   "browserLimitations": [
     "cloud preview WebGL context unavailable",
-    "published private login gate; authentication rejected by automatic review"
+    "internal browser error protocol was not available to observation on reload",
+    "actual previously installed Samsung PWA recovery requires user validation"
   ],
-  "ciRun": 40593243077,
+  "ciRun": 40595523867,
   "ciStatus": "success",
   "pwaVersion": "0.1.0",
-  "pwaBuild": 2,
+  "pwaBuild": 3,
   "browserChecks": {
-    "run": 40592283542,
-    "sourceCommit": "65517302a815e5b31f2ec120827c473cb51571ce",
-    "passed": 15,
+    "run": 40595523867,
+    "sourceCommit": "4a4811790fbeff8ca038ec05f7124df0732a8b4a",
+    "passed": 16,
     "failed": 0,
     "javascriptErrors": 0,
-    "reusedAfterInputIdentityCheckInRun": 40593243077
+    "redirectedShellOfflineReload": "PASS"
   },
   "androidCompatibility": {
     "apkAssembly": "PASS",
@@ -255,5 +256,10 @@
     "signed": false,
     "distribution": "none",
     "canonicalSigningConfiguration": "unchanged"
+  },
+  "publicAccess": {
+    "revision": 2,
+    "firstDocumentObservedWithoutAuthentication": true,
+    "rawHTTPProbeStatus": 403
   }
 }

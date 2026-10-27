@@ -2,7 +2,7 @@
 
 ## Installer et jouer
 
-Ouvrir https://max-yutnori-web.gnrationsia.chatgpt.site — version de test privée, accessible au propriétaire avec son compte ChatGPT. Le jeu occupe la fenêtre ; le paysage est conseillé. Dans **Pause**, activer **Plein écran** si le navigateur le permet, ou choisir **Installer le jeu**. Dans Chrome/Edge Android et ordinateur, l'icône/menu du navigateur peut également proposer l'installation. Sur iPhone/iPad, Safari → Partager → Sur l'écran d'accueil ; les possibilités d'installation, d'orientation et de plein écran diffèrent selon le système. Les navigateurs sans installation peuvent jouer depuis le site avec WebGL.
+Ouvrir https://max-yutnori-web.gnrationsia.chatgpt.site — version de test publique, accessible sans connexion ChatGPT. Le jeu occupe la fenêtre ; le paysage est conseillé. Dans **Pause**, activer **Plein écran** si le navigateur le permet, ou choisir **Installer le jeu**. Dans Chrome/Edge Android et ordinateur, l'icône/menu du navigateur peut également proposer l'installation. Sur iPhone/iPad, Safari → Partager → Sur l'écran d'accueil ; les possibilités d'installation, d'orientation et de plein écran diffèrent selon le système. Les navigateurs sans installation peuvent jouer depuis le site avec WebGL.
 
 Pour la première ouverture, rester connecté jusqu'à **Jeu hors ligne prêt · musique incluse** dans Pause. Environ65Mo de ressources sont préparés ; la musique originale est reconstituée depuis des fragments sans changement de qualité. Ensuite ouvrir le raccourci installé ou la même URL hors ligne. Le navigateur peut effacer les données d'un site si l'utilisateur les supprime ou si le système récupère son stockage. L'application demande la persistance si elle est disponible lors de l'installation.
 
@@ -33,7 +33,7 @@ Publier tout le contenu de `pwa-dist` sous une même racine HTTPS ou un sous-dos
 
 `web-release.json` porte **pwaVersion** et **build**, à augmenter pour chaque déploiement différent. `package.json` porte **engineVersion**. Le commit Git du build est intégré dans le bundle et dans `web-version.json` ; `WEB_COMMIT` permet de désigner le commit GitHub réel lorsque la copie locale possède une identité de commit différente mais le même arbre de sources. Ne jamais réutiliser un numéro build pour un autre commit.
 
-La CI `.github/workflows/web-pwa.yml` automatise tests, deux builds,intégrité du moteur approuvé, scénario PWA et cadrage caméra et compilation/lint Android, puis conserve les rapports et le dossier publiable. Sites héberge une copie de test privée ; le dépôt GitHub reste la source canonique. La réexécution utilise le même projet Sites, jamais un nouveau site.
+La CI `.github/workflows/web-pwa.yml` automatise tests, deux builds,intégrité du moteur approuvé, scénario PWA et cadrage caméra et compilation/lint Android, puis conserve les rapports et le dossier publiable. Sites héberge une copie de test publique autorisée par Fab ; le dépôt GitHub reste la source canonique. La réexécution utilise le même projet Sites, jamais un nouveau site.
 
 ## Future publication GitHub Web — seulement après validation de Fab
 
@@ -59,3 +59,8 @@ Le JSON des notes et l'asset doivent correspondre au même manifeste. Cette lign
 ## Limites de vérification
 
 L'aperçu cloud disponible ne crée pas de contexte WebGL. La CI utilise le vrai Chrome avec SwiftShader, ce qui prouve le rendu logiciel et les parcours automatisés, pas la fluidité GPU Samsung, le dialogue d'installation de chaque OS, l'orientation/plein écran réels ni le comportement d'éviction à long terme. Ces essais matériels restent consignés dans todo.md.
+
+## Réouverture d’une installation affichant ERR_FAILED
+Le build3 corrige le cache de la page HTML lorsque l’hébergeur redirige index.html vers la racine. L’ancien worker peut rester actif dans les fenêtres déjà ouvertes. Rester connecté, fermer la fenêtre du jeu installé et les onglets de ce jeu, puis rouvrir l’URL officielle dans Chrome. Si l’ancienne page d’erreur revient pendant la récupération du correctif, laisser la mise à jour se télécharger puis actualiser. Ne pas effacer les données du site : les parties y sont sauvegardées. Le correctif ne supprime ni localStorage ni parties.
+
+Références : https://developers.cloudflare.com/workers/static-assets/routing/advanced/html-handling/ ; spécification Service Workers/Fetch pour le traitement des réponses redirigées. Le scénario automatisé impose une vraie redirection302 avant de vérifier la réouverture hors ligne.

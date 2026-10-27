@@ -29,7 +29,7 @@ Autorisation explicite de fusionner PR #2 et publier la version Android 0.8.8/co
 
 ## MYN-025 — Accès public et erreur à la réouverture PWA — autorisée
 Fab demande en vocal : « le mettre en public, que je puisse le tester après l’installation », puis fournit la capture1793140008790.jpeg avec ERR_FAILED sur l’URL officielle. L'accès est déjà public (Sites, révision2) ; ne pas refaire une publication définitive ni changer l'origine. Diagnostiquer et corriger la réouverture/install, préserver parties/cadrage/Android, vérifier le vrai cycle navigateur et publier le correctif de test.
-État : cause de cache avec redirection reproduite par test HTTP réel rouge→vert ; build3 en vérification navigateur, aucun merge main ni release PWA définitive.
+État : CORRECTIF LIVRÉ, à valider sur l’installation de Fab. PWA0.1.0/build3, source4a481179 ; publication publique confirmée appgdep_6ae126ce9b14819182b5e5c4c9b527d9. CI40595523867 réussie :111 tests,16 parcours (HTML redirigé puis réouverture offline), zéro erreur JS, assemblage APK/AAB unsigned et lint verts. Sauvegardes et moteur intacts. La sonde HTTP brute du site reçoit403 et ne prouve pas sa redirection réelle ; page publique initiale vue dans le navigateur. Aucun merge main ni release PWA définitive.
 
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.

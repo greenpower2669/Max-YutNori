@@ -25,10 +25,10 @@ Android Java17/Gradle8.13/AGP8.13, min26/target36. WebView locale HTTPS appasset
 ## Clôture et suite
 Clôture autorisée par Fab le 27/10 réalisée : PR #2 fusionnée cdb2ff4, Release Android v0.8.8 publiée et téléchargement identique vérifié par CI40589109427 ; délestage sans perte terminé. MYN-024 demande un build Web/PWA fidèle, installable/hors ligne, mises à jour Web distinctes d'Android et URL HTTPS de test. Aucun merge/release définitive de la PWA sans validation distincte. Essais matériels ouverts dans todo.md. Preuves Android : CI40543163343, docs/revue-v088.md et temp/native-delivery-verification-v088.json. Historique complet des anciens contrats dans sauvegarde.md.
 
-## Contrat Web/PWA0.1.0 — build2 livré, build3 en vérification
+## Contrat Web/PWA0.1.0 — build3 livré publiquement
 Même moteur0.8.8 et mêmes52 fichiers source du jeu/Android. Mode Vite web séparé vers pwa-dist, Android par défaut vers web-dist/game. Surcouche dans Pause : installer, plein écran, état offline, versions et actualisation. Réglages indique cet emplacement ; les bandeaux et le cadrage validé restent identiques hors adaptation des zones de sécurité. Manifest standalone/fullscreen selon support et paysage préféré ; icônes officielles192/512 et maskable512.
 
-Source Web6551730 ; déploiement e2cb0e6 confirmé succeeded à https://max-yutnori-web.gnrationsia.chatgpt.site. Accès public demandé explicitement par Fab et confirmé par Sites (révision2) ; installation/plein écran matériels à valider. Aucun merge main/release PWA définitive sans Fab.
+Source Web4a481179 ; déploiement edd60a8 confirmé succeeded à https://max-yutnori-web.gnrationsia.chatgpt.site. Accès public demandé explicitement par Fab et confirmé par Sites (révision2) ; installation/plein écran matériels à valider. Aucun merge main/release PWA définitive sans Fab.
 
 Cache atomique de l'ensemble des ressources, musique comprise. La limite32Mio/fichier de l'hébergement impose un transport MP3 par fragments8Mio, assemblés en Blob sans transcodage. Taille52386596 et SHA25696c5a95a442f50ac8c0b7c1e9ea80b468434adb57f671a3c45d77c3111fd8c10, chaque fragment et le tout vérifiés. Jeu jouable pendant préparation. Le build Android conserve son MP3 et son Audio d'origine. Sauvegardes par origine ; aucun transfert automatique APK/PWA/autre navigateur.
 
@@ -41,3 +41,5 @@ Preuves :110 tests,15 parcours PWA/caméra Chrome/SwiftShader verts, zéro erreu
 Validation finale : CI40593243077 réussie,110 tests et deux builds relancés,52 sources protégées identiques,15 parcours PWA/caméra réutilisés de40592283542 après identité des entrées confirmée, APK/AAB unsigned et lint réussis. Aucun nouvel APK/AAB de distribution ni clé.
 
 Avenant MYN-025 : le cache doit normaliser les réponses HTML obtenues après une redirection d'hébergement, afin de servir une réponse de navigation sans métadonnée redirected. Les bytes, type MIME et statut sont préservés ; en-têtes de compression/longueur devenus invalides retirés lors de la copie. Les sauvegardes locales et règles d'activation du worker restent intactes.
+
+MYN-025 livré : copie de la réponse redirigée avant cache.put, test HTTP réel rouge→vert puis16 parcours navigateur verts,111 unitaires et Android unsigned/lint réussis (40595523867). Aucun changement de sauvegardes/caméra/moteur. Le client installé doit laisser télécharger la mise à jour et libérer l’ancien worker en fermant les fenêtres du jeu ; essai réel Fab encore ouvert.
