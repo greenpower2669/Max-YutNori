@@ -1,0 +1,40 @@
+{
+  "version": "0.8.6",
+  "versionCode": 15,
+  "sourceCommit": "d32198f6ec148f1277c9689d2566d2e0e7205535",
+  "binaryCommit": "a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731",
+  "workflowRun": "40468288904",
+  "http": {
+    "native-SHA256SUMS": 200,
+    "native-build-info.txt": 200,
+    "native-apk-verification.txt": 200,
+    "native-package.json": 200,
+    "native-smoke.json": 200,
+    "native-panorama-animation.json": 200,
+    "native-signing-certificate.pem": 200,
+    "Max-YutNori-v0.8.6-debug.apk": 200
+  },
+  "checks": 54,
+  "unitTests": 92,
+  "certificateSha256": "0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a",
+  "packages": {
+    "apk": {
+      "bytes": 62500244,
+      "sha256": "fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5",
+      "zipIntegrity": true,
+      "originalArtCount": 4,
+      "arisongsMusic": true,
+      "certificateExtractedAndMatched": true
+    }
+  },
+  "physicalSamsungTest": "pending",
+  "androidManifest": {
+    "versionCode": 15,
+    "versionName": "0.8.6",
+    "compileSdkVersion": 36,
+    "compileSdkVersionCodename": "16",
+    "package": "fr.fab.maxyutnori",
+    "platformBuildVersionCode": 36,
+    "platformBuildVersionName": 16
+  }
+}

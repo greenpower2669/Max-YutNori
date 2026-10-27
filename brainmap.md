@@ -1,3 +1,22 @@
+# Carte active — MYN-020 /0.8.6 —27 octobre2026
+
+- `camera-framing.mjs` : `approachFrame` change la distance 3D, à focale42°/projection1 ; `ViewZoom` garde l’état et la transition1↔2, sans cumul. `boardFrame` reste le cadre normal rapproché.
+- `chase-camera.mjs` : `routeFrame` ajuste des empreintes réelles ±.42 et hauteur.35 au cadre utile, cible au centre de leur étendue ; `frame` interpole proche/latéral/révélation/suivi. `followDistance`/`dragGain` prennent le facteur physique et le pincement en compte. Le cadre essentiel limite ×2 quand nécessaire.
+- `scene.js` : cadre physique dans les quatre vues, aucune modification de `camera.zoom`. `sync` réassocie focus/destinations à la sélection automatique ; vue libre applique le rapport ancien/nouveau facteur et ses bornes normales/×2. `flightBounds` et le recul préventif gardent les quatre yut à l’écran, retour aux cadres normaux après vol.
+- `main.js` : diagnostics distinguent facteur souhaité, projection1 et FOV42 ; commande accessible×2, règles et state/save inchangés. Texte d’aide décrit le rapprochement réel.
+- Tests : `camera-framing.test.mjs`, `chase-camera.test.mjs`, `smoke_action.mjs`, `smoke_camera_proximity.mjs` raccordé à `smoke_ergonomics.mjs`. Distances physiques, prises×2/pinch/désactivation, orbit/pinch/réentrée libre, sélections répétées/retours et sélection automatique après coup.
+- Livraison : `docs/verification/verify-delivery-v086.py` contrôle l’APK réel ; preuves dans `temp/native-delivery-verification-v086.json`. Revue `docs/revue-v086.md`, plan `docs/plan-camera-v086.md`.
+
+Panorama et lac0.8.4 intégralement conservés :24 cascades, brumes et nuages ; formules de réfraction, intensité/vitesse et masques inchangés. Physique/puissances/cycle du bol0.8.5, règles, sauvegarde, musique, icône et signature préservés. Onze fichiers protégés comparés octet pour octet à la base ; tests WebGL des cinq phases du lac à delta0, sondes terrestres stables. Aucun merge main ni Release définitive.
+
+Source `d32198f6ec148f1277c9689d2566d2e0e7205535` ; binaires `a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731` ; [CI40468288904](https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904) **réussie**. Version **0.8.6/code15**, identité `fr.fab.maxyutnori`. **92/92 tests unitaires et54/54 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; WebGL, build/lint Android et signature APK v2 vérifiés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731/temp/Max-YutNori-v0.8.6-debug.apk) —62,500,244 octets ; SHA-256 `fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5`. Vrai téléchargement HTTP200, ZIP, manifeste binaire/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à0.8.5 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus0.8.5 possible, sans désinstallation ; essai d’installation réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider par Fab sur Samsung SM-A576B Android16** : mise à jour réelle ; taille/lisibilité du plateau et des pions pendant approche, recul et retours ; ×2/pinch/prises et vue libre ; vol/rangement des quatre yut ; esthétique des24 cascades/brumes/nuages, FPS et chauffe. Aucun test physique Samsung ni mesure de fluidité matérielle revendiqué.
+
+## Historique — états précédents conservés
+
 # Carte MYN-020 — diagnostic et réalisation
 
 camera-framing.mjs : cadrage géométrique partagé et approche physique. chase-camera.mjs : trajectoire proche/latérale/révélation/suivi, centrage des points réellement utiles. scene.js : application à toutes les vues, ×2 à projection constante, OrbitControls/pinch et retour après vol ; sync réassocie focusPawn et destinations à la sélection courante, y compris automatique. Vue libre : distance normale bornée à1.35×le cadrage proche et limites divisées par le facteur physique. Panorama et physique hors périmètre, fichiers gelés. Plan docs/plan-camera-v086.md.

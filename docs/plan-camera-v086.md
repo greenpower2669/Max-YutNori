@@ -22,11 +22,11 @@
 ### Task1: Corriger le cadrage et son intégration
 **Files:** camera-framing.mjs, chase-camera.mjs, scene.js, comfort.mjs si nécessaire ; tests/camera-framing.test.mjs, tests/chase-camera.test.mjs, scripts/smoke_camera_proximity.mjs et smoke existants ; versions/CI ; cinq mémoires/passation.
 **Interfaces:** conserver ChaseCamera.frame(dt,focus,aspect,reduced[,approach]) et dragGain(referenceDistance,aspect) ; ajouter approche physique partagée, sans camera.zoom variable. Les destinations actualisées viennent des halos existants.
-- [ ] Écrire les régressions géométriques, constater le recul excessif (RED).
-- [ ] Cadrer pion/destinations par points et centrer le suivi ; rapprocher sans annuler ×2. Run: node --test tests/chase-camera.test.mjs tests/camera-framing.test.mjs ; Expected: PASS.
-- [ ] Ajouter parcours navigateur ×2 réellement plus proche/FOV constant/retour et sélections répétées, constater RED avant raccord scène.
-- [ ] Raccorder toutes les vues et réviser seulement les attentes devenues obsolètes du ×2 optique ; conserver gestes et vol. Run: npm test && npm run build ; Expected: PASS.
-- [ ] Exécuter les parcours ciblés, inspecter captures et relire le diff ; Expected: recul borné et projection1, gestes/retours/vol verts.
-- [ ] Mettre version0.8.6/code15, mémoires cohérentes, committer ; revue indépendante et corrections nécessaires avec régressions.
-- [ ] Publier sur la branche autorisée, laisser CI exécuter tous les scénarios et compiler/linter/signature APK.
-- [ ] Télécharger le vrai APK et vérifier intégrité/version/signature/assets, synchroniser preuves/passation ; livrer le lien direct et les seules validations humaines ouvertes.
+- [x] Écrire les régressions géométriques, constater le recul excessif (RED).
+- [x] Cadrer pion/destinations par points et centrer le suivi ; rapprocher sans annuler ×2. Run: node --test tests/chase-camera.test.mjs tests/camera-framing.test.mjs ; Expected: PASS.
+- [x] Ajouter parcours navigateur ×2 réellement plus proche/FOV constant/retour et sélections répétées, constater RED avant raccord scène.
+- [x] Raccorder toutes les vues et réviser seulement les attentes devenues obsolètes du ×2 optique ; conserver gestes et vol. Run: npm test && npm run build ; Expected: PASS.
+- [x] Exécuter les parcours ciblés, inspecter captures et relire le diff ; Expected: recul borné et projection1, gestes/retours/vol verts.
+- [x] Mettre version0.8.6/code15, mémoires cohérentes, committer ; revue indépendante et corrections nécessaires avec régressions.
+- [x] Publier sur la branche autorisée, laisser CI exécuter tous les scénarios et compiler/linter/signature APK.
+- [x] Télécharger le vrai APK et vérifier intégrité/version/signature/assets, synchroniser preuves/passation ; livrer le lien direct et les seules validations humaines ouvertes.

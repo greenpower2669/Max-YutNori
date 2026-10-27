@@ -1,3 +1,17 @@
+# Contrat courant — MYN-020 /0.8.6-code15 livrée
+
+Rapprochement réel à focale42° et projection1 : ×2 divise la distance physique puis revient au cadrage normal proche, sans cumul. Les séquences proche/latéral/révélation/suivi cadrent le pion et ses destinations depuis leur étendue réelle, avec une cible recentrée ; suppression du recul radial excessif et de la compensation qui éloignait la caméra sous ×2. Le focus et les destinations suivent aussi la sélection automatique après un coup avec résultats restants. Pinch, prises et retours restent compatibles ; vue libre avec orbit/pinch indépendants et recul manuel limité à1.35×la distance normale de cadrage. Pendant le suivi, le cadre nécessaire au pion et aux destinations prime sur une demi-distance stricte. Le vol conserve son recul de sécurité pour garder les quatre yut visibles, puis rend le cadre normal proche.
+
+Panorama et lac0.8.4 intégralement conservés :24 cascades, brumes et nuages ; formules de réfraction, intensité/vitesse et masques inchangés. Physique/puissances/cycle du bol0.8.5, règles, sauvegarde, musique, icône et signature préservés. Onze fichiers protégés comparés octet pour octet à la base ; tests WebGL des cinq phases du lac à delta0, sondes terrestres stables. Aucun merge main ni Release définitive.
+
+Source `d32198f6ec148f1277c9689d2566d2e0e7205535` ; binaires `a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731` ; [CI40468288904](https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904) **réussie**. Version **0.8.6/code15**, identité `fr.fab.maxyutnori`. **92/92 tests unitaires et54/54 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; WebGL, build/lint Android et signature APK v2 vérifiés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731/temp/Max-YutNori-v0.8.6-debug.apk) —62,500,244 octets ; SHA-256 `fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5`. Vrai téléchargement HTTP200, ZIP, manifeste binaire/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à0.8.5 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus0.8.5 possible, sans désinstallation ; essai d’installation réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider par Fab sur Samsung SM-A576B Android16** : mise à jour réelle ; taille/lisibilité du plateau et des pions pendant approche, recul et retours ; ×2/pinch/prises et vue libre ; vol/rangement des quatre yut ; esthétique des24 cascades/brumes/nuages, FPS et chauffe. Aucun test physique Samsung ni mesure de fluidité matérielle revendiqué.
+
+## Historique — états précédents conservés
+
 # Contrat MYN-020 — en réalisation
 
 Le rapprochement demandé est un déplacement 3D à focale fixe ; la caméra action doit cadrer le pion et ses destinations sans recul radial excessif. Le mode ×2 ne doit plus éloigner physiquement la caméra. Le recul indispensable au vol des quatre yut reste prioritaire. Après un déplacement, le focus suit la nouvelle sélection automatique et ses destinations, tout en conservant le pincement. ×2 vise une demi-distance ; le cadrage du pion et des destinations reste prioritaire en suivi. Base0.8.5 conservée tant que le nouvel APK n’est pas vérifié.

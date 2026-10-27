@@ -1,3 +1,21 @@
+# MYN-D040/D041 — correctifs vérifiés0.8.6 —27 octobre2026
+
+D040 : ancien calcul utilisait toute la distance pion→destination comme rayon, cible maintenue sur le pion ;26.53/36.63 unités aux aspects2/.7 sur la route diagonale de référence. La compensation de projection×2 doublait encore le recul physique. Nouvelle étendue centrée :13.41/14.49, ×2 physiquement rapproché à projection fixe. Régressions unitaires et vrai navigateur RED→GREEN.
+
+D041 de revue : après pion3→O5 avec[5,1], la sélection automatique passait au pion1 mais le focus restait sur le pion3 ; la prochaine destinationO1 sortait de l’écran. Régression navigateur RED→GREEN : sync réassocie focus et destinations, phase/pinch conservés. Revue indépendante : un problème important corrigé, aucun critique/mineur restant.
+
+Harnais : attendre l’arrêt angulaire d’OrbitControls en rendu logiciel dépassait30s (amortissement5%/image). Le test d’indépendance de distance en vue libre attend une stabilité radiale ; les assertions de demi-distance, projection, orbit effectif et pinch réel restent strictes. Première CI remplacée par la source finale ; aucun APK intermédiaire annoncé.
+
+Panorama et lac0.8.4 intégralement conservés :24 cascades, brumes et nuages ; formules de réfraction, intensité/vitesse et masques inchangés. Physique/puissances/cycle du bol0.8.5, règles, sauvegarde, musique, icône et signature préservés. Onze fichiers protégés comparés octet pour octet à la base ; tests WebGL des cinq phases du lac à delta0, sondes terrestres stables. Aucun merge main ni Release définitive.
+
+Source `d32198f6ec148f1277c9689d2566d2e0e7205535` ; binaires `a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731` ; [CI40468288904](https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904) **réussie**. Version **0.8.6/code15**, identité `fr.fab.maxyutnori`. **92/92 tests unitaires et54/54 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; WebGL, build/lint Android et signature APK v2 vérifiés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731/temp/Max-YutNori-v0.8.6-debug.apk) —62,500,244 octets ; SHA-256 `fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5`. Vrai téléchargement HTTP200, ZIP, manifeste binaire/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à0.8.5 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus0.8.5 possible, sans désinstallation ; essai d’installation réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider par Fab sur Samsung SM-A576B Android16** : mise à jour réelle ; taille/lisibilité du plateau et des pions pendant approche, recul et retours ; ×2/pinch/prises et vue libre ; vol/rangement des quatre yut ; esthétique des24 cascades/brumes/nuages, FPS et chauffe. Aucun test physique Samsung ni mesure de fluidité matérielle revendiqué.
+
+## Historique — états précédents conservés
+
 # MYN-D040 — recul excessif après approche (27/10/2026)
 
 Cause confirmée sur0.8.5 : ChaseCamera conserve la cible sur le pion et calcule le recul depuis la distance entière à la destination, comme un rayon ; exemple route diagonale8.49 :26.53unités à aspect2,36.63 à aspect.7, contre cadrage général11.94/15.46. scene.js multiplie ensuite cette distance par camera.zoom en action, donc ×2 double le recul physique. Correction en cours : centrage de la zone utile, ajustement aux points projetés et approche physique à focale fixe. Base89 tests verts. Aucun nouvel APK encore.

@@ -1,3 +1,23 @@
+# État courant —0.8.6/code15 — MYN-020 livrée pour test
+
+- [x] Rapprochement physique dans les quatre vues et×2 réversible à focale fixe.
+- [x] Recul de suivi cadré sur le pion et ses destinations ; retours répétés stables.
+- [x] MYN-D041 de revue : focus de la sélection automatique, régression réelle rouge→verte.
+- [x] Gestes combinés×2/prise/pinch/désactivation et orbit/pinch/réentrée libre.
+- [x]92 tests unitaires,54 parcours navigateur, non-régression panorama/lac et vols, compilation/lint/signature Android.
+- [x] APK seul publié, téléchargé et vérifié ; cinq mémoires/passation actualisées.
+- [ ] Essais matériels Samsung détaillés ci-dessous, par Fab.
+
+Source `d32198f6ec148f1277c9689d2566d2e0e7205535` ; binaires `a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731` ; [CI40468288904](https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904) **réussie**. Version **0.8.6/code15**, identité `fr.fab.maxyutnori`. **92/92 tests unitaires et54/54 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; WebGL, build/lint Android et signature APK v2 vérifiés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731/temp/Max-YutNori-v0.8.6-debug.apk) —62,500,244 octets ; SHA-256 `fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5`. Vrai téléchargement HTTP200, ZIP, manifeste binaire/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à0.8.5 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus0.8.5 possible, sans désinstallation ; essai d’installation réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider par Fab sur Samsung SM-A576B Android16** : mise à jour réelle ; taille/lisibilité du plateau et des pions pendant approche, recul et retours ; ×2/pinch/prises et vue libre ; vol/rangement des quatre yut ; esthétique des24 cascades/brumes/nuages, FPS et chauffe. Aucun test physique Samsung ni mesure de fluidité matérielle revendiqué.
+
+Panorama et lac0.8.4 intégralement conservés :24 cascades, brumes et nuages ; formules de réfraction, intensité/vitesse et masques inchangés. Physique/puissances/cycle du bol0.8.5, règles, sauvegarde, musique, icône et signature préservés. Onze fichiers protégés comparés octet pour octet à la base ; tests WebGL des cinq phases du lac à delta0, sondes terrestres stables. Aucun merge main ni Release définitive.
+
+## Historique — états précédents conservés
+
 # MYN-020 — 0.8.6/code15 en cours
 
 - [x] Lire les cinq mémoires et diagnostiquer le recul0.8.5 ;89 tests de base verts.
