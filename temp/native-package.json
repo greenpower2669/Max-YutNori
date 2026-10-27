@@ -1,7 +1,16 @@
 {
-  "apk": "Max-YutNori-v0.8.7-debug.apk",
-  "bytes": 62500444,
+  "apk": "Max-YutNori-v0.8.8-debug.apk",
+  "bytes": 62243800,
   "unityRuntime": false,
   "arisongsMusic": true,
-  "wasmPhysics": true
+  "wasmPhysics": true,
+  "jadeLogo": true,
+  "adaptiveLauncherIcon": true,
+  "launcherDensities": {
+    "mdpi": 48,
+    "hdpi": 72,
+    "xhdpi": 96,
+    "xxhdpi": 144,
+    "xxxhdpi": 192
+  }
 }
