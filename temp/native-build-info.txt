@@ -1,3 +1,3 @@
-Source commit: 89ad97d4ed659aab3e03c68289348466bcfdf252
-Build run: https://github.com/greenpower2669/Max-YutNori/actions/runs/40432711889
-Same signing certificate as 0.8.4: True
+Source commit: d32198f6ec148f1277c9689d2566d2e0e7205535
+Build run: https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904
+Same signing certificate as 0.8.5: True

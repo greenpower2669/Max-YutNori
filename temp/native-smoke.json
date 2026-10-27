@@ -21,7 +21,7 @@
     "New game during flight resets the yut and restores tray tilt before another throw",
     "Sensor cannot throw during an AI turn",
     "Touch selects a reserve pawn; camera approaches, moves sideways, then reveals action without consuming a result",
-    "Two-finger zoom keeps the pawn under its finger; releasing only the second finger does not drop; legal drag consumes one result",
+    "Physical ×2, two-finger pinch and toggle-off keep the held pawn under its finger; legal drag consumes one result",
     "Invalid drop and pause preserve the result; accumulated results play in chosen order 4 then 2 then 5",
     "Back-do is playable from reserve; reversing across the line adds a lap and returning does not finish",
     "Action camera keeps distant-team destinations visible in landscape and portrait, including zoomed-out fog range",
@@ -47,19 +47,25 @@
     "Real native menu can recall the current Plateau view after following a pawn",
     "×2 toggles without accumulation in four views, survives view changes and coexists with genuine touch pinch; force migration is idempotent",
     "Compact translucent landscape bars, left status, accessible header zoom and reachable reserves in landscape and portrait",
-    "Action camera keeps its readable framing with x2 active and restores the selected overview magnification",
+    "Action camera stays close with physical x2 active and restores the selected close overview",
     "Minimum and maximum real browser flights keep four yut visible; bowl and support disappear during flight with collisions disabled",
-    "Move HUD with one, six and twelve results and a long name keeps status clear, launch controls available and choices reachable by scrolling"
+    "Move HUD with one, six and twelve results and a long name keeps status clear, launch controls available and choices reachable by scrolling",
+    "Physical ×2 halves camera distance at fixed projection in all four views and restores the original pose without accumulation",
+    "Free orbit and genuine touch pinch remain independent of physical ×2, including toggle-off and re-entry",
+    "Accumulated results retarget the camera to the automatically selected next pawn and its legal destination with physical ×2",
+    "Repeated distant-reserve selections and returns retain close framing in landscape and portrait, including ×2 and all legal destinations"
   ],
   "errors": [],
   "externalRequests": [],
   "firstThrow": {
-    "version": "0.8.5",
+    "version": "0.8.6",
     "camera": {
       "mode": "bowl",
       "topZoom": 1,
       "doubleZoom": false,
       "magnification": 1,
+      "projectionZoom": 1,
+      "fov": 42,
       "safeInsets": {
         "top": 62,
         "bottom": 89,
@@ -70,18 +76,18 @@
       "phase": "idle",
       "zoom": 1,
       "fog": {
-        "near": 34.12678179160028,
-        "far": 58.12678179160028
+        "near": 34.12678179159957,
+        "far": 58.12678179159957
       },
       "position": [
-        0.7999999999999999,
-        19.376985666045215,
-        12.620402489793957
+        0.8,
+        19.376985666045467,
+        12.620402489793571
       ],
       "target": [
-        0.7999999999999999,
-        0.8000000000000125,
-        0.6
+        0.8,
+        0.8000000000008615,
+        0.5999999999999999
       ],
       "dragging": false,
       "candidate": null
@@ -91,7 +97,7 @@
         "team": 0,
         "piece": 0,
         "x": 291.75127672428135,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -8.07,
           -0.31,
@@ -102,7 +108,7 @@
         "team": 0,
         "piece": 1,
         "x": 313.2297439345475,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -7.29,
           -0.31,
@@ -112,8 +118,8 @@
       {
         "team": 0,
         "piece": 2,
-        "x": 334.7082111448136,
-        "y": 380.5528020438311,
+        "x": 334.70821114481356,
+        "y": 380.5528020438439,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -123,8 +129,8 @@
       {
         "team": 0,
         "piece": 3,
-        "x": 356.1866783550798,
-        "y": 380.5528020438311,
+        "x": 356.1866783550797,
+        "y": 380.5528020438439,
         "position": [
           -5.73,
           -0.31,
@@ -135,7 +141,7 @@
         "team": 1,
         "piece": 0,
         "x": 396.38996313327016,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -4.27,
           -0.31,
@@ -146,7 +152,7 @@
         "team": 1,
         "piece": 1,
         "x": 417.86843034353626,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -3.49,
           -0.31,
@@ -157,7 +163,7 @@
         "team": 1,
         "piece": 2,
         "x": 439.3468975538024,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -2.71,
           -0.31,
@@ -168,7 +174,7 @@
         "team": 1,
         "piece": 3,
         "x": 460.82536476406847,
-        "y": 380.5528020438311,
+        "y": 380.5528020438439,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -179,7 +185,7 @@
         "team": 2,
         "piece": 0,
         "x": 332.80956734223065,
-        "y": 212.80543475445162,
+        "y": 212.80543475446228,
         "position": [
           -8.07,
           -0.31,
@@ -189,8 +195,8 @@
       {
         "team": 2,
         "piece": 1,
-        "x": 350.67749715881024,
-        "y": 212.80543475445162,
+        "x": 350.6774971588102,
+        "y": 212.80543475446228,
         "position": [
           -7.29,
           -0.31,
@@ -200,8 +206,8 @@
       {
         "team": 2,
         "piece": 2,
-        "x": 368.54542697538966,
-        "y": 212.80543475445162,
+        "x": 368.5454269753896,
+        "y": 212.80543475446228,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -211,8 +217,8 @@
       {
         "team": 2,
         "piece": 3,
-        "x": 386.41335679196914,
-        "y": 212.80543475445162,
+        "x": 386.4133567919691,
+        "y": 212.80543475446228,
         "position": [
           -5.73,
           -0.31,
@@ -222,8 +228,8 @@
       {
         "team": 3,
         "piece": 0,
-        "x": 419.85845619223335,
-        "y": 212.80543475445162,
+        "x": 419.8584561922333,
+        "y": 212.80543475446228,
         "position": [
           -4.27,
           -0.31,
@@ -233,8 +239,8 @@
       {
         "team": 3,
         "piece": 1,
-        "x": 437.7263860088128,
-        "y": 212.80543475445162,
+        "x": 437.72638600881277,
+        "y": 212.80543475446228,
         "position": [
           -3.49,
           -0.31,
@@ -245,7 +251,7 @@
         "team": 3,
         "piece": 2,
         "x": 455.5943158253923,
-        "y": 212.80543475445162,
+        "y": 212.80543475446228,
         "position": [
           -2.71,
           -0.31,
@@ -255,8 +261,8 @@
       {
         "team": 3,
         "piece": 3,
-        "x": 473.4622456419717,
-        "y": 212.80543475445162,
+        "x": 473.4622456419718,
+        "y": 212.80543475446228,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -266,20 +272,25 @@
     ],
     "projectedDestinations": [
       {
-        "node": "O1",
-        "x": 402.030193664411,
-        "y": 342.9448607884962
+        "node": "O19",
+        "x": 355.05030834156526,
+        "y": 342.94486078850883
+      },
+      {
+        "node": "B5",
+        "x": 381.6398863826535,
+        "y": 324.04126052593625
       }
     ],
     "lastThrow": {
       "faces": [
-        false,
-        false,
         true,
+        false,
+        false,
         false
       ],
       "invalid": false,
-      "value": 1
+      "value": -1
     },
     "tray": {
       "position": {
@@ -296,33 +307,33 @@
     },
     "projectedSticks": [
       {
-        "x": 0.05401933525295957,
-        "y": 0.10686605699289946,
-        "z": 0.9941131059890629,
-        "height": -0.25012221932411194
+        "x": 0.06731979796197221,
+        "y": 0.02024967397776464,
+        "z": 0.9938538373340978,
+        "height": -0.22061069309711456
       },
       {
-        "x": 0.01390723564288162,
-        "y": -0.30224475404414947,
-        "z": 0.9929499420215593,
-        "height": -0.25012221932411194
+        "x": 0.08905399650075484,
+        "y": 0.12416790546922708,
+        "z": 0.9941622975354885,
+        "height": -0.25012168288230896
       },
       {
-        "x": 0.1330280523566285,
-        "y": -0.0063222546269966476,
-        "z": 0.9937781750817103,
-        "height": -0.2206096351146698
+        "x": 0.11938790946841991,
+        "y": -0.2528222551004282,
+        "z": 0.9930904576391136,
+        "height": -0.25012215971946716
       },
       {
-        "x": 0.32128232718118943,
-        "y": -0.09842120291589526,
-        "z": 0.9935294432324905,
-        "height": -0.25012221932411194
+        "x": 0.20167212875838406,
+        "y": -0.36924513968725076,
+        "z": 0.9927594497677757,
+        "height": -0.25012218952178955
       }
     ],
     "projectedTray": {
-      "x": 0.381645530896878,
-      "y": 0.01511848758625188
+      "x": 0.3816455308968781,
+      "y": 0.015118487586210498
     },
     "trayGrab": false,
     "bowl": {
@@ -334,7 +345,7 @@
     "art": {
       "panorama": true,
       "animation": {
-        "time": 8.883399999999984,
+        "time": 8.066599999999989,
         "strength": 1,
         "lowClouds": {
           "layers": 2,
@@ -366,51 +377,51 @@
         "team": 0,
         "piece": 0,
         "glowing": true,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.20987605614141575
+        "emissive": 0.19499209506154505
       },
       {
         "team": 0,
         "piece": 1,
         "glowing": true,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.07635774636652329
+        "emissive": 0.06785262574945433
       },
       {
         "team": 0,
         "piece": 2,
         "glowing": true,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.07635774636652329
+        "emissive": 0.06785262574945433
       },
       {
         "team": 0,
         "piece": 3,
         "glowing": true,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.07635774636652329
+        "emissive": 0.06785262574945433
       },
       {
         "team": 1,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -421,7 +432,7 @@
         "team": 1,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -432,7 +443,7 @@
         "team": 1,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -443,7 +454,7 @@
         "team": 1,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -454,7 +465,7 @@
         "team": 2,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -465,7 +476,7 @@
         "team": 2,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -476,7 +487,7 @@
         "team": 2,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -487,7 +498,7 @@
         "team": 2,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -498,7 +509,7 @@
         "team": 3,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -509,7 +520,7 @@
         "team": 3,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -520,7 +531,7 @@
         "team": 3,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -531,7 +542,7 @@
         "team": 3,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.5263695771445913,
+        "glowOpacity": 0.5021299833859448,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -678,12 +689,12 @@
       "turn": 0,
       "phase": "move",
       "pending": [
-        1
+        -1
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Do · 1"
+      "last": "Back-do · −1"
     },
     "power": 0.9,
     "powerVersion": 2,
@@ -707,24 +718,33 @@
         "kind": "destination",
         "angle": 0.06999999999999999,
         "position": [
-          -4.134752415750147,
+          -5.865247584249853,
           0.161,
           2.6629582456264296
+        ]
+      },
+      {
+        "kind": "destination",
+        "angle": 0.06999999999999999,
+        "position": [
+          -5.000000000000001,
+          0.161,
+          1.866666666666667
         ]
       }
     ],
     "audio": {
-      "effectsPlayed": 38,
+      "effectsPlayed": 35,
       "voices": 0,
       "fxVolume": 0.6,
       "loop": true,
       "paused": false,
-      "currentTime": 25.218826,
+      "currentTime": 48.428447,
       "duration": 2182.698095
     },
     "logs": [
-      "2026-10-27T01:29:24.882Z Three.js + Rapier WASM prêts.",
-      "2026-10-27T01:29:52.865Z Lancer : 1"
+      "2026-10-27T07:41:10.695Z Three.js + Rapier WASM prêts.",
+      "2026-10-27T07:42:05.639Z Lancer : -1"
     ]
   },
   "audio": {
@@ -757,5 +777,61 @@
     "overflow": false,
     "offenders": []
   },
+  "cameraProximity": [
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.681291328111978
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 1,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.42691695016206
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.681291328111978
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.681291328111978
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 1,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.42691695016206
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.681291328111978
+    }
+  ],
   "result": "PASS"
 }
