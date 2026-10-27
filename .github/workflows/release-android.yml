@@ -1,0 +1,53 @@
+name: Publish validated Android release
+on:
+  push:
+    branches: [main]
+    paths: [release-android.json]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: android-release
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Verify unchanged source and validated binary
+        run: |
+          npm ci
+          python3 scripts/verify_branding.py
+          npm test
+          python3 - <<'PY'
+          import hashlib,json,subprocess,zipfile
+          from pathlib import Path
+          r=json.loads(Path('release-android.json').read_text())
+          assert json.loads(Path('package.json').read_text())['version']==r['version']
+          assert hashlib.sha256(Path(r['apk']).read_bytes()).hexdigest()==r['sha256']
+          with zipfile.ZipFile(r['apk']) as z:
+              assert z.testzip() is None
+              assert 'AndroidManifest.xml' in z.namelist()
+          # Same game and Android files as the already successful build.
+          subprocess.run(['git','fetch','--depth=1','origin',r['sourceCommit']],check=True)
+          subprocess.run(['git','diff','--exit-code',r['sourceCommit'],'HEAD','--','web','android','package.json','package-lock.json','vite.config.js'],check=True)
+          Path('release-notes.md').write_text('Max YutNori '+r['version']+' / code '+str(r['versionCode'])+'\n\nNouveau logo officiel jade/or et icône Android. Cadrage rapproché/redressé, moteur, règles, sons et sauvegardes conservés. APK debug de test, même signature que 0.8.7.\n\nBinaire réutilisé sans recompilation : '+r['binaryCommit']+' ; SHA-256 '+r['sha256']+'.\nCI du jeu : https://github.com/greenpower2669/Max-YutNori/actions/runs/'+str(r['ciRun'])+' (96 tests, 56 parcours, WebGL, compilation/lint/signature Android).\n\nClôture et publication autorisées par Fab. Essais matériels détaillés dans todo.md. Aucun AAB 0.8.8 ni publication Play. La PWA sera développée sur une branche distincte.\n')
+          Path('SHA256SUMS').write_text(r['sha256']+'  '+Path(r['apk']).name+'\n')
+          PY
+      - name: Publish existing APK and verify release download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION=$(node -p "JSON.parse(require('fs').readFileSync('release-android.json')).version")
+          APK=$(node -p "JSON.parse(require('fs').readFileSync('release-android.json')).apk")
+          if ! gh release view "v$VERSION" >/dev/null 2>&1; then
+            gh release create "v$VERSION" "$APK" SHA256SUMS --target "$GITHUB_SHA" --title "Max YutNori $VERSION — Android" --notes-file release-notes.md --latest
+          fi
+          mkdir -p "$RUNNER_TEMP/release-check"
+          gh release download "v$VERSION" --pattern "$(basename "$APK")" --dir "$RUNNER_TEMP/release-check"
+          cmp "$APK" "$RUNNER_TEMP/release-check/$(basename "$APK")"

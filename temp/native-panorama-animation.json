@@ -1,0 +1,577 @@
+{
+  "landDistortion": [
+    {
+      "x": 720,
+      "y": 420,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 780,
+      "y": 510,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 930,
+      "y": 500,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 620,
+      "y": 390,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 1200,
+      "y": 445,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 920,
+      "y": 560,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 452,
+      "y": 478,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    },
+    {
+      "x": 520,
+      "y": 240,
+      "phases": [
+        {
+          "t": 0,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 1,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 3,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 7,
+          "meanDelta": 0,
+          "changedFraction": 0
+        },
+        {
+          "t": 12,
+          "meanDelta": 0,
+          "changedFraction": 0
+        }
+      ]
+    }
+  ],
+  "waterDistortion": [
+    {
+      "t": 0,
+      "meanDelta": 0.9583333333333334,
+      "changedFraction": 0
+    },
+    {
+      "t": 1,
+      "meanDelta": 1.3541666666666667,
+      "changedFraction": 0.25
+    },
+    {
+      "t": 3,
+      "meanDelta": 0.5625,
+      "changedFraction": 0
+    },
+    {
+      "t": 7,
+      "meanDelta": 1.2708333333333333,
+      "changedFraction": 0
+    },
+    {
+      "t": 12,
+      "meanDelta": 1.1666666666666667,
+      "changedFraction": 0.0625
+    }
+  ],
+  "frozenLake": [
+    {
+      "time": 0,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 1,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 3,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 7,
+      "meanDelta": 0,
+      "changedFraction": 0
+    },
+    {
+      "time": 12,
+      "meanDelta": 0,
+      "changedFraction": 0
+    }
+  ],
+  "water": {
+    "meanDelta": 1.6071924603174603,
+    "changedFraction": 0.09087797619047619
+  },
+  "waterfall": {
+    "meanDelta": 1.757874503968254,
+    "changedFraction": 0.1324627976190476
+  },
+  "mist": {
+    "meanDelta": 11.762554563492063,
+    "changedFraction": 0.578578869047619
+  },
+  "clouds": {
+    "meanDelta": 0.5914136904761905,
+    "changedFraction": 0.07897321428571429
+  },
+  "lamps": {
+    "meanDelta": 1.5682862103174604,
+    "changedFraction": 0.18988839285714285
+  },
+  "seam": {
+    "meanDelta": 0.15164930555555556,
+    "changedFraction": 0.02019345238095238
+  },
+  "lowClouds": {
+    "contribution": 6.354655257936508,
+    "advection": 0.9221106150793651,
+    "drawCalls": 1,
+    "textureBytes": 131072
+  },
+  "lowCloudsLight": {
+    "contribution": 5.248397817460318,
+    "advection": 0.8252455357142857,
+    "drawCalls": 1,
+    "textureBytes": 131072
+  },
+  "preservedWaterfalls": [
+    {
+      "u": 0.079,
+      "v": 0.719,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 1.6106770833333333,
+        "at12": 0.9440104166666666
+      }
+    },
+    {
+      "u": 0.23,
+      "v": 0.717,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 1.4205729166666667,
+        "at12": 0.9908854166666666
+      }
+    },
+    {
+      "u": 0.294,
+      "v": 0.58,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 12.666666666666666,
+        "at12": 16.50390625
+      }
+    },
+    {
+      "u": 0.6,
+      "v": 0.746,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0,
+        "at12": 0
+      }
+    },
+    {
+      "u": 0.822,
+      "v": 0.721,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 1.3138020833333333,
+        "at12": 0.8138020833333334
+      }
+    },
+    {
+      "u": 0.946,
+      "v": 0.728,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072,
+      "reference": {
+        "at0": 0.6979166666666666,
+        "at12": 0.6875
+      }
+    }
+  ],
+  "annotatedRegions": [
+    {
+      "name": "valley-left",
+      "x": 32,
+      "y": 345,
+      "channel": 1,
+      "active": true,
+      "contribution": 19.834635416666668,
+      "advection": 1.3984375,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-back",
+      "x": 810,
+      "y": 360,
+      "channel": 1,
+      "active": true,
+      "contribution": 51.865885416666664,
+      "advection": 5.354166666666667,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-front",
+      "x": 350,
+      "y": 644,
+      "channel": 1,
+      "active": true,
+      "contribution": 26.169270833333332,
+      "advection": 3.7526041666666665,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "valley-right",
+      "x": 1200,
+      "y": 645,
+      "channel": 1,
+      "active": true,
+      "contribution": 27.32421875,
+      "advection": 1.6432291666666667,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-left",
+      "x": 180,
+      "y": 268,
+      "channel": 2,
+      "active": true,
+      "contribution": 27.919270833333332,
+      "advection": 2.2721354166666665,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-middle",
+      "x": 520,
+      "y": 240,
+      "channel": 2,
+      "active": true,
+      "contribution": 34.880208333333336,
+      "advection": 3.0546875,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "sky-right",
+      "x": 1410,
+      "y": 220,
+      "channel": 2,
+      "active": true,
+      "contribution": 14.631510416666666,
+      "advection": 1.2265625,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "water-main",
+      "x": 1110,
+      "y": 475,
+      "channel": 3,
+      "active": true,
+      "contribution": 1.22265625,
+      "advection": 1.2877604166666667,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "water-channel",
+      "x": 616,
+      "y": 420,
+      "channel": 3,
+      "active": true,
+      "contribution": 4.243489583333333,
+      "advection": 4.903645833333333,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "island-right",
+      "x": 1200,
+      "y": 445,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "islet",
+      "x": 1005,
+      "y": 490,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "shore",
+      "x": 920,
+      "y": 560,
+      "channel": 3,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "moon",
+      "x": 1110,
+      "y": 250,
+      "channel": 2,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    },
+    {
+      "name": "stars",
+      "x": 780,
+      "y": 135,
+      "channel": 2,
+      "active": false,
+      "contribution": 0,
+      "advection": 0,
+      "drawCalls": 1,
+      "textureBytes": 131072
+    }
+  ],
+  "waterfallBoundary": {
+    "at0": 13.875,
+    "at12": 17.041666666666668
+  },
+  "reducedStill": true
+}

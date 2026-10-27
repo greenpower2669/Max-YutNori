@@ -1,0 +1,3 @@
+Source commit: 08abcaed4940511bdbd73cb3a863c2172209e93a
+Build run: https://github.com/greenpower2669/Max-YutNori/actions/runs/40543163343
+Same signing certificate as 0.8.7: True

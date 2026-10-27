@@ -1,0 +1,825 @@
+{
+  "checks": [
+    "WebGL + Rapier WASM start without external network",
+    "Finger drag lifts and tilts the tray without a sensor; release lowers it without launching",
+    "Pause cancels a held tray and freezes its pose until resume",
+    "Automatic throwing cancels a held tray and preserves its return after flight",
+    "Higher physical throw stays visible and the overhead HUD shows its real faces",
+    "Pause freezes gameplay and music; resume works",
+    "Arisongs MP3 plays and crosses loop boundary twice",
+    "Native pause/resume hook",
+    "Saved game and actual throw faces survive reload",
+    "Linked group finishes; victory sound starts before the dialog pauses gameplay",
+    "Landscape phone layout and settings",
+    "Licences open and close inside the game without navigation",
+    "Selection and both destinations glow; reduced motion keeps halos fixed; absent sensor leaves touch available",
+    "Four teams and mixed six-person roster; configuration survives count changes; landscape and portrait fit",
+    "Real v2 save migrates to v4 with pending results and original backup intact",
+    "Touch owns the held tray; sensor callbacks cannot launch until release",
+    "Tray tilts with native samples, freezes during pause; motion defaults ON and explicit OFF survives reload",
+    "Sensor gesture launches physics once, disabled during pause/roll; effects volume and active voices obey pause",
+    "New game during flight resets the yut and restores tray tilt before another throw",
+    "Sensor cannot throw during an AI turn",
+    "Touch selects a reserve pawn; camera approaches, moves sideways, then reveals action without consuming a result",
+    "Physical ×2, two-finger pinch and toggle-off keep the held pawn under its finger; legal drag consumes one result",
+    "Invalid drop and pause preserve the result; accumulated results play in chosen order 4 then 2 then 5",
+    "Back-do is playable from reserve; reversing across the line adds a lap and returning does not finish",
+    "Action camera keeps distant-team destinations visible in landscape and portrait, including zoomed-out fog range",
+    "v3 storage migrates to v4 with pending order and untouched original backup",
+    "Automatic throw rises above six metres while all four sticks stay on screen",
+    "A move immediately after the throw cancels the deferred board camera and keeps the bowl framed during tidying",
+    "New jade/gold emblem loads offline, remains square and readable, and preserves accessible compact header controls after rotation",
+    "Local jade/gold logo, panoramic environment and all engraving maps load; only the active team glows including reserves",
+    "End of turn shows and fills the bowl before the next throw; pause freezes tidying and saved faces stay unchanged",
+    "Native left/right tilt lowers the corresponding bowl edge after screen-axis mapping",
+    "Real throw preserves accumulated Yut results and its actual faces throughout disappearance or bonus tidying",
+    "New game during tidying cancels the animation and restores dynamic sticks in a visible bowl",
+    "Victory waits for all four yut to return before pausing in the winner dialog",
+    "Pawns rest on table; full-canvas scene extends behind translucent HUD while notice stays clear",
+    "Top view pinches on empty space without selecting a pawn or spending a result",
+    "Reserve selection lifts before travel; second finger zooms without dropping; legal drop settles on raised node",
+    "Invalid drop and pointer cancellation independently return to reserve without spending a result",
+    "Team pulse and localized panorama animate, pause freezes both, reduced mode keeps both still",
+    "Original fresco loads offline, zooms by buttons and pinch, and keeps game paused until rules close",
+    "Direct destination move lifts and transports an unselected four-pawn stack without compression",
+    "Single view picker left of music, compact landscape HUD, teams split on both sides and reachable reserves across three sizes",
+    "New 36-minute MP3 plays offline, crosses its loop boundary twice and pauses/resumes without duplication",
+    "Two-team saves keep one team on each side and identify the current player",
+    "Real native menu can recall the current Plateau view after following a pawn",
+    "×2 toggles without accumulation in four views, survives view changes and coexists with genuine touch pinch; force migration is idempotent",
+    "Compact translucent landscape bars, left status, accessible header zoom and reachable reserves in landscape and portrait",
+    "Action camera stays close with physical x2 active and restores the selected close overview",
+    "Minimum and maximum real browser flights keep four yut visible; bowl and support disappear during flight with collisions disabled",
+    "Move HUD with one, six and twelve results and a long name keeps status clear, launch controls available and choices reachable by scrolling",
+    "Physical ×2 approaches at fixed projection, keeps the full board in automatic views and restores the original pose without accumulation",
+    "Free orbit and genuine touch pinch remain independent of physical ×2, including toggle-off and re-entry",
+    "Accumulated results retarget the camera to the automatically selected next pawn and its legal destination with physical ×2",
+    "Screenshot25695 regression: reserve pawn selected with physical x2 keeps the entire playing surface and far rim clear of the HUD",
+    "Repeated distant-reserve selections and returns retain close framing in landscape and portrait, including ×2 and all legal destinations"
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "firstThrow": {
+    "version": "0.8.8",
+    "camera": {
+      "mode": "bowl",
+      "topZoom": 1,
+      "doubleZoom": false,
+      "magnification": 1,
+      "projectionZoom": 1,
+      "fov": 42,
+      "safeInsets": {
+        "top": 62,
+        "bottom": 89,
+        "left": 234,
+        "right": 162
+      },
+      "input": null,
+      "phase": "idle",
+      "zoom": 1,
+      "fog": {
+        "near": 34.12678178165643,
+        "far": 58.12678178165643
+      },
+      "position": [
+        0.7999999999995406,
+        19.37698566954183,
+        12.620402484391509
+      ],
+      "target": [
+        0.7999999999995406,
+        0.8000000118449381,
+        0.5999999999999525
+      ],
+      "dragging": false,
+      "candidate": null
+    },
+    "projectedPawns": [
+      {
+        "team": 0,
+        "piece": 0,
+        "x": 291.7512767243037,
+        "y": 380.55280222102016,
+        "position": [
+          -8.07,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 1,
+        "x": 313.22974393456894,
+        "y": 380.55280222102016,
+        "position": [
+          -7.29,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 2,
+        "x": 334.7082111448342,
+        "y": 380.55280222102016,
+        "position": [
+          -6.510000000000001,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 0,
+        "piece": 3,
+        "x": 356.1866783550995,
+        "y": 380.55280222102016,
+        "position": [
+          -5.73,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 0,
+        "x": 396.38996313328835,
+        "y": 380.55280222102016,
+        "position": [
+          -4.27,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 1,
+        "x": 417.8684303435536,
+        "y": 380.55280222102016,
+        "position": [
+          -3.49,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 2,
+        "x": 439.34689755381885,
+        "y": 380.55280222102016,
+        "position": [
+          -2.71,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 1,
+        "piece": 3,
+        "x": 460.8253647640841,
+        "y": 380.55280222102016,
+        "position": [
+          -1.9300000000000002,
+          -0.31,
+          3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 0,
+        "x": 332.80956734224674,
+        "y": 212.8054349018581,
+        "position": [
+          -8.07,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 1,
+        "x": 350.6774971588258,
+        "y": 212.8054349018581,
+        "position": [
+          -7.29,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 2,
+        "x": 368.5454269754048,
+        "y": 212.8054349018581,
+        "position": [
+          -6.510000000000001,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 2,
+        "piece": 3,
+        "x": 386.41335679198374,
+        "y": 212.8054349018581,
+        "position": [
+          -5.73,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 0,
+        "x": 419.85845619224705,
+        "y": 212.8054349018581,
+        "position": [
+          -4.27,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 1,
+        "x": 437.72638600882595,
+        "y": 212.8054349018581,
+        "position": [
+          -3.49,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 2,
+        "x": 455.594315825405,
+        "y": 212.8054349018581,
+        "position": [
+          -2.71,
+          -0.31,
+          -3.95
+        ]
+      },
+      {
+        "team": 3,
+        "piece": 3,
+        "x": 473.462245641984,
+        "y": 212.8054349018581,
+        "position": [
+          -1.9300000000000002,
+          -0.31,
+          -3.95
+        ]
+      }
+    ],
+    "projectedDestinations": [
+      {
+        "node": "O1",
+        "x": 402.0301936644285,
+        "y": 342.9448609631883
+      }
+    ],
+    "lastThrow": {
+      "faces": [
+        false,
+        false,
+        true,
+        false
+      ],
+      "invalid": false,
+      "value": 1
+    },
+    "tray": {
+      "position": {
+        "x": 1.600000023841858,
+        "y": 0.7799999713897705,
+        "z": 0
+      },
+      "rotation": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "w": 1
+      }
+    },
+    "projectedSticks": [
+      {
+        "x": 0.07808876313022169,
+        "y": -0.17192458533129354,
+        "z": 0.9933204622697461,
+        "height": -0.2501228153705597
+      },
+      {
+        "x": -0.01097586371082061,
+        "y": 0.03763736771558862,
+        "z": 0.9939162783209713,
+        "height": -0.25012215971946716
+      },
+      {
+        "x": 0.20257475045853998,
+        "y": -0.016588105613321944,
+        "z": 0.9937489442000759,
+        "height": -0.2206106185913086
+      },
+      {
+        "x": 0.24466412128309148,
+        "y": -0.1476458155105573,
+        "z": 0.9933894907070038,
+        "height": -0.2501232922077179
+      }
+    ],
+    "projectedTray": {
+      "x": 0.3816455308968916,
+      "y": 0.015118487013691872
+    },
+    "trayGrab": false,
+    "bowl": {
+      "phase": "hidden",
+      "opacity": 0,
+      "ready": false,
+      "collider": false
+    },
+    "art": {
+      "panorama": true,
+      "animation": {
+        "time": 6.333299999999993,
+        "strength": 1,
+        "lowClouds": {
+          "layers": 2,
+          "textureBytes": 131072
+        },
+        "annotated": {
+          "falls": 24,
+          "textureBytes": 524288
+        },
+        "zones": [
+          "water",
+          "waterfalls",
+          "mist",
+          "clouds",
+          "lamps",
+          "spray",
+          "low-clouds"
+        ]
+      },
+      "engraved": true,
+      "engravingDepth": 0.035,
+      "uvSize": [
+        20.8,
+        11.7
+      ]
+    },
+    "activeTeam": [
+      {
+        "team": 0,
+        "piece": 0,
+        "glowing": true,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.2708419114650135
+      },
+      {
+        "team": 0,
+        "piece": 1,
+        "glowing": true,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.11119537798000775
+      },
+      {
+        "team": 0,
+        "piece": 2,
+        "glowing": true,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.11119537798000775
+      },
+      {
+        "team": 0,
+        "piece": 3,
+        "glowing": true,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e7c88e",
+          "91f3ff"
+        ],
+        "emissive": 0.11119537798000775
+      },
+      {
+        "team": 1,
+        "piece": 0,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 1,
+        "piece": 1,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 1,
+        "piece": 2,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 1,
+        "piece": 3,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "ff957a",
+          "91f3ff"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 2,
+        "piece": 0,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 2,
+        "piece": 1,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 2,
+        "piece": 2,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 2,
+        "piece": 3,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "e0e5ee",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 3,
+        "piece": 0,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 3,
+        "piece": 1,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 3,
+        "piece": 2,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
+        "emissive": 0
+      },
+      {
+        "team": 3,
+        "piece": 3,
+        "glowing": false,
+        "glowOpacity": 0.6256568272430221,
+        "glowColors": [
+          "7adea7",
+          "ffd37d"
+        ],
+        "emissive": 0
+      }
+    ],
+    "state": {
+      "version": 4,
+      "teams": [
+        {
+          "players": [
+            {
+              "name": "Joueur 1",
+              "computer": false,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Cèdre 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Noir 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        },
+        {
+          "players": [
+            {
+              "name": "Sapin 1",
+              "computer": true,
+              "level": 2,
+              "aggression": 50
+            }
+          ],
+          "member": 0,
+          "pieces": [
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            },
+            {
+              "pos": "S",
+              "route": "outer",
+              "laps": 1
+            }
+          ]
+        }
+      ],
+      "turn": 0,
+      "phase": "move",
+      "pending": [
+        1
+      ],
+      "turnNumber": 1,
+      "winner": null,
+      "captureReroll": false,
+      "last": "Do · 1"
+    },
+    "power": 0.9,
+    "powerVersion": 2,
+    "rolling": false,
+    "paused": false,
+    "motion": {
+      "available": false,
+      "enabled": false
+    },
+    "halos": [
+      {
+        "kind": "selection",
+        "angle": 0.06999999999999999,
+        "position": [
+          -8.07,
+          -0.275,
+          3.95
+        ]
+      },
+      {
+        "kind": "destination",
+        "angle": 0.06999999999999999,
+        "position": [
+          -4.134752415750147,
+          0.161,
+          2.6629582456264296
+        ]
+      }
+    ],
+    "audio": {
+      "effectsPlayed": 24,
+      "voices": 0,
+      "fxVolume": 0.6,
+      "loop": true,
+      "paused": false,
+      "currentTime": 35.297707,
+      "duration": 2182.698095
+    },
+    "logs": [
+      "2026-10-27T16:43:48.214Z Three.js + Rapier WASM prêts.",
+      "2026-10-27T16:44:28.491Z Lancer : 1"
+    ]
+  },
+  "audio": {
+    "duration": 2182.698095,
+    "loop": true,
+    "codec": "probably"
+  },
+  "hudLayout": {
+    "status": {
+      "top": 205.71875,
+      "bottom": 279.40625,
+      "left": 12,
+      "right": 222,
+      "height": 73.6875
+    },
+    "team": {
+      "top": 134.734375,
+      "bottom": 180.46875,
+      "left": 12,
+      "right": 130.15625,
+      "height": 45.734375
+    },
+    "controls": {
+      "top": 287.40625,
+      "bottom": 390,
+      "left": 0,
+      "right": 844,
+      "height": 102.59375
+    },
+    "overflow": false,
+    "offenders": []
+  },
+  "cameraProximity": [
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.88212909578879
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 1,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.319772102326343
+    },
+    {
+      "size": {
+        "width": 844,
+        "height": 390
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.88212909578879
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.88212909578879
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 1,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.319772102326343
+    },
+    {
+      "size": {
+        "width": 390,
+        "height": 844
+      },
+      "piece": 0,
+      "normalDistance": 11.944321877366333,
+      "actionDistance": 12.88212909578879
+    }
+  ],
+  "result": "PASS"
+}

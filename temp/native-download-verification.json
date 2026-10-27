@@ -1,0 +1,16 @@
+{
+  "ref": "03b939304c60a7923f99d560c906015cd6782614",
+  "files": {
+    "apk": {
+      "bytes": 9533239,
+      "sha256": "1ac1b449e11c0b123d52ad1bb0a5ed14ebd2ca52aa5c29dbc90bef690fc1d3a9"
+    },
+    "aab": {
+      "bytes": 9150265,
+      "sha256": "17e93b234e466b916cb4e9d28a10350ca969e0b2401fb6d33f867c04dfe15b83"
+    }
+  },
+  "certificate": "0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a",
+  "browserChecks": 34,
+  "build": "Source commit: a5d12ed492e0ad0656184cb68ab977280ef15c48\nBuild run: https://github.com/greenpower2669/Max-YutNori/actions/runs/40168413538\nSame signing certificate as 0.5.0: True\n"
+}

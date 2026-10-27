@@ -1,0 +1,10 @@
+.gradle/
+**/build/
+local.properties
+*.keystore
+*.jks
+test-results/
+__pycache__/
+node_modules/
+web-dist/
+.superpowers/
