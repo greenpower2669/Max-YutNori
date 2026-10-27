@@ -85,11 +85,13 @@ header{min-height:54px;padding:2px 10px;gap:6px}
 .actions{gap:4px}#pieces button,#destinations button,#results button{min-height:44px;font-size:13px;padding:4px 9px}
 @media(max-height:570px) and (min-width:701px){header{min-height:52px;padding:2px 8px}.brand img{width:146px;max-height:44px}#throwSummary{min-width:92px}nav{gap:4px}nav button{min-height:44px}#controls{padding:4px 10px;gap:6px}#throwControls{grid-template-columns:190px 170px;column-gap:10px}#playStatus{width:180px}.team{padding:5px 7px}.team strong{font-size:14px}.team small{font-size:11px}}
 @media(max-width:700px){header{padding:3px 8px;gap:4px}.brand{flex:1}.brand img{width:145px;max-height:44px}#throwSummary{min-width:92px}nav{width:100%;order:2}#playStatus{left:10px;width:min(330px,calc(100% - 20px));padding:5px 8px}#controls{grid-template-columns:1fr;padding:5px 10px;gap:4px}.actions{grid-column:1;grid-row:1}#throwControls{grid-column:1;grid-row:2;grid-template-columns:minmax(150px,1fr) minmax(145px,1fr);grid-template-rows:36px 30px;column-gap:10px}#throw{font-size:13px}#throwControls .check{font-size:12px}#playStatus .turn{flex-direction:row}#playStatus .turn strong{font-size:16px}}
-/* Populated move choices share a row; unusable launch controls wait for a throw. */
+/* Populated move choices share rows; force and automatic mode remain available. */
 .actions{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start}
 .actions>div{max-width:100%}
-#controls:has(#throwControls[hidden]){grid-template-columns:minmax(0,1fr)}
 .team{line-height:1.25}.team small{display:block;line-height:1.35}
 #playStatus .turn{display:grid;grid-template-columns:auto minmax(0,1fr);gap:7px}
 #playStatus .turn strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 @media(max-height:570px) and (min-width:701px){#playStatus{width:210px}}
+@media(min-width:701px){#controls[data-phase=move] #throwControls,#controls[data-phase=over] #throwControls{grid-template-columns:140px 160px;grid-template-rows:36px 36px;column-gap:8px}}
+
+.actions{max-height:min(24dvh,136px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}

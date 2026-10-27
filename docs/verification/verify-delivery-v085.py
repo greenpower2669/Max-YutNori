@@ -46,10 +46,41 @@ def apk_certificate(data):
             return x509.load_der_x509_certificate(cert)
         p+=8+n
     raise AssertionError('APK v2 certificate missing')
+def manifest_attributes(data):
+    # Android binary XML: decode its string pool and root manifest attributes.
+    pool=[];pos=8
+    def length8(buf,at):
+        n=buf[at];return (((n&127)<<8)|buf[at+1],at+2) if n&128 else (n,at+1)
+    while pos<len(data):
+        kind,header,size=struct.unpack_from('<HHI',data,pos)
+        assert size>=header>=8
+        if kind==1:
+            count,_,flags,start,_=struct.unpack_from('<IIIII',data,pos+8)
+            for i in range(count):
+                off=pos+start+struct.unpack_from('<I',data,pos+header+i*4)[0]
+                if flags&256:
+                    _,off=length8(data,off);length,off=length8(data,off);value=data[off:off+length].decode('utf-8')
+                else:
+                    length=struct.unpack_from('<H',data,off)[0];off+=2
+                    if length&32768:length=((length&32767)<<16)|struct.unpack_from('<H',data,off)[0];off+=2
+                    value=data[off:off+length*2].decode('utf-16le')
+                pool.append(value)
+        if kind==258 and pool[struct.unpack_from('<I',data,pos+20)[0]]=='manifest':
+            start,width,count=struct.unpack_from('<HHH',data,pos+24);attrs={}
+            for i in range(count):
+                off=pos+16+start+i*width;name=pool[struct.unpack_from('<I',data,off+4)[0]]
+                typ=data[off+15];value=struct.unpack_from('<I',data,off+16)[0]
+                attrs[name]=pool[value] if typ==3 else value
+            return attrs
+        pos+=size
+    raise AssertionError('Binary manifest root missing')
+
 proof={'version':'0.8.5','versionCode':14,'sourceCommit':source,'binaryCommit':ref,'workflowRun':run,'http':http,'checks':len(smoke['checks']),'unitTests':89,'certificateSha256':expected,'packages':{},'physicalSamsungTest':'pending'}
 name='Max-YutNori-v0.8.5-debug.apk';path=out/name;data=path.read_bytes();sha=hashlib.sha256(data).hexdigest();assert sha==manifest[name]
 with zipfile.ZipFile(path) as z:
     assert z.testzip() is None
+    manifest_info=manifest_attributes(z.read('AndroidManifest.xml'))
+    assert manifest_info['package']=='fr.fab.maxyutnori' and manifest_info['versionCode']==14 and manifest_info['versionName']=='0.8.5'
     assert 'res/drawable/ic_launcher.xml' in z.namelist()
     assert b'0.8.5' in z.read('assets/game/index.html')
     assert not any('/Build/' in n for n in z.namelist())
@@ -57,6 +88,7 @@ with zipfile.ZipFile(path) as z:
     arts=list(Path('web/public/art').glob('*.png'));assert len(arts)==4
     for art in arts:assert z.read('assets/game/art/'+art.name)==art.read_bytes()
     assert fingerprint(apk_certificate(data))==expected
+proof['androidManifest']=manifest_info
 proof['packages']['apk']={'bytes':len(data),'sha256':sha,'zipIntegrity':True,'originalArtCount':4,'arisongsMusic':True,'certificateExtractedAndMatched':True}
 Path('temp/native-delivery-verification-v085.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(proof,ensure_ascii=False,indent=2))

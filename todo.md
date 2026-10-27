@@ -1,5 +1,7 @@
 # MYN-019 — 0.8.5/code14 en cours — 27/10/2026
 
+CI initiale40431151100 arrêtée avant Android : le test a détecté le mode automatique masqué en phase de déplacement. Commandes permanentes rétablies et contrôle de visibilité ajouté ; nouveau passage complet à lancer. Aucun nouvel APK livré.
+
 Dernière livraison vérifiée : 0.8.4/code13. Autorisation reçue. Plan docs/plan-ergonomics-v085.md ; suivi docs/ergonomics-progress.md.
 - [x] Force/migration, repère bol à droite et confinement Rapier min/max.
 - [x] Disparition au franchissement réel des quatre yut, pause/retour/rangement.

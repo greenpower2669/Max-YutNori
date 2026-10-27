@@ -1,6 +1,8 @@
 ## Contrat MYN-019 — réalisation autorisée 0.8.5/code14
 
-Plateau dominant par caméra 3D, informations compactes à gauche, bandeaux semi-transparents réduits, bol/socle déplacés physiquement à droite. Forces et limites physiques renforcées ; bol invisible dès le franchissement complet des quatre yut. Zoom ×2 réversible, non cumulatif, indépendant du pinch et compatible caméra action. Livraison APK uniquement ; identité/signature/règles/sauvegarde conservées. Le rendu du panorama 0.8.4 et particulièrement l'ondulation du lac sont figés. Le bouton ×2 reste indépendant du pinch ; la caméra action compense sa projection puis rend le cadrage choisi. Les commandes de lancer sont disponibles pendant les lancers, les choix de déplacement occupent le bandeau à la phase de déplacement. Plan docs/plan-ergonomics-v085.md ; livraison Android en attente.
+CI initiale40431151100 arrêtée avant Android : le test a détecté le mode automatique masqué en phase de déplacement. Commandes permanentes rétablies et contrôle de visibilité ajouté ; nouveau passage complet à lancer. Aucun nouvel APK livré.
+
+Plateau dominant par caméra 3D, informations compactes à gauche, bandeaux semi-transparents réduits, bol/socle déplacés physiquement à droite. Forces et limites physiques renforcées ; bol invisible dès le franchissement complet des quatre yut. Zoom ×2 réversible, non cumulatif, indépendant du pinch et compatible caméra action. Livraison APK uniquement ; identité/signature/règles/sauvegarde conservées. Le rendu du panorama 0.8.4 et particulièrement l'ondulation du lac sont figés. Le bouton ×2 reste indépendant du pinch ; la caméra action compense sa projection puis rend le cadrage choisi. Les commandes de lancer, force et mode automatique restent accessibles ; les choix de déplacement se répartissent horizontalement dans le bandeau. Plan docs/plan-ergonomics-v085.md ; livraison Android en attente.
 
 ## Contrat courant — MYN-018 / 0.8.4-code13 LIVRÉE
 

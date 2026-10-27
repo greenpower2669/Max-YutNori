@@ -8,8 +8,12 @@ HUD/caméra/×2 implémentés ; premier scénario navigateur RED sur absence du 
 
 Complément force : 16/16 lancers minimaux et15/16 maximaux valides sur16 graines/directions, pics7.37 et13.55 ; le cas non lisible reste explicitement invalide et propose relance, sans inventer de face. 86 tests verts.
 
-Revue indépendante : deux Important, aucun Critical/Minor. Correction physique RED→GREEN (graine5, vitesse80, chaque bord/coin), 100 essais supplémentaires sans sortie ; murs extérieurs épais et sous-pas adaptatifs, lancers ordinaires toujours120Hz. Régression HUD RED→GREEN sur vrai DOM/WebGL en déplacement à844×390, nom long, un puis six résultats. Boutons inutilisables de lancer remplacés par les choix actifs pendant le déplacement. Revue docs/revue-v085.md.
+Revue indépendante : deux Important, aucun Critical/Minor. Correction physique RED→GREEN (graine5, vitesse80, chaque bord/coin), 100 essais supplémentaires sans sortie ; murs extérieurs épais et sous-pas adaptatifs, lancers ordinaires toujours120Hz. Régression HUD RED→GREEN sur vrai DOM/WebGL en déplacement à844×390, nom long, un puis six résultats. Choix actifs répartis horizontalement ; commandes de lancer/force/automatique toujours accessibles. Revue docs/revue-v085.md.
 
 Non-régression panorama locale PASS : 5 phases du lac exactement identiques à la référence0.8.3, 8 sondes de terrain fixes, atmosphère mobile et réduit fixe. Rendu source0.8.4 inchangé. Caméra générale : comparaison géométrique explicite avec0.8.4 RED→GREEN, grossissement supérieur et réserves complètes dans le frustum. 89 tests unitaires attendus dans la vérification finale/CI.
 
 Vérifications locales finales : npm test89/89, panorama GPU PASS, cinq parcours ergonomiques groupés PASS (4vues/pinch/migration, 3formats, caméra action, vols extrêmes, HUD chargé). Le dernier ajustement de marge du cadrage est couvert par son test géométrique et sera recontrôlé dans toute la CI. Aucun APK0.8.5 livré à ce stade.
+
+CI40431151100 a échoué avant Android sur auto.uncheck invisible après lancer, conséquence du masquage trop large des commandes. Correctif : garder toutes les commandes, conserver la seule répartition horizontale des choix. Régression de visibilité dans le HUD réel. Nouvelle CI à lancer.
+
+Correctif de CI vérifié : HUD réel PASS avec1,6 et12 résultats, nom long, aucun débordement ni chevauchement. Lancer/force/automatique tous visibles et utilisables selon leur état ; colonnes plus étroites en déplacement, choix bornés en hauteur et défilables pour les accumulations longues. Registre des cinq mémoires synchronisé. Nouvelle source à pousser pour relancer la CI complète.

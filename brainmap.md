@@ -1,5 +1,7 @@
 ## MYN-019 — carte de travail 0.8.5
 
+CI initiale40431151100 arrêtée avant Android : le test a détecté le mode automatique masqué en phase de déplacement. Commandes permanentes rétablies et contrôle de visibilité ajouté ; nouveau passage complet à lancer. Aucun nouvel APK livré.
+
 physics.mjs porte le repère du bol, le confinement Rapier et le test des volumes au-dessus du rebord ; bowl-cycle.mjs gère fondu en vol et rangement. throw-power.mjs centralise plage et migration. camera-framing.mjs/scene.js portent cadrage réel et ×2 ; main.js synchronise réglages/DOM et cycle. index.html/style.css portent les informations à gauche et les bandeaux. Murs hauts épaissis vers l’extérieur sans rétrécir la surface ; sous-pas1..8 si vitesse>20, sinon120Hz. Cadrage général vérifié contre la caméra0.8.4 ; marges du vol distinctes de celles du plateau. Fichiers panorama et atlas0.8.4 gelés. Tests et livraison : docs/plan-ergonomics-v085.md.
 
 ## Point d'entrée actif — MYN-018 / 0.8.4 (26/10/2026)
