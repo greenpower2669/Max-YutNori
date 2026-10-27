@@ -1,3 +1,9 @@
+# État actif MYN-022 — 0.8.8/code17 en vérification
+
+Fab autorise « On, code ». Logo/nom et icônes intégrés ; vérification, revue et livraison APK à terminer. Dernier APK livré 0.8.7/code16. Plan `docs/plan-logo-v088.md` ; cinq mémoires à jour. Aucun merge main/Release.
+
+## Spécification et état précédent conservés
+
 # PASSATION MAX-YUTNORI — MYN-022 — Nouveau logo et icône Android
 
 Date : 27 octobre 2026.

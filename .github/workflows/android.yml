@@ -23,6 +23,7 @@ jobs:
         run: |
           npm ci
           python3 scripts/fetch_music.py
+          python3 scripts/verify_branding.py
           npm test
           npm run build
       - name: Verify rendering, gameplay, save and music offline
@@ -72,13 +73,13 @@ jobs:
       - name: Verify APK and prepare direct download
         run: |
           mkdir -p temp
-          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.8.7-debug.apk
-          python3 scripts/verify_native_apk.py temp/Max-YutNori-v0.8.7-debug.apk > temp/native-package.json
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.8.7-debug.apk > temp/native-apk-verification.txt
-          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.8.7-debug.apk | head -30 >> temp/native-apk-verification.txt
-          sha256sum temp/Max-YutNori-v0.8.7-debug.apk > temp/native-SHA256SUMS
+          cp android/app/build/outputs/apk/debug/app-debug.apk temp/Max-YutNori-v0.8.8-debug.apk
+          python3 scripts/verify_native_apk.py temp/Max-YutNori-v0.8.8-debug.apk > temp/native-package.json
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs temp/Max-YutNori-v0.8.8-debug.apk > temp/native-apk-verification.txt
+          "$ANDROID_HOME/build-tools/35.0.0/aapt" dump badging temp/Max-YutNori-v0.8.8-debug.apk | head -30 >> temp/native-apk-verification.txt
+          sha256sum temp/Max-YutNori-v0.8.8-debug.apk > temp/native-SHA256SUMS
           printf 'Source commit: %s\nBuild run: %s\n' "$GITHUB_SHA" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID" > temp/native-build-info.txt
-          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.8.6-debug.apk > temp/native-previous-signature.txt
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --print-certs temp/Max-YutNori-v0.8.7-debug.apk > temp/native-previous-signature.txt
           python3 - <<'PY'
           from pathlib import Path
           import hashlib, ssl
@@ -88,8 +89,8 @@ jobs:
           actual=cert('temp/native-apk-verification.txt').split(': ')[-1]
           assert actual==expected, 'APK was signed by an unexpected key'
           same=cert('temp/native-apk-verification.txt')==cert('temp/native-previous-signature.txt')
-          assert same, 'Upgrade signature must match 0.8.6'
-          with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.8.6: '+str(same)+'\n')
+          assert same, 'Upgrade signature must match 0.8.7'
+          with open('temp/native-build-info.txt','a') as f:f.write('Same signing certificate as 0.8.7: '+str(same)+'\n')
           PY
       - name: Expose APK and original music on the work branch
         env:
@@ -97,8 +98,8 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add temp/native-* temp/Max-YutNori-v0.8.7-debug.apk web/public/audio/ariranlike25102026.mp3
-          git commit -m 'build: expose native Max-YutNori v0.8.7 test APK [skip ci]'
+          git add temp/native-* temp/Max-YutNori-v0.8.8-debug.apk web/public/audio/ariranlike25102026.mp3
+          git commit -m 'build: expose native Max-YutNori v0.8.8 test APK [skip ci]'
           # Never publish a stale build on a newer source commit.
           git fetch origin "$BRANCH_NAME"
           if [ "$(git rev-parse "origin/$BRANCH_NAME")" != "$GITHUB_SHA" ]; then
@@ -109,8 +110,8 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: Max-YutNori-v0.8.7-debug
+          name: Max-YutNori-v0.8.8-debug
           path: |
             temp/native-*
-            temp/Max-YutNori-v0.8.7-debug.apk
+            temp/Max-YutNori-v0.8.8-debug.apk
             android/app/build/reports/lint-results-debug.html

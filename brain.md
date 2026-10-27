@@ -1,3 +1,11 @@
+# Contrat courant — MYN-022 / réalisation 0.8.8
+
+Le visuel fourni par Fab devient le logo du jeu (carré 44 px et nom texte lisible), le favicon et l’icône de lancement Android. Dérivés Lanczos de la source JPEG originale intacte ; aucune régénération de dessin. Le bandeau conserve sa hauteur compacte et les zones tactiles de 44 px. L’icône adaptative utilise une couche 108 dp, visuel 56 dp centré, fond jade ; cinq tailles classiques 48/72/96/144/192 px. Les masques sont inspectés visuellement ; leur comportement Samsung réel reste humain.
+
+Package fr.fab.maxyutnori, nom Max YutNori, certificat et sauvegardes invariants. Caméra, physique, lac/panorama et musique inchangés. 0.8.8/code17 en vérification, aucune livraison déclarée avant preuves ; dernier APK 0.8.7.
+
+## Préparation et historique conservés
+
 # Contrat demandé — MYN-022 : nouveau logo et icône — 27 octobre 2026
 
 Fab désigne le visuel joint `25701.png` comme nouveau logo du jeu et nouvelle icône Android, et demande passation + mise à jour des mémoires. Conserver la composition jade/or et les bâtonnets noir/cèdre, sans étirement ni réinterprétation créative. Adapter le carré au bandeau compact avec nom accessible et commandes intactes ; préparer une icône lisible et protégée des découpes du lanceur. L’ancien logo horizontal et l’ancienne icône peuvent être remplacés au titre de cet avenant visuel, sans changer identité Android, nom, signature ou sauvegarde.

@@ -1,0 +1,56 @@
+{
+  "source": "docs/assets/25701-logo-original.jpg",
+  "sourceSha256": "afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096",
+  "method": "Lanczos resampling only; adaptive 108 dp layer with 56 dp artwork",
+  "assets": {
+    "web/public/art/max-yutnori-logo.png": {
+      "size": [
+        256,
+        256
+      ],
+      "sha256": "6b9628808ead1c53792404ba602b26af931411da25d4e4311c624c1df84fa0f1"
+    },
+    "android/app/src/main/res/mipmap-mdpi/ic_launcher.png": {
+      "size": [
+        48,
+        48
+      ],
+      "sha256": "79c072b3d235a76169838a8e165cee6eace65e4001ce5fd07b6cb028a7801ee4"
+    },
+    "android/app/src/main/res/mipmap-hdpi/ic_launcher.png": {
+      "size": [
+        72,
+        72
+      ],
+      "sha256": "046b64c49d7544521e5765fe838c10a1b2ec04179e4b726938043bed2f387147"
+    },
+    "android/app/src/main/res/mipmap-xhdpi/ic_launcher.png": {
+      "size": [
+        96,
+        96
+      ],
+      "sha256": "95e5ae93892215b2f9c0d97c2e6afe766ea1a29c0e8f3374b571db2552a49790"
+    },
+    "android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png": {
+      "size": [
+        144,
+        144
+      ],
+      "sha256": "41d060252a4e6a88e3a7e9d8215fbf49f92c40d927a3218e459c845010d60775"
+    },
+    "android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png": {
+      "size": [
+        192,
+        192
+      ],
+      "sha256": "00d880f8074abfc158d964b8ffe2d4055887dfc08a61c72d2e6529fdb3e51eb8"
+    },
+    "android/app/src/main/res/drawable-nodpi/ic_launcher_foreground.png": {
+      "size": [
+        432,
+        432
+      ],
+      "sha256": "e4f2563f853739278b15c59fb3fc2e8c4b781ba98233980c936ab7c0dd5eaa75"
+    }
+  }
+}

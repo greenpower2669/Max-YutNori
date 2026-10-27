@@ -1,3 +1,18 @@
+## Garde-fou d’assets MYN-022
+
+`scripts/verify_branding.py` vérifie source approuvée, structure complète/chunks/CRC/IEND, dimensions et SHA des sept PNG ; appelé avant npm test/build dans la CI. Générateur atomique via tampon PNG validé puis remplacement ; `verify_native_apk.py` contrôle aussi les chunks Web. `docs/verification/verify-delivery-v088.py` compare les pixels compilés. Voir MYN-D043 et `docs/revue-v088.md`.
+
+# Carte active — MYN-022 / 0.8.8
+
+- `scripts/prepare_branding.py` : déclinaisons déterministes de développement depuis `docs/assets/25701-logo-original.jpg`, Pillow 12.3.0 ; pas exécuté par le build CI. `docs/branding-assets.json` garde tailles et SHA-256.
+- `web/public/art/max-yutnori-logo.png` (256×256) → `web/index.html` image décorative avec nom texte adjacent, favicon ; CSS final `.brand` garde une image 44×44 et le nom responsive. Ancien PNG de titre retiré des assets actifs ; reste récupérable dans Git.
+- Manifeste Android → `@mipmap/ic_launcher` pour icon et roundIcon ; XML adaptatif `mipmap-anydpi-v26`, foreground PNG RGBA 432×432 (art 224 px centré), fond jade dans `values/branding.xml`. Cinq PNG `mipmap-{mdpi,hdpi,xhdpi,xxhdpi,xxxhdpi}`. Ancien vecteur retiré.
+- `scripts/smoke_branding.mjs` étend les parcours réels : chargement local, ratio, logo/commandes visibles, cibles tactiles, hauteur du HUD, rotation 844/390/1000 px. Inclus dans `smoke_ambience.mjs` ; raccourci local AMBIENCE_ONLY=1 BRANDING_ONLY=1.
+- `scripts/verify_native_apk.py` : assets Web exacts, ressources adaptatives et cinq densités/dimensions dans l’APK. Versions et noms 0.8.8/code17 synchronisés, signature précédente 0.8.7.
+- 13 fichiers caméra/physique/panorama/décor/règles byte-identiques à ce531ea ; aucune modification de logique de jeu pour le logo.
+
+## Préparation et historique conservés
+
 # Carte de reprise — MYN-022 : identité visuelle — 27 octobre 2026
 
 **Aucune modification active du produit dans cette passation.** Dernière livraison 0.8.7/code16 ; chemins ci-dessous examinés à la référence `7ea56398df6d0c62de886fdb40de0c3a0e9ed5c6`.

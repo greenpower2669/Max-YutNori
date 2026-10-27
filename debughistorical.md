@@ -1,3 +1,19 @@
+# MYN-D043 — PNG incomplet détecté avant livraison, correctif vérifié
+
+Revue : PNG Web tronqué dans le commit initial (65 853 au lieu de 132 938 octets), build précédent complet. Cause temporelle exacte non établie. Générateur passé à sérialisation validée + remplacement atomique ; source/dérivé complet restaurés. `verify_branding.py` a reproduit RED puis GREEN, sept hashes/dimensions/PNG complets verts, suite96/96 après correction. La CI contrôle l’intégrité avant compilation et l’APK contrôlera les pixels. Revue et limites : `docs/revue-v088.md`. Aucun APK défectueux livré.
+
+## Vérifications locales MYN-022
+
+96/96 tests unitaires, scénario logo réel rouge→vert aux trois dimensions, contrôle WebGL (lac delta nul aux cinq phases) et HUD avec noms longs/1,6,12 résultats réussis. Icônes rondes/arrondies/carrées inspectées. Revue et CI Android encore en cours ; aucun APK 0.8.8 déclaré livré. Vérification indépendante du futur APK : `docs/verification/verify-delivery-v088.py`, pixels des sept dérivés comparés après compilation, références icon/roundIcon, version et certificat extraits du binaire.
+
+# MYN-022 — Intégration du logo en vérification — 27/10/2026
+
+Autorisation de Fab : « On, code ». Contrôle réel du nouveau logo observé rouge sur la 0.8.7 (ancien titre encore chargé), avant le remplacement. Source JPEG originale et proportions conservées ; dérivés techniques séparés, plus de supposition de transparence. Icône adaptative et PNG classiques remplacent le vecteur actif. 13 fichiers protégés identiques à la base.
+
+Les contrôles et la CI 0.8.8 restent à terminer ; les 96/55 de la livraison précédente ne constituent pas une validation de cette intégration. Dernier APK livré : 0.8.7/code16.
+
+## Préparation et historique conservés
+
 # MYN-022 — Préparation du changement de logo, sans bug produit déclaré — 27 octobre 2026
 
 Fab fournit `25701.png` et demande son utilisation dans le jeu et comme icône, avec passation et mémoires à jour. Aucun nouveau dysfonctionnement n’est signalé. Son « Parfait » apprécie le résultat courant ; il ne prouve ni une validation matérielle exhaustive ni des mesures de fluidité.

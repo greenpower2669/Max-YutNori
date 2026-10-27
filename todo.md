@@ -1,3 +1,26 @@
+## Revue MYN-022 traitée
+
+- [x] Important MYN-D043 : PNG source incomplet réparé, garde-fou d’intégrité RED→GREEN et suite96/96 après correction.
+- [x] Icônes/masques et trois captures inspectés ; contrôle WebGL et HUD locaux verts.
+- [ ] CI complète puis vrai APK, signature et pixels des sept dérivés vérifiés.
+
+## Vérifications locales MYN-022
+
+96/96 tests unitaires, scénario logo réel rouge→vert aux trois dimensions, contrôle WebGL (lac delta nul aux cinq phases) et HUD avec noms longs/1,6,12 résultats réussis. Icônes rondes/arrondies/carrées inspectées. Revue et CI Android encore en cours ; aucun APK 0.8.8 déclaré livré. Vérification indépendante du futur APK : `docs/verification/verify-delivery-v088.py`, pixels des sept dérivés comparés après compilation, références icon/roundIcon, version et certificat extraits du binaire.
+
+# MYN-022 — 0.8.8/code17 en vérification
+
+- [x] Autorisation de Fab, cinq mémoires et passation relues ; base ce531ea, 96 tests de référence verts.
+- [x] Nouveau logo carré, nom accessible, favicon, icône Android adaptative et cinq densités ; source exacte conservée.
+- [x] Version/CI 0.8.8/code17 ; régression de chargement du nouveau logo observée rouge avant intégration.
+- [ ] Vérifications navigateur du logo/HUD, tests, WebGL, revue finale.
+- [ ] Publier source puis CI complète, APK seul téléchargé/version/package/icône/signature vérifiés.
+- [ ] Actualiser preuves, cinq mémoires et passation ; essais Samsung encore humains.
+
+Dernier APK livré : 0.8.7/code16. Caméra/physique/panorama et trois images de décor/règles identiques à la référence (13 fichiers contrôlés).
+
+## Préparation et historique conservés
+
 # Prochaine intervention — MYN-022 : logo et icône — 27 octobre 2026
 
 - [x] Enregistrer la demande exacte de Fab dans le registre, sans effacer les missions antérieures.

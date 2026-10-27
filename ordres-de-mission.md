@@ -8,6 +8,12 @@
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 
+# MYN-022 — Réalisation 0.8.8/code17 autorisée le 27 octobre 2026
+
+Fab autorise « On, code » après la passation du logo. Nouveau visuel de Fab intégré comme emblème carré accompagné du nom dans le bandeau compact, favicon et icône Android adaptative + cinq densités classiques. Source JPEG inchangée ; mise à l’échelle technique uniquement. Version 0.8.8/code17 en vérification, dernier APK livré 0.8.7. Aucun merge main/Release.
+
+## Préparation et historique conservés
+
 # MYN-022 — Nouveau logo dans le jeu et icône Android — passation préparée le 27 octobre 2026
 
 Demande exacte de Fab : « Parfait on met ce nouveau logo dans le jeux et en icon prompt passation et met à jour les mémoires ». Référence jointe : `25701.png`. Employer ce visuel jade/or avec bâtonnets noir/cèdre pour le logo du jeu ET l’icône Android. Préserver sa composition et ses proportions ; garder le bandeau compact, le nom lisible et les commandes accessibles.
