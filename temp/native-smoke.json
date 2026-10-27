@@ -44,31 +44,44 @@
     "Single view picker left of music, compact landscape HUD, teams split on both sides and reachable reserves across three sizes",
     "New 36-minute MP3 plays offline, crosses its loop boundary twice and pauses/resumes without duplication",
     "Two-team saves keep one team on each side and identify the current player",
-    "Real native menu can recall the current Plateau view after following a pawn"
+    "Real native menu can recall the current Plateau view after following a pawn",
+    "×2 toggles without accumulation in four views, survives view changes and coexists with genuine touch pinch; force migration is idempotent",
+    "Compact translucent landscape bars, left status, accessible header zoom and reachable reserves in landscape and portrait",
+    "Action camera keeps its readable framing with x2 active and restores the selected overview magnification",
+    "Minimum and maximum real browser flights keep four yut visible; bowl and support disappear during flight with collisions disabled",
+    "Move HUD with one, six and twelve results and a long name keeps status clear, launch controls available and choices reachable by scrolling"
   ],
   "errors": [],
   "externalRequests": [],
   "firstThrow": {
-    "version": "0.8.4",
+    "version": "0.8.5",
     "camera": {
       "mode": "bowl",
       "topZoom": 1,
+      "doubleZoom": false,
+      "magnification": 1,
+      "safeInsets": {
+        "top": 62,
+        "bottom": 89,
+        "left": 234,
+        "right": 162
+      },
       "input": null,
       "phase": "idle",
       "zoom": 1,
       "fog": {
-        "near": 28.33768649472732,
-        "far": 52.33768649472732
+        "near": 34.12678179160028,
+        "far": 58.12678179160028
       },
       "position": [
-        4.99999999999995,
-        13.999999999999986,
-        11.999999999999964
+        0.7999999999999999,
+        19.376985666045215,
+        12.620402489793957
       ],
       "target": [
-        4.99999999999995,
-        1.4000000000001451,
-        1.599999999999992
+        0.7999999999999999,
+        0.8000000000000125,
+        0.6
       ],
       "dragging": false,
       "candidate": null
@@ -77,8 +90,8 @@
       {
         "team": 0,
         "piece": 0,
-        "x": 132.64383809634066,
-        "y": 331.33196360414854,
+        "x": 291.75127672428135,
+        "y": 380.5528020438311,
         "position": [
           -8.07,
           -0.31,
@@ -88,8 +101,8 @@
       {
         "team": 0,
         "piece": 1,
-        "x": 154.5671591586862,
-        "y": 331.33196360414854,
+        "x": 313.2297439345475,
+        "y": 380.5528020438311,
         "position": [
           -7.29,
           -0.31,
@@ -99,8 +112,8 @@
       {
         "team": 0,
         "piece": 2,
-        "x": 176.4904802210316,
-        "y": 331.33196360414854,
+        "x": 334.7082111448136,
+        "y": 380.5528020438311,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -110,8 +123,8 @@
       {
         "team": 0,
         "piece": 3,
-        "x": 198.4138012833771,
-        "y": 331.33196360414854,
+        "x": 356.1866783550798,
+        "y": 380.5528020438311,
         "position": [
           -5.73,
           -0.31,
@@ -121,8 +134,8 @@
       {
         "team": 1,
         "piece": 0,
-        "x": 239.44976122058787,
-        "y": 331.33196360414854,
+        "x": 396.38996313327016,
+        "y": 380.5528020438311,
         "position": [
           -4.27,
           -0.31,
@@ -132,8 +145,8 @@
       {
         "team": 1,
         "piece": 1,
-        "x": 261.3730822829333,
-        "y": 331.33196360414854,
+        "x": 417.86843034353626,
+        "y": 380.5528020438311,
         "position": [
           -3.49,
           -0.31,
@@ -143,8 +156,8 @@
       {
         "team": 1,
         "piece": 2,
-        "x": 283.29640334527886,
-        "y": 331.33196360414854,
+        "x": 439.3468975538024,
+        "y": 380.5528020438311,
         "position": [
           -2.71,
           -0.31,
@@ -154,8 +167,8 @@
       {
         "team": 1,
         "piece": 3,
-        "x": 305.21972440762437,
-        "y": 331.33196360414854,
+        "x": 460.82536476406847,
+        "y": 380.5528020438311,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -165,8 +178,8 @@
       {
         "team": 2,
         "piece": 0,
-        "x": 219.82813284542024,
-        "y": 181.37745645733378,
+        "x": 332.80956734223065,
+        "y": 212.80543475445162,
         "position": [
           -8.07,
           -0.31,
@@ -176,8 +189,8 @@
       {
         "team": 2,
         "piece": 1,
-        "x": 236.54841259909836,
-        "y": 181.37745645733378,
+        "x": 350.67749715881024,
+        "y": 212.80543475445162,
         "position": [
           -7.29,
           -0.31,
@@ -187,8 +200,8 @@
       {
         "team": 2,
         "piece": 2,
-        "x": 253.26869235277644,
-        "y": 181.37745645733378,
+        "x": 368.54542697538966,
+        "y": 212.80543475445162,
         "position": [
           -6.510000000000001,
           -0.31,
@@ -198,8 +211,8 @@
       {
         "team": 2,
         "piece": 3,
-        "x": 269.9889721064546,
-        "y": 181.37745645733378,
+        "x": 386.41335679196914,
+        "y": 212.80543475445162,
         "position": [
           -5.73,
           -0.31,
@@ -209,8 +222,8 @@
       {
         "team": 3,
         "piece": 0,
-        "x": 301.2859060043649,
-        "y": 181.37745645733378,
+        "x": 419.85845619223335,
+        "y": 212.80543475445162,
         "position": [
           -4.27,
           -0.31,
@@ -220,8 +233,8 @@
       {
         "team": 3,
         "piece": 1,
-        "x": 318.00618575804305,
-        "y": 181.37745645733378,
+        "x": 437.7263860088128,
+        "y": 212.80543475445162,
         "position": [
           -3.49,
           -0.31,
@@ -231,8 +244,8 @@
       {
         "team": 3,
         "piece": 2,
-        "x": 334.72646551172113,
-        "y": 181.37745645733378,
+        "x": 455.5943158253923,
+        "y": 212.80543475445162,
         "position": [
           -2.71,
           -0.31,
@@ -242,8 +255,8 @@
       {
         "team": 3,
         "piece": 3,
-        "x": 351.44674526539933,
-        "y": 181.37745645733378,
+        "x": 473.4622456419717,
+        "y": 212.80543475445162,
         "position": [
           -1.9300000000000002,
           -0.31,
@@ -253,9 +266,9 @@
     ],
     "projectedDestinations": [
       {
-        "node": "O2",
-        "x": 275.06141952236516,
-        "y": 284.84698471192087
+        "node": "O1",
+        "x": 402.030193664411,
+        "y": 342.9448607884962
       }
     ],
     "lastThrow": {
@@ -263,14 +276,14 @@
         false,
         false,
         true,
-        true
+        false
       ],
       "invalid": false,
-      "value": 2
+      "value": 1
     },
     "tray": {
       "position": {
-        "x": 0,
+        "x": 1.600000023841858,
         "y": 0.7799999713897705,
         "z": 0
       },
@@ -283,45 +296,45 @@
     },
     "projectedSticks": [
       {
-        "x": -0.2210015836537842,
-        "y": 0.05514279270769609,
-        "z": 0.9910025929410416,
+        "x": 0.05401933525295957,
+        "y": 0.10686605699289946,
+        "z": 0.9941131059890629,
         "height": -0.25012221932411194
       },
       {
-        "x": -0.23628074799054466,
-        "y": 0.17516285470680037,
-        "z": 0.99171168825833,
+        "x": 0.01390723564288162,
+        "y": -0.30224475404414947,
+        "z": 0.9929499420215593,
         "height": -0.25012221932411194
       },
       {
-        "x": 0.03871925349637303,
-        "y": 0.29773875070223976,
-        "z": 0.9915610915731244,
-        "height": 0.889144241809845
+        "x": 0.1330280523566285,
+        "y": -0.0063222546269966476,
+        "z": 0.9937781750817103,
+        "height": -0.2206096351146698
       },
       {
-        "x": -0.1611241536441732,
-        "y": -0.03277861905618392,
-        "z": 0.990457794990654,
-        "height": -0.22013692557811737
+        "x": 0.32128232718118943,
+        "y": -0.09842120291589526,
+        "z": 0.9935294432324905,
+        "height": -0.25012221932411194
       }
     ],
     "projectedTray": {
-      "x": 2.6296825304118585e-15,
-      "y": 0.17446321078632587
+      "x": 0.381645530896878,
+      "y": 0.01511848758625188
     },
     "trayGrab": false,
     "bowl": {
-      "phase": "hiding",
-      "opacity": 1,
+      "phase": "hidden",
+      "opacity": 0,
       "ready": false,
-      "collider": true
+      "collider": false
     },
     "art": {
       "panorama": true,
       "animation": {
-        "time": 6.833399999999991,
+        "time": 8.883399999999984,
         "strength": 1,
         "lowClouds": {
           "layers": 2,
@@ -353,51 +366,51 @@
         "team": 0,
         "piece": 0,
         "glowing": true,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.4509939121541586
+        "emissive": 0.20987605614141575
       },
       {
         "team": 0,
         "piece": 1,
         "glowing": true,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.21413937837380495
+        "emissive": 0.07635774636652329
       },
       {
         "team": 0,
         "piece": 2,
         "glowing": true,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.21413937837380495
+        "emissive": 0.07635774636652329
       },
       {
         "team": 0,
         "piece": 3,
         "glowing": true,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e7c88e",
           "91f3ff"
         ],
-        "emissive": 0.21413937837380495
+        "emissive": 0.07635774636652329
       },
       {
         "team": 1,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -408,7 +421,7 @@
         "team": 1,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -419,7 +432,7 @@
         "team": 1,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -430,7 +443,7 @@
         "team": 1,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "ff957a",
           "91f3ff"
@@ -441,7 +454,7 @@
         "team": 2,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -452,7 +465,7 @@
         "team": 2,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -463,7 +476,7 @@
         "team": 2,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -474,7 +487,7 @@
         "team": 2,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "e0e5ee",
           "ffd37d"
@@ -485,7 +498,7 @@
         "team": 3,
         "piece": 0,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -496,7 +509,7 @@
         "team": 3,
         "piece": 1,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -507,7 +520,7 @@
         "team": 3,
         "piece": 2,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -518,7 +531,7 @@
         "team": 3,
         "piece": 3,
         "glowing": false,
-        "glowOpacity": 0.919047228365344,
+        "glowOpacity": 0.5263695771445913,
         "glowColors": [
           "7adea7",
           "ffd37d"
@@ -665,13 +678,15 @@
       "turn": 0,
       "phase": "move",
       "pending": [
-        2
+        1
       ],
       "turnNumber": 1,
       "winner": null,
       "captureReroll": false,
-      "last": "Gae · 2"
+      "last": "Do · 1"
     },
+    "power": 0.9,
+    "powerVersion": 2,
     "rolling": false,
     "paused": false,
     "motion": {
@@ -692,30 +707,55 @@
         "kind": "destination",
         "angle": 0.06999999999999999,
         "position": [
-          -3.354201293581075,
+          -4.134752415750147,
           0.161,
-          2.2652475842498525
+          2.6629582456264296
         ]
       }
     ],
     "audio": {
-      "effectsPlayed": 37,
+      "effectsPlayed": 38,
       "voices": 0,
       "fxVolume": 0.6,
       "loop": true,
       "paused": false,
-      "currentTime": 44.039006,
+      "currentTime": 25.218826,
       "duration": 2182.698095
     },
     "logs": [
-      "2026-10-26T18:31:59.574Z Three.js + Rapier WASM prêts.",
-      "2026-10-26T18:32:48.628Z Lancer : 2"
+      "2026-10-27T01:29:24.882Z Three.js + Rapier WASM prêts.",
+      "2026-10-27T01:29:52.865Z Lancer : 1"
     ]
   },
   "audio": {
     "duration": 2182.698095,
     "loop": true,
     "codec": "probably"
+  },
+  "hudLayout": {
+    "status": {
+      "top": 205.71875,
+      "bottom": 279.40625,
+      "left": 12,
+      "right": 222,
+      "height": 73.6875
+    },
+    "team": {
+      "top": 134.734375,
+      "bottom": 180.46875,
+      "left": 12,
+      "right": 130.15625,
+      "height": 45.734375
+    },
+    "controls": {
+      "top": 287.40625,
+      "bottom": 390,
+      "left": 0,
+      "right": 844,
+      "height": 102.59375
+    },
+    "overflow": false,
+    "offenders": []
   },
   "result": "PASS"
 }
