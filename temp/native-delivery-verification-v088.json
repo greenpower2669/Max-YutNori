@@ -1,0 +1,92 @@
+{
+  "version": "0.8.8",
+  "versionCode": 17,
+  "sourceCommit": "08abcaed4940511bdbd73cb3a863c2172209e93a",
+  "binaryCommit": "99543419bca0b55a9b12e3faeb98fa8833aecf50",
+  "workflowRun": "40543163343",
+  "http": {
+    "native-SHA256SUMS": 200,
+    "native-build-info.txt": 200,
+    "native-apk-verification.txt": 200,
+    "native-package.json": 200,
+    "native-smoke.json": 200,
+    "native-panorama-animation.json": 200,
+    "native-signing-certificate.pem": 200,
+    "Max-YutNori-v0.8.8-debug.apk": 200
+  },
+  "checks": 56,
+  "unitTests": 96,
+  "certificateSha256": "0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a",
+  "packages": {
+    "apk": {
+      "bytes": 62243800,
+      "sha256": "1b3ba30fccf41a07fb5b034946c79cd306ce488437436ad87cece09befb9e07e",
+      "zipIntegrity": true,
+      "webArtCount": 4,
+      "arisongsMusic": true,
+      "certificateExtractedAndMatched": true
+    }
+  },
+  "physicalSamsungTest": "pending",
+  "launcherIconReference": 2130903040,
+  "brandingAssets": {
+    "assets/game/art/max-yutnori-logo.png": {
+      "size": [
+        256,
+        256
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/mipmap-mdpi-v4/ic_launcher.png": {
+      "size": [
+        48,
+        48
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/mipmap-hdpi-v4/ic_launcher.png": {
+      "size": [
+        72,
+        72
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/mipmap-xhdpi-v4/ic_launcher.png": {
+      "size": [
+        96,
+        96
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/mipmap-xxhdpi-v4/ic_launcher.png": {
+      "size": [
+        144,
+        144
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/mipmap-xxxhdpi-v4/ic_launcher.png": {
+      "size": [
+        192,
+        192
+      ],
+      "pixelsMatchApprovedDerivative": true
+    },
+    "res/drawable-nodpi-v4/ic_launcher_foreground.png": {
+      "size": [
+        432,
+        432
+      ],
+      "pixelsMatchApprovedDerivative": true
+    }
+  },
+  "androidManifest": {
+    "versionCode": 17,
+    "versionName": "0.8.8",
+    "compileSdkVersion": 36,
+    "compileSdkVersionCodename": "16",
+    "package": "fr.fab.maxyutnori",
+    "platformBuildVersionCode": 36,
+    "platformBuildVersionName": 16
+  }
+}

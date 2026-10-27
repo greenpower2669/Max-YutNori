@@ -25,11 +25,13 @@
 ## Tâche 1 — Logo, icône et packaging cohérents
 
 - [x] Lire les cinq mémoires et la passation ; base `ce531ea`, 96 tests unitaires verts.
-- [ ] Adapter les contrôles existants de chargement/logo et de HUD ; constater l’ancien format dans le navigateur.
-- [ ] Préparer les dérivés, le HUD compact, les ressources Android et la version 0.8.8/code17. Mettre les cinq mémoires à jour avec le code.
-- [ ] Exécuter `npm test`, `npm run build`, les parcours HUD/logo et les contrôles WebGL ; inspection visuelle du HUD et des masques.
-- [ ] Commit explicite et revue indépendante finale ; traiter les erreurs importantes avec régression ciblée.
-- [ ] Publier sur la branche autorisée ; CI complète, compilation/lint/signature Android.
-- [ ] Télécharger l’APK réel et vérifier version, package, ressources, SHA-256 et certificat. Mettre à jour mémoires/passation/preuves, fournir le lien APK direct.
+- [x] Adapter les contrôles existants de chargement/logo et de HUD ; constater l’ancien format dans le navigateur.
+- [x] Préparer les dérivés, le HUD compact, les ressources Android et la version 0.8.8/code17. Mettre les cinq mémoires à jour avec le code.
+- [x] Exécuter `npm test`, `npm run build`, les parcours HUD/logo et les contrôles WebGL ; inspection visuelle du HUD et des masques.
+- [x] Commit explicite et revue indépendante finale ; traiter les erreurs importantes avec régression ciblée.
+- [x] Publier sur la branche autorisée ; CI complète, compilation/lint/signature Android.
+- [x] Télécharger l’APK réel et vérifier version, package, ressources, SHA-256 et certificat. Mettre à jour mémoires/passation/preuves, fournir le lien APK direct.
 
 Référence Android : https://developer.android.com/develop/ui/compose/system/icon_design_adaptive — couches 108 dp, zone centrale protégée 66 dp, masques variables. Les essais Samsung restent humains.
+
+Livraison vérifiée : voir temp/native-delivery-verification-v088.json et docs/revue-v088.md. Les essais matériels restent ouverts.

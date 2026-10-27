@@ -113,6 +113,6 @@ with zipfile.ZipFile(path) as z:
     proof['brandingAssets']=icon_assets
     assert fingerprint(apk_certificate(data))==expected
 proof['androidManifest']=manifest_info
-proof['packages']['apk']={'bytes':len(data),'sha256':sha,'zipIntegrity':True,'originalArtCount':4,'arisongsMusic':True,'certificateExtractedAndMatched':True}
+proof['packages']['apk']={'bytes':len(data),'sha256':sha,'zipIntegrity':True,'webArtCount':4,'arisongsMusic':True,'certificateExtractedAndMatched':True}
 Path('temp/native-delivery-verification-v088.json').write_text(json.dumps(proof,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps(proof,ensure_ascii=False,indent=2))
