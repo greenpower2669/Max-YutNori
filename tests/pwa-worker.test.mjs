@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
 const code=await readFile(new URL('../web/pwa/sw-template.js',import.meta.url),'utf8').catch(()=>'');
-function worker({fail=false}={}){
+function worker({fail=false,windows=[]}={}){
  const handlers={},storage=new Map(),deleted=[],claimed=[];let waiting=0;
  const cache={put:async(k,v)=>storage.set(String(k),v.clone()),match:async k=>storage.get(String(k))?.clone()};
- const self={location:{href:'https://game.test/sub/sw.js'},registration:{scope:'https://game.test/sub/'},clients:{claim:async()=>claimed.push(true),matchAll:async()=>[]},addEventListener:(n,f)=>handlers[n]=f,skipWaiting:async()=>waiting++};
+ const self={location:{href:'https://game.test/sub/sw.js'},registration:{scope:'https://game.test/sub/'},clients:{claim:async()=>claimed.push(true),matchAll:async()=>windows},addEventListener:(n,f)=>handlers[n]=f,skipWaiting:async()=>waiting++};
  const caches={open:async()=>cache,keys:async()=>['unrelated','max-yutnori-web-old'],delete:async n=>deleted.push(n)};
  const fetch=async req=>{if(fail)throw Error('offline');return new Response(String(req).includes('music')?'0123456789':'hello',{headers:{'Content-Type':String(req).includes('music')?'audio/mpeg':'text/html'}});};
  vm.runInNewContext(code.replace('__CACHE_ID__','test').replace('__PRECACHE__',JSON.stringify(['./index.html','./audio/music.mp3'])),{self,caches,fetch,URL,Request,Response,Headers,console,ArrayBuffer});
@@ -31,4 +31,11 @@ test('failed initial cache install rejects instead of promising offline availabi
 });
 test('activation preserves other caches and never deletes old game versions mid-session',async()=>{
  assert.ok(code.length>0,'service worker not implemented');const w=worker();await event(w.handlers.activate);assert.deepEqual(w.deleted,[]);
+});
+
+test('activation counts only game windows within the worker scope',async()=>{
+ const w=worker({windows:[{url:'https://game.test/sub/'},{url:'https://game.test/other/'}]});
+ await event(w.handlers.message,{data:{type:'ACTIVATE_WHEN_ALONE'}});assert.equal(w.waiting(),1);
+ const multi=worker({windows:[{url:'https://game.test/sub/'},{url:'https://game.test/sub/index.html'}]});
+ await event(multi.handlers.message,{data:{type:'ACTIVATE_WHEN_ALONE'}});assert.equal(multi.waiting(),0);
 });

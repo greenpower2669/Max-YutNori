@@ -1,4 +1,4 @@
-import {readFile,writeFile,readdir,stat} from 'node:fs/promises';
+import {readFile,writeFile,readdir,stat,mkdir,unlink} from 'node:fs/promises';
 import {resolve,relative} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
@@ -13,6 +13,12 @@ export function webPwaPlugin(){
    version=validateVersion({schema:1,product:'max-yutnori',channel:'web-pwa',pwaVersion:release.pwaVersion,build:release.build,engineVersion:pkg.version,commit});
    return {define:{__WEB_VERSION__:JSON.stringify(version)}};
   },
+  transform(code,id){
+   if(!id.endsWith('/web/src/audio.js'))return;
+   const original="new Audio('./audio/ariranlike25102026.mp3')";
+   if(!code.includes(original))throw Error('Le transport audio Web doit être réexaminé : source audio modifiée');
+   return "import {createWebMusic} from '../pwa/music.mjs';\n"+code.replace(original,'createWebMusic()');
+  },
   transformIndexHtml:{order:'pre',handler(){return [
    {tag:'link',attrs:{rel:'manifest',href:'./manifest.webmanifest'},injectTo:'head'},
    {tag:'link',attrs:{rel:'apple-touch-icon',href:'./pwa/icon-192.png'},injectTo:'head'},
@@ -21,7 +27,11 @@ export function webPwaPlugin(){
    {tag:'script',attrs:{type:'module',src:'./pwa/client.js'},injectTo:'body'}
   ];}},
   async closeBundle(){
-   const dir=resolve(root,'pwa-dist');await writeFile(resolve(dir,'web-version.json'),JSON.stringify(version,null,2)+'\n');
+   const dir=resolve(root,'pwa-dist');
+   const musicPath=resolve(dir,'audio/ariranlike25102026.mp3'),music=await readFile(musicPath),parts=[];
+   for(let offset=0,i=0;offset<music.length;offset+=8*1024*1024,i++){const bytes=music.subarray(offset,offset+8*1024*1024),path='music-part-'+String(i).padStart(3,'0')+'.bin';await writeFile(resolve(dir,'audio',path),bytes);parts.push({path,size:bytes.length,sha256:createHash('sha256').update(bytes).digest('hex')});}
+   await writeFile(resolve(dir,'audio/music-parts.json'),JSON.stringify({size:music.length,sha256:createHash('sha256').update(music).digest('hex'),parts},null,2)+'\n');await unlink(musicPath);
+   await writeFile(resolve(dir,'web-version.json'),JSON.stringify(version,null,2)+'\n');
    const manifest={id:'./',name:'Max YutNori',short_name:'YutNori',description:'Le jeu de yutnori de Fab, en 3D et hors ligne.',lang:'fr',dir:'ltr',start_url:'./',scope:'./',display:'standalone',display_override:['fullscreen','standalone'],orientation:'landscape',background_color:'#102b28',theme_color:'#102b28',categories:['games'],icons:[{src:'./pwa/icon-192.png',sizes:'192x192',type:'image/png',purpose:'any'},{src:'./pwa/icon-512.png',sizes:'512x512',type:'image/png',purpose:'any'},{src:'./pwa/maskable-512.png',sizes:'512x512',type:'image/png',purpose:'maskable'}]};
    await writeFile(resolve(dir,'manifest.webmanifest'),JSON.stringify(manifest,null,2)+'\n');
    const files=[];async function scan(folder){for(const item of await readdir(folder)){const f=resolve(folder,item);if((await stat(f)).isDirectory())await scan(f);else files.push(f);}}await scan(dir);files.sort();

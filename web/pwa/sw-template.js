@@ -14,7 +14,8 @@ self.addEventListener('message',event=>{
  if(event.data?.type!=='ACTIVATE_WHEN_ALONE')return;
  event.waitUntil((async()=>{
   const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
-  if(windows.length>1){event.source?.postMessage({type:'UPDATE_BLOCKED'});return;}
+  const gameWindows=windows.filter(client=>typeof client.url==='string'&&client.url.startsWith(self.registration.scope));
+  if(gameWindows.length>1){event.source?.postMessage({type:'UPDATE_BLOCKED'});return;}
   await self.skipWaiting();
  })());
 });

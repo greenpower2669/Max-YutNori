@@ -28,3 +28,5 @@ APK livré : 0.8.8/code17 ; source 08abcaed, binaires 99543419, CI 40543163343 (
 
 ## Avancement MYN-024
 Version/politique GitHub et worker cache/Range implémentés après tests rouges puis verts. 105 tests passent ; builds Android/Web passent. Surcouche Pause install/fullscreen/version réalisée, navigateur et déploiement encore à vérifier. Aucune release PWA définitive.
+
+Revue PWA et hébergement : deux correctifs importants et transport musical fragmenté en vérification. Première tentative Sites rejetée avant déploiement (32Mio/fichier), version de test pas encore publiée. CI40590037847 en cours sur95e22d5 ; relancer après correctifs avant bilan final.

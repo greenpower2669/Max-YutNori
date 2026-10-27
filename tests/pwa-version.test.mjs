@@ -53,3 +53,8 @@ test('update gate permits a saved move result but rejects flight and transitiona
  assert.equal(api.canApplyUpdate({...d,paused:false},true),false);
  assert.equal(api.canApplyUpdate({...d,bowl:{phase:'hiding'}},true),false);
 });
+test('host and published builds must agree on reused build identity',async()=>{
+ const host={...base,build:2,commit:'b'.repeat(40)},published={...host,commit:'c'.repeat(40)};
+ const f=async url=>({ok:true,json:async()=>String(url).includes('api.github.com')?[release(published)]:host});
+ assert.equal((await api.checkVersions(base,f,'https://game.test/web-version.json')).status,'Vérification impossible');
+});

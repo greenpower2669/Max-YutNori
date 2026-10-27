@@ -40,7 +40,7 @@ export async function checkVersions(current,fetcher=fetch,manifestURL=new URL('.
   for(let page=1;page<=10;page++){
    const items=await get(`https://api.github.com/repos/${REPO}/releases?per_page=100&page=${page}`);if(!Array.isArray(items))throw Error('Réponse GitHub invalide');releases.push(...items);if(items.length<100){complete=true;break;}
   }
-  if(!complete)throw Error('Liste GitHub trop longue');const published=selectWebRelease(releases);
+  if(!complete)throw Error('Liste GitHub trop longue');const published=selectWebRelease(releases);if(published)compareBuilds(host,published);
   const hostOrder=compareBuilds(current,host),publishedOrder=published?compareBuilds(current,published):'older';
   const available=hostOrder==='update'||publishedOrder==='update';
   return {status:available?'Mise à jour disponible':'À jour',hostReady:hostOrder==='update',host,published,detail:available?(hostOrder==='update'?'Une version est prête sur ce site.':'Une version Web est publiée sur GitHub ; ce site doit encore être déployé.'):published?'Versions Web vérifiées.':'Version de test : aucune release Web publiée.'};

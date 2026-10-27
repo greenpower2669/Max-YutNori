@@ -142,3 +142,6 @@ Diagnostics plus anciens D001–D037 : sauvegarde.md (source debughistorical.md,
 
 ## MYN-D044 — séparation des versions et cache atomique
 Prévention MYN-024 : une release Android plus haute ne prouve aucune mise à jour Web. Tests rouges avant implémentation, puis neuf cas politique/worker verts ;105 tests socle compris. Ne jamais reconstruire une version interne uniquement depuis un manifeste distant : métadonnées intégrées au bundle. Ne jamais activer skipWaiting automatiquement en mise à jour, ni servir un206 partiel comme un MP3 complet du cache. Anciennes générations du cache conservées pour les documents encore ouverts ; localStorage jamais supprimé par le worker.
+
+## MYN-D045 — revue PWA et limite hébergement confirmées
+Push Sites refusé : fichier MP3 52,386,596octets, limite par objet32Mio. Aucun déploiement annoncé. Correctif de transport Web uniquement : fragments8Mio, assemblage Blob et vérification taille/SHA256 de chaque fragment et du morceau entier, sans compression ni réencodage. APK inchangé. Revue : filtrer les fenêtres hors scope avant activation et comparer les manifestes hôte/GitHub entre eux ; deux régressions reproduites rouges avant correctif.
