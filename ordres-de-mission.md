@@ -8,6 +8,20 @@
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 
+# MYN-022 — Nouveau logo dans le jeu et icône Android — passation préparée le 27 octobre 2026
+
+Demande exacte de Fab : « Parfait on met ce nouveau logo dans le jeux et en icon prompt passation et met à jour les mémoires ». Référence jointe : `25701.png`. Employer ce visuel jade/or avec bâtonnets noir/cèdre pour le logo du jeu ET l’icône Android. Préserver sa composition et ses proportions ; garder le bandeau compact, le nom lisible et les commandes accessibles.
+
+**État : demande enregistrée, source et passation conservées ; intégration produit à réaliser.** Ce tour prépare la passation et les mémoires ; aucun nouvel APK, aucun changement du code ou des ressources actives. La demande n’est pas supprimée et aucune interdiction de coder n’est ajoutée au propos de Fab.
+
+**Avenant visuel daté** : la conservation de l’ancienne icône et de l’ancien logo cesse de s’appliquer à ce seul remplacement demandé. Package `fr.fab.maxyutnori`, nom `Max YutNori`, certificat de signature et sauvegarde restent invariants. Les mentions de conservation de l’icône dans les livraisons antérieures restent leur historique, pas un refus de MYN-022.
+
+Source originale : `docs/assets/25701-logo-original.jpg`, JPEG RGB opaque 1536 × 1536 malgré le nom d’envoi PNG ; 597 891 octets, SHA-256 `afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096`. Copie byte-identique, sans réencodage. [Passation complète](docs/passation-myn022-logo.md).
+
+Dernier APK : **0.8.7/code16**, source `2afdf9bbd9d67846784631b4e86df746adc687ed`, binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86`. Préserver cadrage MYN-021, physique/cycle/puissances, gestes, règles, musique, et absolument lac/panorama 0.8.4. Future livraison APK debug seul dans `temp/`, vérifié ; aucun merge main/Release définitive sans accord. Version 0.8.8/code17 proposée par l’agent à la reprise, non produite.
+
+## Référence livrée et historique conservés
+
 # MYN-021 — 0.8.7/code16 LIVRÉE, à valider sur Samsung — 27 octobre 2026
 
 Avenant à MYN-020. Fab a d’abord demandé une passation, puis autorisé la réalisation par « C non tu peux coder ».

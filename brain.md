@@ -1,3 +1,13 @@
+# Contrat demandé — MYN-022 : nouveau logo et icône — 27 octobre 2026
+
+Fab désigne le visuel joint `25701.png` comme nouveau logo du jeu et nouvelle icône Android, et demande passation + mise à jour des mémoires. Conserver la composition jade/or et les bâtonnets noir/cèdre, sans étirement ni réinterprétation créative. Adapter le carré au bandeau compact avec nom accessible et commandes intactes ; préparer une icône lisible et protégée des découpes du lanceur. L’ancien logo horizontal et l’ancienne icône peuvent être remplacés au titre de cet avenant visuel, sans changer identité Android, nom, signature ou sauvegarde.
+
+**État réel : passation et source conservées, intégration à réaliser.** Le produit et l’APK restent en 0.8.7/code16 avec leurs anciens visuels. Original `docs/assets/25701-logo-original.jpg` : JPEG RGB opaque 1536 × 1536, 597 891 octets, SHA-256 `afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096`, copie exacte sans réencodage. Dérivés techniques séparés ; aucune transparence supposée.
+
+Préserver intégralement MYN-021 (caméra proche/redressée, fond/rebord visible, ×2 physique et pincement indépendant), le jeu et le lac/panorama 0.8.4. Seul le logo/l’icône est concerné par la nouvelle demande. APK debug seul directement installable ; `fr.fab.maxyutnori` et certificat existant conservés. Aucun merge main/Release définitive sans accord. Voir `docs/passation-myn022-logo.md`.
+
+## Contrat de la dernière livraison et historique conservés
+
 # Contrat courant — MYN-021 / 0.8.7-code16 livrée
 
 Fab a validé la proximité de la 0.8.6 mais signalé le fond du plateau coupé sur 25695.jpg. La 0.8.7 recentre la visée et redresse le suivi : inclinaison de 15,6° depuis la verticale, avec le rebord entier inclus dans le cadrage stabilisé. Les vues automatiques Plateau/de dessus et le suivi montrent la surface jouable complète, avec le pion et ses destinations. Le ×2 reste physique à focale 42°/projection 1 ; sa course s’arrête à la distance nécessaire pour garder le plateau entier visible. Sa désactivation retrouve le cadrage normal proche. Le pincement manuel et la vue libre conservent leur liberté, les gros plans temporaires leur rôle. Le ciblage du pincement passe progressivement vers le pion sans saut au neutre. Sélection automatique, prises, retours et cadrage des quatre yut en vol conservés.

@@ -1,3 +1,15 @@
+# PASSATION ACTIVE — MYN-022 : nouveau logo et icône — 27 octobre 2026
+
+Fab fournit `25701.png` et demande le même visuel dans le jeu et comme icône Android, avec passation et mémoires à jour. **[Lire la passation complète MYN-022](passation-myn022-logo.md).**
+
+Source originale, conservée sans réencodage : [25701-logo-original.jpg](assets/25701-logo-original.jpg), JPEG RGB opaque 1536 × 1536, 597 891 octets, SHA-256 `afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096`. Malgré le nom d’envoi PNG, aucune transparence n’existe dans cette source.
+
+**État : préparation réalisée, intégration du logo/icône à faire.** Ce tour ne change ni code, ressources actives ni APK. Dernière version livrée **0.8.7/code16** (référence détaillée ci-dessous). Branche `feature/native-webgl-v020`, PR #2 brouillon ; aucun merge main/Release définitive.
+
+Reprendre avec FabCopilot : registre des missions en premier, puis todo/brain/brainmap/debughistorical. Préserver caméra MYN-021, physique/gestes et absolument lac/panorama 0.8.4. Seule l’ancienne consigne de conservation du logo/icône est remplacée pour MYN-022 ; package, nom, signature et sauvegarde invariants. Livraison future : APK debug seul, direct dans `temp/`, vérifié.
+
+## Référence livrée et passations précédentes conservées
+
 # PASSATION ACTIVE — MAX YUTNORI 0.8.7 — MYN-021 — 27 octobre 2026
 
 Branche `feature/native-webgl-v020`, PR #2 ouverte et brouillon. Lire ordres-de-mission puis todo/brain/brainmap/debughistorical. Base précédente 0.8.6/code15/2fd7b6c. MYN-021 est livrée pour test ; nouvelle réalisation après nouvel ordre de Fab.

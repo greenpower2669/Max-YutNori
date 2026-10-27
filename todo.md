@@ -1,3 +1,19 @@
+# Prochaine intervention — MYN-022 : logo et icône — 27 octobre 2026
+
+- [x] Enregistrer la demande exacte de Fab dans le registre, sans effacer les missions antérieures.
+- [x] Conserver et contrôler l’original `docs/assets/25701-logo-original.jpg` ; JPEG RGB 1536 × 1536, 597 891 octets, copie sans réencodage.
+- [x] Préparer `docs/passation-myn022-logo.md` et synchroniser les cinq mémoires ; aucune intégration produit dans ce tour.
+- [ ] Intégrer le nouvel emblème dans le jeu, sans étirer le carré ni augmenter le bandeau au détriment du plateau.
+- [ ] Remplacer l’icône Android réellement référencée ; déclinaisons adaptées et marges pour les masques Samsung.
+- [ ] Adapter l’assertion de logo 2172 px de `scripts/smoke_ambience.mjs`, contrôler les dérivés dans l’APK et les non-régressions.
+- [ ] Version suivante proposée : 0.8.8/code17, à confirmer à la reprise ; compilation/lint, APK seul dans `temp/`, vrai téléchargement/version/package/signature vérifiés.
+- [ ] Mettre à jour les preuves et les mémoires après réalisation ; essais Samsung du logo, icône, installation, rotation/noms longs et fluidité.
+- [ ] Validations Samsung antérieures encore ouvertes : ne pas les considérer réalisées à partir du seul « Parfait ».
+
+**Dernière livraison inchangée : 0.8.7/code16.** Les 96 tests et 55 parcours ci-dessous concernent cette livraison, pas MYN-022. Source `2afdf9bbd9d67846784631b4e86df746adc687ed`, binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86`. Aucun nouvel APK, merge main ou Release dans cette préparation.
+
+## Référence livrée et historique conservés
+
 # État courant — 0.8.7/code16 — MYN-021 livrée pour test
 
 - [x] Reproduire 25695.jpg ; tests unitaires et vrai navigateur rouges→verts.

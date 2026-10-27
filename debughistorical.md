@@ -1,3 +1,15 @@
+# MYN-022 — Préparation du changement de logo, sans bug produit déclaré — 27 octobre 2026
+
+Fab fournit `25701.png` et demande son utilisation dans le jeu et comme icône, avec passation et mémoires à jour. Aucun nouveau dysfonctionnement n’est signalé. Son « Parfait » apprécie le résultat courant ; il ne prouve ni une validation matérielle exhaustive ni des mesures de fluidité.
+
+**Constats vérifiés** : fichier réellement JPEG RGB opaque 1536 × 1536 (597 891 octets), malgré l’extension PNG de l’envoi. Source conservée sans réencodage sous `docs/assets/25701-logo-original.jpg` ; SHA-256 `afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096`, blob Git `aba2f08082fce7a5861398372f2af03222b034ed`. Prévenir les confusions de format/transparence ; garder cet original et créer les dérivés séparément.
+
+Autres dépendances observées, pas des bugs prouvés : logo actif horizontal 2172 × 724, styles responsive successifs, test `smoke_ambience.mjs` figé à 2172 px ; icône Android vectorielle via `@drawable/ic_launcher`. Une simple copie renommée ne constitue pas une intégration testée. Adapter ces points lors de la réalisation et vérifier taille réelle, masques et fichier APK.
+
+**Ce tour est documentaire** : aucun correctif produit, test de jeu rejoué, build Android ou nouvel APK annoncé. Les preuves 96/55 appartiennent à la 0.8.7. Mise à jour des cinq mémoires et `docs/passation-myn022-logo.md`, source ajoutée hors assets actifs ; missions précédentes intégralement conservées.
+
+## Historique des diagnostics et validations conservé
+
 # MYN-D042 — fond du plateau dégagé en 0.8.7 — 27 octobre 2026
 
 Cause vérifiée : la caméra 0.8.6 ajustait seulement pion/destinations et visait leur étendue vers la réserve ; le bord éloigné du plateau ne participait pas au calcul. Régression réelle navigateur RED : rebord projeté à x741,7 hors limite703,8. GREEN après redressement, cible recentrée et cadrage minimal du plateau. Le suivi stabilisé inclut toute la surface ; le pinch manuel reste libre et passe sans saut au neutre (régression rouge→verte).

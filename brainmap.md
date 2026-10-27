@@ -1,3 +1,17 @@
+# Carte de reprise — MYN-022 : identité visuelle — 27 octobre 2026
+
+**Aucune modification active du produit dans cette passation.** Dernière livraison 0.8.7/code16 ; chemins ci-dessous examinés à la référence `7ea56398df6d0c62de886fdb40de0c3a0e9ed5c6`.
+
+- Source de référence nouvelle, documentaire et inactive : `docs/assets/25701-logo-original.jpg` (JPEG RGB opaque 1536 × 1536 ; SHA-256 `afb8df0a1d8540ddac46ba8bbda8ae5208f4d4051a86c5029d508af15b3d7096`). `docs/passation-myn022-logo.md` décrit la reprise et la livraison.
+- Logo actif actuel : `web/index.html`, `.brand > img`, `./art/max-yutnori-title.png`, dimensions 2172 × 724. `web/src/style.css` contient des règles `.brand img` successives et responsive ; la source nouvelle est carrée, adapter taille/ratio sans agrandir le bandeau. `#zoom2` partage `.brand`.
+- Assets du jeu : `web/public/art/` et son README ; futurs dérivés à placer ici. Ne pas charger l’original documentaire depuis `docs/`. Préserver `moonlit-panorama.png`, `engraved-table.png` et `rules-fresco.png`.
+- Icône Android actuelle : manifeste `android/app/src/main/AndroidManifest.xml` → `@drawable/ic_launcher` → `android/app/src/main/res/drawable/ic_launcher.xml` (vecteur). Créer/remplacer les ressources requises et maintenir les références cohérentes ; contrôler masques/marges.
+- `scripts/smoke_ambience.mjs` exige encore `naturalWidth === 2172` pour le logo. Adapter cette attente au nouveau visuel avec un contrôle réel du chargement ; `scripts/verify_native_apk.py` compare les PNG publics avec ceux de l’APK. Étendre la vérification aux dérivés choisis et à l’icône de lancement.
+- Version/package : `package.json`, `package-lock.json`, `android/app/build.gradle`, crédits/diagnostic et `.github/workflows/android.yml`. Ne modifier la version que lors de la réalisation, pas dans ce tour documentaire. Préserver signature et identité.
+- Caméra/physique/panorama : carte 0.8.7 ci-dessous toujours applicable ; aucun changement nécessaire pour MYN-022.
+
+## Architecture de la dernière livraison et historique conservés
+
 # Carte active — MYN-021 / 0.8.7 — 27 octobre 2026
 
 - `camera-framing.mjs` : `boardBounds(centerX)` prépare une fois 128 points statiques du vrai rebord (rayon 3,72, hauteurs −0,26 et 0,18). `fitDistance` réutilise son vecteur relatif. `approachFrame(frame,factor,minDistance)` respecte le cadre indispensable tout en déplaçant réellement la caméra.
