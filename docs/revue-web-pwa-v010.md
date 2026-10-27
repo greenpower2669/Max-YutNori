@@ -16,3 +16,6 @@ Vérifié localement :109/109 tests, deux builds, logos officiels et code camér
 Caches précédents conservés pour la sûreté des documents ouverts. Le nettoyage futur devra tenir compte des clients et ne jamais effacer les sauvegardes. Installation native OS, plein écran/orientation matériel et confort Samsung restent des essais humains explicitement ouverts.
 
 Ruling : réutiliser les56 parcours verts de la référence0.8.8, prouver l'identité des52 fichiers du moteur/Android et exécuter les nouvelles régressions PWA/cadrage sur le build Web. Le doublon complet30min n'apporte pas de preuve sur les nouveaux chemins d'installation/cache. Coût si ce choix est insuffisant : un comportement non couvert du contenant Web pourrait encore dépendre du navigateur ; les validations matérielles restent ouvertes.
+
+## Bilan final
+110 tests et15 parcours PWA/caméra verts (40592283542), aucune erreur JS. MYN-D046 ajouté après échec offline reproduit puis corrigé. CI40593243077 réussie : identités de sources/entrées confirmées, deux builds, APK/AAB unsigned et lint. Clé officielle conservée ; aucun paquet unsigned distribué. Déploiement privé build2 confirmé. Installation matérielle et accès connecté non prouvés par ces tests ; validations ouvertes dans todo.md.

@@ -25,7 +25,7 @@ Autorisation explicite de fusionner PR #2 et publier la version Android 0.8.8/co
 - Livrer Web/PWA fonctionnelles, URL HTTPS de test si possible, instructions Android/ordinateur, procédure reproductible idéalement automatique, preuves navigateur/WebGL/physique/caméra/save/installation et contrôle Android.
 - Mettre les cinq mémoires à jour ; reste précis dans todo.md sur la branche de travail.
 - Aucune fusion main ni release définitive de la nouvelle PWA sans validation de Fab. L'autorisation MYN-023 concerne la clôture Android préalable.
-État : Web/PWA publiée en test privé (build1) ; huit contrôles navigateur verts puis correctif MYN-D046 du statut hors ligne, build2 en vérification avant mise à jour. 15 contrôles PWA verts et build2 déployée ; assemblage de compatibilité Android en cours (non signé si cache de la clé hors scope).
+État : LIVRÉE en test privé, à valider sur appareils. PWA0.1.0/build2, source6551730, URL https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement e2cb0e6 confirmé succeeded.110 tests et15 parcours PWA/caméra verts (CI40592283542). Contrôle APK/AAB/lint de compatibilité non signé réussi : CI40593243077. Aucune release PWA définitive ni fusion de cette branche dans main. Passation : docs/passation-web-pwa-v010.md.
 
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.

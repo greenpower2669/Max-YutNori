@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "a330eca8fdfb1ee94d2c5590a6af38fb8e4ca35d",
+  "webSourceCommit": "65517302a815e5b31f2ec120827c473cb51571ce",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -218,7 +218,7 @@
     "byteIdentical": true
   },
   "unitTests": {
-    "passed": 109,
+    "passed": 110,
     "failed": 0
   },
   "builds": {
@@ -227,14 +227,33 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "011af10f93ac6b1a8ce415c6f54b3228da5b1992",
+    "sourceCommit": "e2cb0e6dbc58435a10bccbf586b1abf5f43fe319",
     "status": "succeeded",
-    "audience": "owner-private"
+    "audience": "owner-private",
+    "id": "appgdep_6ae12126181081919a64fa0cc1d76254"
   },
   "browserLimitations": [
     "cloud preview WebGL context unavailable",
     "published private login gate; authentication rejected by automatic review"
   ],
-  "ciRun": 40590443924,
-  "ciStatus": "in_progress"
+  "ciRun": 40593243077,
+  "ciStatus": "success",
+  "pwaVersion": "0.1.0",
+  "pwaBuild": 2,
+  "browserChecks": {
+    "run": 40592283542,
+    "sourceCommit": "65517302a815e5b31f2ec120827c473cb51571ce",
+    "passed": 15,
+    "failed": 0,
+    "javascriptErrors": 0,
+    "reusedAfterInputIdentityCheckInRun": 40593243077
+  },
+  "androidCompatibility": {
+    "apkAssembly": "PASS",
+    "aabAssembly": "PASS",
+    "lint": "PASS",
+    "signed": false,
+    "distribution": "none",
+    "canonicalSigningConfiguration": "unchanged"
+  }
 }

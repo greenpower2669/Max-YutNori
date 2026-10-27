@@ -1,4 +1,4 @@
-# Carte technique — Max YutNori 0.8.8
+# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build2
 
 Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
 
@@ -263,3 +263,7 @@ Transport musical Web : plugin mode web transforme uniquement le constructeur Au
 MYN-D046 : checkVersions accepte l'état réseau, par défaut navigator.onLine ; sortie offline sans fetch. tests/pwa-version.test.mjs reproduit des réponses disponibles malgré online=false ; smoke_pwa capture en échec online/statuts/gameReady. web-release build2 remplace le déploiement différent build1 après vérification.
 
 CI compatibilité : détection d'identité des entrées Web vs6551730 pour réutiliser les15 parcours réussis40592283542 lors d'un seul changement de workflow/docs. Cache de clé debug conservé ; si inaccessible sur branche sœur, init Gradle éphémère désactive seulement la signature de la construction de contrôle, jamais dans les sources. Rapport test-results/android-compatibility.json distingue explicitement signé/non signé. Aucun nouveau paquet de contrôle publié.
+
+Preuves finales et installation : docs/passation-web-pwa-v010.md, docs/web-pwa-publication.md, docs/revue-web-pwa-v010.md et docs/verification/web-pwa-source-integrity.json. Le déploiement publié vient de6551730, sans fusion PWA vers main.
+
+CI finale40593243077 :110 tests/deux builds/intégrité moteur et Android, réutilisation explicite des15 parcours40592283542 sur les mêmes entrées, assemblage APK/AAB unsigned et lint ; rapports dans artefacts Actions et docs/verification/web-pwa-source-integrity.json.
