@@ -1,3 +1,24 @@
+# État courant — 0.8.7/code16 — MYN-021 livrée pour test
+
+- [x] Reproduire 25695.jpg ; tests unitaires et vrai navigateur rouges→verts.
+- [x] Redresser/recentrer le suivi et préserver le plateau dans les vues automatiques normal/×2.
+- [x] Limiter le recul ajouté, préserver pincement, sélection automatique, prises et retours.
+- [x]96 tests unitaires, 55 parcours navigateur, WebGL et Android/lint/signature.
+- [x] APK seul téléchargé et vérifié ; cinq mémoires et passation actualisées.
+- [ ] Validation Samsung et couverture combinée HUD long/rotation pendant suivi, détaillées ci-dessous.
+
+Fab a validé la proximité de la 0.8.6 mais signalé le fond du plateau coupé sur 25695.jpg. La 0.8.7 recentre la visée et redresse le suivi : inclinaison de 15,6° depuis la verticale, avec le rebord entier inclus dans le cadrage stabilisé. Les vues automatiques Plateau/de dessus et le suivi montrent la surface jouable complète, avec le pion et ses destinations. Le ×2 reste physique à focale 42°/projection 1 ; sa course s’arrête à la distance nécessaire pour garder le plateau entier visible. Sa désactivation retrouve le cadrage normal proche. Le pincement manuel et la vue libre conservent leur liberté, les gros plans temporaires leur rôle. Le ciblage du pincement passe progressivement vers le pion sans saut au neutre. Sélection automatique, prises, retours et cadrage des quatre yut en vol conservés.
+
+Panorama/lac 0.8.4 et physique/cycle/puissances 0.8.5 inchangés. Onze fichiers protégés (dont les quatre PNG) comparés octet pour octet à la base 0.8.6 ; lac testé aux cinq phases à delta pixel nul et sondes terrestres stables. Les 24 cascades, brumes, nuages, masques et formules d’ondulation restent protégés. Règles, sauvegarde, musique, icône, identité et signature conservées. Aucun merge main ni Release définitive.
+
+Source `2afdf9bbd9d67846784631b4e86df746adc687ed` ; binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86` ; [CI 40517279977](https://github.com/greenpower2669/Max-YutNori/actions/runs/40517279977) **réussie**. Version **0.8.7/code16**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 55/55 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; compilation/lint Android et signature APK v2 validés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/c480b902b8ded4f4ecfd0569ea724fcabd336c86/temp/Max-YutNori-v0.8.7-debug.apk) — 62,500,444 octets ; SHA-256 `391ae8450a15392639d2bf1b67b922d06fc9bbcb7640e60194781d25c81d2867`. Vrai téléchargement HTTP 200, ZIP, manifeste Android/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à la 0.8.6 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus la 0.8.6 possible, essai réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider sur Samsung SM-A576B Android 16 par Fab** : mise à jour réelle ; proximité/lisibilité et bord éloigné pendant les séquences ; ×2, pincement/prises et retours ; rotation avec noms longs pendant un suivi ; esthétique, FPS et chauffe. Aucun essai physique Samsung ni mesure matérielle revendiqué. Le cas combiné HUD long + rotation pendant le suivi reste un point mineur de couverture : les blocs sont testés séparément, aucun dysfonctionnement établi.
+
+## Historique — états précédents conservés
+
 # MYN-021 —0.8.7/code16 en cours
 
 - [x] Lire les cinq mémoires et reprendre la base0.8.6.

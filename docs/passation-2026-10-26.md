@@ -1,3 +1,21 @@
+# PASSATION ACTIVE — MAX YUTNORI 0.8.7 — MYN-021 — 27 octobre 2026
+
+Branche `feature/native-webgl-v020`, PR #2 ouverte et brouillon. Lire ordres-de-mission puis todo/brain/brainmap/debughistorical. Base précédente 0.8.6/code15/2fd7b6c. MYN-021 est livrée pour test ; nouvelle réalisation après nouvel ordre de Fab.
+
+Fab a validé la proximité de la 0.8.6 mais signalé le fond du plateau coupé sur 25695.jpg. La 0.8.7 recentre la visée et redresse le suivi : inclinaison de 15,6° depuis la verticale, avec le rebord entier inclus dans le cadrage stabilisé. Les vues automatiques Plateau/de dessus et le suivi montrent la surface jouable complète, avec le pion et ses destinations. Le ×2 reste physique à focale 42°/projection 1 ; sa course s’arrête à la distance nécessaire pour garder le plateau entier visible. Sa désactivation retrouve le cadrage normal proche. Le pincement manuel et la vue libre conservent leur liberté, les gros plans temporaires leur rôle. Le ciblage du pincement passe progressivement vers le pion sans saut au neutre. Sélection automatique, prises, retours et cadrage des quatre yut en vol conservés.
+
+Panorama/lac 0.8.4 et physique/cycle/puissances 0.8.5 inchangés. Onze fichiers protégés (dont les quatre PNG) comparés octet pour octet à la base 0.8.6 ; lac testé aux cinq phases à delta pixel nul et sondes terrestres stables. Les 24 cascades, brumes, nuages, masques et formules d’ondulation restent protégés. Règles, sauvegarde, musique, icône, identité et signature conservées. Aucun merge main ni Release définitive.
+
+Source `2afdf9bbd9d67846784631b4e86df746adc687ed` ; binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86` ; [CI 40517279977](https://github.com/greenpower2669/Max-YutNori/actions/runs/40517279977) **réussie**. Version **0.8.7/code16**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 55/55 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; compilation/lint Android et signature APK v2 validés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/c480b902b8ded4f4ecfd0569ea724fcabd336c86/temp/Max-YutNori-v0.8.7-debug.apk) — 62,500,444 octets ; SHA-256 `391ae8450a15392639d2bf1b67b922d06fc9bbcb7640e60194781d25c81d2867`. Vrai téléchargement HTTP 200, ZIP, manifeste Android/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à la 0.8.6 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus la 0.8.6 possible, essai réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider sur Samsung SM-A576B Android 16 par Fab** : mise à jour réelle ; proximité/lisibilité et bord éloigné pendant les séquences ; ×2, pincement/prises et retours ; rotation avec noms longs pendant un suivi ; esthétique, FPS et chauffe. Aucun essai physique Samsung ni mesure matérielle revendiqué. Le cas combiné HUD long + rotation pendant le suivi reste un point mineur de couverture : les blocs sont testés séparément, aucun dysfonctionnement établi.
+
+Reproduction : `python docs/verification/verify-delivery-v087.py c480b902b8ded4f4ecfd0569ea724fcabd336c86 2afdf9bbd9d67846784631b4e86df746adc687ed 40517279977`. Plan `docs/plan-camera-angle-v087.md`, revue `docs/revue-v087.md`.
+
+## Historique — états précédents conservés
+
 # PASSATION ACTIVE — MYN-021 /0.8.7-code16 en réalisation —27 octobre2026
 
 Fab valide la proximité0.8.6 mais signale le fond du plateau coupé sur25695.jpg. « C non tu peux coder » autorise l’avenant : angle plus plongeant, cible recentrée, rebord entier inclus au cadrage stabilisé (Plateau/top et suivi, normal/×2). Pinch manuel et gros plans temporaires conservés.96 tests unitaires et régression navigateur rouges→verts. Plan docs/plan-camera-angle-v087.md ; revue/gestes/CI/Android/livraison encore à vérifier. Dernier APK livré reste0.8.6/code15. Panorama/lac/physique gelés ; APK seul, PR#2 brouillon, ni main ni Release.

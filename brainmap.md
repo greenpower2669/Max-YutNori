@@ -1,3 +1,22 @@
+# Carte active — MYN-021 / 0.8.7 — 27 octobre 2026
+
+- `camera-framing.mjs` : `boardBounds(centerX)` prépare une fois 128 points statiques du vrai rebord (rayon 3,72, hauteurs −0,26 et 0,18). `fitDistance` réutilise son vecteur relatif. `approachFrame(frame,factor,minDistance)` respecte le cadre indispensable tout en déplaçant réellement la caméra.
+- `chase-camera.mjs` : inclinaison 15,6° depuis la verticale ; cible sur l’étendue plateau+pion/destinations. Marge du fit 8 %, marge normale supplémentaire 4 % pour éviter un recul cumulé excessif. Le pincement privilégie progressivement le pion sous le neutre ; phase, sélection automatique et gain de glissement conservés.
+- `scene.js` : minimum géométrique Plateau/de dessus en automatique ; la limite de dessus suit le pincement manuel. Vue libre et bol conservent leur logique 0.8.6 ; le vol garde son recul de sécurité. Marges HUD calculées par `main.js` inchangées.
+- Tests : régressions unitaires de rebord, distance et continuité du pinch ; `smoke_camera_angle.mjs` reproduit 25695.jpg en vrai navigateur. `smoke_camera_proximity.mjs` vérifie rebord, retours, quatre vues et état ×2 ; gestes/retarget/vols de la suite conservés.
+- Documentation/preuves : `docs/plan-camera-angle-v087.md`, `docs/revue-v087.md`, `docs/verification/verify-delivery-v087.py`, `temp/native-delivery-verification-v087.json`.
+
+
+Panorama/lac 0.8.4 et physique/cycle/puissances 0.8.5 inchangés. Onze fichiers protégés (dont les quatre PNG) comparés octet pour octet à la base 0.8.6 ; lac testé aux cinq phases à delta pixel nul et sondes terrestres stables. Les 24 cascades, brumes, nuages, masques et formules d’ondulation restent protégés. Règles, sauvegarde, musique, icône, identité et signature conservées. Aucun merge main ni Release définitive.
+
+Source `2afdf9bbd9d67846784631b4e86df746adc687ed` ; binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86` ; [CI 40517279977](https://github.com/greenpower2669/Max-YutNori/actions/runs/40517279977) **réussie**. Version **0.8.7/code16**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 55/55 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; compilation/lint Android et signature APK v2 validés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/c480b902b8ded4f4ecfd0569ea724fcabd336c86/temp/Max-YutNori-v0.8.7-debug.apk) — 62,500,444 octets ; SHA-256 `391ae8450a15392639d2bf1b67b922d06fc9bbcb7640e60194781d25c81d2867`. Vrai téléchargement HTTP 200, ZIP, manifeste Android/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à la 0.8.6 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus la 0.8.6 possible, essai réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider sur Samsung SM-A576B Android 16 par Fab** : mise à jour réelle ; proximité/lisibilité et bord éloigné pendant les séquences ; ×2, pincement/prises et retours ; rotation avec noms longs pendant un suivi ; esthétique, FPS et chauffe. Aucun essai physique Samsung ni mesure matérielle revendiqué. Le cas combiné HUD long + rotation pendant le suivi reste un point mineur de couverture : les blocs sont testés séparément, aucun dysfonctionnement établi.
+
+## Historique — états précédents conservés
+
 # Carte MYN-021 — fond du plateau
 
 ChaseCamera.routeFrame ne cadre que les empreintes pion/destinations ; sa cible est décalée vers les réserves et le bord arrière du plateau sort de l’image. camera-framing.mjs partage128 points statiques du rebord cylindrique et réutilise un vecteur de calcul ; scene.js applique leur distance minimale aux vues Plateau/top (pinch top indépendant), chase-camera.mjs les inclut dans le suivi avec inclinaison15.6° depuis la verticale et cible recentrée. Les marges HUD restent celles de main.js ; physique et panorama gelés. Plan docs/plan-camera-angle-v087.md.

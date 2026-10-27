@@ -22,10 +22,10 @@
 ### Task1: Orientation et cadre du plateau
 **Files:** camera-framing.mjs, chase-camera.mjs, scene.js ; tests de caméra ; scripts/smoke_camera_proximity.mjs et smoke_ergonomics.mjs ; versions/CI et cinq mémoires/passation.
 **Interfaces:** limites du plateau partagées ; approachFrame(frame,factor,minDistance) ; ChaseCamera conserve ses appels et le pinch ; ajout diagnostic des sondes du rebord.
-- [ ] Écrire une projection du rebord réel pour chaque réserve et×2 ; vérifier RED sur0.8.6.
-- [ ] Inclure rebord et pions dans le fit, redresser l’angle, recentrer la cible ; préserver des distances bornées et les gestes. Run: npm test ; Expected:PASS.
-- [ ] Régression navigateur de25695 : rebord/cases éloignés dans les marges utiles au cadrage stabilisé, Plateau/top et suivi, normal/×2 ; vérifier RED puis GREEN.
-- [ ] Adapter les seules attentes de demi-distance rendues obsolètes par la visibilité du plateau, conserver l’approche physique et son retour. Vérifier prises/pinch/retarget/vols.
-- [ ] Build Web, captures et revue indépendante ; corriger les problèmes importants par régressions.
-- [ ] Publier sur branche autorisée, CI complète/Android, télécharger et vérifier l’APK ; incrémenter version/code.
-- [ ] Livrer lien APK direct et preuves, actualiser cinq mémoires/passation ; essais Samsung explicitement ouverts.
+- [x] Écrire une projection du rebord réel pour chaque réserve et×2 ; vérifier RED sur0.8.6.
+- [x] Inclure rebord et pions dans le fit, redresser l’angle, recentrer la cible ; préserver des distances bornées et les gestes. Run: npm test ; Expected:PASS.
+- [x] Régression navigateur de25695 : rebord/cases éloignés dans les marges utiles au cadrage stabilisé, Plateau/top et suivi, normal/×2 ; vérifier RED puis GREEN.
+- [x] Adapter les seules attentes de demi-distance rendues obsolètes par la visibilité du plateau, conserver l’approche physique et son retour. Vérifier prises/pinch/retarget/vols.
+- [x] Build Web, captures et revue indépendante ; corriger les problèmes importants par régressions.
+- [x] Publier sur branche autorisée, CI complète/Android, télécharger et vérifier l’APK ; incrémenter version/code.
+- [x] Livrer lien APK direct et preuves, actualiser cinq mémoires/passation ; essais Samsung explicitement ouverts.

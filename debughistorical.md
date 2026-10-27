@@ -1,3 +1,22 @@
+# MYN-D042 — fond du plateau dégagé en 0.8.7 — 27 octobre 2026
+
+Cause vérifiée : la caméra 0.8.6 ajustait seulement pion/destinations et visait leur étendue vers la réserve ; le bord éloigné du plateau ne participait pas au calcul. Régression réelle navigateur RED : rebord projeté à x741,7 hors limite703,8. GREEN après redressement, cible recentrée et cadrage minimal du plateau. Le suivi stabilisé inclut toute la surface ; le pinch manuel reste libre et passe sans saut au neutre (régression rouge→verte).
+
+La suite de réserve opposée a aussi révélé un cumul de marge fit8% + recul8%, dépassant le rapprochement validé de plus de15%. Test dédié rouge→vert : seule marge finale ramenée à4%, sécurité du rebord conservée.96 tests unitaires après ce correctif. Revue indépendante : aucun critique/important,95 tests rejoués au moment de revue,576 configurations géométriques indépendantes et captures avant/après inspectées.
+
+La demi-distance stricte ne s’applique plus lorsque le plateau entier impose son cadre minimal. C’est le choix fonctionnel demandé, pas un retour au recul radial 0.8.5. Gros plans temporaires et pincement volontaire restent libres. Budget CI50min, critères conservés ; la suite précédente complète prenait32min.
+
+
+Panorama/lac 0.8.4 et physique/cycle/puissances 0.8.5 inchangés. Onze fichiers protégés (dont les quatre PNG) comparés octet pour octet à la base 0.8.6 ; lac testé aux cinq phases à delta pixel nul et sondes terrestres stables. Les 24 cascades, brumes, nuages, masques et formules d’ondulation restent protégés. Règles, sauvegarde, musique, icône, identité et signature conservées. Aucun merge main ni Release définitive.
+
+Source `2afdf9bbd9d67846784631b4e86df746adc687ed` ; binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86` ; [CI 40517279977](https://github.com/greenpower2669/Max-YutNori/actions/runs/40517279977) **réussie**. Version **0.8.7/code16**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 55/55 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; compilation/lint Android et signature APK v2 validés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/c480b902b8ded4f4ecfd0569ea724fcabd336c86/temp/Max-YutNori-v0.8.7-debug.apk) — 62,500,444 octets ; SHA-256 `391ae8450a15392639d2bf1b67b922d06fc9bbcb7640e60194781d25c81d2867`. Vrai téléchargement HTTP 200, ZIP, manifeste Android/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à la 0.8.6 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus la 0.8.6 possible, essai réel encore humain. **APK uniquement**, aucun nouvel AAB.
+
+**À valider sur Samsung SM-A576B Android 16 par Fab** : mise à jour réelle ; proximité/lisibilité et bord éloigné pendant les séquences ; ×2, pincement/prises et retours ; rotation avec noms longs pendant un suivi ; esthétique, FPS et chauffe. Aucun essai physique Samsung ni mesure matérielle revendiqué. Le cas combiné HUD long + rotation pendant le suivi reste un point mineur de couverture : les blocs sont testés séparément, aucun dysfonctionnement établi.
+
+## Historique — états précédents conservés
+
 # MYN-D042 — Fond du plateau coupé (27/10/2026)
 
 Retour Fab sur0.8.6/capture25695.jpg : rapprochement validé, fond du plateau hors champ. Source : routeFrame ajuste uniquement pion/destinations et cible leur étendue proche des réserves ; le reste du plateau ne participe pas au fit. Le×2 de la vue générale peut aussi descendre sous la distance permettant de voir le plateau entier. Régression réelle RED : rebord projeté741.7 hors limite703.8 ; GREEN après orientation plus plongeante et fit plateau+pion/destinations. Les96 tests passent. Régression de continuité du pinch au neutre rouge→verte ; interpolation douce de cible lorsque le pincement privilégie le pion. Aucune modification du lac/physique. Suite navigateur : une réserve opposée révélait un double excès de marge (fit8% puis recul8%), dépassant le plafond rapproché. Régression dédiée rouge→verte : marge finale ramenée à4%, sécurité du rebord conservée. Dernière livraison0.8.6.
