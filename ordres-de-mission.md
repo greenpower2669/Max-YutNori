@@ -8,6 +8,10 @@
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 
+## Précision de format des images historiques — MYN-022
+
+Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
+
 # MYN-022 — Réalisation 0.8.8/code17 autorisée le 27 octobre 2026
 
 Fab autorise « On, code » après la passation du logo. Nouveau visuel de Fab intégré comme emblème carré accompagné du nom dans le bandeau compact, favicon et icône Android adaptative + cinq densités classiques. Source JPEG inchangée ; mise à l’échelle technique uniquement. Version 0.8.8/code17 en vérification, dernier APK livré 0.8.7. Aucun merge main/Release.

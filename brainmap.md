@@ -1,3 +1,7 @@
+## Précision de format des images historiques — MYN-022
+
+Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
+
 ## Garde-fou d’assets MYN-022
 
 `scripts/verify_branding.py` vérifie source approuvée, structure complète/chunks/CRC/IEND, dimensions et SHA des sept PNG ; appelé avant npm test/build dans la CI. Générateur atomique via tampon PNG validé puis remplacement ; `verify_native_apk.py` contrôle aussi les chunks Web. `docs/verification/verify-delivery-v088.py` compare les pixels compilés. Voir MYN-D043 et `docs/revue-v088.md`.

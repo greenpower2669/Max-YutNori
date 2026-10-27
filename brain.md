@@ -1,3 +1,7 @@
+## Précision de format des images historiques — MYN-022
+
+Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
+
 # Contrat courant — MYN-022 / réalisation 0.8.8
 
 Le visuel fourni par Fab devient le logo du jeu (carré 44 px et nom texte lisible), le favicon et l’icône de lancement Android. Dérivés Lanczos de la source JPEG originale intacte ; aucune régénération de dessin. Le bandeau conserve sa hauteur compacte et les zones tactiles de 44 px. L’icône adaptative utilise une couche 108 dp, visuel 56 dp centré, fond jade ; cinq tailles classiques 48/72/96/144/192 px. Les masques sont inspectés visuellement ; leur comportement Samsung réel reste humain.

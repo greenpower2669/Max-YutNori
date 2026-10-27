@@ -1,3 +1,7 @@
+## Précision de format des images historiques — MYN-022
+
+Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
+
 # MYN-D043 — PNG incomplet détecté avant livraison, correctif vérifié
 
 Revue : PNG Web tronqué dans le commit initial (65 853 au lieu de 132 938 octets), build précédent complet. Cause temporelle exacte non établie. Générateur passé à sérialisation validée + remplacement atomique ; source/dérivé complet restaurés. `verify_branding.py` a reproduit RED puis GREEN, sept hashes/dimensions/PNG complets verts, suite96/96 après correction. La CI contrôle l’intégrité avant compilation et l’APK contrôlera les pixels. Revue et limites : `docs/revue-v088.md`. Aucun APK défectueux livré.

@@ -1,3 +1,7 @@
+## Précision de format des images historiques — MYN-022
+
+Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
+
 # Revue MYN-022 / 0.8.8 — 27 octobre 2026
 
 Revue indépendante en lecture seule de ce531ea → 02389a4, complétée par lecture de 5b63c936 ; aucun sous-agent de revue supplémentaire.

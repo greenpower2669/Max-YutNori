@@ -9,7 +9,10 @@ with zipfile.ZipFile(apk) as z:
     assert not any('/Build/' in n or n.endswith(('game.data','game.wasm','game.loader.js')) for n in names),'Unity build accidentally packaged'
     for art in Path('web/public/art').glob('*.png'):
         assert z.read('assets/game/art/'+art.name)==art.read_bytes(), 'Original art missing or changed: '+art.name
-        png_size(z.read('assets/game/art/'+art.name))
+        # Historical .png filenames contain JPEG originals. Preserve those bytes;
+        # only the new branding derivative has a strict PNG format contract.
+        if art.name == 'max-yutnori-logo.png':
+            png_size(z.read('assets/game/art/'+art.name))
     assert 'assets/game/art/max-yutnori-logo.png' in names
     assert any(re.fullmatch(r'res/mipmap-anydpi-v26/ic_launcher.xml',n) for n in names), 'Adaptive launcher icon missing'
     legacy={}
