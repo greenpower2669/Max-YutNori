@@ -20,12 +20,12 @@ const server=createServer(async(req,res)=>{try{
  let start=0,end=info.size-1;const range=req.headers.range?.match(/^bytes=(\d+)-(\d*)$/);if(range){start=+range[1];if(range[2])end=Math.min(end,+range[2]);}
  res.writeHead(range?206:200,{'Content-Length':end-start+1,'Accept-Ranges':'bytes',...(range?{'Content-Range':`bytes ${start}-${end}/${info.size}`}:{})});createReadStream(file,{start,end}).pipe(res);
  }catch{res.writeHead(404);res.end();}});
-await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/`;let browser;
+await new Promise(r=>server.listen(0,'127.0.0.1',r));const url=`http://127.0.0.1:${server.address().port}/`;let browser,activePage;
 try{
  browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const context=await browser.newContext({viewport:{width:1000,height:600},serviceWorkers:'allow'});
  await context.route('https://api.github.com/**',r=>r.fulfill({json:[{tag_name:'v99.0.0',draft:false,prerelease:false}]}));
- const page=await context.newPage();page.setDefaultTimeout(60000);page.on('pageerror',e=>report.errors.push(String(e)));await page.goto(url);
+ const page=await context.newPage();activePage=page;page.setDefaultTimeout(60000);page.on('pageerror',e=>report.errors.push(String(e)));await page.goto(url);
  await page.waitForFunction(()=>window.__gameReady);report.checks.push('Real Three.js WebGL + Rapier WASM start');
  await page.waitForFunction(()=>navigator.serviceWorker.controller);await page.evaluate(()=>navigator.serviceWorker.ready);report.checks.push('Service worker install/activate and complete initial precache');
  const manifest=await page.evaluate(async()=>{const m=await fetch(document.querySelector('link[rel=manifest]').href);return m.json();});assert.equal(manifest.display,'standalone');assert.equal(manifest.orientation,'landscape');assert.deepEqual(manifest.icons.map(i=>i.sizes),['192x192','512x512','512x512']);report.checks.push('Installable manifest, official icons, scope and landscape');
@@ -47,5 +47,5 @@ try{
  await Promise.all([page.waitForEvent('load'),page.getByRole('button',{name:'Actualiser le jeu',exact:true}).click()]);await page.waitForFunction(()=>window.__gameReady);assert.equal(await page.evaluate(()=>localStorage.getItem('max-yutnori-native-v4')),before);report.checks.push('Explicit update reload preserves exact saved game');
  await cameraAngleScenario(page,()=>page.waitForFunction(()=>window.__gameReady),report);
  assert.deepEqual(report.errors,[]);await page.screenshot({path:'test-results/pwa-board.png'});report.result='PASS';
-}catch(error){report.result='FAIL';report.failure=String(error.stack);throw error;}
+}catch(error){report.result='FAIL';report.failure=String(error.stack);try{report.diagnostics=await activePage?.evaluate(()=>({online:navigator.onLine,versionStatus:document.getElementById('versionStatus')?.textContent,offlineStatus:document.getElementById('offlineStatus')?.textContent,gameReady:!!window.__gameReady}));}catch{}throw error;}
 finally{await writeFile('test-results/pwa-smoke.json',JSON.stringify(report,null,2));await browser?.close();server.close();console.log(JSON.stringify(report));}

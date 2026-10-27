@@ -58,3 +58,8 @@ test('host and published builds must agree on reused build identity',async()=>{
  const f=async url=>({ok:true,json:async()=>String(url).includes('api.github.com')?[release(published)]:host});
  assert.equal((await api.checkVersions(base,f,'https://game.test/web-version.json')).status,'Vérification impossible');
 });
+test('offline signal prevents version requests and cannot be reported current from cached responses',async()=>{
+ let calls=0;const cached=async url=>{calls++;return {ok:true,json:async()=>String(url).includes('api.github.com')?[]:base};};
+ const result=await api.checkVersions(base,cached,'https://game.test/web-version.json',false);
+ assert.equal(result.status,'Vérification impossible');assert.equal(calls,0);
+});

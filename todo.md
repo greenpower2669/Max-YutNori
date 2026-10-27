@@ -29,6 +29,8 @@ APK livré : 0.8.8/code17 ; source 08abcaed, binaires 99543419, CI 40543163343 (
 ## Avancement MYN-024
 Version/politique GitHub et worker cache/Range implémentés après tests rouges puis verts. 105 tests passent ; builds Android/Web passent. Surcouche Pause install/fullscreen/version réalisée, navigateur et déploiement encore à vérifier. Aucune release PWA définitive.
 
-Revue PWA et hébergement : deux correctifs importants et transport musical fragmenté en vérification. Première tentative Sites rejetée avant déploiement (32Mio/fichier), version de test pas encore publiée. CI40590037847 en cours sur95e22d5 ; relancer après correctifs avant bilan final.
+Revue PWA et hébergement : deux correctifs importants et transport musical fragmenté en vérification. Première tentative Sites rejetée avant déploiement (32Mio/fichier), version de test publiée ensuite avec le transport fragmenté. CI initiales40590037847 et40590443924 remplacées par40591418527 sur05fd2b7 pour les contrôles ciblés.
 
 Périmètre CI ciblé : la suite historique56 parcours prend environ30min. Le moteur et Android étant byte-identiques à sa référence déjà verte (52 fichiers), la nouvelle CI contrôle ces empreintes et exécute les scénarios Web/PWA sur le vrai build Web, y compris lancer physique, vue/zoom et régression exacte du cadrage MYN-021, puis compile APK/AAB/lint. Le long doublon est remplacé, sans revendiquer56 nouveaux parcours.
+
+CI40591418527 échouée au statut offline après huit contrôles PWA verts ; Android n'a donc pas été exécuté dans ce run. MYN-D046 corrigé après reproduction unitaire rouge ; version PWA0.1.0/build2 à vérifier et redéployer. Ne pas présenter ce run comme entièrement vert.

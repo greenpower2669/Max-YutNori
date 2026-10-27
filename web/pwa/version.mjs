@@ -33,7 +33,8 @@ export function selectWebRelease(releases){
   if(!latest||compareBuilds(latest,m)==='update')latest=m;
  }return latest;
 }
-export async function checkVersions(current,fetcher=fetch,manifestURL=new URL('./web-version.json',globalThis.location?.href)){
+export async function checkVersions(current,fetcher=fetch,manifestURL=new URL('./web-version.json',globalThis.location?.href),online=globalThis.navigator?.onLine??true){
+ if(!online)return {status:'Vérification impossible',hostReady:false,detail:'Hors ligne : reconnectez-vous pour vérifier les versions.'};
  try{
   validateVersion(current);const get=async url=>{const r=await fetcher(url,{cache:'no-store',signal:AbortSignal.timeout(12000),headers:{Accept:'application/json'}});if(!r.ok)throw Error('HTTP '+r.status);return r.json();};
   const host=validateVersion(await get(manifestURL));const releases=[];let complete=false;
