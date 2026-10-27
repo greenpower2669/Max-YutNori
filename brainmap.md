@@ -1,4 +1,20 @@
-# Carte active — MYN-022 / 0.8.8 livrée — 27 octobre 2026
+# Carte technique — Max YutNori 0.8.8
+
+Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
+
+## Navigation actuelle
+- `web/index.html`, `style.css`, `main.js` : HUD/dialogues/entrées, état de partie et orchestration ; `window.maxYutDiagnostic()` en lecture seule, `__gameReady` après art/physique.
+- `rules.mjs` : règles pures, migrations v2/v3→v4, tours, captures/piles, IA ; `teams.mjs`/`team-form.js` : participants et équipes.
+- `physics.mjs`, `yut-geometry.js`, `bowl-cycle.mjs`, `throw-power.mjs`, `throw-view.mjs`, `motion.mjs`, `tray-motion.mjs`, `impact.mjs` : collisions, faces, cycle du bol et mouvements ; la physique n'est jamais simulée par un résultat prédéterminé.
+- `scene.js`, `camera-framing.mjs`, `chase-camera.mjs`, `comfort.mjs` : vues, cadrage, séquences et zoom ; `pawn-input.js`, `pawn-motion.mjs`, `board-layout.mjs`, `halos.js` : picking/drag, supports/piles/halos.
+- `materials.js`, `engraving.mjs`, `living-panorama.js`, `panorama-zones.mjs`, `low-mist.mjs`, `annotated-zones.mjs` : matières/gravure, effets localisés et protection lac/berges. Fixtures `scripts/fixtures/` et `verify_panorama.mjs` : pixels réels WebGL.
+- `audio.js` : Audio MP3 local + sons Web Audio ; `fresco.js` : zoom/glissement des règles.
+- `vite.config.js` : build commun `web` → `web-dist/game`, base relative ; Android inclut `web-dist` via Gradle.
+- `android/app/src/main/java/fr/fab/maxyutnori/` : MainActivity et MotionSensors, interception HTTPS locale, Range et pont MaxYutMotion. Manifest/icônes/Gradle dans android/app ; signature/identité selon ordres-de-mission.md.
+- `scripts/smoke_native.mjs` et suites importées : 56 parcours navigateur ; `tests/*.test.mjs` : 96 cas unitaires au socle ; `.github/workflows/android.yml` : builds sur branche historique ; `.github/workflows/release-android.yml` : publication du binaire validé lors de la clôture sur main.
+- `docs/branding-assets.json`, `prepare_branding.py`, `verify_branding.py`, `verify_native_apk.py`, `docs/verification/verify-delivery-v088.py` : provenance et intégrité logos/APK. `temp/native-*` : preuves du build référencé par native-build-info.txt ; `release-android.json` : version/empreinte/source de la clôture.
+
+## Références techniques détaillées conservées
 
 - Source originale : `docs/assets/25701-logo-original.jpg` ; dérivés/hashes : `docs/branding-assets.json`.
 - Générateur de développement `scripts/prepare_branding.py` (Pillow, aucune dépendance du jeu/CI), sérialisation PNG validée en mémoire puis remplacement atomique.
@@ -9,18 +25,6 @@
 - `verify_native_apk.py` : assets/PNG complets/ressources/densités. `docs/verification/verify-delivery-v088.py` : vrai APK et pixels des sept dérivés, manifeste binaire, signature, SHA et rapports CI. Preuve `temp/native-delivery-verification-v088.json`.
 - Plan `docs/plan-logo-v088.md`, revue/correctif/limites `docs/revue-v088.md`, passation `docs/passation-myn022-logo.md`.
 
-Le visuel jade/or fourni par Fab est intégré dans le jeu avec emblème carré de 44 px et nom texte lisible, ainsi que dans le favicon et l’icône Android. Calque adaptatif 108 dp / visuel 56 dp et cinq densités classiques ; source JPEG conservée intacte, dérivés Lanczos uniquement. Le bandeau compact garde ses commandes accessibles et sa hauteur paysage.
-
-Source `08abcaed4940511bdbd73cb3a863c2172209e93a` ; binaires `99543419bca0b55a9b12e3faeb98fa8833aecf50` ; [CI 40543163343](https://github.com/greenpower2669/Max-YutNori/actions/runs/40543163343) **réussie**. Version **0.8.8/code17**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 56/56 parcours navigateur hors ligne**, aucune erreur JavaScript/requête externe. WebGL lac aux cinq phases à delta nul, compilation/lint Android et signature APK v2 réussis.
-
-[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/99543419bca0b55a9b12e3faeb98fa8833aecf50/temp/Max-YutNori-v0.8.8-debug.apk) — 62,243,800 octets ; SHA-256 `1b3ba30fccf41a07fb5b034946c79cd306ce488437436ad87cece09befb9e07e`. Vrai téléchargement HTTP200, intégrité ZIP, manifeste/version/package vérifiés. **Pixels des sept dérivés logo/icônes identiques aux sources approuvées après compilation**, ressources adaptatives/legacy et références icon/roundIcon vérifiées. Certificat extrait du vrai APK : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identique à 0.8.7. Mise à jour sans désinstallation possible ; essai réel encore humain. APK uniquement, aucun nouvel AAB.
-
-Treize fichiers caméra/physique/panorama et décor/règles conservés octet pour octet à la base ce531ea. Cadrage rapproché et redressé MYN-021, fond/rebord visible, ×2 physique et pincement préservés. Lac 0.8.4 : aucune modification d’ondulation, réfraction, vitesse/intensité, masque ou rendu. Les 24 cascades, brumes et nuages, les règles, sauvegardes et musique restent préservés. Aucun merge main/Release définitive.
-
-**À valider par Fab sur Samsung SM-A576B Android16** : installation réelle, icône du lanceur/cache et masques OEM animés, lisibilité du logo, confort tactile et capteurs/son, rotation avec noms longs pendant un suivi, autres dimensions et grossissement système, esthétique/FPS/chauffe. Captures et tests automatiques ne prouvent pas ces validations matérielles. Le « Parfait » antérieur n’est pas une mesure exhaustive.
-
-## Historique — états précédents conservés
-
 ## Précision de format des images historiques — MYN-022
 
 Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et engraved-table.png sont réellement des JPEG. Ils restent byte-identiques ; seul le nouveau logo est un PNG. Le contrôle de structure PNG ajouté était trop large : prévol ZIP constitué des vrais assets observé RED (Invalid PNG signature), puis GREEN en limitant cette exigence au nouveau logo. Contrôle byte-identique des anciens assets maintenu. Aucun changement du produit ; CI relancée sur ce correctif du vérificateur.
@@ -28,8 +32,6 @@ Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et e
 ## Garde-fou d’assets MYN-022
 
 `scripts/verify_branding.py` vérifie source approuvée, structure complète/chunks/CRC/IEND, dimensions et SHA des sept PNG ; appelé avant npm test/build dans la CI. Générateur atomique via tampon PNG validé puis remplacement ; `verify_native_apk.py` contrôle aussi les chunks Web. `docs/verification/verify-delivery-v088.py` compare les pixels compilés. Voir MYN-D043 et `docs/revue-v088.md`.
-
-# Carte active — MYN-022 / 0.8.8
 
 - `scripts/prepare_branding.py` : déclinaisons déterministes de développement depuis `docs/assets/25701-logo-original.jpg`, Pillow 12.3.0 ; pas exécuté par le build CI. `docs/branding-assets.json` garde tailles et SHA-256.
 - `web/public/art/max-yutnori-logo.png` (256×256) → `web/index.html` image décorative avec nom texte adjacent, favicon ; CSS final `.brand` garde une image 44×44 et le nom responsive. Ancien PNG de titre retiré des assets actifs ; reste récupérable dans Git.
@@ -54,8 +56,6 @@ Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et e
 
 ## Architecture de la dernière livraison et historique conservés
 
-# Carte active — MYN-021 / 0.8.7 — 27 octobre 2026
-
 - `camera-framing.mjs` : `boardBounds(centerX)` prépare une fois 128 points statiques du vrai rebord (rayon 3,72, hauteurs −0,26 et 0,18). `fitDistance` réutilise son vecteur relatif. `approachFrame(frame,factor,minDistance)` respecte le cadre indispensable tout en déplaçant réellement la caméra.
 - `chase-camera.mjs` : inclinaison 15,6° depuis la verticale ; cible sur l’étendue plateau+pion/destinations. Marge du fit 8 %, marge normale supplémentaire 4 % pour éviter un recul cumulé excessif. Le pincement privilégie progressivement le pion sous le neutre ; phase, sélection automatique et gain de glissement conservés.
 - `scene.js` : minimum géométrique Plateau/de dessus en automatique ; la limite de dessus suit le pincement manuel. Vue libre et bol conservent leur logique 0.8.6 ; le vol garde son recul de sécurité. Marges HUD calculées par `main.js` inchangées.
@@ -65,21 +65,9 @@ Les trois assets historiques nommés moonlit-panorama.png, rules-fresco.png et e
 
 Panorama/lac 0.8.4 et physique/cycle/puissances 0.8.5 inchangés. Onze fichiers protégés (dont les quatre PNG) comparés octet pour octet à la base 0.8.6 ; lac testé aux cinq phases à delta pixel nul et sondes terrestres stables. Les 24 cascades, brumes, nuages, masques et formules d’ondulation restent protégés. Règles, sauvegarde, musique, icône, identité et signature conservées. Aucun merge main ni Release définitive.
 
-Source `2afdf9bbd9d67846784631b4e86df746adc687ed` ; binaires `c480b902b8ded4f4ecfd0569ea724fcabd336c86` ; [CI 40517279977](https://github.com/greenpower2669/Max-YutNori/actions/runs/40517279977) **réussie**. Version **0.8.7/code16**, identité `fr.fab.maxyutnori`. **96/96 tests unitaires et 55/55 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; compilation/lint Android et signature APK v2 validés.
-
-[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/c480b902b8ded4f4ecfd0569ea724fcabd336c86/temp/Max-YutNori-v0.8.7-debug.apk) — 62,500,444 octets ; SHA-256 `391ae8450a15392639d2bf1b67b922d06fc9bbcb7640e60194781d25c81d2867`. Vrai téléchargement HTTP 200, ZIP, manifeste Android/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à la 0.8.6 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus la 0.8.6 possible, essai réel encore humain. **APK uniquement**, aucun nouvel AAB.
-
-**À valider sur Samsung SM-A576B Android 16 par Fab** : mise à jour réelle ; proximité/lisibilité et bord éloigné pendant les séquences ; ×2, pincement/prises et retours ; rotation avec noms longs pendant un suivi ; esthétique, FPS et chauffe. Aucun essai physique Samsung ni mesure matérielle revendiqué. Le cas combiné HUD long + rotation pendant le suivi reste un point mineur de couverture : les blocs sont testés séparément, aucun dysfonctionnement établi.
-
-## Historique — états précédents conservés
-
 # Carte MYN-021 — fond du plateau
 
 ChaseCamera.routeFrame ne cadre que les empreintes pion/destinations ; sa cible est décalée vers les réserves et le bord arrière du plateau sort de l’image. camera-framing.mjs partage128 points statiques du rebord cylindrique et réutilise un vecteur de calcul ; scene.js applique leur distance minimale aux vues Plateau/top (pinch top indépendant), chase-camera.mjs les inclut dans le suivi avec inclinaison15.6° depuis la verticale et cible recentrée. Les marges HUD restent celles de main.js ; physique et panorama gelés. Plan docs/plan-camera-angle-v087.md.
-
-## Historique — références précédentes conservées
-
-# Carte active — MYN-020 /0.8.6 —27 octobre2026
 
 - `camera-framing.mjs` : `approachFrame` change la distance 3D, à focale42°/projection1 ; `ViewZoom` garde l’état et la transition1↔2, sans cumul. `boardFrame` reste le cadre normal rapproché.
 - `chase-camera.mjs` : `routeFrame` ajuste des empreintes réelles ±.42 et hauteur.35 au cadre utile, cible au centre de leur étendue ; `frame` interpole proche/latéral/révélation/suivi. `followDistance`/`dragGain` prennent le facteur physique et le pincement en compte. Le cadre essentiel limite ×2 quand nécessaire.
@@ -90,19 +78,9 @@ ChaseCamera.routeFrame ne cadre que les empreintes pion/destinations ; sa cible 
 
 Panorama et lac0.8.4 intégralement conservés :24 cascades, brumes et nuages ; formules de réfraction, intensité/vitesse et masques inchangés. Physique/puissances/cycle du bol0.8.5, règles, sauvegarde, musique, icône et signature préservés. Onze fichiers protégés comparés octet pour octet à la base ; tests WebGL des cinq phases du lac à delta0, sondes terrestres stables. Aucun merge main ni Release définitive.
 
-Source `d32198f6ec148f1277c9689d2566d2e0e7205535` ; binaires `a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731` ; [CI40468288904](https://github.com/greenpower2669/Max-YutNori/actions/runs/40468288904) **réussie**. Version **0.8.6/code15**, identité `fr.fab.maxyutnori`. **92/92 tests unitaires et54/54 parcours navigateur hors ligne**, aucune erreur JavaScript ni requête externe ; WebGL, build/lint Android et signature APK v2 vérifiés.
-
-[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/a2e1ab8e4b7e8c01b0ac535dcd53f77599c43731/temp/Max-YutNori-v0.8.6-debug.apk) —62,500,244 octets ; SHA-256 `fe1e2c3af08a6541246f8dc2076608b98cd8757c63d871aa3025443393936ba5`. Vrai téléchargement HTTP200, ZIP, manifeste binaire/version, quatre PNG et MP3 vérifiés. Certificat extrait de l’APK identique à0.8.5 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Installation par-dessus0.8.5 possible, sans désinstallation ; essai d’installation réel encore humain. **APK uniquement**, aucun nouvel AAB.
-
-**À valider par Fab sur Samsung SM-A576B Android16** : mise à jour réelle ; taille/lisibilité du plateau et des pions pendant approche, recul et retours ; ×2/pinch/prises et vue libre ; vol/rangement des quatre yut ; esthétique des24 cascades/brumes/nuages, FPS et chauffe. Aucun test physique Samsung ni mesure de fluidité matérielle revendiqué.
-
-## Historique — états précédents conservés
-
 # Carte MYN-020 — diagnostic et réalisation
 
 camera-framing.mjs : cadrage géométrique partagé et approche physique. chase-camera.mjs : trajectoire proche/latérale/révélation/suivi, centrage des points réellement utiles. scene.js : application à toutes les vues, ×2 à projection constante, OrbitControls/pinch et retour après vol ; sync réassocie focusPawn et destinations à la sélection courante, y compris automatique. Vue libre : distance normale bornée à1.35×le cadrage proche et limites divisées par le facteur physique. Panorama et physique hors périmètre, fichiers gelés. Plan docs/plan-camera-v086.md.
-
-## Historique — référence précédente conservée
 
 # Point d'entrée actif — MYN-019 / 0.8.5 — 27 octobre 2026
 
@@ -113,14 +91,6 @@ camera-framing.mjs : cadrage géométrique partagé et approche physique. chase-
 - `index.html`/`style.css` : titre/×2, statut à gauche, équipes1–2 gauche/3–4 droite, colonnes de commandes adaptées à la phase ; zone de choix bornée/défilable, toutes les commandes de lancer conservées. `smoke_ergonomics.mjs` couvre4vues, vrai pinch, action, migration, formats, vols et HUD chargé.
 - Panorama et atlas : fichiers 0.8.4 inchangés ; ancienne carte128Kio + carte512Kio, une passe. Référence du lac et cinq phases toujours à delta0.
 - Preuves : `docs/revue-v085.md`, `docs/ergonomics-progress.md`, `docs/verification/verify-delivery-v085.py`, `temp/native-delivery-verification-v085.json`.
-
-Source `89ad97d4ed659aab3e03c68289348466bcfdf252` ; binaires `b7355bf77fb9637d325a59cb5edd290e618522b0` ; [CI 40432711889](https://github.com/greenpower2669/Max-YutNori/actions/runs/40432711889) **réussie**. Version **0.8.5/code14**, `fr.fab.maxyutnori`. **89/89 tests unitaires et 50/50 parcours navigateur hors ligne** ; aucune erreur JavaScript ni requête externe. Rendu WebGL : lac inchangé aux cinq phases de référence, sondes terrestres fixes ; panorama 0.8.4 conservé. Build/lint Android et signature APK v2 validés.
-
-[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/b7355bf77fb9637d325a59cb5edd290e618522b0/temp/Max-YutNori-v0.8.5-debug.apk) — 62,499,852 octets ; SHA-256 `578d54da69f41cd0ee7bdcad871bb7ac4bea37a87eeef5c21ea217119b603fe6`. Certificat extrait du vrai APK téléchargé et identique à 0.8.4 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. ZIP, manifeste Android binaire, icône, quatre PNG et musique MP3 vérifiés. **APK uniquement**, aucun nouvel AAB.
-
-**À valider par Fab sur Samsung SM-A576B Android 16** : mise à jour réelle, lisibilité du cadrage et des pions, gestes/pinch/×2/caméra action, bol à droite et retour des quatre yut, puissance et rebonds, esthétique de toutes les 24 cascades/brumes/nuages, berges immobiles et FPS/chauffe. La capture 25678.jpg n'était pas disponible dans ce checkout : la disposition décrite par Fab a guidé le travail, la correspondance visuelle exacte reste humaine. Aucun test physique Samsung ni mesure FPS revendiqué. Aucun merge `main` ni Release définitive.
-
-## Historique — états antérieurs conservés
 
 ## MYN-019 — carte de travail 0.8.5
 
@@ -136,20 +106,9 @@ physics.mjs porte le repère du bol, le confinement Rapier et le test des volume
 - **Tiroir historique/anomalies** : `debughistorical.md`, `docs/water-only-progress.md`. Distinguer zones masquées et couverture sémantique réelle ; ancien masque d'ellipse centré sur forêt.
 - **Travail restant** : `todo.md` : validation Samsung de la totalité des cascades, brumes, vue 360°, berges et FPS/chauffe. Les archives ci-dessous ne sont pas l'état courant.
 
-## Historique — point d'entrée 0.8.3
-
 ### Carte archivée : 0.8.3 — MYN-017
 
 Architecture courante : living-panorama.js utilise lakeColor/fallColor sur RGB linéaire ; lac = intérieur A>.98 et matière autorisée. Le prélèvement est contrôlé par le même masque et sa couleur, avec inversion correcte de la composante y dans sourceP. Les offsets de ciel sont retirés, la densité B reste animée. panorama-zones.mjs exclut aussi les cimes du premier plan. Fixture distortion() compare au même temps la matière réelle et un témoin modifiant uniquement sampleImage(uv+offset*strength) en sampleImage(uv), ROI 4×4. verify_panorama.mjs contrôle huit points × cinq phases et l’eau positive ; les références historiques restent documentées mais l’ancien composite n’est plus imposé.
-
-CI [40329703094](https://github.com/greenpower2669/Max-YutNori/actions/runs/40329703094) réussie : 76/76 tests et 45/45 parcours navigateur hors ligne, aucune erreur JS/requête externe, APK/AAB et lint Android réussis. Pixels : huit sondes de géométrie à cinq phases, sans déformation ; eau avec réfraction positive, brume/ciel/chutes animés, mode réduit fixe. Régression de l’arbre 720/420 observée rouge puis verte. Revue indépendante effectuée. Source `9adc09709dead8bfd5695b39eca01c2b8a0b63a2`, binaires `84d49c1c216002e3913b540feb1bcefaa15808c1`. Vrais téléchargements HTTP 200, ZIP/SHA-256, versions, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.2 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
-
-APK : 62,495,080 octets ; SHA-256 `6a33dad7d6e8e5fa2a1894a5b6b2412b920282afea93315320289547f1da80f3`.
-AAB : 62,005,457 octets ; SHA-256 `ede3d29837de081081f7e367d8d4532d6151e76076f12e394eb0a7dd615c4ee2`.
-
-Installation en mise à jour de 0.8.2 sans désinstallation. Les sondes automatiques ne prouvent pas une segmentation sémantique exhaustive de chaque pixel ; vérifier les autres berges/cimes et la fluidité sur Samsung SM-A576B Android 16. Aucun essai matériel/FPS revendiqué. Aucun merge main ni Release définitive.
-
-## Historique — états antérieurs conservés
 
 ## MYN-017 — déplacement UV et prélèvement aux berges
 
@@ -157,18 +116,7 @@ Correction locale : lakeColor/fallColor sur RGB linéaire ; A>.98 pour le lac au
 
 living-panorama.js calcule des offsets eau/chutes/ciel puis prélève l’image déplacée. panorama-zones.mjs fournit un masque de lac approché ; un contrôle limité au masque d’arrivée ne suffit pas à garantir que le pixel prélevé vient aussi de l’eau. La QA doit isoler le déplacement UV au même temps, indépendamment des changements de brume/lumière.
 
-## Livraison vérifiée 0.8.2 — MYN-016
-
 Architecture actuelle MYN-016 : panorama-zones.mjs → panoramaMasks(u,v), contours statiques de vallées/ciel/eau, marges d’îlots et fondu avant les chutes ; low-mist.mjs → createLowMistTexture(), R bruit et G/B/A masques, 256×128 préparé une fois ; living-panorama.js → fallMask conserve la distance minimale sans répéter length, eau historique conservée dans les chutes et mix progressif à l’extérieur, deux densités partagées par brume/ciel. QA : panorama-v081-reference.js et panorama-v081-noise.mjs figent 0.8.1 ; compareReference utilise 16×16 pour les cœurs et 4×4 sans brume pour isoler le raccord d’eau. verify-delivery-v082.py contrôle les vrais binaires et leurs preuves.
-
-CI [40320155787](https://github.com/greenpower2669/Max-YutNori/actions/runs/40320155787) réussie : 76/76 tests unitaires et 45/45 parcours navigateur hors ligne, aucune erreur JS/requête externe, build APK/AAB et lint Android réussis. Pixels réels : 14 sondes positives/négatives pour les régions, six cœurs comparés à la référence 0.8.1 à deux temps, raccord de rive vérifié et mode réduit fixe. Revue indépendante traitée : raccord d’eau corrigé et testé rouge→vert, métadonnée fsevents rétablie. Source `04c4cb053bc25f49b0a22c93cb7003fbdbb0b70d`, binaires `3756c18859faec9da5e37e92239f77310d3aba4e`. Téléchargements HTTP 200, intégrité ZIP/SHA-256, versions, quatre PNG et MP3 vérifiés ; certificats extraits des vrais APK v2/AAB identiques à 0.8.1 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
-
-APK : 62,494,932 octets ; SHA-256 `91dec0a4e7123fea546daab73d6f42e2c3c14136808dea2f927185d12758e6e1`.
-AAB : 62,005,342 octets ; SHA-256 `9b4a52fbdceabef1809ce96523346c39a4139ab852054a996698d8442d899f0d`.
-
-Mise à jour de 0.8.1 sans désinstallation. Fidélité esthétique finale et fluidité/coût GPU sur Samsung SM-A576B Android 16 restent à valider ; aucun FPS matériel revendiqué. Aucun merge main ni Release définitive.
-
-## Historique — états antérieurs conservés
 
 ## Carte MYN-016 — travail en cours
 
@@ -177,28 +125,8 @@ MYN-016 : scripts/fixtures/panorama-v081-{reference.js,noise.mjs} figent les sou
 
 web/src/panorama-zones.mjs (à créer) : contours en coordonnées du panorama original ; low-mist.mjs : bruit R et masques G/B/A brume/ciel/eau préparés une fois ; living-panorama.js : utilisation des masques, six régions des chutes préservées par calcul de référence. Plan docs/plan-panorama-zones-v082.md.
 
-## Livraison vérifiée 0.8.1 — MYN-015
-
-CI [40288471190](https://github.com/greenpower2669/Max-YutNori/actions/runs/40288471190) réussie : 73/73 tests unitaires et 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Pixels réels : nappes visibles/mobiles en qualité normale/légère, six cœurs de cascades identiques avec/sans nouvelle couche, un dessin et 64 Kio, mode réduit fixe. Revue indépendante favorable. Source `adf0c9f75d914016cae9b2ba3aedc6662f3fd78c`, binaires `fa1871f945b0c093f7580ce3c761078b836352ec`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône, quatre PNG et MP3 vérifiés ; certificats extraits des APK v2/AAB identiques à 0.8.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
-
-APK : 62,492,800 octets ; SHA-256 `999b4a8ffe57e62161be73083a28f0d973461b6077be870fd610f177253cade6`.
-AAB : 62,003,366 octets ; SHA-256 `ed482e10893272d28e2ebf8b22e6a7ade4a09bfc1e1319d06785a45b6501fd2e`.
-
-Mise à jour de 0.8.0 sans désinstallation. Le coût GPU et le confort visuel réels sur Samsung SM-A576B Android 16 restent à valider ; aucun FPS matériel revendiqué. Au plus trois lectures de texture supplémentaires par fragment concerné. Aucun merge main ni Release définitive.
-
-## Historique — états antérieurs conservés
-
 ## Carte MYN-015 — 0.8.1 en cours
 low-mist.mjs prépare une densité/masque périodiques ; living-panorama.js les défile en une passe existante, dans les vallées hors cascades. Vérification réelle via fixture panorama et tests de texture/lifecycle ; CI et vérificateur de livraison 0.8.1 à produire.
-
-## Livraison vérifiée 0.8.0 — MYN-014
-
-CI [40259390198](https://github.com/greenpower2669/Max-YutNori/actions/runs/40259390198) réussie : 71/71 tests unitaires, 45/45 parcours navigateur hors ligne, zéro erreur JS/requête externe ; cinq zones du panorama vérifiées sur leurs pixels réels et mode réduit identique. Compilation APK/AAB et lint Android réussis. Source `7ab9f8761c56bc899242a234b24a406e0e17d909`, binaires `79ce9005ee4556c1d9c0d8cc5b0c65073e124fb3`. Vrais téléchargements HTTP 200, intégrité ZIP/SHA-256, identité/version/icône/PNG et MP3 vérifiés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.7.0.
-
-APK : 62,491,892 octets ; SHA-256 `06d8a8dc4b790f47e7d0f68d67413f6a262b5b6a0f2eaabaa8502743c803bdc2`.
-AAB : 62,002,566 octets ; SHA-256 `2a8e3c8831926acb01d0c58f53de78cd9a8ce51dc17659a378a2637a120b4b45`.
-
-Installation en mise à jour de 0.7.0 sans désinstallation. APK paysage, portrait vérifié pour le Web. Confort tactile, intensité esthétique, performance et capteur restent à valider sur Samsung SM-A576B Android 16. Aucun essai physique revendiqué. Aucun merge main ni Release définitive.
 
 ## Harnais CI MYN-D032
 smoke_native/ambience/visibility : les attentes dépendant de la fin de lancer admettent120s murales pour atteindre les12s simulées sous rendu logiciel lent. Contraintes physique, faces et état inchangées.
@@ -228,10 +156,6 @@ UI/cadrage : index.html, style.css, main.js, scene.js. Pulsation/zoom : comfort.
 - scripts/smoke_comfort.mjs : sept scénarios ajoutés aux 34 historiques ; vrai tactile CDP, annulation autonome, pile directe échantillonnée à chaque frame, trois formats. Tests unitaires de support/mouvement/input/zoom/pulsation.
 - Android 0.7.0/code8 ; CI .github/workflows/android.yml vérifie aussi certificat précédent 0.6.0. Preuve téléchargements : temp/native-delivery-verification-v070.json. Revue docs/revue-v070.md, passation docs/passation-2026-10-26.md.
 
-CI [40250007382](https://github.com/greenpower2669/Max-YutNori/actions/runs/40250007382) réussie : 71/71 tests unitaires, 41/41 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `378f987875774d90bca29b5b5acbdf2a1588f962`, binaires/preuves `a034f9c722f402dd0bfd3f0c1d9c593f976bbc6f`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés. Certificats extraits des vrais APK v2/AAB : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`, identiques à 0.6.0. Les quatre PNG embarqués et la musique originale sont conservés octet pour octet.
-
-## Historique — états antérieurs conservés
-
 ## Marge des commandes 0.7.0
 main.fit inclut aussi le bas réel de #views + 8px dans safeInsets.top ; réserve projetée hors boutons en vue verticale. Tests navigateur sur trois formats, même matrice pour dessin et pointage.
 
@@ -250,10 +174,6 @@ Clarification résolue : la table flottante est voulue. Aucun code de MYN-013 é
 ## Référence active 0.6.0
 Plan docs/plan-ambience-v060.md ; revue docs/revue-v060.md. BowlCycle orchestre présentation et restitution des corps ; Physics garde les vrais résultats et collisions ; Main gère les transitions et annule le retour caméra périmé. Scene rend l’équipe active et charge les PNG locaux ; engravingMaps et engravedMaterial dérivent les cartes de matière. Smoke_ambience ajoute 7 scénarios aux 27 historiques.
 
-CI [40168413538](https://github.com/greenpower2669/Max-YutNori/actions/runs/40168413538) réussie : 62/62 tests unitaires, 34/34 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `a5d12ed492e0ad0656184cb68ab977280ef15c48`, binaires/preuves `03b939304c60a7923f99d560c906015cd6782614`. Téléchargements HTTP 200, intégrité ZIP et SHA-256 contrôlés ; certificat APK v2 et certificat AAB extraits des vrais fichiers téléchargés identiques à 0.5.0 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. Les trois PNG embarqués sont identiques aux originaux fournis par Fab.
-
-## Historique — états antérieurs
-
 ## Retour invisible 0.6.0
 BowlCycle termine hiding par setTrayEnabled(false) puis dockTray : neutralise un retour interrompu, même sans relance. Test unitaire dédié + ancien scénario UI auto depuis un bol saisi.
 
@@ -269,37 +189,12 @@ Plan docs/plan-ambience-v060.md. tray-motion.mjs : signe latéral ; nouveau bowl
 ## Référence active 0.5.0
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md ; revue docs/revue-v050.md. rules.mjs/teams.mjs : compteurs laps et migration v4. chase-camera.mjs : séquence/cadrage/zoom/gain. pawn-input.js : propriété des doigts. scene.js : projections et brouillard adapté. main.js : sauvegarde et actions validées. scripts/smoke_action.mjs : sept nouveaux scénarios intégrés au smoke complet.
 
-CI [40078589575](https://github.com/greenpower2669/Max-YutNori/actions/runs/40078589575) réussie : 51/51 tests unitaires, 27/27 scénarios navigateur hors ligne, aucune erreur JS/requête externe ; compilation APK/AAB et lint Android réussis. Source `4a28e1c84ef76f628a85f12dae0b7f2c467d9bfe`, binaires/preuves `c37c719642b5e8b6bb14c40fb2a5ef4e054061f9`. Téléchargements HTTP 200, ZIP et SHA-256 contrôlés ; certificat APK v2 et certificat AAB extraits des fichiers téléchargés identiques à 0.4.1 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`.
-
-## Historique des étapes précédentes
-
 ## Point de vérification 0.5.0 — 23/10/2026
 0.5.0 : chase-camera.mjs (séquence, cadrage, zoom, gain de suivi), pawn-input.js (propriété des pointeurs), scene.js (projection et brouillard adapté), rules.mjs/teams.mjs (laps), main.js (v4/UI/annulation). Tests ciblés scripts/smoke_action.mjs importés dans smoke_native.mjs. Revue docs/revue-v050.md.
 
 ## 23/10/2026 — Réalisation autorisée 0.5.0
 Réalisation 0.5.0 : rules.mjs/teams.mjs, nouveaux chase-camera.mjs/pawn-input.js, scene.js/main.js, physics.mjs. Tests sous tests/ et scripts/smoke_native.mjs.
 Plan docs/plan-action-v050.md ; suivi docs/action-progress.md.
-
-# Carte active — 0.4.1 / MYN-008 livré pour test
-- Audit MYN-010 / MYN-D018 : rules.mjs destinations/pass/move et teams.mjs ne portent aucun compteur de tours ; référence FabYut, commit 81ba459b39306b4f0c36ca69d8483d7bc3d552a8, yutFab/Assets/fabchoc.cs releaseGrab/Turnleft et Globals.cs SaveTurns/istrigable. Pending et sélection d’un résultat : main.js render/selectedResult. Toucher des pions : scene.js pointerup + main.js onPick ; déplacement >10 px ignoré pour les pions. Espacement réserve : board-layout.mjs reservePosition. Hauteur auto : main.js launch(settings.power), physics.mjs throwSticks. Audit sans modification produit.
-- ordres-de-mission.md : demandes de Fab ; MYN-009 (décor) reste différé.
-- todo.md et brain.md : état, livraison et validation Samsung attendue.
-- web/src/teams.mjs : matières/accents ; scene.js : pions, bac et capture tactile.
-- web/src/physics.mjs : géométrie partagée, dégagement à chaque pas, levage, retour en attente pendant le vol et validité du résultat élevé.
-- web/src/main.js : priorité doigt/capteur et retour hors phase de saisie ; pause/vol conservés.
-- web/src/rules.mjs, team-form.js : règles, participants et migration ; halos.js : sélection/destinations.
-- web/src/audio.js, motion.mjs, tray-motion.mjs : boucle/effets et capteurs ; MotionSensors.java/MainActivity.java : pont Android.
-- tests/ : 38 tests ; scripts/smoke_native.mjs : 20 scénarios navigateur hors ligne.
-- docs/revue-v041.md et debughistorical.md MYN-D013/14/15/16/17 : diagnostics et corrections vérifiées.
-- .github/workflows/android.yml : compilation/lint, APK/AAB, signature comparée à 0.4.0 ; temp/native-* : preuves du build indiqué dans native-build-info.txt.
-- temp/Max-YutNori-v0.4.1-debug.apk et .aab ; native-download-verification.json : contrôles des vrais téléchargements.
-- Branche feature/native-webgl-v020, PR brouillon #2 ; aucun merge main ni Release.
-
-## Historique
----
-
-## Carte historique
-# Max-YutNori — Carte technique
 
 ## Références
 - `FabYut` : projet Unity original, commit inspecté `81ba459b39306b4f0c36ca69d8483d7bc3d552a8`, aucune écriture.
@@ -323,12 +218,6 @@ Java 17 / Gradle 8.13 / AGP 8.13.0 / compile et target SDK 36 / minimum SDK 26. 
 Le bouton Retour utilise OnBackInvokedDispatcher sur Android 13+ ; dialogue avec copie des 100 dernières lignes de diagnostic, sans envoi automatique. Insets système/caméra respectés, barres escamotables.
 Signature de test conservée dans le cache CI `max-yutnori-debug-key-v1`. Une perte du cache peut nécessiter une réinstallation ; aucune clé privée n'est committée. La signature de production reste hors périmètre.
 Le premier commit distant contient le code et le manifeste d'empreintes. CI restaure les quatre binaires, les teste et les commite avec l'APK ; les builds suivants retrouvent ainsi les fichiers figés directement dans Git.
-
-## Livraison 0.1.0
-- Source compilée : `3042fed5ca7a9a0fa551d5330ef1a5739ef5f9cb`.
-- Commit CI exposant fichiers originaux, APK et preuves : `4b8ee92f83e65fba8ad7da437bb9b8fa3a9b0366`.
-- APK : `temp/Max-YutNori-v0.1.0-debug.apk` ; SHA-256 `ebcde4dce56996c8771ebe5b07313cd6754464bc984257a5b64be46c1c598b5d`.
-- Le code natif gère Android 13+ avec OnBackInvokedDispatcher ; seule la méthode de secours API 26-32 porte une suppression lint ciblée et justifiée.
 
 ## Flux et limites
 Lancement Android → page locale → loader Unity → framework/WASM/data locaux → scène du jeu. Le contenu local est servi sous `https://appassets.androidplatform.net/game/` avec MIME explicites. Les chemins hors périmètre et les requêtes réseau externes sont refusés. Aucune interface JavaScript vers Java.
@@ -363,7 +252,5 @@ MYN-007 livré pour test : docs/plan-bac-v040.md et docs/bac-progress.md ; revue
 0.4.0 : physics.mjs expose TABLE, tray, setTrayPose, prepare et les lancers ; tray-motion.mjs calibre la gravité selon la tenue et borne l'inclinaison ; MotionSensors.java émet onNativeTilt et onNativeMotion, avec accélération linéaire préférée et fallback filtré. main.js conserve les contrôles d'éligibilité/pause. materials.js génère trois cartes bois locales ; yut-geometry.js affecte la face plate au matériau laqué ; throw-view.mjs valide les faces/résultats du résumé. Stockages : réglages settings-v3 (ancien v2 conservé), dernier lancer last-throw-v1 ; partie native-v3 inchangée. HUD en header, hauteur mesurée pour réserver la zone 3D ; diagnostic readonly expose pose du bac et positions projetées des yut.
 
 0.4.0 : `physics.reset()` annule le vol lors de `newGame`. Preuves et deux corrections de revue dans `docs/revue-v040.md`, régressions dans `tests/table.test.mjs` et `scripts/smoke_native.mjs`.
-
-Livraison 0.4.0 : temp/Max-YutNori-v0.4.0-debug.apk et .aab ; preuves CI temp/native-build-info.txt, native-SHA256SUMS, native-package.json, native-smoke.json, native-apk-verification.txt, native-aab-verification.txt et téléchargement comparé native-download-verification.json. CI 39724824806.
 
 0.4.1 : SUPPORT et TRAY centralisent les dimensions ; advanceTray calcule la hauteur de sécurité à chaque pas contre table et socle. GameScene capture le doigt sur le bac en vue Bol, transmet begin/move/end et libère à pointercancel, changement de vue ou pause. main.js utilise trayEligible pour préparer même sans capteur ; motionEligible exclut trayGrab. TEAM_STYLES distingue color (matière), css/glow (accents lisibles), finish et ink.
