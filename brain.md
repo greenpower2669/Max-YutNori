@@ -31,3 +31,5 @@ Build mode web vers pwa-dist ; build Android par défaut inchangé. Surcouche in
 Hébergement Web : le MP3 original est transporté par fragments8Mio puis reconstitué strictement à l'identique (tailles et SHA256), sans réencodage. Cette adaptation est injectée uniquement dans le build Web ; l'APK conserve son fichier MP3 et son Audio d'origine. Cache des fragments hors ligne. Le premier chargement en ligne prépare la musique en arrière-plan pendant le démarrage du jeu.
 
 PWA0.1.0/build2 : le signal navigateur hors ligne donne immédiatement Vérification impossible et interdit les requêtes de versions. Le jeu et la musique restent disponibles par cache ; aucun statut À jour n'est déduit de réponses en cache. Déploiement build2 en vérification après MYN-D046.
+
+Contrôle Android sur branche PWA : compilation/lint et assemblage APK/AAB peuvent être vérifiés sans signature lorsque le cache privé de la branche Android est hors scope. Ces paquets de contrôle ne sont jamais distribués ; package, configuration de signature et APK officiel0.8.8 restent inchangés.

@@ -34,3 +34,5 @@ Revue PWA et hébergement : deux correctifs importants et transport musical frag
 Périmètre CI ciblé : la suite historique56 parcours prend environ30min. Le moteur et Android étant byte-identiques à sa référence déjà verte (52 fichiers), la nouvelle CI contrôle ces empreintes et exécute les scénarios Web/PWA sur le vrai build Web, y compris lancer physique, vue/zoom et régression exacte du cadrage MYN-021, puis compile APK/AAB/lint. Le long doublon est remplacé, sans revendiquer56 nouveaux parcours.
 
 CI40591418527 échouée au statut offline après huit contrôles PWA verts ; Android n'a donc pas été exécuté dans ce run. MYN-D046 corrigé après reproduction unitaire rouge ; version PWA0.1.0/build2 à vérifier et redéployer. Ne pas présenter ce run comme entièrement vert.
+
+PWA :15/15 parcours Chrome/SwiftShader réussis dans40592283542, y compris caméra MYN-021, zéro erreur JS. Blocage restant du run : cache de signature inaccessible depuis la branche sœur ; correctif CI d'assemblage non signé de contrôle en cours, aucune clé remplacée. PWA build2 déployée avec succès (source de déploiement e2cb0e6, source jeu6551730).
