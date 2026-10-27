@@ -1,3 +1,7 @@
+# MYN-019 — réalisation 0.8.5/code14 autorisée le27/10/2026
+
+Reprise sur0.8.4/code13 ; code et revue ergonomie/physique réalisés, vérification Android/livraison encore en attente. Dernier APK livré reste0.8.4. Plan docs/plan-ergonomics-v085.md, suivi docs/ergonomics-progress.md, revue docs/revue-v085.md. Prochain livrable **APK uniquement** ; pas de nouvel AAB, main ou Release. Lac et panorama0.8.4 intégralement préservés.
+
 # PASSATION ACTUELLE — MAX YUTNORI 0.8.4 — MYN-018 (26/10/2026)
 
 **Référence courante** : branche `feature/native-webgl-v020`, source `ac1763d`, binaires `a9c79276e64d2216ab7711843ba8778066f47c56`. CI [40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) réussie : 45 scénarios navigateur hors ligne, tests unitaires, rendu WebGL, APK/AAB, lint Android et signature identique à 0.8.3. [APK 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.apk) · [AAB 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.aab).

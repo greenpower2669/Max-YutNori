@@ -1,3 +1,7 @@
+## MYN-D038 — ergonomie, confinement et déclencheur du bol (27/10/2026)
+
+Constat de conception : origine de bol fixe partagée implicitement par scène/physique/rangement ; rebords bas n'assurent pas un confinement en altitude. Le bol attend actuellement le résultat avant de disparaître ; MYN-019 remplace ce déclencheur par le franchissement réel de chacun des quatre volumes. Cadrages et HUD vont être vérifiés aux formats téléphone. Deux régressions de revue reproduites RED→GREEN : murs minces traversés à80unités/s (graine5), corrigés par épaisseur extérieure et sous-pas adaptatifs ; bandeau de coups trop haut, corrigé par choix horizontaux et commandes contextualisées. 100 stress physiques sans sortie et HUD ordinaire/six résultats avec nom long vérifiés. Le cadrage initial avait une marge trop généreuse : grossissement réel désormais comparé à0.8.4 et réserves complètes conservées. Aucun bug de lac à corriger : son code est protégé. Base 0.8.4/code13, 79 tests de base verts ; livraison future non encore fabriquée.
+
 ## MYN-D037 — audit et correctifs des cascades/brumes (26/10/2026)
 
 **Signalement** : la scène semblait ne pas animer toutes les chutes roses ni les brumes violettes et turquoise. Analyse : six ellipses historiques, dont une mal centrée sur la forêt, ne représentaient pas toutes les cascades réelles. Fab a fourni 25663.jpg et 25651.jpg et autorisé le codage.

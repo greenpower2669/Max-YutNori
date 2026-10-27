@@ -1,3 +1,9 @@
+## MYN-019 — Autorisée, réalisation 0.8.5/code14 (27/10/2026)
+
+Fab autorise « Ok, code » après sa passation : rapprocher réellement la caméra du plateau dans les quatre vues ; informations tour/joueur/état/messages à gauche, bandeaux plus compacts sans sacrifier la lisibilité et les gestes. Bol et socle à droite avec colliders/départs/rangement cohérents ; murs Rapier invisibles et CCD pour lancers plus hauts, forces mini ET maxi accrues (humain/capteur/auto/IA), migration des valeurs sauvegardées. Disparition rapide bol/socle dès que les quatre volumes physiques ont franchi le rebord avec marge ; collisions désactivées au moment sûr, vol et retour naturels. Interrupteur ×2 en haut à gauche, transition, aria-pressed, non cumulatif et compatible vues/pinch/caméra action.
+
+**Protection absolue :** aucun changement au lac ni à ses shaders/formules/masques, aux 24 cascades et brumes/nuages de 0.8.4. Règles/sauvegarde/identité fr.fab.maxyutnori/icône/signature conservées. APK debug **uniquement**, direct dans temp/, vérifié ; pas de nouvel AAB, merge main ou Release. Référence stable 0.8.4/code13 ; plan docs/plan-ergonomics-v085.md. Capture 25678.jpg citée par Fab, non présente dans le dépôt courant ; le texte fourni guide l'implémentation. Implémentation et revue traitées ; 89 tests unitaires, cas physiques extrêmes et HUD chargé vérifiés. Compilation/livraison APK encore à faire ; dernière livraison reste0.8.4.
+
 # Ordres de mission — Max-YutNori
 
 ## MYN-018 — 0.8.4/code13 LIVRÉE sur la branche de travail (26/10/2026)

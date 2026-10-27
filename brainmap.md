@@ -1,3 +1,7 @@
+## MYN-019 — carte de travail 0.8.5
+
+physics.mjs porte le repère du bol, le confinement Rapier et le test des volumes au-dessus du rebord ; bowl-cycle.mjs gère fondu en vol et rangement. throw-power.mjs centralise plage et migration. camera-framing.mjs/scene.js portent cadrage réel et ×2 ; main.js synchronise réglages/DOM et cycle. index.html/style.css portent les informations à gauche et les bandeaux. Murs hauts épaissis vers l’extérieur sans rétrécir la surface ; sous-pas1..8 si vitesse>20, sinon120Hz. Cadrage général vérifié contre la caméra0.8.4 ; marges du vol distinctes de celles du plateau. Fichiers panorama et atlas0.8.4 gelés. Tests et livraison : docs/plan-ergonomics-v085.md.
+
 ## Point d'entrée actif — MYN-018 / 0.8.4 (26/10/2026)
 
 - **État** : 0.8.4/code13 livrée sur `feature/native-webgl-v020`, PR brouillon #2 ; [CI 40377936315](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315) réussie ; APK/AAB dans `temp/` au commit `a9c79276e64d2216ab7711843ba8778066f47c56`. Aucun merge main.

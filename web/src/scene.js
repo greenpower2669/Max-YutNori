@@ -7,6 +7,7 @@ import {createStickGeometry} from './yut-geometry.js';
 import {woodTextures,engravedMaterial} from './materials.js';
 import {TEAM_STYLES} from './teams.mjs';
 import {BX,WX,POS,PAWN_TABLE_Y,PAWN_STACK,PAWN_CARRY_Y,pawnPosition,reservePosition,buildSelection} from './board-layout.mjs';
+import {ViewZoom,boardFrame,fitDistance} from './camera-framing.mjs';
 import {ChaseCamera} from './chase-camera.mjs';
 import {PawnInput} from './pawn-input.js';
 import {SelectionHalos} from './halos.js';
@@ -17,7 +18,7 @@ export const COLORS=TEAM_STYLES.map(t=>t.color);
 export {BX,WX};
 function label(text,color='#fff0c9',size=.24){const c=document.createElement('canvas');c.width=128;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle=color;ctx.font='bold 64px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,64,68);const map=new T.CanvasTexture(c);map.colorSpace=T.SRGBColorSpace;const mesh=new T.Mesh(new T.PlaneGeometry(size,size),new T.MeshBasicMaterial({map,transparent:true,depthWrite:false}));mesh.rotation.x=-Math.PI/2;return mesh;}
 export class GameScene {
- constructor(canvas,physics,onPick,onGesture,onTray={}){this.canvas=canvas;this.physics=physics;this.onPick=onPick;this.onGesture=onGesture;this.mode='board';this.free=false;this.targets=[];this.pawns=[];this.teamGlows=[];this.particles=[];this.time=0;this.reduced=false;this.chase=new ChaseCamera();this.focusPawn=null;this.drag=null;this.lifted=null;this.topView=new TopView();this.safeInsets={top:0,bottom:0,left:0,right:0};this.actionCamera=true;
+ constructor(canvas,physics,onPick,onGesture,onTray={}){this.canvas=canvas;this.physics=physics;this.onPick=onPick;this.onGesture=onGesture;this.mode='board';this.free=false;this.targets=[];this.pawns=[];this.teamGlows=[];this.particles=[];this.time=0;this.reduced=false;this.chase=new ChaseCamera();this.focusPawn=null;this.drag=null;this.lifted=null;this.topView=new TopView();this.safeInsets={top:0,bottom:0,left:0,right:0};this.actionCamera=true;this.viewZoom=new ViewZoom();this.flightPoints=Array.from({length:32},()=>new T.Vector3());
  this.renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.05;
  this.scene=new T.Scene();this.scene.background=new T.Color(0x102b28);this.scene.fog=new T.Fog(0x102b28,26,50);const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);this.environment=pmrem.fromScene(room,.04);this.scene.environment=this.environment.texture;this.scene.environmentIntensity=.55;room.dispose();pmrem.dispose();
  this.camera=new T.PerspectiveCamera(42,1,.1,80);this.camera.position.set(BX,11,5);this.controls=new OrbitControls(this.camera,canvas);this.controls.target.set(BX,0,0);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.enableRotate=false;this.controls.minDistance=3;this.controls.maxDistance=60;this.controls.maxPolarAngle=1.2;
@@ -63,7 +64,7 @@ export class GameScene {
  for(const name of NODES){const [x,z]=POS[name],corner=['O5','O10','O15','O20','C'].includes(name);const disc=this.mesh(new T.CylinderGeometry(corner?.22:.17,corner?.22:.17,.045,32),new T.MeshStandardMaterial({color:corner?0xc7ac76:0x5c7762,roughness:.7}),BX+x,.1,z);disc.userData.pick={node:name};this.targets.push(disc);const t=label(name==='C'?'✦':name.startsWith('O')?name.slice(1):'•',corner?'#183a35':'#e7ddba',corner?.27:.23);t.position.set(BX+x,.128,z);this.scene.add(t);}
  const title=label('YUT','#c7ac76',.85);title.position.set(BX-1.4,.09,.7);this.scene.add(title);
  }
- bowl(){this.trayGroup=new T.Group();this.trayGroup.position.set(WX,TRAY.baseY,0);this.scene.add(this.trayGroup);this.pedestal=this.mesh(new T.CylinderGeometry(SUPPORT.radius,SUPPORT.radius,SUPPORT.halfHeight*2,48),this.wood.clone(),WX,SUPPORT.y,0);
+ bowl(){this.trayGroup=new T.Group();this.trayGroup.position.set(WX+TRAY.centerX,TRAY.baseY,TRAY.centerZ);this.scene.add(this.trayGroup);this.pedestal=this.mesh(new T.CylinderGeometry(SUPPORT.radius,SUPPORT.radius,SUPPORT.halfHeight*2,48),this.wood.clone(),WX+TRAY.centerX,SUPPORT.y,TRAY.centerZ);
  const points=[[0,0],[2.55,0],[2.7,.16],[2.88,.65],[3.02,1.22],[2.86,1.28],[2.7,.8],[2.55,.2],[0,.2]].map(p=>new T.Vector2(...p));this.mesh(new T.LatheGeometry(points,96),this.wood,0,-.2,0,this.trayGroup);this.mesh(new T.CylinderGeometry(2.57,2.57,.02,80),new T.MeshStandardMaterial({...this.timber,color:0x61402b,roughness:.9}),0,.015,0,this.trayGroup);this.ring(2.94,.045,0,1.06,0,this.bronze,this.trayGroup);this.trayGroup.traverse(o=>{if(o.isMesh)o.material=o.material.clone();});}
  sticks(){const geo=createStickGeometry();const lacquer=new T.MeshPhysicalMaterial({color:0x090b10,roughness:.28,metalness:0,clearcoat:.7,clearcoatRoughness:.25});const cedar=new T.MeshStandardMaterial({...this.timber,color:0xee633c,roughness:.64,normalScale:new T.Vector2(.7,.7)});
  this.stickMeshes=Array.from({length:4},(_,i)=>{const group=new T.Group();this.scene.add(group);this.mesh(geo,[lacquer,cedar],0,0,0,group);
@@ -86,7 +87,8 @@ export class GameScene {
  if(this.focusPawn===this.pawns[state.turn*4+selected]&&this.chase.active)this.chase.reach=Math.max(3,...this.halos.group.children.filter(h=>h.userData.kind==='destination').map(h=>h.position.distanceTo(this.focusPawn.userData.goal)));
  for(const group of this.reserveLabels)group.visible=group.userData.team<state.teams.length;
  }
- view(mode){this.cancelPawnGesture();this.chase.reset();this.focusPawn=null;this.cancelTrayGesture();this.mode=mode==='bowl'?'bowl':mode==='top'?'top':'board';this.free=mode==='free';this.controls.enableRotate=this.free;this.controls.enableZoom=this.free;this.controls.maxDistance=this.free?18:60;}
+ view(mode){this.cancelPawnGesture();this.chase.reset();this.focusPawn=null;this.cancelTrayGesture();this.mode=mode==='bowl'?'bowl':mode==='top'?'top':'board';this.free=mode==='free';this.controls.enableRotate=this.free;this.controls.enableZoom=this.free;this.controls.maxDistance=60;if(this.free){const frame=boardFrame(BX,this.camera.aspect);this.controls.target.copy(frame.target);this.camera.position.copy(frame.position);}}
+ toggleZoom(){return this.viewZoom.toggle();}
  cancelPawnGesture(){this.pawnInput?.cancel();this.lifted=null;}
  focus(team,piece){this.lifted={team,piece,pos:this.state.teams[team].pieces[piece].pos};if(!this.actionCamera||this.free||this.mode!=='board')return;this.focusPawn=this.pawns[team*4+piece];if(!this.focusPawn)return;this.chase.select(this.focusPawn.position,this.halos.group.children.filter(h=>h.userData.kind==='destination').map(h=>h.position));}
  project(position){const p=position.clone().project(this.camera),r=this.canvas.getBoundingClientRect();return {x:r.left+(p.x+1)*r.width/2,y:r.top+(1-p.y)*r.height/2};}
@@ -102,13 +104,14 @@ export class GameScene {
  dragMembers(){const own=this.state.teams[this.state.turn].pieces,from=own[this.selected].pos;return own.flatMap((p,i)=>(from==='S'?i===this.selected:p.pos===from)?[this.pawns[this.state.turn*4+i]]:[]);}
  destinationAt(point){return this.projectedDestinations().map(p=>({...p,d:Math.hypot(p.x-point.x,p.y-point.y)})).filter(p=>p.d<34).sort((a,b)=>a.d-b.d)[0]?.node??null;}
  carryHeight(){return Math.max(PAWN_CARRY_Y,...this.pawns.filter(p=>p.visible&&!p.userData.chosen).map(p=>p.userData.goal.y+.32));}
- cameraDiagnostic(){return {mode:this.free?'free':this.mode,topZoom:this.topView.zoom,input:this.pawnInput.active?(this.pawnInput.viewOnly?'view':'pawn'):null,phase:this.chase.phase,zoom:this.chase.zoom,fog:{near:this.scene.fog.near,far:this.scene.fog.far},position:this.camera.position.toArray(),target:this.controls.target.toArray(),dragging:!!this.drag?.moving,candidate:this.drag?.moving?this.destinationAt(this.drag.point):null};}
+ cameraDiagnostic(){return {mode:this.free?'free':this.mode,topZoom:this.topView.zoom,doubleZoom:this.viewZoom.active,magnification:this.camera.zoom,safeInsets:{...this.safeInsets},input:this.pawnInput.active?(this.pawnInput.viewOnly?'view':'pawn'):null,phase:this.chase.phase,zoom:this.chase.zoom,fog:{near:this.scene.fog.near,far:this.scene.fog.far},position:this.camera.position.toArray(),target:this.controls.target.toArray(),dragging:!!this.drag?.moving,candidate:this.drag?.moving?this.destinationAt(this.drag.point):null};}
  resize(){const r=this.canvas.getBoundingClientRect();this.renderer.setSize(r.width,r.height,false);const {top,bottom,left=0,right=0}=this.safeInsets,usable=Math.max(80,r.height-top-bottom),width=Math.max(100,r.width-left-right);this.camera.setViewOffset(width,usable,-left,-top,r.width,r.height);this.camera.updateProjectionMatrix();}
  quality(low,reduced){this.low=low;this.renderer.setPixelRatio(low?1:Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=!low;this.reduced=reduced;this.resize();}
  effect(pos,team){if(this.reduced)return;const p=POS[pos]||[0,0];for(let i=0;i<24;i++){const mesh=this.mesh(new T.SphereGeometry(.035,6,4),new T.MeshBasicMaterial({color:TEAM_STYLES[team].glow}),BX+p[0],.5,p[1]);this.particles.push({mesh,v:new T.Vector3((Math.random()-.5)*2,1+Math.random()*2,(Math.random()-.5)*2),life:1});}}
+ flightBounds(){let i=0;this.stickMeshes.forEach((mesh,index)=>{const p=mesh.position,v=this.physics.bodies[index].linvel();for(const x of [-.9,.9])for(const y of [-.9,.9])for(const z of [-.9,.9])this.flightPoints[i++].set(p.x+x,p.y+y+(y>0?Math.max(0,v.y)*.2:0),p.z+z);});return this.flightPoints;}
  projectedTray(){const p=this.trayGroup.localToWorld(new T.Vector3(0,.02,1)).project(this.camera);return {x:p.x,y:p.y};}
  projectedSticks(){return this.stickMeshes.map(m=>{const p=m.position.clone().project(this.camera);return {x:p.x,y:p.y,z:p.z,height:m.position.y};});}
- frame(dt){this.time+=dt;this.panorama?.frame(dt,this.reduced,this.low);this.pulse=teamPulse(this.time,this.reduced);const opacity=this.bowlCycle?.opacity??1;this.trayGroup.visible=this.pedestal.visible=opacity>0;for(const root of [this.trayGroup,this.pedestal])root.traverse(o=>{if(o.isMesh){if(o.material.transparent!==(opacity<1)){o.material.transparent=opacity<1;o.material.needsUpdate=true;}o.material.opacity=opacity;o.material.depthWrite=opacity===1;o.castShadow=opacity===1;}});const tp=this.physics.tray.translation(),tq=this.physics.tray.rotation();this.trayGroup.position.set(WX+tp.x,tp.y,tp.z);this.trayGroup.quaternion.set(tq.x,tq.y,tq.z,tq.w);this.stickMeshes.forEach((mesh,i)=>{const b=this.physics.bodies[i],p=b.translation(),q=b.rotation();mesh.position.set(WX+p.x,p.y,p.z);mesh.quaternion.set(q.x,q.y,q.z,q.w);});
+ frame(dt){this.camera.zoom=this.viewZoom.frame(dt,this.reduced);this.camera.updateProjectionMatrix();this.time+=dt;this.panorama?.frame(dt,this.reduced,this.low);this.pulse=teamPulse(this.time,this.reduced);const opacity=this.bowlCycle?.opacity??1;this.trayGroup.visible=this.pedestal.visible=opacity>0;for(const root of [this.trayGroup,this.pedestal])root.traverse(o=>{if(o.isMesh){if(o.material.transparent!==(opacity<1)){o.material.transparent=opacity<1;o.material.needsUpdate=true;}o.material.opacity=opacity;o.material.depthWrite=opacity===1;o.castShadow=opacity===1;}});const tp=this.physics.tray.translation(),tq=this.physics.tray.rotation();this.trayGroup.position.set(WX+tp.x,tp.y,tp.z);this.trayGroup.quaternion.set(tq.x,tq.y,tq.z,tq.w);this.stickMeshes.forEach((mesh,i)=>{const b=this.physics.bodies[i],p=b.translation(),q=b.rotation();mesh.position.set(WX+p.x,p.y,p.z);mesh.quaternion.set(q.x,q.y,q.z,q.w);});
  this.halos.frame(dt,this.reduced);const clearance=this.carryHeight();let liftIndex=0;
  this.pawns.forEach(p=>{
   const active=p.userData.activeGlow.visible,chosen=p.userData.chosen;p.userData.activeGlow.material.opacity=.38+.57*this.pulse;p.userData.accentGlow.material.opacity=.95-.42*this.pulse;
@@ -120,14 +123,27 @@ export class GameScene {
  });
  const selectedHalo=this.halos.group.children.find(h=>h.userData.kind==='selection');
  if(selectedHalo&&this.selected>=0){const pawn=this.pawns[this.state.turn*4+this.selected];selectedHalo.position.copy(pawn.position);selectedHalo.position.y+=.035;}
- if(!this.free){const x=this.mode==='bowl'?WX:BX,flightHeight=this.physics.active?Math.max(...this.stickMeshes.map(m=>m.position.y)):0;
-  let target=new T.Vector3(x,this.mode==='bowl'?Math.max(1.4,flightHeight*.3):0,this.mode==='bowl'?1.6:0),position=new T.Vector3(x,(this.mode==='bowl'?14:11.4)*Math.max(1,.92/this.camera.aspect),(this.mode==='bowl'?12:5.2)*Math.max(1,.92/this.camera.aspect));
+ if(!this.free){
+  let {target,position}=boardFrame(BX,this.camera.aspect);
+  if(this.mode==='bowl'){
+   const flightHeight=this.physics.active?Math.max(...this.stickMeshes.map(m=>m.position.y)):0;
+   target=new T.Vector3(.8,Math.max(.8,flightHeight*.42),.6);
+   const direction=new T.Vector3(0,.85,.55).normalize(),points=[];
+   for(const x of [BX-3.85,WX+TRAY.centerX+3.2])for(const z of [-4.3,4.3])points.push(new T.Vector3(x,.4,z));
+   if(this.physics.active)points.push(...this.flightBounds());
+   const distance=fitDistance(points,target,direction,this.camera.aspect,this.physics.active?this.camera.zoom:1);
+   position=target.clone().addScaledVector(direction,distance);
+  }
   const action=this.focusPawn&&this.mode==='board'?this.chase.frame(dt,this.drag?.moving?this.drag.focus:this.focusPawn.position,this.camera.aspect,this.reduced):null;
-  if(action){target=action.target;position=action.position;}
+  if(action){target=action.target;position=target.clone().add(action.position.sub(target).multiplyScalar(this.camera.zoom));}
   if(this.mode==='top'){target=new T.Vector3(BX,0,0);position=new T.Vector3(BX,this.topView.distance(this.camera.aspect),.001);}
   const blend=this.reduced?1:1-Math.exp(-dt*5);this.controls.target.lerp(target,blend);this.camera.position.lerp(position,blend);
  }
- this.controls.update();this.camera.updateMatrixWorld();
+ this.controls.update();
+ // Back away immediately if easing would clip a fast ascending stick. No body is moved.
+ if(this.physics.active){const direction=this.camera.position.clone().sub(this.controls.target).normalize(),distance=fitDistance(this.flightBounds(),this.controls.target,direction,this.camera.aspect,this.camera.zoom);if(this.camera.position.distanceTo(this.controls.target)<distance)this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);}
+ this.camera.updateMatrixWorld();
+
  const distance=this.camera.position.distanceTo(this.controls.target);this.scene.fog.near=Math.max(26,distance+12);this.scene.fog.far=Math.max(50,distance+36);
  if(this.drag?.moving){const p=this.onPlane(this.drag.point,this.camera),base=this.drag.members[0];
   if(this.reduced||base.position.y>=p.y-.003)this.drag.members.forEach((mesh,i)=>mesh.position.set(p.x,p.y+i*PAWN_STACK,p.z));

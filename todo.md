@@ -1,3 +1,12 @@
+# MYN-019 — 0.8.5/code14 en cours — 27/10/2026
+
+Dernière livraison vérifiée : 0.8.4/code13. Autorisation reçue. Plan docs/plan-ergonomics-v085.md ; suivi docs/ergonomics-progress.md.
+- [x] Force/migration, repère bol à droite et confinement Rapier min/max.
+- [x] Disparition au franchissement réel des quatre yut, pause/retour/rangement.
+- [x] HUD à gauche et compact, cadrages 3D, bouton ×2 et gestes.
+- [ ] Tests, revue, non-régression panorama/lac, CI Android et APK seul vérifié.
+- [ ] Samsung : cadrage, gestes, esthétique/24 chutes, fluidité/chauffe et lancers réels.
+
 # État courant — Max-YutNori 0.8.4/code13 — MYN-018 LIVRÉE (26/10/2026)
 
 [📱 APK 0.8.4 direct](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.apk) · [📦 AAB 0.8.4](https://github.com/greenpower2669/Max-YutNori/raw/a9c79276e64d2216ab7711843ba8778066f47c56/temp/Max-YutNori-v0.8.4-debug.aab) · [CI réussie](https://github.com/greenpower2669/Max-YutNori/actions/runs/40377936315)

@@ -1,3 +1,7 @@
+## Contrat MYN-019 — réalisation autorisée 0.8.5/code14
+
+Plateau dominant par caméra 3D, informations compactes à gauche, bandeaux semi-transparents réduits, bol/socle déplacés physiquement à droite. Forces et limites physiques renforcées ; bol invisible dès le franchissement complet des quatre yut. Zoom ×2 réversible, non cumulatif, indépendant du pinch et compatible caméra action. Livraison APK uniquement ; identité/signature/règles/sauvegarde conservées. Le rendu du panorama 0.8.4 et particulièrement l'ondulation du lac sont figés. Le bouton ×2 reste indépendant du pinch ; la caméra action compense sa projection puis rend le cadrage choisi. Les commandes de lancer sont disponibles pendant les lancers, les choix de déplacement occupent le bandeau à la phase de déplacement. Plan docs/plan-ergonomics-v085.md ; livraison Android en attente.
+
 ## Contrat courant — MYN-018 / 0.8.4-code13 LIVRÉE
 
 Panorama 360° Three.js/WebGL : `web/src/annotated-zones.mjs` trace 24 cascades roses (25663.jpg), 5 nappes violettes et 7 rubans turquoise (25651.jpg). Atlas statique RGBA 512×256 / 512 Kio ajouté à l'ancien atlas 256×128 / 128 Kio. `living-panorama.js` anime les nouvelles zones dans la passe existante ; les anciens embruns/mousse et la physique/gameplay restent inchangés.
