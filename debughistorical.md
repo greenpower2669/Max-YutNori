@@ -139,3 +139,6 @@ Constat de conception : origine de bol fixe partagée implicitement par scène/p
 
 
 Diagnostics plus anciens D001–D037 : sauvegarde.md (source debughistorical.md, instantané 8debca3). Les essais matériels restent dans todo.md.
+
+## MYN-D044 — séparation des versions et cache atomique
+Prévention MYN-024 : une release Android plus haute ne prouve aucune mise à jour Web. Tests rouges avant implémentation, puis neuf cas politique/worker verts ;105 tests socle compris. Ne jamais reconstruire une version interne uniquement depuis un manifeste distant : métadonnées intégrées au bundle. Ne jamais activer skipWaiting automatiquement en mise à jour, ni servir un206 partiel comme un MP3 complet du cache. Anciennes générations du cache conservées pour les documents encore ouverts ; localStorage jamais supprimé par le worker.

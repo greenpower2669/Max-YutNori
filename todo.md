@@ -3,10 +3,10 @@
 ## Clôture autorisée
 - [x] Vérifier PR #2 : tête 8debca3, 0.8.8/code17 et CI 40543163343 réussie sur source 08abcaed.
 - [x] Archiver intégralement les cinq anciens fichiers avec provenance/empreintes ; réaligner les fichiers actifs.
-- [ ] Fusionner PR #2 à tête attendue et publier/vérifier Release Android v0.8.8 avec l'APK exact déjà livré.
+- [x] PR #2 fusionnée cdb2ff4 ; Release v0.8.8 publiée/vérifiée par CI40589109427. APK62243800 octets, SHA2561b3ba30f… identique au binaire livré.
 
 ## Web/PWA — prochaine réalisation
-- [ ] Branche dédiée depuis la version intégrée ; design/plan de réalisation.
+- [x] Branche feature/web-pwa-v010 depuis cdb2ff4 ; docs/plan-web-pwa-v010.md.
 - [ ] Build Web commun sans altérer le build Android ni caméra/physique/effets.
 - [ ] Manifest/icônes/install/plein écran, service worker hors ligne avec musique et mises à jour différées.
 - [ ] Versions moteur/PWA/commit ; recherche GitHub limitée aux releases Web ; gestion réseau/erreurs.
@@ -25,3 +25,6 @@ Ces tâches ne sont pas prétendues réalisées par l'autorisation de clôture.
 
 ## Référence et preuves
 APK livré : 0.8.8/code17 ; source 08abcaed, binaires 99543419, CI 40543163343 (96 tests, 56 parcours, WebGL, build/lint/signature Android). Preuve : temp/native-delivery-verification-v088.json ; passation : docs/passation-myn022-logo.md ; revue : docs/revue-v088.md. Les anciennes cases « en cours » sont des états datés remplacés par ces preuves, archivés sans perte dans sauvegarde.md.
+
+## Avancement MYN-024
+Version/politique GitHub et worker cache/Range implémentés après tests rouges puis verts. 105 tests passent ; builds Android/Web passent. Surcouche Pause install/fullscreen/version réalisée, navigateur et déploiement encore à vérifier. Aucune release PWA définitive.
