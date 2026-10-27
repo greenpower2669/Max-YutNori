@@ -4,7 +4,7 @@
 - [x] Android0.8.8/code17 : PR#2 fusionnée cdb2ff4 ; Release v0.8.8, APK62243800octets et SHA2561b3ba30f… identiques au binaire validé. CI40589109427 ; mémoires de main réalignées4a96847.
 - [x] Archives intégrales des cinq mémoires avant clôture et avant consolidation PWA, avec source/empreintes dans sauvegarde.md. Aucune mission perdue.
 - [x] PWA0.1.0/build2 sur feature/web-pwa-v010, PR#3 brouillon. Source Web déployée65517302a815e5b31f2ec120827c473cb51571ce.
-- [x] HTTPS privé : https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement source e2cb0e6 confirmé succeeded.
+- [x] HTTPS public (demande explicite de Fab, Sites révision2) : https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement source e2cb0e6 confirmé succeeded.
 - [x] Manifest/icônes officiels, installation/plein écran dans Pause, responsive et safe areas, cache complet et MP3 fragmenté/reconstitué byte-identique, sauvegardes locales et mises à jour différées.
 - [x] Versions Web distinctes d'Android, build/semver/commit cohérents, signal hors ligne et gestion d'erreurs explicites.
 - [x]110 tests unitaires et15 parcours Chrome/SwiftShader PWA/caméra (CI40592283542), zéro erreur JS.52 fichiers moteur/Android intacts ; référence Android0.8.8 et ses56 parcours déjà verts conservés.
@@ -13,7 +13,8 @@
 
 ## Validation humaine encore ouverte
 - [ ] Installer la PWA depuis Chrome/Edge Android et ordinateur, vérifier lancement autonome, plein écran/paysage et zones de sécurité ; naviguer hors ligne après « Jeu hors ligne prêt » ; vérifier reprise après fermeture et actualisation réelle.
-- [ ] Accès privé ChatGPT dans le navigateur de Fab : le contrôle automatique a refusé l'authentification du navigateur de vérification vers auth.openai.com. Déploiement confirmé par Sites ; connexion visuelle non validée, aucun contournement.
+- [x] Accès public confirmé par Sites et ouverture sans authentification dans le navigateur.
+- [ ] MYN-025 : corriger la réouverture ERR_FAILED, valider le cache d’un index HTML redirigé et publier build3 sans perte de sauvegardes.
 - [ ] Samsung SM-A576B Android16 : mise à jour APK, cache/masques OEM de l'icône, logo/contrôles avec grossissement système.
 - [ ] Gestes : réserve/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, rotation avec noms longs pendant suivi.
 - [ ] Bol/capteurs : sens dans les deux paysages, levage/inclinaison/descente/lancer, rangement, pause/reprise et priorité auto/doigt/capteur.
@@ -28,3 +29,6 @@
 
 ## Reprise technique
 Lire ordres-de-mission.md, puis ce fichier, brain.md, brainmap.md et debughistorical.md. Les étapes intermédiaires et faux statuts « en cours » archivés ne sont pas des tâches ouvertes. Aucune release PWA définitive ni merge PWA main effectué.
+
+## MYN-025 — avancement
+Nouvelle conversation vocale autorise le public ; état actuel public confirmé, aucun changement d'audience à refaire. Le navigateur charge la page publique ; la réouverture arrive sur un protocole d'erreur interne non observable par l'outil. Service worker : un HTML obtenu après redirection était conservé avec redirected=true, incompatible avec une navigation redirect=manual. Reproduction HTTP réelle en test unitaire rouge, puis normalisation des bytes/headers verte. Fixture navigateur modifiée pour rediriger /index.html vers /, comme un hébergement à URL canonique. Build3 à vérifier et déployer.

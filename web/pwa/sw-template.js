@@ -2,9 +2,17 @@
 const CACHE='max-yutnori-web-__CACHE_ID__';
 const FILES=__PRECACHE__;
 const absolute=path=>new URL(path,self.registration.scope).href;
+// A followed /index.html -> / redirect cannot be returned to a navigation whose
+// redirect mode is manual. Preserve the decoded bytes and headers, not redirect metadata.
+async function cacheableResponse(response){
+ if(!response.redirected)return response;
+ const bytes=await response.arrayBuffer(),headers=new Headers(response.headers);
+ headers.delete('Content-Encoding');headers.delete('Content-Length');
+ return new Response(bytes,{status:response.status,statusText:response.statusText,headers});
+}
 self.addEventListener('install',event=>event.waitUntil((async()=>{
  const cache=await caches.open(CACHE);
- try{for(const path of FILES){const url=absolute(path);const response=await fetch(url,{cache:'reload',credentials:'same-origin'});if(!response.ok||response.type==='opaque')throw Error('Ressource hors ligne incomplète : '+path);await cache.put(url,response);}}
+ try{for(const path of FILES){const url=absolute(path);const response=await fetch(url,{cache:'reload',credentials:'same-origin'});if(!response.ok||response.type==='opaque')throw Error('Ressource hors ligne incomplète : '+path);await cache.put(url,await cacheableResponse(response));}}
  catch(error){await caches.delete(CACHE);throw error;}
 })()));
 self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));

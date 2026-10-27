@@ -267,3 +267,5 @@ CI compatibilité : détection d'identité des entrées Web vs6551730 pour réut
 Preuves finales et installation : docs/passation-web-pwa-v010.md, docs/web-pwa-publication.md, docs/revue-web-pwa-v010.md et docs/verification/web-pwa-source-integrity.json. Le déploiement publié vient de6551730, sans fusion PWA vers main.
 
 CI finale40593243077 :110 tests/deux builds/intégrité moteur et Android, réutilisation explicite des15 parcours40592283542 sur les mêmes entrées, assemblage APK/AAB unsigned et lint ; rapports dans artefacts Actions et docs/verification/web-pwa-source-integrity.json.
+
+MYN-025 : sw-template.js/cacheableResponse copie uniquement les réponses redirigées avant cache.put ; nouvelle Response sans redirected, mêmes bytes/MIME/statut. tests/pwa-worker.test.mjs utilise un vrai serveur302→200 ; smoke_pwa.mjs impose /index.html→/ et teste la réouverture offline. Workflow ajoute une sonde HTTPS publique des URL finales (diagnostic, aucun secret). Source et déploiement build3 à compléter après preuve CI.

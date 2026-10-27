@@ -30,6 +30,21 @@ jobs:
         run: |
           git fetch --depth=1 origin cdb2ff429fc3d43252a3b4888e7fae2c59d81779
           git diff --exit-code cdb2ff429fc3d43252a3b4888e7fae2c59d81779 HEAD -- web/src web/index.html android
+      - name: Diagnose public hosting redirects
+        continue-on-error: true
+        run: |
+          python3 - <<'PYHTTP'
+          import urllib.request,json
+          origin='https://max-yutnori-web.gnrationsia.chatgpt.site'
+          report=[]
+          for path in ['/', '/index.html', '/manifest.webmanifest', '/sw.js']:
+              try:
+                  r=urllib.request.urlopen(origin+path,timeout=15)
+                  report.append({'path':path,'status':r.status,'finalUrl':r.url,'contentType':r.headers.get('Content-Type')})
+              except Exception as error:
+                  report.append({'path':path,'error':str(error)})
+          print(json.dumps(report))
+          PYHTTP
       - name: Reuse proven PWA result only for identical inputs
         id: pwa-inputs
         run: |

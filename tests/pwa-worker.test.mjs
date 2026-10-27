@@ -2,13 +2,14 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
+import {createServer} from 'node:http';
 const code=await readFile(new URL('../web/pwa/sw-template.js',import.meta.url),'utf8').catch(()=>'');
-function worker({fail=false,windows=[]}={}){
+function worker({fail=false,windows=[],fetcher}={}){
  const handlers={},storage=new Map(),deleted=[],claimed=[];let waiting=0;
  const cache={put:async(k,v)=>storage.set(String(k),v.clone()),match:async k=>storage.get(String(k))?.clone()};
  const self={location:{href:'https://game.test/sub/sw.js'},registration:{scope:'https://game.test/sub/'},clients:{claim:async()=>claimed.push(true),matchAll:async()=>windows},addEventListener:(n,f)=>handlers[n]=f,skipWaiting:async()=>waiting++};
  const caches={open:async()=>cache,keys:async()=>['unrelated','max-yutnori-web-old'],delete:async n=>deleted.push(n)};
- const fetch=async req=>{if(fail)throw Error('offline');return new Response(String(req).includes('music')?'0123456789':'hello',{headers:{'Content-Type':String(req).includes('music')?'audio/mpeg':'text/html'}});};
+ const fetch=fetcher|| (async req=>{if(fail)throw Error('offline');return new Response(String(req).includes('music')?'0123456789':'hello',{headers:{'Content-Type':String(req).includes('music')?'audio/mpeg':'text/html'}});});
  vm.runInNewContext(code.replace('__CACHE_ID__','test').replace('__PRECACHE__',JSON.stringify(['./index.html','./audio/music.mp3'])),{self,caches,fetch,URL,Request,Response,Headers,console,ArrayBuffer});
  return {handlers,storage,deleted,claimed,cache,waiting:()=>waiting};
 }
@@ -38,4 +39,18 @@ test('activation counts only game windows within the worker scope',async()=>{
  await event(w.handlers.message,{data:{type:'ACTIVATE_WHEN_ALONE'}});assert.equal(w.waiting(),1);
  const multi=worker({windows:[{url:'https://game.test/sub/'},{url:'https://game.test/sub/index.html'}]});
  await event(multi.handlers.message,{data:{type:'ACTIVATE_WHEN_ALONE'}});assert.equal(multi.waiting(),0);
+});
+
+test('redirected shell is cached as a navigation-safe response without losing bytes',async()=>{
+ const server=createServer((req,res)=>{if(req.url==='/index.html'){res.writeHead(302,{Location:'/'});res.end();}else{res.setHeader('Content-Type','text/html');res.end('hello');}});
+ await new Promise(r=>server.listen(0,'127.0.0.1',r));
+ try{
+  const origin='http://127.0.0.1:'+server.address().port;
+  const original=await globalThis.fetch(origin+'/index.html');assert.equal(original.redirected,true,'real HTTP redirect fixture');
+  const w=worker({fetcher:async url=>String(url).endsWith('index.html')?globalThis.fetch(origin+'/index.html'):new Response('0123456789')});
+  await event(w.handlers.install);
+  const cached=await w.cache.match('https://game.test/sub/index.html');assert.equal(cached.redirected,false,'redirect metadata breaks manual-redirect navigation');assert.equal(await cached.text(),'hello');assert.equal(cached.headers.get('Content-Type'),'text/html');
+  const nav=new Request('https://game.test/sub/',{redirect:'manual'});Object.defineProperty(nav,'mode',{value:'navigate'});
+  const response=await event(w.handlers.fetch,{request:nav});assert.equal(response.redirected,false);assert.equal(await response.text(),'hello');
+ }finally{await new Promise(r=>server.close(r));}
 });

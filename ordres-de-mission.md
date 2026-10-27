@@ -27,6 +27,10 @@ Autorisation explicite de fusionner PR #2 et publier la version Android 0.8.8/co
 - Aucune fusion main ni release définitive de la nouvelle PWA sans validation de Fab. L'autorisation MYN-023 concerne la clôture Android préalable.
 État : LIVRÉE en test privé, à valider sur appareils. PWA0.1.0/build2, source6551730, URL https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement e2cb0e6 confirmé succeeded.110 tests et15 parcours PWA/caméra verts (CI40592283542). Contrôle APK/AAB/lint de compatibilité non signé réussi : CI40593243077. Aucune release PWA définitive ni fusion de cette branche dans main. Passation : docs/passation-web-pwa-v010.md.
 
+## MYN-025 — Accès public et erreur à la réouverture PWA — autorisée
+Fab demande en vocal : « le mettre en public, que je puisse le tester après l’installation », puis fournit la capture1793140008790.jpeg avec ERR_FAILED sur l’URL officielle. L'accès est déjà public (Sites, révision2) ; ne pas refaire une publication définitive ni changer l'origine. Diagnostiquer et corriger la réouverture/install, préserver parties/cadrage/Android, vérifier le vrai cycle navigateur et publier le correctif de test.
+État : cause de cache avec redirection reproduite par test HTTP réel rouge→vert ; build3 en vérification navigateur, aucun merge main ni release PWA définitive.
+
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.
 MYN-002 : suivi FAB-Copilot permanent. MYN-004 : audit audio historique conservé ; le moteur courant boucle le MP3 Arisongs, sans réouverture du binaire Unity. Aucun ordre non produit supprimé.
