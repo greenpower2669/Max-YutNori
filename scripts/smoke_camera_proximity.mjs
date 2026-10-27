@@ -3,7 +3,7 @@ import {createGame} from '../web/src/rules.mjs';
 export async function cameraProximityScenarios(page,ready,report){
  if(process.env.PROXIMITY_MOVE_ONLY)return accumulatedCameraScenario(page,ready,report);
  const d=()=>page.evaluate(()=>window.maxYutDiagnostic()),distance=c=>Math.hypot(...c.position.map((n,i)=>n-c.target[i]));
- const stable=async()=>{await page.evaluate(()=>{window.__proxOld=null;window.__proxStable=0;});await page.waitForFunction(()=>{const c=window.maxYutDiagnostic().camera,p=[...c.position,...c.target,c.magnification],old=window.__proxOld;window.__proxOld=p;window.__proxStable=old&&Math.hypot(...p.map((n,i)=>n-old[i]))<.001?window.__proxStable+1:0;return window.__proxStable>=3;});};
+ const stable=async()=>{await page.evaluate(()=>{window.__proxOld=null;window.__proxStable=0;});await page.waitForFunction(()=>{const c=window.maxYutDiagnostic().camera,p=c.mode==='free'?[Math.hypot(...c.position.map((n,i)=>n-c.target[i])),c.magnification]:[...c.position,...c.target,c.magnification],old=window.__proxOld;window.__proxOld=p;window.__proxStable=old&&Math.hypot(...p.map((n,i)=>n-old[i]))<.001?window.__proxStable+1:0;return window.__proxStable>=3;});};
  const g=createGame({teams:Array.from({length:4},(_,i)=>({players:[{name:`Humain ${i+1}`,computer:false}]}))});
  await page.setViewportSize({width:844,height:390});await page.evaluate(g=>{localStorage.setItem('max-yutnori-native-v4',JSON.stringify(g));localStorage.setItem('max-yutnori-settings-v3',JSON.stringify({auto:false,reduced:true,low:true,music:false,actionCamera:true}));localStorage.removeItem('test-frozen-clock');},g);await page.reload();await ready();await stable();
  for(const mode of ['board','top','bowl','free']){

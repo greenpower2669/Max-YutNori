@@ -4,6 +4,8 @@ Cause confirmée sur0.8.5 : ChaseCamera conserve la cible sur le pion et calcule
 
 Revue MYN-D041 : après un déplacement du pion3 avec [5,1], le rendu sélectionne automatiquement le pion1 mais conserve l’ancien focus ; le cadrage précis serre alors la mauvaise zone. Régression réelle navigateur RED : haloO1 hors cadrage ; puis GREEN : sync réassocie focus et destinations à la sélection automatique, en conservant le pincement et la phase du suivi. Les quatre yut gardent leur cadre de sécurité.
 
+Harnais vue libre : attendre une orientation immobile bloquait sur l’amortissement OrbitControls à5%par image en rendu logiciel. Les assertions concernent la distance ×2/pinch ; le témoin de stabilité de cette vue attend désormais une distance radiale stable, sans imposer la fin d’un orbit indépendant. Aucun assouplissement des assertions de distance/projection.
+
 ## Historique — référence précédente conservée
 
 # MYN-D038 / D039 — validation finale MYN-019 — 27 octobre 2026
