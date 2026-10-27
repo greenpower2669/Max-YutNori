@@ -1,3 +1,16 @@
+# MYN-021 —0.8.7/code16 en cours
+
+- [x] Lire les cinq mémoires et reprendre la base0.8.6.
+- [x] Reproduire le bord éloigné coupé (capture25695), tests unitaires et vrai navigateur rouges→verts ;96 tests verts.
+- [ ] Redresser/recentrer les poses et préserver le plateau dans la zone utile ; garder les gestes et retours.
+- [ ] Tests unitaires/navigateur, revue indépendante et CI Android complète.
+- [ ] APK seul téléchargé/version/signature vérifiés ; cinq mémoires/passation à jour.
+- [ ] Validation humaine Samsung du cadrage, gestes, esthétique et fluidité.
+
+Dernier APK vérifié0.8.6.
+
+## Historique — références précédentes conservées
+
 # État courant —0.8.6/code15 — MYN-020 livrée pour test
 
 - [x] Rapprochement physique dans les quatre vues et×2 réversible à focale fixe.

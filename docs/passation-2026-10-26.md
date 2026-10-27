@@ -1,3 +1,9 @@
+# PASSATION ACTIVE — MYN-021 /0.8.7-code16 en réalisation —27 octobre2026
+
+Fab valide la proximité0.8.6 mais signale le fond du plateau coupé sur25695.jpg. « C non tu peux coder » autorise l’avenant : angle plus plongeant, cible recentrée, rebord entier inclus au cadrage stabilisé (Plateau/top et suivi, normal/×2). Pinch manuel et gros plans temporaires conservés.96 tests unitaires et régression navigateur rouges→verts. Plan docs/plan-camera-angle-v087.md ; revue/gestes/CI/Android/livraison encore à vérifier. Dernier APK livré reste0.8.6/code15. Panorama/lac/physique gelés ; APK seul, PR#2 brouillon, ni main ni Release.
+
+## Historique — références précédentes conservées
+
 # PASSATION ACTIVE — MAX YUTNORI0.8.6 — MYN-020 —27 octobre2026
 
 Branche `feature/native-webgl-v020`, PR#2 ouverte et brouillon. Lire ordres-de-mission puis todo/brain/brainmap/debughistorical. Base précédente0.8.5/code14/9ada70e. MYN-020 est livrée pour test ; aucune nouvelle réalisation sans nouvel ordre de Fab.

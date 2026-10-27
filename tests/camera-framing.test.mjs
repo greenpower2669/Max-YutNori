@@ -23,3 +23,8 @@ test('x2 halves world-space camera distance and leaves the input framing intact'
  assert.deepEqual(base.position.toArray(),[-5,10,4]);
  assert.deepEqual(framing.approachFrame(base,1).position.toArray(),base.position.toArray());
 });
+
+test('physical approach respects the minimum distance needed to see the playing surface',async()=>{
+ const {approachFrame}=await import('../web/src/camera-framing.mjs');const base={target:new Vector3(-5,0,0),position:new Vector3(-5,10,0)};
+ const frame=approachFrame(base,2,8);assert.equal(frame.position.distanceTo(frame.target),8);assert.deepEqual(base.position.toArray(),[-5,10,0]);
+});

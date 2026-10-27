@@ -1,3 +1,9 @@
+# Contrat MYN-021 — réalisation0.8.7
+
+Le rapprochement0.8.6 est validé par Fab. Le cadrage stabilisé doit maintenant montrer le fond du plateau, son rebord et ses cases ; redresser l’angle et recentrer la visée. La visibilité du plateau devient prioritaire dans les vues automatiques Plateau/de dessus, y compris×2 ; l’approche physique peut être limitée au cadre indispensable. Pinch manuel, gros plans temporaires, gestes et vols conservés.
+
+## Historique — références précédentes conservées
+
 # Contrat courant — MYN-020 /0.8.6-code15 livrée
 
 Rapprochement réel à focale42° et projection1 : ×2 divise la distance physique puis revient au cadrage normal proche, sans cumul. Les séquences proche/latéral/révélation/suivi cadrent le pion et ses destinations depuis leur étendue réelle, avec une cible recentrée ; suppression du recul radial excessif et de la compensation qui éloignait la caméra sous ×2. Le focus et les destinations suivent aussi la sélection automatique après un coup avec résultats restants. Pinch, prises et retours restent compatibles ; vue libre avec orbit/pinch indépendants et recul manuel limité à1.35×la distance normale de cadrage. Pendant le suivi, le cadre nécessaire au pion et aux destinations prime sur une demi-distance stricte. Le vol conserve son recul de sécurité pour garder les quatre yut visibles, puis rend le cadre normal proche.

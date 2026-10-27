@@ -7,7 +7,7 @@ import {createStickGeometry} from './yut-geometry.js';
 import {woodTextures,engravedMaterial} from './materials.js';
 import {TEAM_STYLES} from './teams.mjs';
 import {BX,WX,POS,PAWN_TABLE_Y,PAWN_STACK,PAWN_CARRY_Y,pawnPosition,reservePosition,buildSelection} from './board-layout.mjs';
-import {ViewZoom,boardFrame,fitDistance,approachFrame} from './camera-framing.mjs';
+import {ViewZoom,boardFrame,fitDistance,approachFrame,boardBounds} from './camera-framing.mjs';
 import {ChaseCamera} from './chase-camera.mjs';
 import {PawnInput} from './pawn-input.js';
 import {SelectionHalos} from './halos.js';
@@ -18,7 +18,7 @@ export const COLORS=TEAM_STYLES.map(t=>t.color);
 export {BX,WX};
 function label(text,color='#fff0c9',size=.24){const c=document.createElement('canvas');c.width=128;c.height=128;const ctx=c.getContext('2d');ctx.fillStyle=color;ctx.font='bold 64px sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText(text,64,68);const map=new T.CanvasTexture(c);map.colorSpace=T.SRGBColorSpace;const mesh=new T.Mesh(new T.PlaneGeometry(size,size),new T.MeshBasicMaterial({map,transparent:true,depthWrite:false}));mesh.rotation.x=-Math.PI/2;return mesh;}
 export class GameScene {
- constructor(canvas,physics,onPick,onGesture,onTray={}){this.canvas=canvas;this.physics=physics;this.onPick=onPick;this.onGesture=onGesture;this.mode='board';this.free=false;this.targets=[];this.pawns=[];this.teamGlows=[];this.particles=[];this.time=0;this.reduced=false;this.chase=new ChaseCamera();this.focusPawn=null;this.drag=null;this.lifted=null;this.topView=new TopView();this.safeInsets={top:0,bottom:0,left:0,right:0};this.actionCamera=true;this.viewZoom=new ViewZoom();this.freeZoomValue=1;this.flightPoints=Array.from({length:32},()=>new T.Vector3());
+ constructor(canvas,physics,onPick,onGesture,onTray={}){this.canvas=canvas;this.physics=physics;this.onPick=onPick;this.onGesture=onGesture;this.mode='board';this.free=false;this.targets=[];this.pawns=[];this.teamGlows=[];this.particles=[];this.time=0;this.reduced=false;this.chase=new ChaseCamera(BX);this.focusPawn=null;this.drag=null;this.lifted=null;this.topView=new TopView();this.safeInsets={top:0,bottom:0,left:0,right:0};this.actionCamera=true;this.viewZoom=new ViewZoom();this.freeZoomValue=1;this.flightPoints=Array.from({length:32},()=>new T.Vector3());
  this.renderer=new T.WebGLRenderer({canvas,antialias:true,alpha:false});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.05;
  this.scene=new T.Scene();this.scene.background=new T.Color(0x102b28);this.scene.fog=new T.Fog(0x102b28,26,50);const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);this.environment=pmrem.fromScene(room,.04);this.scene.environment=this.environment.texture;this.scene.environmentIntensity=.55;room.dispose();pmrem.dispose();
  this.camera=new T.PerspectiveCamera(42,1,.1,80);this.camera.position.set(BX,11,5);this.controls=new OrbitControls(this.camera,canvas);this.controls.target.set(BX,0,0);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.enableRotate=false;this.controls.minDistance=3;this.controls.maxDistance=60;this.controls.maxPolarAngle=1.2;
@@ -141,7 +141,12 @@ export class GameScene {
   const action=this.focusPawn&&this.mode==='board'?this.chase.frame(dt,this.drag?.moving?this.drag.focus:this.focusPawn.position,this.camera.aspect,this.reduced,approach):null;
   if(action){target=action.target;position=action.position;}
   if(this.mode==='top'){target=new T.Vector3(BX,0,0);position=new T.Vector3(BX,this.topView.distance(this.camera.aspect),.001);}
-  if(!action)({target,position}=approachFrame({target,position},approach));
+  if(!action){
+   const direction=position.clone().sub(target).normalize();
+   // The full playing surface takes priority over an automatic x2 crop. Manual pinch remains independent.
+   const minimum=['board','top'].includes(this.mode)?fitDistance(boardBounds(BX),target,direction,this.camera.aspect,1,1.05)*(this.mode==='top'?Math.min(1,this.topView.zoom):1):0;
+   ({target,position}=approachFrame({target,position},approach,minimum));
+  }
   const blend=this.reduced?1:1-Math.exp(-dt*5);this.controls.target.lerp(target,blend);this.camera.position.lerp(position,blend);
  }else{
   // Keep orbit and manual pinch independent of the two-state approach switch.

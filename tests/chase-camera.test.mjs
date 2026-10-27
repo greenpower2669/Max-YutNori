@@ -18,7 +18,7 @@ test('pinch interrupts cinema, follows the pawn and clamps manual zoom',()=>{
 });
 test('reduced animations skip the close-up and reset returns normal board control',()=>{
  const chase=new ChaseCamera();chase.select(origin,[]);const frame=chase.frame(.01,origin,1.8,true);
- assert.equal(chase.phase,'follow');assert.ok(frame.position.distanceTo(frame.target)<=6);chase.reset();assert.equal(chase.frame(.1,origin,1.8,false),null);
+ assert.equal(chase.phase,'follow');assert.ok(frame.position.distanceTo(frame.target)<=13);chase.reset();assert.equal(chase.frame(.1,origin,1.8,false),null);
 });
 
 test('action framing includes every reserve-to-destination route in landscape and portrait',async()=>{
@@ -52,6 +52,26 @@ test('x2 approaches the action physically and never increases its maximum retrea
  const focus=new T.Vector3(-5,.5,0),destination=new T.Vector3(-4,.15,.7);
  const pose=factor=>{const c=new ChaseCamera();c.select(focus,[destination]);return c.frame(3,focus,2,false,factor);};
  const normal=pose(1),close=pose(2);
- assert.ok(close.position.distanceTo(close.target)<normal.position.distanceTo(normal.target)*.8,'x2 must move the camera closer');
+ assert.ok(close.position.distanceTo(close.target)<normal.position.distanceTo(normal.target)*.99,'x2 approaches until the whole board needs its minimum frame');
  for(const point of [focus,destination]){const camera=new T.PerspectiveCamera(42,2,.1,80);camera.position.copy(close.position);camera.lookAt(close.target);camera.updateMatrixWorld();const p=point.clone().project(camera);assert.ok(Math.abs(p.x)<1&&Math.abs(p.y)<1);}
+});
+
+test('the far board rim stays visible after reserve selection, including physical x2',async()=>{
+ const {createGame,legalMoves}=await import('../web/src/rules.mjs'),{pawnPosition,buildSelection}=await import('../web/src/board-layout.mjs');
+ for(const aspect of [.7,1.8,2.5])for(const approach of [1,2])for(let team=0;team<4;team++){
+  const game=createGame({teamCount:4});game.turn=team;game.phase='move';game.pending=[1];const focus=new T.Vector3(...pawnPosition(game,team,0)),destinations=buildSelection(game,legalMoves(game).filter(m=>m.piece===0),0).destinations.map(p=>new T.Vector3(...p));
+  const chase=new ChaseCamera();chase.select(focus,destinations);const frame=chase.frame(3,focus,aspect,false,approach),camera=new T.PerspectiveCamera(42,aspect,.1,80);camera.position.copy(frame.position);camera.lookAt(frame.target);camera.updateMatrixWorld();
+  for(let i=0;i<64;i++){const angle=i*Math.PI/32,p=new T.Vector3(-5+3.7*Math.cos(angle),.12,3.7*Math.sin(angle)).project(camera);assert.ok(Math.abs(p.x)<.98&&Math.abs(p.y)<.98,`rim team${team} aspect${aspect} x${approach}: ${p.x},${p.y}`);}
+  assert.ok(frame.position.clone().sub(frame.target).normalize().y>.94,'a steeper camera exposes the far surface');
+ }
+});
+
+test('manual pinch crosses its neutral value without a camera target jump',()=>{
+ const focus=new T.Vector3(-8,.5,4),pose=zoom=>{const c=new ChaseCamera();c.select(focus,[new T.Vector3(-4,.16,2.6)]);c.zoom=zoom;return c.frame(3,focus,2,false);};
+ const a=pose(.999),b=pose(1.001);assert.ok(a.target.distanceTo(b.target)<.02,'the same gesture must not switch abruptly between board and pawn targets');
+});
+
+test('opposite-reserve overview keeps the tighter retreat while showing the whole board',()=>{
+ const focus=new T.Vector3(-8.07,.48,-3.95),destination=new T.Vector3(-4.13475241575,.161,2.66295824563),chase=new ChaseCamera();chase.select(focus,[destination]);const frame=chase.frame(3,focus,469.84375/241,false);
+ assert.ok(frame.position.distanceTo(frame.target)<13.73,'avoid adding excess retreat on top of the board safety margin');
 });

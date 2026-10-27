@@ -8,6 +8,14 @@
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
 
 
+# MYN-021 — Fond du plateau visible — autorisée le27/10/2026
+
+Avenant à MYN-020. Fab valide le rapprochement de0.8.6 et fournit25695.jpg : en vue Plateau×2, un pion de réserve sélectionné, le bord éloigné et des cases sont coupés sous le bandeau. Il propose de redresser la caméra et demande d’abord une passation ; « C non tu peux coder » autorise ensuite la réalisation. Conserver la proximité validée, redresser l’orientation et recentrer la visée pour dégager le fond, avec retours stables. Base0.8.6/code15/2fd7b6c ; cible0.8.7/code16, APK uniquement. PR#2 brouillon, aucun merge main/Release.
+
+Préserver lac/panorama0.8.4, physique/cycle/puissances0.8.5, corrections de sélection/gestes0.8.6, règles/save/musique/identité/signature. Vérifier Plateau normal/×2, séquences, gestes, retours et vues connexes ; les gros plans temporaires restent suivis d’un cadrage stabilisé lisible.
+
+## Historique — références précédentes conservées
+
 # MYN-020 —0.8.6/code15 LIVRÉE, à valider sur Samsung —27 octobre2026
 
 Fab a clarifié que « zoom » signifiait rapprochement réel, conservé pendant toutes les séquences et avec ×2 ; réalisation autorisée par « Ok, code sa ».
