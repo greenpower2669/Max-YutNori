@@ -12,7 +12,7 @@
 ## MYN-023 — Clôture Android 0.8.8 et délestage — autorisée
 27/10/2026, Fab : « merge release, optimises les mémoires vivantes quitte à archiver si nécessaire ».
 Autorisation explicite de fusionner PR #2 et publier la version Android 0.8.8/code17. Réutiliser l'APK déjà vérifié, sans changer le jeu ni sa signature. Archiver sans perte les états anciens, garder IMMUTABLE, contrat courant, carte complète et tâches réellement ouvertes. La demande Web/PWA ci-dessous reste sur une branche séparée.
-État : nettoyage et automatisation de publication préparés ; merge et Release à confirmer par GitHub.
+État : PRODUIT. PR #2 fusionnée cdb2ff4 ; Release Android v0.8.8 et son téléchargement vérifiés par CI40589109427, même SHA-256 APK.
 
 ## MYN-024 — Web / PWA — réalisation demandée, publication de test autorisée
 27/10/2026, Fab demande de produire sa mission « Max YutNori Web / PWA » après la clôture Android.

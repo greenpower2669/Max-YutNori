@@ -3,7 +3,7 @@
 ## Clôture autorisée
 - [x] Vérifier PR #2 : tête 8debca3, 0.8.8/code17 et CI 40543163343 réussie sur source 08abcaed.
 - [x] Archiver intégralement les cinq anciens fichiers avec provenance/empreintes ; réaligner les fichiers actifs.
-- [ ] Fusionner PR #2 à tête attendue et publier/vérifier Release Android v0.8.8 avec l'APK exact déjà livré.
+- [x] PR #2 fusionnée cdb2ff4 ; Release v0.8.8 publiée/vérifiée par CI40589109427. APK62243800 octets, SHA2561b3ba30f… identique au binaire livré.
 
 ## Web/PWA — prochaine réalisation
 - [ ] Branche dédiée depuis la version intégrée ; design/plan de réalisation.
