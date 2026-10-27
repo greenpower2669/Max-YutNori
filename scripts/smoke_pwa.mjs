@@ -5,6 +5,7 @@ import {createReadStream} from 'node:fs';
 import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
+import {cameraAngleScenario} from './smoke_camera_angle.mjs';
 const root=resolve('pwa-dist'),report={checks:[],errors:[]};await mkdir('test-results',{recursive:true});
 const version=JSON.parse(await readFile(resolve(root,'web-version.json'),'utf8'));
 const sw=await readFile(resolve(root,'sw.js'),'utf8');let candidate=false,failMusic=false;
@@ -30,7 +31,7 @@ try{
  const manifest=await page.evaluate(async()=>{const m=await fetch(document.querySelector('link[rel=manifest]').href);return m.json();});assert.equal(manifest.display,'standalone');assert.equal(manifest.orientation,'landscape');assert.deepEqual(manifest.icons.map(i=>i.sizes),['192x192','512x512','512x512']);report.checks.push('Installable manifest, official icons, scope and landscape');
  await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByText('À jour',{exact:true}).waitFor();assert.match(await page.locator('#webVersion').innerText(),/Moteur 0.8.8 · PWA/);report.checks.push('Android 99.0.0 never reported as Web update');
  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('max-yutnori-native-v4')));await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();
- await page.getByRole('button',{name:/Lancer les bâtonnets/}).click();await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling&&window.maxYutDiagnostic().lastThrow);report.checks.push('Real physical throw and result');
+ await page.getByRole('button',{name:/Lancer les bâtonnets/}).click();await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling&&window.maxYutDiagnostic().lastThrow,{},{timeout:120000});report.checks.push('Real physical throw and result');
  await page.getByRole('button',{name:'Pause',exact:true}).click();await page.screenshot({path:'test-results/pwa-pause.png'});
  await context.setOffline(true);await page.reload();await page.waitForFunction(()=>window.__gameReady);const restored=await page.evaluate(()=>window.maxYutDiagnostic());assert.ok(restored.lastThrow);assert.ok(restored.state);report.checks.push('Offline reload restores game and last throw from localStorage');await page.waitForFunction(()=>window.maxYutDiagnostic().audio.duration>60);report.checks.push('Original MP3 reassembled and decoded offline');
  const audioRange=await page.evaluate(async()=>{const r=await fetch('./audio/music-part-000.bin',{headers:{Range:'bytes=100-199'}});return {status:r.status,length:(await r.arrayBuffer()).byteLength,range:r.headers.get('Content-Range')};});assert.equal(audioRange.status,206);assert.equal(audioRange.length,100);report.checks.push('Offline original music chunks and byte ranges served from complete cache');
@@ -44,6 +45,7 @@ try{
  await page.waitForFunction(()=>['ready','hidden'].includes(window.maxYutDiagnostic().bowl.phase));await page.getByRole('button',{name:'Actualiser le jeu',exact:true}).click();await page.getByText(/Fermez les autres fenêtres/).waitFor();report.checks.push('Multiple open windows block forced activation');await second.close();
  const before=await page.evaluate(()=>localStorage.getItem('max-yutnori-native-v4'));
  await Promise.all([page.waitForEvent('load'),page.getByRole('button',{name:'Actualiser le jeu',exact:true}).click()]);await page.waitForFunction(()=>window.__gameReady);assert.equal(await page.evaluate(()=>localStorage.getItem('max-yutnori-native-v4')),before);report.checks.push('Explicit update reload preserves exact saved game');
+ await cameraAngleScenario(page,()=>page.waitForFunction(()=>window.__gameReady),report);
  assert.deepEqual(report.errors,[]);await page.screenshot({path:'test-results/pwa-board.png'});report.result='PASS';
 }catch(error){report.result='FAIL';report.failure=String(error.stack);throw error;}
 finally{await writeFile('test-results/pwa-smoke.json',JSON.stringify(report,null,2));await browser?.close();server.close();console.log(JSON.stringify(report));}

@@ -13,9 +13,9 @@ Architecture : garder tous les fichiers du moteur et d'Android inchangés. Vite 
 - Vérifier Chrome mobile/desktop via navigateur disponible ; installation réelle Samsung/OS reste une validation humaine distincte.
 
 ## Tâches
-1. [ ] Métadonnées et politique de version testées avant implémentation : semver, build monotone, Android ignoré, réponses invalides/absence de release/offline.
-2. [ ] Build web/manifest/icônes/worker : pré-cache atomique, audio Range, navigation offline, pas de cache des API externes, mise à jour volontaire et cache précédent sûr.
-3. [ ] Interface PWA intégrée au dialogue Pause et réglages ; installation native/explications, plein écran, statut offline et stockage, update sans partie perdue.
+1. [x] Métadonnées et politique de version testées avant implémentation : semver, build monotone, Android ignoré, réponses invalides/absence de release/offline.
+2. [x] Build web/manifest/icônes/worker : pré-cache atomique, audio Range, navigation offline, pas de cache des API externes, mise à jour volontaire et cache précédent sûr.
+3. [x] Interface PWA intégrée au dialogue Pause et réglages ; installation native/explications, plein écran, statut offline et stockage, update sans partie perdue.
 4. [ ] Tests unitaires, builds Android/Web, contrôle d'intégrité des fichiers protégés, tests navigateur WebGL/physique/caméra/sauvegarde/manifest/worker/hors-ligne et scénario update.
 5. [ ] Source GitHub et PR brouillon ; CI reproductible et documentation ; déploiement Sites de test, résultats et mémoires synchronisées.
 
@@ -24,7 +24,7 @@ Sources techniques : MDN Using Service Workers et skipWaiting ; GitHub REST rele
 ## Journal d'exécution
 - Référence unitaires96/96 ; version + worker neuf tests rouges puis verts ; suite105/105 ; deux builds verts.
 - Aucun changement de web/src, web/index.html ou Android : comparaison Git avec cdb2ff4. Modules Web injectés par mode Vite séparé.
-- Aperçu cloud HTTP : WebGL indisponible (« Error creating WebGL context »), donc le rendu 3D ne peut pas être évalué dans cette surface. La CI exécute le vrai Chrome avec SwiftShader et les56 parcours existants ainsi que le nouveau scénario PWA.
+- Aperçu cloud HTTP : WebGL indisponible (« Error creating WebGL context »), donc le rendu 3D ne peut pas être évalué dans cette surface. La CI exécute le vrai Chrome avec SwiftShader et le nouveau scénario PWA et la régression de cadrage caméra ; les56 parcours de la référence0.8.8 sont déjà verts et ses52 fichiers moteur/Android inchangés.
 - Choix : tests navigateur reproductibles sur runner GitHub ; aucun changement du moteur pour contourner l'indisponibilité WebGL de l'aperçu.
 
 ## Revue et décisions

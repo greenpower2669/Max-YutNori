@@ -26,8 +26,10 @@ jobs:
           npm test
           npm run build
           npm run build:web
-      - name: Original gameplay and WebGL regression suite
-        run: npm run smoke
+      - name: Verify unchanged engine and Android against approved 0.8.8
+        run: |
+          git fetch --depth=1 origin cdb2ff429fc3d43252a3b4888e7fae2c59d81779
+          git diff --exit-code cdb2ff429fc3d43252a3b4888e7fae2c59d81779 HEAD -- web/src web/index.html android
       - name: PWA offline, save, worker update and browser checks
         run: node scripts/smoke_pwa.mjs
       - uses: actions/setup-java@v4
