@@ -1,3 +1,17 @@
+# MYN-019 — LIVRÉE, à valider sur Samsung — 27 octobre 2026
+
+MYN-019 : cadrage 3D rapproché du plateau, bandeaux compacts et semi-transparents, tour/joueur/message regroupés à gauche. Zoom ×2 à deux états avec `aria-pressed`, transition douce et pinch indépendant ; la caméra action garde son propre cadrage par compensation de projection puis rend le grossissement choisi. Bol/socle déplacés vers la droite avec physique, départs, rangement et pointage cohérents. Forces minimale et maximale accrues, migration versionnée des anciennes valeurs, auto/IA/capteur raccordés. Les quatre volumes physiques doivent tous dépasser le rebord incliné/soulevé avec marge avant désactivation des collisions et fondu rapide du bol/socle ; le vol reste dynamique et le rangement revient au bol. Murs hauts invisibles, CCD et subdivision adaptative pour impacts extrêmes ; aucune téléportation de confinement ni face inventée.
+
+Lancer, force et mode automatique restent disponibles dans le bandeau ; les choix de coups partagent les lignes et défilent lorsqu'ils dépassent la hauteur disponible. L'ondulation du lac, ses formules/masques et le panorama 0.8.4 (24 cascades, brumes et nuages) n'ont pas été modifiés. Règles, sauvegarde v4, identité, icône, musique et signature conservées.
+
+Source `89ad97d4ed659aab3e03c68289348466bcfdf252` ; binaires `b7355bf77fb9637d325a59cb5edd290e618522b0` ; [CI 40432711889](https://github.com/greenpower2669/Max-YutNori/actions/runs/40432711889) **réussie**. Version **0.8.5/code14**, `fr.fab.maxyutnori`. **89/89 tests unitaires et 50/50 parcours navigateur hors ligne** ; aucune erreur JavaScript ni requête externe. Rendu WebGL : lac inchangé aux cinq phases de référence, sondes terrestres fixes ; panorama 0.8.4 conservé. Build/lint Android et signature APK v2 validés.
+
+[📱 APK directement installable](https://github.com/greenpower2669/Max-YutNori/raw/b7355bf77fb9637d325a59cb5edd290e618522b0/temp/Max-YutNori-v0.8.5-debug.apk) — 62,499,852 octets ; SHA-256 `578d54da69f41cd0ee7bdcad871bb7ac4bea37a87eeef5c21ea217119b603fe6`. Certificat extrait du vrai APK téléchargé et identique à 0.8.4 : `0df9d3279c2bb60023ca3a4beefe017c449249a42383f53f1e52ce63fd69916a`. ZIP, manifeste Android binaire, icône, quatre PNG et musique MP3 vérifiés. **APK uniquement**, aucun nouvel AAB.
+
+**À valider par Fab sur Samsung SM-A576B Android 16** : mise à jour réelle, lisibilité du cadrage et des pions, gestes/pinch/×2/caméra action, bol à droite et retour des quatre yut, puissance et rebonds, esthétique de toutes les 24 cascades/brumes/nuages, berges immobiles et FPS/chauffe. La capture 25678.jpg n'était pas disponible dans ce checkout : la disposition décrite par Fab a guidé le travail, la correspondance visuelle exacte reste humaine. Aucun test physique Samsung ni mesure FPS revendiqué. Aucun merge `main` ni Release définitive.
+
+## Historique — états antérieurs conservés
+
 ## MYN-019 — Autorisée, réalisation 0.8.5/code14 (27/10/2026)
 
 CI initiale40431151100 arrêtée avant Android : le test a détecté le mode automatique masqué en phase de déplacement. Commandes permanentes rétablies et contrôle de visibilité ajouté ; nouveau passage complet à lancer. Aucun nouvel APK livré.
