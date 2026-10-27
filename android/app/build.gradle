@@ -7,8 +7,8 @@ android {
         applicationId 'fr.fab.maxyutnori'
         minSdk 26
         targetSdk 36
-        versionCode 14
-        versionName '0.8.5'
+        versionCode 15
+        versionName '0.8.6'
     }
     sourceSets { main { assets.srcDirs = ['../../web-dist'] } }
     signingConfigs {

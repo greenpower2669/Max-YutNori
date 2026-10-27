@@ -1,3 +1,9 @@
+# Contrat MYN-020 — en réalisation
+
+Le rapprochement demandé est un déplacement 3D à focale fixe ; la caméra action doit cadrer le pion et ses destinations sans recul radial excessif. Le mode ×2 ne doit plus éloigner physiquement la caméra. Le recul indispensable au vol des quatre yut reste prioritaire. Après un déplacement, le focus suit la nouvelle sélection automatique et ses destinations, tout en conservant le pincement. ×2 vise une demi-distance ; le cadrage du pion et des destinations reste prioritaire en suivi. Base0.8.5 conservée tant que le nouvel APK n’est pas vérifié.
+
+## Historique — référence précédente conservée
+
 # Contrat courant — MYN-019 / 0.8.5-code14 livrée
 
 MYN-019 : cadrage 3D rapproché du plateau, bandeaux compacts et semi-transparents, tour/joueur/message regroupés à gauche. Zoom ×2 à deux états avec `aria-pressed`, transition douce et pinch indépendant ; la caméra action garde son propre cadrage par compensation de projection puis rend le grossissement choisi. Bol/socle déplacés vers la droite avec physique, départs, rangement et pointage cohérents. Forces minimale et maximale accrues, migration versionnée des anciennes valeurs, auto/IA/capteur raccordés. Les quatre volumes physiques doivent tous dépasser le rebord incliné/soulevé avec marge avant désactivation des collisions et fondu rapide du bol/socle ; le vol reste dynamique et le rangement revient au bol. Murs hauts invisibles, CCD et subdivision adaptative pour impacts extrêmes ; aucune téléportation de confinement ni face inventée.

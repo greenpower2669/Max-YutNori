@@ -1,3 +1,9 @@
+# Carte MYN-020 — diagnostic et réalisation
+
+camera-framing.mjs : cadrage géométrique partagé et approche physique. chase-camera.mjs : trajectoire proche/latérale/révélation/suivi, centrage des points réellement utiles. scene.js : application à toutes les vues, ×2 à projection constante, OrbitControls/pinch et retour après vol ; sync réassocie focusPawn et destinations à la sélection courante, y compris automatique. Vue libre : distance normale bornée à1.35×le cadrage proche et limites divisées par le facteur physique. Panorama et physique hors périmètre, fichiers gelés. Plan docs/plan-camera-v086.md.
+
+## Historique — référence précédente conservée
+
 # Point d'entrée actif — MYN-019 / 0.8.5 — 27 octobre 2026
 
 - `physics.mjs` : repère de table préservé, bol physique `TRAY.centerX=1.6` (monde6.6), murs hauts extérieurs épais, CCD et sous-pas1..8 si vitesse>20 ; sinon120Hz. `trayCleared()` examine chaque sommet des quatre convexes sous leur rotation contre le plus haut point du rebord + marge.

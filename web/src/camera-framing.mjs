@@ -18,3 +18,8 @@ export function boardFrame(centerX,aspect){
  const distance=fitDistance(points,target,direction,aspect,1,1.02);
  return {target,position:target.clone().addScaledVector(direction,distance)};
 }
+
+// A dolly changes world-space distance, never the lens or CSS scale.
+export function approachFrame(frame,factor=1){
+ return {target:frame.target.clone(),position:frame.target.clone().add(frame.position.clone().sub(frame.target).divideScalar(factor))};
+}

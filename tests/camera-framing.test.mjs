@@ -13,3 +13,13 @@ test('normal board camera enlarges pawns compared with 0.8.4 while preserving ev
  const a=new Vector3(-7.8,.1,0),b=new Vector3(-2.2,.1,0);assert.ok(current(b).x-current(a).x>(old(b).x-old(a).x)*1.03,'the actual perspective magnification must increase');
  for(const x of [-8.35,-1.65])for(const z of [-4.23,4.23]){const p=current(new Vector3(x,-.31,z));assert.ok(Math.abs(p.x)<1&&Math.abs(p.y)<1,'full reserve bounds stay in the normal camera');}
 });
+
+test('x2 halves world-space camera distance and leaves the input framing intact',async()=>{
+ const framing=await import('../web/src/camera-framing.mjs');
+ assert.equal(typeof framing.approachFrame,'function','physical approach must exist');
+ const base={target:new Vector3(-5,0,0),position:new Vector3(-5,10,4)};
+ const close=framing.approachFrame(base,2);
+ assert.ok(Math.abs(close.position.distanceTo(close.target)-Math.sqrt(116)/2)<1e-9);
+ assert.deepEqual(base.position.toArray(),[-5,10,4]);
+ assert.deepEqual(framing.approachFrame(base,1).position.toArray(),base.position.toArray());
+});

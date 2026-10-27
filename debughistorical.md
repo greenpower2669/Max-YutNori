@@ -1,3 +1,11 @@
+# MYN-D040 — recul excessif après approche (27/10/2026)
+
+Cause confirmée sur0.8.5 : ChaseCamera conserve la cible sur le pion et calcule le recul depuis la distance entière à la destination, comme un rayon ; exemple route diagonale8.49 :26.53unités à aspect2,36.63 à aspect.7, contre cadrage général11.94/15.46. scene.js multiplie ensuite cette distance par camera.zoom en action, donc ×2 double le recul physique. Correction en cours : centrage de la zone utile, ajustement aux points projetés et approche physique à focale fixe. Base89 tests verts. Aucun nouvel APK encore.
+
+Revue MYN-D041 : après un déplacement du pion3 avec [5,1], le rendu sélectionne automatiquement le pion1 mais conserve l’ancien focus ; le cadrage précis serre alors la mauvaise zone. Régression réelle navigateur RED : haloO1 hors cadrage ; puis GREEN : sync réassocie focus et destinations à la sélection automatique, en conservant le pincement et la phase du suivi. Les quatre yut gardent leur cadre de sécurité.
+
+## Historique — référence précédente conservée
+
 # MYN-D038 / D039 — validation finale MYN-019 — 27 octobre 2026
 
 Revue : deux problèmes importants reproduits et corrigés. À vitesse80, un yut graine5 traversait le mur mince malgré CCD ; murs épaissis vers l'extérieur et sous-pas adaptatifs bornés, sans changer les limites intérieures ni téléporter les corps. Régression sur les quatre bords/coin et 100 essais de stress sans sortie. Les trajectoires ordinaires gardent120Hz.

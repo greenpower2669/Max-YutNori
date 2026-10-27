@@ -1,3 +1,17 @@
+# MYN-020 — 0.8.6/code15 en cours
+
+- [x] Lire les cinq mémoires et diagnostiquer le recul0.8.5 ;89 tests de base verts.
+- [x] Régression rouge puis verte : recul ajusté au trajet réel, ×2 physique à projection fixe, retours répétés ;92 tests verts et deux groupes navigateur passés.
+- [x] MYN-D041 de revue : retarget automatique après déplacement avec résultats restants, régression navigateur rouge→verte ;92 tests unitaires verts après correction.
+- [ ] Vérifier gestes, vues, sélections successives, pause, réduction des animations et vol des quatre yut.
+- [ ] Revue indépendante puis CI complète/Android, APK seul, vrai téléchargement/version/signature.
+- [ ] Synchroniser les cinq mémoires/passation et fournir le lien direct.
+- [ ] Essais Samsung par Fab : esthétique, lisibilité, fluidité, installation/gestes.
+
+Dernière livraison vérifiée0.8.5 ; aucun merge main ni Release.
+
+## Historique — référence précédente conservée
+
 # État courant — 0.8.5/code14 — MYN-019 livrée pour test
 
 Source `89ad97d4ed659aab3e03c68289348466bcfdf252` ; binaires `b7355bf77fb9637d325a59cb5edd290e618522b0` ; [CI 40432711889](https://github.com/greenpower2669/Max-YutNori/actions/runs/40432711889) **réussie**. Version **0.8.5/code14**, `fr.fab.maxyutnori`. **89/89 tests unitaires et 50/50 parcours navigateur hors ligne** ; aucune erreur JavaScript ni requête externe. Rendu WebGL : lac inchangé aux cinq phases de référence, sondes terrestres fixes ; panorama 0.8.4 conservé. Build/lint Android et signature APK v2 validés.

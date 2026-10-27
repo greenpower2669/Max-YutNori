@@ -1,3 +1,11 @@
+# MYN-020 — Rapprochement réel de la caméra — autorisée le 27/10/2026
+
+Fab précise que « zoom » signifiait rapprocher réellement la caméra du plateau. Toutes les séquences (approche, latéral, recul maximal, suivi, fin et retour), dans toutes les vues et avec ×2, doivent conserver un plateau lisible sans recul excessif. ×2 reste un interrupteur réversible, calculé depuis le cadrage normal rapproché et compatible avec le pincement. Nouvelle autorisation : « Ok, code sa ». Base livrée 0.8.5/code14, commit9ada70e005ad7358e08a04da581b45e42a246cfe. Réalisation0.8.6/code15 en vérification (92 tests et régressions caméra/retarget vertes), APK uniquement, PR#2 brouillon, aucun merge main ni Release.
+
+Préserver intégralement le panorama/lac0.8.4, physique/cycle du bol et puissances0.8.5, règles, sauvegarde, musique, identité et signature. Les quatre yut en vol doivent rester visibles même si leur cadrage exige temporairement du recul.
+
+## Historique — référence précédente conservée
+
 # MYN-019 — LIVRÉE, à valider sur Samsung — 27 octobre 2026
 
 MYN-019 : cadrage 3D rapproché du plateau, bandeaux compacts et semi-transparents, tour/joueur/message regroupés à gauche. Zoom ×2 à deux états avec `aria-pressed`, transition douce et pinch indépendant ; la caméra action garde son propre cadrage par compensation de projection puis rend le grossissement choisi. Bol/socle déplacés vers la droite avec physique, départs, rangement et pointage cohérents. Forces minimale et maximale accrues, migration versionnée des anciennes valeurs, auto/IA/capteur raccordés. Les quatre volumes physiques doivent tous dépasser le rebord incliné/soulevé avec marge avant désactivation des collisions et fondu rapide du bol/socle ; le vol reste dynamique et le rangement revient au bol. Murs hauts invisibles, CCD et subdivision adaptative pour impacts extrêmes ; aucune téléportation de confinement ni face inventée.

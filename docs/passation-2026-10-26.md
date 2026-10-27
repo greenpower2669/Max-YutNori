@@ -1,3 +1,9 @@
+# PASSATION ACTIVE — MYN-020 / 0.8.6 en cours — 27 octobre 2026
+
+Fab a autorisé la clarification caméra : rapprochement physique permanent, recul de suivi limité au cadrage du pion/destinations, ×2 réversible à focale fixe. Base livrée0.8.5/code14/9ada70e. Plan docs/plan-camera-v086.md. 92 tests locaux verts ; revue indépendante traitée (MYN-D041 focus automatique), groupes navigateur demi-distance/retours répétés/retarget passés. Gestes combinés et CI complète/Android encore à vérifier. Dernier APK vérifié reste0.8.5. Aucun merge main ni Release. Lac/panorama et physique0.8.5 gelés.
+
+## Historique — passation précédente conservée
+
 # PASSATION ACTUELLE — MAX YUTNORI 0.8.5 — MYN-019 — 27 octobre 2026
 
 Branche `feature/native-webgl-v020`, PR brouillon #2. Lire ordres-de-mission puis todo/brain/brainmap/debughistorical.
