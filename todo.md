@@ -41,3 +41,5 @@ CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec r
 Cause observée : seul le pont Android alimente les callbacks du moteur ; aucun écouteur devicemotion Web. Ajouter un adaptateur exclusif au build Web, permission explicite selon navigateur, axes paysage identiques Android, filtrage gravité et état de réception réel. Tests du détecteur existant, permissions/refus/absence, pause/reprise/priorités, navigateur puis publication build4. Ne pas présenter des événements simulés comme un test matériel Samsung.
 
 MYN-026 vérification locale :117 tests unitaires réussis (6 nouveaux capteurs), builds Android/Web réussis, diff nul des52 sources moteur/Android contre cdb2ff4. Cinq scénarios supplémentaires DeviceMotionEvent→physique/UI/permission ajoutés à la suite navigateur ; attente CI et revue, aucune validation matérielle déclarée.
+
+CI40613205453 échoue au premier lancer navigateur ; collecte des intervalles et diagnostic bridge/core, comparaison horloge murale/déterministe. Aucun déploiement build4 effectué. Ne pas déclarer les21 parcours verts avant leur résultat.

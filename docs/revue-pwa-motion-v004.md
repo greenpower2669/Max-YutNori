@@ -1,0 +1,16 @@
+# MYN-026 — capteurs Web, PWA0.1.0 build4
+
+Fab confirme la réouverture de la PWA fonctionnelle mais signale l’absence des lancers à l’accéléromètre. Le moteur ne recevait que les callbacks du pont Java Android ; aucun adaptateur devicemotion Web n’existait.
+
+`web/pwa/motion.mjs` relie les événements aux callbacks existants. Le plugin Web importe `motion-client.js` avant le corps de `main.js`, sans modifier ses sources. La branche Android ne charge aucun de ces modules. Accélération linéaire en m/s² ; fallback gravité filtrée avec constante0,35s, calibration400ms, livraison limitée à environ33Hz, axes écran identiques à MotionSensors.java pour0/90/180/270°. Le vrai MotionThrow garde repos350ms, seuil/sensibilité et lancement physique. Réactivation/rotation/gap réinitialisent la calibration. Les contrôles pause, Auto, IA, doigt sur le bol et vol restent ceux du moteur.
+
+La présence de DeviceMotionEvent n’est pas une preuve de capteur. La disponibilité devient vraie après une première mesure finie ; aucune donnée nulle ou refusée ne l’active. Les navigateurs qui exposent requestPermission sont sollicités seulement par le bouton « Activer les capteurs » dans Réglages. Les erreurs et politiques bloquantes sont expliquées. La préférence OFF reste sauvegardée. `maxYutWebMotionDiagnostic()` donne état, compteur, dernière réception et type de source, sans journal de mouvements.
+
+Six régressions Node exécutent le vrai détecteur avec la frontière matérielle remplacée par des événements : absence→échec observé, puis117 tests unitaires verts. Deux builds réussis et52 sources jeu/Android identiques à cdb2ff4 ; bundle Android inchangé. Source GitHub3bd30a472ff1a7a6cb69bcf10b89a357d1d1ba07, arbre7244c312eaf629747fb8203cdc8f0e5024c698fe.
+
+Cinq scénarios supplémentaires en cours de CI40613205453 : événements DeviceMotionEvent→Rapier réel, pause/reprise, disponibilité et OFF conservé, permission refusée, permission accordée. Ils complètent les16 scénarios PWA/offline/caméra déjà existants. Les données sont simulées à la frontière du navigateur : elles ne constituent pas une mesure matérielle du Samsung, un dialogue natif Safari ou une preuve des permissions de chaque OS. Revue indépendante et publication à compléter après résultat.
+
+## Essai sur téléphone
+Dans Pause : vérifier les mises à jour, attendre puis Actualiser le jeu ; contrôler build4. Reprendre, décocher Auto ; dans Réglages, activer les capteurs si proposé et autoriser le navigateur. Garder « Bac mobile et lancer au mouvement » coché. Reprendre la partie, garder le téléphone immobile environ une seconde puis faire le geste habituel ; contrôler les deux paysages. Les données du site et les sauvegardes restent conservées. Si le texte reste « En attente des capteurs », vérifier l’autorisation Capteurs de mouvement dans les paramètres du site Chrome ; conserver le message exact pour le diagnostic.
+
+Références primaires consultées : https://developer.apple.com/documentation/webkitjs/devicemotionevent ; https://developer.apple.com/documentation/webkitjs/devicemotionevent/1629483-acceleration ; https://developer.apple.com/documentation/webkitjs/devicemotionevent/1629110-accelerationincludinggravity . Documentation API/permissions : https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent/requestPermission_static .
