@@ -1,0 +1,106 @@
+name: Web PWA and Android compatibility
+on:
+  push:
+    branches: ['feature/web-pwa-v010']
+    paths-ignore: ['*.md', 'docs/**', 'temp/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: web-pwa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Unit tests, original assets and both builds
+        run: |
+          npm ci
+          python3 scripts/verify_branding.py
+          npm test
+          npm run build
+          npm run build:web
+      - name: Verify unchanged engine and Android against approved 0.8.8
+        run: |
+          git fetch --depth=1 origin cdb2ff429fc3d43252a3b4888e7fae2c59d81779
+          git diff --exit-code cdb2ff429fc3d43252a3b4888e7fae2c59d81779 HEAD -- web/src web/index.html android
+      - name: Diagnose public hosting redirects
+        continue-on-error: true
+        run: |
+          python3 - <<'PYHTTP'
+          import urllib.request,json
+          origin='https://max-yutnori-web.gnrationsia.chatgpt.site'
+          report=[]
+          for path in ['/', '/index.html', '/manifest.webmanifest', '/sw.js']:
+              try:
+                  r=urllib.request.urlopen(origin+path,timeout=15)
+                  report.append({'path':path,'status':r.status,'finalUrl':r.url,'contentType':r.headers.get('Content-Type')})
+              except Exception as error:
+                  report.append({'path':path,'error':str(error)})
+          print(json.dumps(report))
+          PYHTTP
+      - name: Reuse proven PWA result only for identical inputs
+        id: pwa-inputs
+        run: |
+          git fetch --depth=1 origin 65517302a815e5b31f2ec120827c473cb51571ce
+          if git diff --quiet 65517302a815e5b31f2ec120827c473cb51571ce HEAD -- web scripts tests vite.config.js package.json package-lock.json web-release.json; then
+            echo "required=false" >> "$GITHUB_OUTPUT"
+            echo "PWA inputs unchanged: 15/15 browser checks passed in run 40592283542."
+          else
+            echo "required=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: PWA offline, save, worker update and browser checks
+        if: steps.pwa-inputs.outputs.required == 'true'
+        run: node scripts/smoke_pwa.mjs
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
+          log-accepted-android-sdk-licenses: false
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - uses: actions/cache/restore@v4
+        with:
+          path: ~/.android/max-yutnori-debug.keystore
+          key: max-yutnori-native-debug-key-v2
+          fail-on-cache-miss: false
+      - name: Android APK/AAB build and lint without publication
+        run: |
+          mkdir -p test-results
+          if [ -s "$HOME/.android/max-yutnori-debug.keystore" ]; then
+            gradle -p android --no-daemon assembleDebug bundleDebug lintDebug
+            printf '{"apk":"PASS","aab":"PASS","lint":"PASS","signed":true}\n' > test-results/android-compatibility.json
+          else
+            # Cache scope is branch-specific. Never generate or replace the published key.
+            cat > "$RUNNER_TEMP/unsigned-compatibility.gradle" <<'GRADLE'
+          gradle.beforeProject { p ->
+              p.afterEvaluate {
+                  if (p.plugins.hasPlugin('com.android.application')) {
+                      p.android.buildTypes.getByName('debug').signingConfig = null
+                  }
+              }
+          }
+          GRADLE
+            gradle --init-script "$RUNNER_TEMP/unsigned-compatibility.gradle" -p android --no-daemon assembleDebug bundleDebug lintDebug
+            test -s android/app/build/outputs/apk/debug/app-debug-unsigned.apk
+            test -s android/app/build/outputs/bundle/debug/app-debug.aab
+            printf '{"apk":"PASS","aab":"PASS","lint":"PASS","signed":false,"note":"Unsigned compatibility packages only; official Android release and signing configuration unchanged."}\n' > test-results/android-compatibility.json
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Max-YutNori-Web-PWA-verification
+          path: |
+            test-results/
+            pwa-dist/
+            android/app/build/reports/lint-results-debug.html

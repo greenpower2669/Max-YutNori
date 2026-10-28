@@ -1,4 +1,4 @@
-# Carte technique — Max YutNori 0.8.8
+# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build4
 
 Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
 
@@ -254,3 +254,28 @@ MYN-007 livré pour test : docs/plan-bac-v040.md et docs/bac-progress.md ; revue
 0.4.0 : `physics.reset()` annule le vol lors de `newGame`. Preuves et deux corrections de revue dans `docs/revue-v040.md`, régressions dans `tests/table.test.mjs` et `scripts/smoke_native.mjs`.
 
 0.4.1 : SUPPORT et TRAY centralisent les dimensions ; advanceTray calcule la hauteur de sécurité à chaque pas contre table et socle. GameScene capture le doigt sur le bac en vue Bol, transmet begin/move/end et libère à pointercancel, changement de vue ou pause. main.js utilise trayEligible pour préparer même sans capteur ; motionEligible exclut trayGrab. TEAM_STYLES distingue color (matière), css/glow (accents lisibles), finish et ink.
+
+## MYN-024 — modules Web/PWA
+web/pwa/version.mjs : semver, validation schéma/channel/commit, ordre build/version, sélection GitHub et contrôle hôte ; tests/pwa-version.test.mjs. web/pwa/sw-template.js : cache complet par hash du build, Range audio et activation explicite mono-fenêtre ; tests/pwa-worker.test.mjs par vrai runtime JS isolé. web/pwa/client.js et pwa.css : surcouche Pause/installation/plein écran/versions, sans modifier main.js. scripts/build-pwa-plugin.mjs : injection uniquement en mode web, manifest et liste exhaustive des assets, métadonnées internes compilées et worker. web-release.json : version PWA/build ; package.json : moteur. Images officielles web/public/pwa ; caméra/physique/panorama inchangés.
+
+Transport musical Web : plugin mode web transforme uniquement le constructeur Audio en createWebMusic (web/pwa/music.mjs), génère audio/music-parts.json et fragments8Mio dans pwa-dist, retire seulement la copie MP3 géante du déploiement. Le module retourne immédiatement un Audio, prépare son Blob intégral et garde play/pause cohérents pendant le chargement. tests/pwa-music.test.mjs vérifie bytes et corruption ; original Android/audio.js inchangé.
+
+MYN-D046 : checkVersions accepte l'état réseau, par défaut navigator.onLine ; sortie offline sans fetch. tests/pwa-version.test.mjs reproduit des réponses disponibles malgré online=false ; smoke_pwa capture en échec online/statuts/gameReady. web-release build2 remplace le déploiement différent build1 après vérification.
+
+CI compatibilité : détection d'identité des entrées Web vs6551730 pour réutiliser les15 parcours réussis40592283542 lors d'un seul changement de workflow/docs. Cache de clé debug conservé ; si inaccessible sur branche sœur, init Gradle éphémère désactive seulement la signature de la construction de contrôle, jamais dans les sources. Rapport test-results/android-compatibility.json distingue explicitement signé/non signé. Aucun nouveau paquet de contrôle publié.
+
+Preuves finales et installation : docs/passation-web-pwa-v010.md, docs/web-pwa-publication.md, docs/revue-web-pwa-v010.md et docs/verification/web-pwa-source-integrity.json. Le déploiement publié vient de6551730, sans fusion PWA vers main.
+
+CI finale40593243077 :110 tests/deux builds/intégrité moteur et Android, réutilisation explicite des15 parcours40592283542 sur les mêmes entrées, assemblage APK/AAB unsigned et lint ; rapports dans artefacts Actions et docs/verification/web-pwa-source-integrity.json.
+
+MYN-025 : sw-template.js/cacheableResponse copie uniquement les réponses redirigées avant cache.put ; nouvelle Response sans redirected, mêmes bytes/MIME/statut. tests/pwa-worker.test.mjs utilise un vrai serveur302→200 ; smoke_pwa.mjs impose /index.html→/ et teste la réouverture offline. Workflow ajoute une sonde HTTPS publique des URL finales (diagnostic, aucun secret). Source et déploiement build3 à compléter après preuve CI.
+
+Preuve MYN-025 : source Web4a4811790fbeff8ca038ec05f7124df0732a8b4a ; source hébergement edd60a821422b2fc09100d365819445fc75d8a49 ; version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_4053619e28c48191ae2ef1679365fc65 ; déploiement public appgdep_6ae126ce9b14819182b5e5c4c9b527d9 succeeded. CI40595523867 :111/16, Android unsigned/lint. Revue docs/revue-pwa-reopen-v003.md ; preuve source dans docs/verification/web-pwa-source-integrity.json.
+
+MYN-026 diagnostic : main.js initialise motionAvailable uniquement via window.MaxYutMotion.available(), puis reçoit onNativeMotion/onNativeTilt ; le plugin Web n’avait aucune source de capteurs. Ajouter web/pwa/motion.mjs (adaptateur, axes/filtre) et motion-client.js (pont/UI), importé avant main.js uniquement par transform en mode web.
+
+MYN-026 réalisé : `web/pwa/motion.mjs` / BrowserMotion convertit DeviceMotionEvent en callbacks onNativeTilt/onNativeMotion, filtre la gravité si accélération linéaire absente, calibre400ms et borne la fréquence30ms ; rotation écran appliquée comme MotionSensors.java. `motion-client.js` installe MaxYutMotion avant main.js via transform du plugin Web uniquement, ajoute activation/permissions et statut dans Réglages. Aucune mutation de main.js ni des sources Android. Diagnostic dédié maxYutWebMotionDiagnostic() : état/compteur/date/source, aucun flux envoyé au réseau. `tests/pwa-motion.test.mjs` couvre6 cas avec vrai MotionThrow ; `scripts/smoke_pwa_motion.mjs` ajoute5 parcours au smoke PWA, trois modèles explicites d’autorisation. CI40613733549 :117/21, Android unsigned/lint, zéro erreur JS. Sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Revue : docs/revue-pwa-motion-v004.md ; matériel humain restant dans todo.md.
+
+MYN-027 : BrowserMotion.activateOnInteraction(wanted) demande seulement en état permission ; request() borne les requêtes concurrentes. motion-client.js écoute les clics isTrusted et relit la préférence settings-v3 avant activation. Aucun changement moteur/Android.
+
+MYN-027 vérifié et livré : CI40621831756 réussie :119 tests unitaires,22 parcours navigateur (dont6 capteurs), zéro erreur JS, deux builds,52 sources moteur/Android inchangées, APK/AAB de compatibilité unsigned et lint verts. Build5 public publié, source 1dc39bbf7f946b241f54e549d80509242394a40e, hébergement 6d9751c95477a0e54c2275f4e35eca46b4161c30, version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c, déploiement appgdep_6ae16110d7648191a25280bcdd27993e succeeded. Audience publique préservée, révision2. Revue : docs/revue-pwa-motion-v005.md. Matériel réel encore à valider, aucune fusion PWA main ni release définitive.
