@@ -1,4 +1,4 @@
-# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build2
+# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build4
 
 Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
 
@@ -273,3 +273,5 @@ MYN-025 : sw-template.js/cacheableResponse copie uniquement les réponses rediri
 Preuve MYN-025 : source Web4a4811790fbeff8ca038ec05f7124df0732a8b4a ; source hébergement edd60a821422b2fc09100d365819445fc75d8a49 ; version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_4053619e28c48191ae2ef1679365fc65 ; déploiement public appgdep_6ae126ce9b14819182b5e5c4c9b527d9 succeeded. CI40595523867 :111/16, Android unsigned/lint. Revue docs/revue-pwa-reopen-v003.md ; preuve source dans docs/verification/web-pwa-source-integrity.json.
 
 MYN-026 diagnostic : main.js initialise motionAvailable uniquement via window.MaxYutMotion.available(), puis reçoit onNativeMotion/onNativeTilt ; le plugin Web n’avait aucune source de capteurs. Ajouter web/pwa/motion.mjs (adaptateur, axes/filtre) et motion-client.js (pont/UI), importé avant main.js uniquement par transform en mode web.
+
+MYN-026 réalisé : `web/pwa/motion.mjs` / BrowserMotion convertit DeviceMotionEvent en callbacks onNativeTilt/onNativeMotion, filtre la gravité si accélération linéaire absente, calibre400ms et borne la fréquence30ms ; rotation écran appliquée comme MotionSensors.java. `motion-client.js` installe MaxYutMotion avant main.js via transform du plugin Web uniquement, ajoute activation/permissions et statut dans Réglages. Aucune mutation de main.js ni des sources Android. Diagnostic dédié maxYutWebMotionDiagnostic() : état/compteur/date/source, aucun flux envoyé au réseau. `tests/pwa-motion.test.mjs` couvre6 cas avec vrai MotionThrow ; `scripts/smoke_pwa_motion.mjs` ajoute5 parcours au smoke PWA, trois modèles explicites d’autorisation. CI40613733549 :117/21, Android unsigned/lint, zéro erreur JS. Sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Revue : docs/revue-pwa-motion-v004.md ; matériel humain restant dans todo.md.

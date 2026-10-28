@@ -1,10 +1,10 @@
-# Max YutNori — état actuel 27 octobre 2026
+# Max YutNori — état actuel 28 octobre 2026
 
 ## Livré et vérifié
 - [x] Android0.8.8/code17 : PR#2 fusionnée cdb2ff4 ; Release v0.8.8, APK62243800octets et SHA2561b3ba30f… identiques au binaire validé. CI40589109427 ; mémoires de main réalignées4a96847.
 - [x] Archives intégrales des cinq mémoires avant clôture et avant consolidation PWA, avec source/empreintes dans sauvegarde.md. Aucune mission perdue.
-- [x] PWA0.1.0/build3 sur feature/web-pwa-v010, PR#3 brouillon. Source Web déployée4a4811790fbeff8ca038ec05f7124df0732a8b4a.
-- [x] HTTPS public (demande explicite de Fab, Sites révision2) : https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement source edd60a8 confirmé succeeded.
+- [x] PWA0.1.0/build4 sur feature/web-pwa-v010, PR#3 brouillon. Source Web déployéeda25a4ae84084fa52b0c76249d7545f9c19798cb.
+- [x] HTTPS public (demande explicite de Fab, Sites révision2) : https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement source04e0cc4 confirmé succeeded.
 - [x] Manifest/icônes officiels, installation/plein écran dans Pause, responsive et safe areas, cache complet et MP3 fragmenté/reconstitué byte-identique, sauvegardes locales et mises à jour différées.
 - [x] Versions Web distinctes d'Android, build/semver/commit cohérents, signal hors ligne et gestion d'erreurs explicites.
 - [x]110 tests unitaires et15 parcours Chrome/SwiftShader PWA/caméra (CI40592283542), zéro erreur JS.52 fichiers moteur/Android intacts ; référence Android0.8.8 et ses56 parcours déjà verts conservés.
@@ -15,7 +15,8 @@
 - [ ] Installer la PWA depuis Chrome/Edge Android et ordinateur, vérifier lancement autonome, plein écran/paysage et zones de sécurité ; naviguer hors ligne après « Jeu hors ligne prêt » ; vérifier reprise après fermeture et actualisation réelle.
 - [x] Accès public confirmé par Sites et ouverture sans authentification dans le navigateur.
 - [x] MYN-025 : réponse de cache redirigée normalisée et build3 public déployé ;111 tests/16 parcours et Android/lint verts dans40595523867.
-- [ ] [FAB] Fermer les fenêtres du jeu, rester connecté pour récupérer le nouveau worker, puis vérifier la réouverture de l’icône installée (build3 dans Pause). Ne pas considérer cette vérification matérielle faite par la CI.
+- [x] Fab indique « Ça marche » pour le site après build3 ; détail des essais d’installation non attesté.
+- [ ] [FAB] Récupérer build4 depuis Pause ; Réglages → Activer les capteurs si proposé, autoriser, garder le lancer au mouvement coché ; Auto désactivé, repos environ1s puis geste. Confirmer sens du bac et lancer dans les deux paysages, pause/reprise et conservation de la partie.
 - [ ] Samsung SM-A576B Android16 : mise à jour APK, cache/masques OEM de l'icône, logo/contrôles avec grossissement système.
 - [ ] Gestes : réserve/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, rotation avec noms longs pendant suivi.
 - [ ] Bol/capteurs : sens dans les deux paysages, levage/inclinaison/descente/lancer, rangement, pause/reprise et priorité auto/doigt/capteur.
@@ -37,11 +38,9 @@ Nouvelle conversation vocale autorise le public ; état actuel public confirmé,
 ## Clôture technique MYN-025
 CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec redirection302 réelle de la fixture, zéro erreur JS, compilation APK/AAB unsigned et lint. Déploiement public appgdep_6ae126ce9b14819182b5e5c4c9b527d9 succeeded, source edd60a821422b2fc09100d365819445fc75d8a49. Revue ciblée sans point bloquant : docs/revue-pwa-reopen-v003.md. La sonde HTTPS brute reçoit403 ; elle ne confirme donc pas la canonicalisation effective du fournisseur. La cause de code est reproduite et corrigée ; résultat sur l’ancienne installation à confirmer par Fab.
 
-## MYN-026 — capteurs Web (en cours)
-Cause observée : seul le pont Android alimente les callbacks du moteur ; aucun écouteur devicemotion Web. Ajouter un adaptateur exclusif au build Web, permission explicite selon navigateur, axes paysage identiques Android, filtrage gravité et état de réception réel. Tests du détecteur existant, permissions/refus/absence, pause/reprise/priorités, navigateur puis publication build4. Ne pas présenter des événements simulés comme un test matériel Samsung.
-
-MYN-026 vérification locale :117 tests unitaires réussis (6 nouveaux capteurs), builds Android/Web réussis, diff nul des52 sources moteur/Android contre cdb2ff4. Cinq scénarios supplémentaires DeviceMotionEvent→physique/UI/permission ajoutés à la suite navigateur ; attente CI et revue, aucune validation matérielle déclarée.
-
-CI40613205453 échoue au premier lancer navigateur ; collecte des intervalles et diagnostic bridge/core, comparaison horloge murale/déterministe. Aucun déploiement build4 effectué. Ne pas déclarer les21 parcours verts avant leur résultat.
-
-Cause de l’échec de fixture identifiée : API requestPermission réelle présente dans Chrome du runner, aucune permission demandée dans le parcours supposé sans API. Modèle matériel explicite désormais pour les trois parcours ; nouvelle CI à vérifier, production inchangée.
+## MYN-026 — capteurs Web, livré en test
+- [x] Cause corrigée : adaptateur devicemotion navigateur vers le pont attendu par le moteur, uniquement dans le build Web ; aucune modification des52 sources core/Android.
+- [x] Permissions au clic selon API, réception de mesures valides avant disponibilité, axes identiques Android, gravité filtrée, calibration et priorités existantes. Préférence OFF conservée. Bouton/état lisibles dans Réglages.
+- [x]117 unités et21 parcours navigateur (5 nouveaux capteurs) verts, zéro erreur JS ; deux builds et APK/AAB unsigned/lint réussis : CI40613733549. Revue indépendante sans point bloquant. Les événements de capteur de CI sont simulés, le moteur/physique est réel.
+- [x] Build4 sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, versionappgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_d9292ca69d7481918dd7f59b29b0c678, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Public préservé ; PR#3 reste brouillon, pas de merge main/release définitive.
+- [ ] Validation du geste et des permissions réelles sur Samsung de Fab, ainsi que dialogue natif Safari si cet appareil est visé. Les tests de CI ne valent pas essai matériel. Procédure et diagnostic : docs/revue-pwa-motion-v004.md.

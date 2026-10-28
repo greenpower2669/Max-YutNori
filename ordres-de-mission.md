@@ -33,7 +33,7 @@ Fab demande en vocal : « le mettre en public, que je puisse le tester après l�
 
 ## MYN-026 — Lancers avec l’accéléromètre Web/PWA
 Fab confirme « Ça marche mais pas l’accéléromètre pour les lancers ». Corriger les capteurs de la PWA publique, conserver le geste/physique/caméra et Android ; livrer le correctif de test sans merge main ni release définitive.
-État : EN COURS. Le moteur écoute seulement MaxYutMotion natif, aucun adaptateur devicemotion navigateur ; liaison Web à réaliser et vérifier, essai Samsung ensuite. MYN-025 : réouverture confirmée fonctionnelle par Fab.
+État : CORRECTIF LIVRÉ, à valider sur les capteurs Samsung. PWA0.1.0/build4, sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, déploiement public appgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Adaptateur devicemotion exclusif au build Web vers les callbacks existants, permission au clic si requise, disponibilité après données valides, axes paysage/gravité et priorités préservés. CI40613733549 réussie :117 unités,21 parcours navigateur (dont5 capteurs), zéro erreur JS, APK/AAB unsigned et lint verts. Fab confirme « Ça marche » pour le site ; le comportement physique des capteurs et l’installation restent à mesurer sur son appareil. Aucun merge main ni release PWA définitive.
 
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.
