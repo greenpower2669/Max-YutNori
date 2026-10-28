@@ -16,7 +16,7 @@
 - [x] Accès public confirmé par Sites et ouverture sans authentification dans le navigateur.
 - [x] MYN-025 : réponse de cache redirigée normalisée et build3 public déployé ;111 tests/16 parcours et Android/lint verts dans40595523867.
 - [x] Fab indique « Ça marche » pour le site après build3 ; détail des essais d’installation non attesté.
-- [ ] [FAB] Récupérer build4 depuis Pause ; Réglages → Activer les capteurs si proposé, autoriser, garder le lancer au mouvement coché ; Auto désactivé, repos environ1s puis geste. Confirmer sens du bac et lancer dans les deux paysages, pause/reprise et conservation de la partie.
+- [ ] [FAB] Récupérer build5 depuis Pause → Vérifier les mises à jour → Actualiser le jeu ; au premier toucher, accepter la permission si proposée. Un OFF antérieur reste OFF : recocher le lancer au mouvement si souhaité. Auto désactivé, repos environ1s puis geste. Confirmer sens du bac et lancer dans les deux paysages, pause/reprise et conservation de la partie.
 - [ ] Samsung SM-A576B Android16 : mise à jour APK, cache/masques OEM de l'icône, logo/contrôles avec grossissement système.
 - [ ] Gestes : réserve/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, rotation avec noms longs pendant suivi.
 - [ ] Bol/capteurs : sens dans les deux paysages, levage/inclinaison/descente/lancer, rangement, pause/reprise et priorité auto/doigt/capteur.
@@ -45,7 +45,8 @@ CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec r
 - [x] Build4 sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, versionappgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_d9292ca69d7481918dd7f59b29b0c678, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Public préservé ; PR#3 reste brouillon, pas de merge main/release définitive.
 - [ ] Validation du geste et des permissions réelles sur Samsung de Fab, ainsi que dialogue natif Safari si cet appareil est visé. Les tests de CI ne valent pas essai matériel. Procédure et diagnostic : docs/revue-pwa-motion-v004.md.
 
-## MYN-027 — en cours
-Automatiser la permission au premier clic réel, sans double demande ni insistance après refus ; préserver OFF explicite et réessai manuel. Deux tests Node rouges ; suite navigateur adaptée (clic réel/synthétique, refus, OFF), build5 à vérifier puis publier.
-
-MYN-027 :119 unités vertes (8 capteurs), deux builds réussis,52 sources protégées identiques. CI navigateur et déploiement build5 encore à confirmer.
+## MYN-027 — activation par défaut livrée en test
+- [x] Permission au premier clic réel, sans double demande ni répétition après refus ; OFF explicite et réessai manuel préservés. Deux tests Node rouges avant correction.
+- [x] CI40621831756 réussie :119 tests unitaires,22 parcours navigateur (dont6 capteurs), zéro erreur JS, deux builds,52 sources moteur/Android inchangées, APK/AAB de compatibilité unsigned et lint verts. Revue indépendante sans point bloquant.
+- [x] Build5 public publié, source 1dc39bbf7f946b241f54e549d80509242394a40e, hébergement 6d9751c95477a0e54c2275f4e35eca46b4161c30, version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c, déploiement appgdep_6ae16110d7648191a25280bcdd27993e succeeded. Audience publique préservée, révision2. PR#3 toujours brouillon ; aucun merge main/release définitive.
+- [ ] Confirmer sur Samsung la demande native éventuelle au premier toucher et le lancer physique, avec réglage ON. Le navigateur peut exiger une autorisation ; aucun test simulé ne remplace cette validation. Procédure : docs/revue-pwa-motion-v005.md.

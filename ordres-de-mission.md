@@ -37,7 +37,7 @@ Fab confirme « Ça marche mais pas l’accéléromètre pour les lancers ». Co
 
 ## MYN-027 — Accéléromètre activé par défaut
 28/10/2026, Fab : « On ne peut pas l’activer par défaut ? ». Activation par défaut, demande de permission au premier toucher si le navigateur l’exige ; respecter OFF mémorisé et refus, conserver possibilité de réessai manuel.
-État : EN COURS, build5 en préparation sur branche Web. Aucun merge main/release définitive autorisé.
+État : LIVRÉ EN TEST. Build5 public publié, source 1dc39bbf7f946b241f54e549d80509242394a40e, hébergement 6d9751c95477a0e54c2275f4e35eca46b4161c30, version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c, déploiement appgdep_6ae16110d7648191a25280bcdd27993e succeeded. Audience publique préservée, révision2. CI40621831756 réussie :119 tests unitaires,22 parcours navigateur (dont6 capteurs), zéro erreur JS, deux builds,52 sources moteur/Android inchangées, APK/AAB de compatibilité unsigned et lint verts. Activation au premier toucher si permission requise, OFF/refus préservés, réessai manuel disponible. Revue indépendante sans point bloquant. Geste Samsung et dialogue natif encore à valider ; aucun merge main/release définitive.
 
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.

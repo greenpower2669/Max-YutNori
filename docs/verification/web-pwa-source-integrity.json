@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "da25a4ae84084fa52b0c76249d7545f9c19798cb",
+  "webSourceCommit": "1dc39bbf7f946b241f54e549d80509242394a40e",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -218,7 +218,7 @@
     "byteIdentical": true
   },
   "unitTests": {
-    "passed": 117,
+    "passed": 119,
     "failed": 0
   },
   "builds": {
@@ -227,31 +227,34 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "04e0cc4409e3d028d8fe6392d6101196bf7acca6",
+    "sourceCommit": "6d9751c95477a0e54c2275f4e35eca46b4161c30",
     "status": "succeeded",
     "audience": "public",
-    "id": "appgdep_6ae14d01536081918ac7d51b5b763607",
-    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_d9292ca69d7481918dd7f59b29b0c678"
+    "id": "appgdep_6ae16110d7648191a25280bcdd27993e",
+    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c"
   },
   "browserLimitations": [
     "cloud preview WebGL context unavailable",
     "sensor samples and permission results are simulated at the browser boundary in CI",
     "Samsung physical gestures and native OS permission dialogs require human validation"
   ],
-  "ciRun": 40613733549,
+  "ciRun": 40621831756,
   "ciStatus": "success",
   "pwaVersion": "0.1.0",
-  "pwaBuild": 4,
+  "pwaBuild": 5,
   "browserChecks": {
-    "run": 40613733549,
-    "sourceCommit": "da25a4ae84084fa52b0c76249d7545f9c19798cb",
-    "passed": 21,
+    "run": 40621831756,
+    "sourceCommit": "1dc39bbf7f946b241f54e549d80509242394a40e",
+    "passed": 22,
     "failed": 0,
     "javascriptErrors": 0,
     "redirectedShellOfflineReload": "PASS",
-    "webMotionScenarios": 5,
+    "webMotionScenarios": 6,
     "deviceMotionToRealPhysics": "PASS",
-    "permissionGrantedAndDenied": "PASS"
+    "permissionGrantedAndDenied": "PASS",
+    "firstTrustedInteractionPermission": "PASS",
+    "syntheticClickIgnored": "PASS",
+    "storedOffAndDenialRespected": "PASS"
   },
   "androidCompatibility": {
     "apkAssembly": "PASS",
@@ -272,6 +275,9 @@
     "availability": "valid measurements required",
     "axes": "same as Android screen rotation",
     "rawSensorDataTransmission": "none",
-    "review": "no blocking findings"
+    "review": "no blocking findings",
+    "defaultActivation": "first trusted interaction when browser permission is required",
+    "concurrentPermissionRequests": "guarded",
+    "manualRetry": "preserved"
   }
 }
