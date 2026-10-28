@@ -14,6 +14,7 @@ export function webPwaPlugin(){
    return {define:{__WEB_VERSION__:JSON.stringify(version)}};
   },
   transform(code,id){
+   if(id.endsWith('/web/src/main.js'))return "import '../pwa/motion-client.js';\n"+code;
    if(!id.endsWith('/web/src/audio.js'))return;
    const original="new Audio('./audio/ariranlike25102026.mp3')";
    if(!code.includes(original))throw Error('Le transport audio Web doit être réexaminé : source audio modifiée');

@@ -36,3 +36,8 @@ Nouvelle conversation vocale autorise le public ; état actuel public confirmé,
 
 ## Clôture technique MYN-025
 CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec redirection302 réelle de la fixture, zéro erreur JS, compilation APK/AAB unsigned et lint. Déploiement public appgdep_6ae126ce9b14819182b5e5c4c9b527d9 succeeded, source edd60a821422b2fc09100d365819445fc75d8a49. Revue ciblée sans point bloquant : docs/revue-pwa-reopen-v003.md. La sonde HTTPS brute reçoit403 ; elle ne confirme donc pas la canonicalisation effective du fournisseur. La cause de code est reproduite et corrigée ; résultat sur l’ancienne installation à confirmer par Fab.
+
+## MYN-026 — capteurs Web (en cours)
+Cause observée : seul le pont Android alimente les callbacks du moteur ; aucun écouteur devicemotion Web. Ajouter un adaptateur exclusif au build Web, permission explicite selon navigateur, axes paysage identiques Android, filtrage gravité et état de réception réel. Tests du détecteur existant, permissions/refus/absence, pause/reprise/priorités, navigateur puis publication build4. Ne pas présenter des événements simulés comme un test matériel Samsung.
+
+MYN-026 vérification locale :117 tests unitaires réussis (6 nouveaux capteurs), builds Android/Web réussis, diff nul des52 sources moteur/Android contre cdb2ff4. Cinq scénarios supplémentaires DeviceMotionEvent→physique/UI/permission ajoutés à la suite navigateur ; attente CI et revue, aucune validation matérielle déclarée.

@@ -43,3 +43,5 @@ Validation finale : CI40593243077 réussie,110 tests et deux builds relancés,52
 Avenant MYN-025 : le cache doit normaliser les réponses HTML obtenues après une redirection d'hébergement, afin de servir une réponse de navigation sans métadonnée redirected. Les bytes, type MIME et statut sont préservés ; en-têtes de compression/longueur devenus invalides retirés lors de la copie. Les sauvegardes locales et règles d'activation du worker restent intactes.
 
 MYN-025 livré : copie de la réponse redirigée avant cache.put, test HTTP réel rouge→vert puis16 parcours navigateur verts,111 unitaires et Android unsigned/lint réussis (40595523867). Aucun changement de sauvegardes/caméra/moteur. Le client installé doit laisser télécharger la mise à jour et libérer l’ancien worker en fermant les fenêtres du jeu ; essai réel Fab encore ouvert.
+
+MYN-026 en cours : Fab confirme le site fonctionnel, mais le lancer par accéléromètre absent en PWA. Adapter les événements du navigateur aux callbacks natifs existants uniquement en build Web, sans changer le moteur ni Android. Disponibilité annoncée après réception de données valides ; autorisation demandée par geste quand requise.

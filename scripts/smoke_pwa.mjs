@@ -6,6 +6,7 @@ import {resolve,extname,sep} from 'node:path';
 import assert from 'node:assert/strict';
 import {chromium} from 'playwright';
 import {cameraAngleScenario} from './smoke_camera_angle.mjs';
+import {webMotionScenario} from './smoke_pwa_motion.mjs';
 const root=resolve('pwa-dist'),report={checks:[],errors:[]};await mkdir('test-results',{recursive:true});
 const version=JSON.parse(await readFile(resolve(root,'web-version.json'),'utf8'));
 const sw=await readFile(resolve(root,'sw.js'),'utf8');let candidate=false,failMusic=false;
@@ -30,6 +31,7 @@ try{
  await page.waitForFunction(()=>window.__gameReady);report.checks.push('Real Three.js WebGL + Rapier WASM start');
  await page.waitForFunction(()=>navigator.serviceWorker.controller);await page.evaluate(()=>navigator.serviceWorker.ready);report.checks.push('Service worker install/activate and complete initial precache');
  const manifest=await page.evaluate(async()=>{const m=await fetch(document.querySelector('link[rel=manifest]').href);return m.json();});assert.equal(manifest.display,'standalone');assert.equal(manifest.orientation,'landscape');assert.deepEqual(manifest.icons.map(i=>i.sizes),['192x192','512x512','512x512']);report.checks.push('Installable manifest, official icons, scope and landscape');
+ await webMotionScenario(page,()=>page.waitForFunction(()=>window.__gameReady),report);
  await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByText('À jour',{exact:true}).waitFor();assert.match(await page.locator('#webVersion').innerText(),/Moteur 0.8.8 · PWA/);report.checks.push('Android 99.0.0 never reported as Web update');
  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('max-yutnori-native-v4')));await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();
  await page.getByRole('button',{name:/Lancer les bâtonnets/}).click();await page.waitForFunction(()=>!window.maxYutDiagnostic().rolling&&window.maxYutDiagnostic().lastThrow,{},{timeout:120000});report.checks.push('Real physical throw and result');
