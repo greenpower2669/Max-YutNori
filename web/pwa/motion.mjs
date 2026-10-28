@@ -20,8 +20,10 @@ export class BrowserMotion {
   if(typeof this.win.DeviceMotionEvent.requestPermission==='function'){this.stateChanged('permission');return;}
   this.listen();
  }
+ activateOnInteraction(wanted){if(wanted&&this.state==='permission')return this.request();}
  async request(){
-  if(!this.supported())return;
+  if(this.requesting||!this.supported())return;
+  this.requesting=true;
   try{
    // Called directly from a button click, before any other await (Safari user activation).
    if(typeof this.win.DeviceMotionEvent.requestPermission==='function'&&await this.win.DeviceMotionEvent.requestPermission()!=='granted'){
@@ -29,6 +31,7 @@ export class BrowserMotion {
    }
    this.listen();
   }catch{this.hasData=false;this.win.onNativeMotionStatus?.(false);this.stateChanged('denied');}
+  finally{this.requesting=false;}
  }
  listen(){if(!this.listening){this.win.addEventListener('devicemotion',event=>this.sample(event));this.listening=true;}this.reset();this.stateChanged(this.hasData?'ready':'waiting');}
  setEnabled(enabled){enabled=!!enabled;if(this.enabled!==enabled){this.enabled=enabled;this.reset();}}

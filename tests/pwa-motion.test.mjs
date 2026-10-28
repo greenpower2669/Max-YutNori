@@ -33,3 +33,17 @@ test('invalid/null data, HTTPS and permissions policy cannot enable or launch se
  const s=await setup();for(let t=0;t<1000;t+=40)s.send(t,null,{x:null,y:null,z:null});assert.equal(s.bridge.available(),false);s.send(1000,{x:NaN,y:0,z:0},null);assert.equal(s.bridge.available(),false);
  for(const options of [{secure:false},{policy:false}]){const blocked=await setup(options);rest(blocked);assert.equal(blocked.bridge.available(),false);assert.equal(blocked.throws.length,0);}
 });
+test('default motion requests permission on interaction once, preserving explicit OFF and refusal',async()=>{
+ let calls=0,resolve;const s=await setup({permission:()=>{calls++;return new Promise(r=>resolve=r);}});
+ assert.equal(calls,0);
+ await s.bridge.activateOnInteraction?.(false);assert.equal(calls,0);
+ const first=s.bridge.activateOnInteraction?.(true);assert.equal(calls,1);
+ await s.bridge.activateOnInteraction?.(true);assert.equal(calls,1);
+ resolve('denied');await first;assert.equal(s.bridge.status().state,'denied');
+ await s.bridge.activateOnInteraction?.(true);assert.equal(calls,1);
+});
+test('default permission granted still requires samples before enabling the detector',async()=>{
+ let calls=0;const s=await setup({permission:async()=>{calls++;return 'granted';}});
+ await s.bridge.activateOnInteraction?.(true);assert.equal(calls,1);assert.equal(s.bridge.available(),false);
+ rest(s);s.send(1040,{x:20,y:0,z:0});assert.equal(s.throws.length,1);
+});

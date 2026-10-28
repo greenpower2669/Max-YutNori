@@ -10,7 +10,7 @@ if(!window.MaxYutMotion){
   const info=bridge.status(),messages={
    insecure:'Les capteurs nécessitent une connexion HTTPS.',unsupported:'Ce navigateur ne fournit pas les capteurs de mouvement.',
    blocked:'Les capteurs sont bloqués pour ce site. Autorisez les capteurs de mouvement dans les paramètres du navigateur.',
-   permission:'Touchez « Activer les capteurs », puis autorisez leur accès pour lancer au mouvement.',
+   permission:'Les capteurs démarrent au premier toucher si le lancer au mouvement est activé. Autorisez l’accès si le navigateur le demande.',
    denied:'Accès aux capteurs refusé. Autorisez les capteurs de mouvement pour ce site dans les paramètres du navigateur, puis réessayez.',
    waiting:'En attente des capteurs. Si aucune donnée n’arrive, autorisez les capteurs de mouvement pour ce site dans les paramètres du navigateur.',
    ready:'Capteurs reçus. Reprenez la partie, désactivez Auto et gardez le téléphone immobile un instant avant le geste de lancer.'
@@ -19,6 +19,12 @@ if(!window.MaxYutMotion){
   activate.hidden=bridge.available()||['unsupported','insecure'].includes(info.state);
  }
  activate.addEventListener('click',()=>bridge.request());
+ // Request in the first real click (touch/mouse/keyboard), preserving transient browser activation.
+ document.addEventListener('click',event=>{
+  if(!event.isTrusted||event.target===input)return;
+  let wanted=true;try{wanted=JSON.parse(localStorage.getItem('max-yutnori-settings-v3'))?.motion!==false;}catch{}
+  bridge.activateOnInteraction(wanted);
+ });
  new MutationObserver(render).observe(document.getElementById('settings'),{attributes:true,attributeFilter:['open']});
  bridge.start();
 }

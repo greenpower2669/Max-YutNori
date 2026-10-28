@@ -35,6 +35,10 @@ Fab demande en vocal : « le mettre en public, que je puisse le tester après l�
 Fab confirme « Ça marche mais pas l’accéléromètre pour les lancers ». Corriger les capteurs de la PWA publique, conserver le geste/physique/caméra et Android ; livrer le correctif de test sans merge main ni release définitive.
 État : CORRECTIF LIVRÉ, à valider sur les capteurs Samsung. PWA0.1.0/build4, sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, déploiement public appgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Adaptateur devicemotion exclusif au build Web vers les callbacks existants, permission au clic si requise, disponibilité après données valides, axes paysage/gravité et priorités préservés. CI40613733549 réussie :117 unités,21 parcours navigateur (dont5 capteurs), zéro erreur JS, APK/AAB unsigned et lint verts. Fab confirme « Ça marche » pour le site ; le comportement physique des capteurs et l’installation restent à mesurer sur son appareil. Aucun merge main ni release PWA définitive.
 
+## MYN-027 — Accéléromètre activé par défaut
+28/10/2026, Fab : « On ne peut pas l’activer par défaut ? ». Activation par défaut, demande de permission au premier toucher si le navigateur l’exige ; respecter OFF mémorisé et refus, conserver possibilité de réessai manuel.
+État : EN COURS, build5 en préparation sur branche Web. Aucun merge main/release définitive autorisé.
+
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.
 MYN-002 : suivi FAB-Copilot permanent. MYN-004 : audit audio historique conservé ; le moteur courant boucle le MP3 Arisongs, sans réouverture du binaire Unity. Aucun ordre non produit supprimé.

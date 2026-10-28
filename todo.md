@@ -44,3 +44,8 @@ CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec r
 - [x]117 unités et21 parcours navigateur (5 nouveaux capteurs) verts, zéro erreur JS ; deux builds et APK/AAB unsigned/lint réussis : CI40613733549. Revue indépendante sans point bloquant. Les événements de capteur de CI sont simulés, le moteur/physique est réel.
 - [x] Build4 sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, versionappgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_d9292ca69d7481918dd7f59b29b0c678, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Public préservé ; PR#3 reste brouillon, pas de merge main/release définitive.
 - [ ] Validation du geste et des permissions réelles sur Samsung de Fab, ainsi que dialogue natif Safari si cet appareil est visé. Les tests de CI ne valent pas essai matériel. Procédure et diagnostic : docs/revue-pwa-motion-v004.md.
+
+## MYN-027 — en cours
+Automatiser la permission au premier clic réel, sans double demande ni insistance après refus ; préserver OFF explicite et réessai manuel. Deux tests Node rouges ; suite navigateur adaptée (clic réel/synthétique, refus, OFF), build5 à vérifier puis publier.
+
+MYN-027 :119 unités vertes (8 capteurs), deux builds réussis,52 sources protégées identiques. CI navigateur et déploiement build5 encore à confirmer.
