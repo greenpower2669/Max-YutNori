@@ -8,16 +8,14 @@ export async function webMotionScenario(page,ready,report){
  };
  await page.addInitScript(()=>{
   const permission=localStorage.getItem('test-motion-permission');
-  if(permission)Object.defineProperty(DeviceMotionEvent,'requestPermission',{value:async()=>{window.__permissionRequests=(window.__permissionRequests||0)+1;return permission;},configurable:true});
+  Object.defineProperty(DeviceMotionEvent,'requestPermission',{value:permission?async()=>{window.__permissionRequests=(window.__permissionRequests||0)+1;return permission;}:undefined,configurable:true});
  });
- const gesture=(clock='deterministic')=>page.evaluate(async clock=>{
-  const times=[];let timestamp=performance.now();
-  const send=(x=0)=>{const event=new DeviceMotionEvent('devicemotion',{acceleration:{x,y:0,z:0},accelerationIncludingGravity:{x,y:0,z:9.81},interval:40});if(clock==='deterministic'){Object.defineProperty(event,'timeStamp',{value:timestamp});timestamp+=40;}times.push(event.timeStamp);window.dispatchEvent(event);};
-  // Hardware timestamps are controlled at the browser event boundary; GPU speed must not alter rest sampling.
-  for(let i=0;i<28;i++){send();if(clock==='wall')await new Promise(r=>setTimeout(r,40));}send(20);
-  return {maxGap:Math.max(...times.slice(1).map((t,i)=>t-times[i])),motion:window.maxYutWebMotionDiagnostic(),game:window.maxYutDiagnostic()};
- },clock);
- await reset();const wall=await gesture('wall');report.motionWallClock={maxGap:wall.maxGap,motion:wall.motion,rolling:wall.game.rolling};
+ const gesture=()=>page.evaluate(()=>{
+  let timestamp=performance.now();
+  const send=(x=0)=>{const event=new DeviceMotionEvent('devicemotion',{acceleration:{x,y:0,z:0},accelerationIncludingGravity:{x,y:0,z:9.81},interval:40});Object.defineProperty(event,'timeStamp',{value:timestamp});timestamp+=40;window.dispatchEvent(event);};
+  // Hardware timestamps controlled at the event boundary; never invoke native callbacks directly.
+  for(let i=0;i<28;i++)send();send(20);
+ });
  await reset();await gesture();assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).rolling,true);assert.equal((await page.evaluate(()=>window.maxYutWebMotionDiagnostic())).source,'linear');report.checks.push('Browser DeviceMotion events launch real Rapier physics through the Web adapter');
  await reset();await page.getByRole('button',{name:'Pause',exact:true}).click();await gesture();assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).rolling,false);await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();await gesture();assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).rolling,true);report.checks.push('Browser motion cannot throw while paused and rearms on resume');
  await reset();await page.getByRole('button',{name:'Réglages',exact:true}).click();await gesture();assert.equal(await page.locator('#motion').isDisabled(),false);assert.equal(await page.locator('#enableWebMotion').isHidden(),true);await page.locator('#motion').uncheck();await page.locator('#settings [data-close]').click();await gesture();assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).rolling,false);await page.reload();await ready();await gesture();assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).motion.enabled,false);assert.equal((await page.evaluate(()=>window.maxYutDiagnostic())).rolling,false);report.checks.push('Sensor availability needs data; explicit motion OFF survives reload');

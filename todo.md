@@ -43,3 +43,5 @@ Cause observée : seul le pont Android alimente les callbacks du moteur ; aucun 
 MYN-026 vérification locale :117 tests unitaires réussis (6 nouveaux capteurs), builds Android/Web réussis, diff nul des52 sources moteur/Android contre cdb2ff4. Cinq scénarios supplémentaires DeviceMotionEvent→physique/UI/permission ajoutés à la suite navigateur ; attente CI et revue, aucune validation matérielle déclarée.
 
 CI40613205453 échoue au premier lancer navigateur ; collecte des intervalles et diagnostic bridge/core, comparaison horloge murale/déterministe. Aucun déploiement build4 effectué. Ne pas déclarer les21 parcours verts avant leur résultat.
+
+Cause de l’échec de fixture identifiée : API requestPermission réelle présente dans Chrome du runner, aucune permission demandée dans le parcours supposé sans API. Modèle matériel explicite désormais pour les trois parcours ; nouvelle CI à vérifier, production inchangée.
