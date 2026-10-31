@@ -16,4 +16,6 @@
 #installGuide ol{padding-left:24px;line-height:1.65}
 #installGuide li{margin:7px 0}
 #installGuide strong{color:var(--gold)}
+#installGuide .install-language{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+#installLanguage{max-width:100%;min-height:44px}
 @media(max-width:700px){#installShortcut{right:max(8px,env(safe-area-inset-right));bottom:calc(var(--controls-height,110px) + 8px);padding:6px 10px;font-size:13px}}

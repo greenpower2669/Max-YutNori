@@ -1,5 +1,8 @@
 # Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build6
 
+## MYN-030 — guide multilingue en vérification
+`web/pwa/install-language.mjs` : dictionnaire et résolution FR/KO/EN ; `client.js` : sélecteur Auto/manuellement, clé max-yutnori-web-language-v1 et languagechange. `tests/pwa-install-language.test.mjs` :7 régressions réelles du client dans une frontière DOM/API partagée `tests/helpers/pwa-client-fixture.mjs` ; `scripts/smoke_pwa_install.mjs` : langues navigateur et choix/reprise sur vrai build. État CI et livraison : todo.md. Publication build6 encore référence tant que build7 non confirmé.
+
 ## Reprise active — MYN-029 (31 octobre 2026)
 Branche `feature/web-pwa-v010`, source Web build6 `19cb558fc293de1e0833c5578be077e044b266f0`. Installation : `web/pwa/client.js` / `pwa.css` ; worker/cache : `sw-template.js` / `scripts/build-pwa-plugin.mjs` ; capteurs Web : `motion.mjs` / `motion-client.js`. Les 52 fichiers du moteur et d'Android restent identiques à `cdb2ff4`.
 Preuves actuelles : [rapport MYN-029](docs/verification/myn029-build6.md), [intégrité/CI/déploiement](docs/verification/web-pwa-source-integrity.json), [8 contrôles installation DOM/API](docs/verification/myn029-install-check.mjs). CI41233773003 :119 unités/23 parcours ; build6 public, source hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`. Publication de test autorisée ; PR#3 brouillon, règle Google Play différée dans ordres-de-mission.md. Essais matériels et limites dans todo.md. Cartographie détaillée conservée ci-dessous ; les anciennes références sont datées.

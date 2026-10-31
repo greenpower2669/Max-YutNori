@@ -1,5 +1,12 @@
 # Max YutNori — état courant MYN-029 · 31 octobre 2026
 
+## MYN-030 — langues du guide / build7 en préparation
+- [x] Détection navigator.languages / navigator.language, FR/KO/EN, repli anglais ; choix Auto/Français/English/한국어 dans le guide, mémorisé séparément des parties.
+- [x] Six régressions rouges puis vertes ;126 unités et8 contrôles installation/plein écran passent localement. Stockage bloqué : choix en mémoire, jeu préservé.
+- [x] Deux parcours navigateur multilingues ajoutés ; assertion scope/start_url du manifest ajoutée au smoke existant.
+- [ ] CI complète du build7 (WebGL/Rapier, langues, offline/save/worker et APK/AAB unsigned/lint), puis publier l’artefact exact sur la même origine.
+- [ ] Essais réels Samsung et iPhone XS et langues des menus système à confirmer ; aucun essai matériel simulé déclaré réel.
+
 ## Réalisé et vérifié
 - [x] PWA **0.1.0/build6**, moteur **0.8.8/code17**, branche `feature/web-pwa-v010` ; bouton Installer hors Pause et dans Pause, guides Android/iOS avec repères coréens. Routage Google Play différé conservé.
 - [x] CI [41233773003](https://github.com/greenpower2669/Max-YutNori/actions/runs/41233773003), source `19cb558fc293de1e0833c5578be077e044b266f0` : **119 unités, 23 parcours Chrome/SwiftShader, zéro erreur JS**, deux builds, APK/AAB de contrôle **non signés** et lint réussis. Les parcours ont été exécutés, pas seulement hérités d'un ancien run.
