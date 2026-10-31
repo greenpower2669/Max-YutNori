@@ -6,6 +6,8 @@
 - Appareil de validation humaine : Samsung SM-A576B, Android 16.
 - Première identité Android réalisée : `fr.fab.maxyutnori`, nom affiché `Max YutNori` ; préserver pour les mises à jour. Signature debug de test, pas de clé de publication Play.
 - Les cinq mémoires évoluent avec le travail ; secrets absents des dépôts et des journaux.
+- **Règle immuable — orientation Google Play (activation différée) :** après publication et vérification d'une vraie fiche officielle Max YutNori sur Google Play, le bouton « Installer » de la Web App devra privilégier **Google Play pour Android disposant du Store et compatible avec le minimum SDK réel du paquet publié**. La PWA est la solution de repli pour les appareils Android incompatibles avec ce minimum ou privés de distribution Google Play ; sur iPhone/iPad, guider vers « Sur l'écran d'accueil ». **Ne pas activer le routage Play avant publication effective, ne pas utiliser de lien de recherche ambigu et ne pas présenter le SDK comme connu à partir d'un simple user-agent Web** : Chrome réduit la version Android apparente. Si le niveau API ou la compatibilité native ne peut pas être vérifié, laisser Google Play indiquer l'éligibilité, avec un accès explicite au repli PWA en cas d'incompatibilité. Règle produit distincte de la cible Android actuelle : **minSdk 26 / targetSdk 36** (à relire dans Gradle avant la publication). Aucun changement de distribution sans test appareil et validation de Fab.
+
 
 # Missions actives — Max YutNori
 
@@ -38,6 +40,12 @@ Fab confirme « Ça marche mais pas l’accéléromètre pour les lancers ». Co
 ## MYN-027 — Accéléromètre activé par défaut
 28/10/2026, Fab : « On ne peut pas l’activer par défaut ? ». Activation par défaut, demande de permission au premier toucher si le navigateur l’exige ; respecter OFF mémorisé et refus, conserver possibilité de réessai manuel.
 État : LIVRÉ EN TEST. Build5 public publié, source 1dc39bbf7f946b241f54e549d80509242394a40e, hébergement 6d9751c95477a0e54c2275f4e35eca46b4161c30, version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c, déploiement appgdep_6ae16110d7648191a25280bcdd27993e succeeded. Audience publique préservée, révision2. CI40621831756 réussie :119 tests unitaires,22 parcours navigateur (dont6 capteurs), zéro erreur JS, deux builds,52 sources moteur/Android inchangées, APK/AAB de compatibilité unsigned et lint verts. Activation au premier toucher si permission requise, OFF/refus préservés, réessai manuel disponible. Revue indépendante sans point bloquant. Geste Samsung et dialogue natif encore à valider ; aucun merge main/release définitive.
+
+## MYN-028 — Bouton d’installation immédiat et routage Store futur — 31/10/2026
+Fab valide l'ergonomie d'installation après essai sur iPhone XS de June, configuré en coréen. Deux étapes distinctes :
+1. **Maintenant (PWA de test uniquement) :** proposer un bouton « 📲 Installer » visible hors du menu Pause, réutiliser l'invite native Android/Chromium si présente, et sinon afficher une aide courte pour installer via le navigateur. Sur iOS, guider « Partager » (공유) → « Sur l'écran d'accueil » (홈 화면에 추가) → « Ajouter » (추가). Conserver la commande dans Pause et la cacher en mode déjà installé.
+2. **Plus tard, seulement après publication Google Play :** bouton unique et choix contextualisé, Android → Store officiel en priorité si compatible ; en cas d'incompatibilité minimale révélée par le Store, proposer la PWA ; iOS → PWA guidée. Fiche exacte et minSdk du paquet publié à vérifier. Préserver l'APK autonome GitHub pour le circuit de tests convenu, l'AAB pour Google Play et les signatures.
+**État : code de l'étape 1 ajouté à** `feature/web-pwa-v010` (surcouche `web/pwa/client.js` et `pwa.css`, test navigateur ajouté, build Web6 déclaré). **Aucun déploiement public, contrôle CI complet, test matériel ni activation Google Play encore confirmés.** Ne pas fusionner main ni publier une release PWA définitive sans nouvelle validation.
 
 ## Missions antérieures
 MYN-001/003/005–022 : réalisations livrées et historique intégral dans [sauvegarde.md](sauvegarde.md), avec demandes originales, avenants, commits, CI et limites. Fab autorise leur intégration dans la version 0.8.8 ; cela ne constitue pas une mesure matérielle des essais encore listés dans todo.md.
