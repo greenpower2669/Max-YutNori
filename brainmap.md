@@ -1,8 +1,8 @@
-# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build4
+# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build6
 
-## Reprise active — MYN-028 (31 octobre 2026)
-Branche `feature/web-pwa-v010`. Installation Web visible dans `web/pwa/client.js` et `web/pwa/pwa.css` : raccourci hors Pause, déclenchement commun avec `#installWeb`, guide Android/iOS avec repères coréens, masquage après installation ; scénario `scripts/smoke_pwa.mjs` étendu et build6 dans `web-release.json`. Règle immuable mais différée Google Play après publication dans `ordres-de-mission.md`. Niveau API Android non fiable via user-agent ; `todo.md` pour CI/déploiement/validation. Aucune publication ou fusion confirmée.
-
+## Reprise active — MYN-029 (31 octobre 2026)
+Branche `feature/web-pwa-v010`, source Web build6 `19cb558fc293de1e0833c5578be077e044b266f0`. Installation : `web/pwa/client.js` / `pwa.css` ; worker/cache : `sw-template.js` / `scripts/build-pwa-plugin.mjs` ; capteurs Web : `motion.mjs` / `motion-client.js`. Les 52 fichiers du moteur et d'Android restent identiques à `cdb2ff4`.
+Preuves actuelles : [rapport MYN-029](docs/verification/myn029-build6.md), [intégrité/CI/déploiement](docs/verification/web-pwa-source-integrity.json), [8 contrôles installation DOM/API](docs/verification/myn029-install-check.mjs). CI41233773003 :119 unités/23 parcours ; build6 public, source hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`. Publication de test autorisée ; PR#3 brouillon, règle Google Play différée dans ordres-de-mission.md. Essais matériels et limites dans todo.md. Cartographie détaillée conservée ci-dessous ; les anciennes références sont datées.
 
 Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
 

@@ -1,62 +1,35 @@
-# Max YutNori — état actuel 28 octobre 2026
+# Max YutNori — état courant MYN-029 · 31 octobre 2026
 
-## MYN-028 — accès direct à l'installation / Google Play après publication (31/10/2026)
-- [x] Surcouche PWA : bouton visible « 📲 Installer » hors Pause, invite native quand disponible, guide alternatif (iOS avec libellés coréens), masquage en mode installé ; aucun changement du moteur ni de l'APK Android.
-- [x] Test navigateur de présence du bouton et du dialogue ajouté au scénario PWA.
-- [x] Build Web de test incrémenté de 5 à 6 ; ordre de mission avec **règle immuable Google Play prioritaire à activer uniquement après publication**.
-- [ ] CI du build6 : npm test, builds Web/Android de compatibilité, smoke navigateur et vérification d'absence de régression ; aucun résultat revendiqué avant retour de CI.
-- [ ] Déployer le build6 en **site public de test** seulement après validation ; contrôler l'URL active et l'intégrité du service worker, sans toucher aux sauvegardes.
-- [ ] Test réel iPhone XS (June, interface coréenne) : bouton, étapes Partager/écran d'accueil, ouverture autonome ; test Android Samsung SM-A576B : invite Chromium ou guide, présence de la commande, absence de recouvrement en paysage/portrait.
-- [ ] Après **publication effective sur Google Play**, vérifier fiche exacte, identité de package et minSdk du paquet proposé ; alors seulement activer la priorité Store sur Android compatible et le repli PWA si incompatible / sans Google Play. Le navigateur seul ne certifie pas le niveau API. Aucun faux lien Play avant l'heure.
-- [ ] Aucune fusion `main` ni release PWA définitive sans validation de Fab.
+## Réalisé et vérifié
+- [x] PWA **0.1.0/build6**, moteur **0.8.8/code17**, branche `feature/web-pwa-v010` ; bouton Installer hors Pause et dans Pause, guides Android/iOS avec repères coréens. Routage Google Play différé conservé.
+- [x] CI [41233773003](https://github.com/greenpower2669/Max-YutNori/actions/runs/41233773003), source `19cb558fc293de1e0833c5578be077e044b266f0` : **119 unités, 23 parcours Chrome/SwiftShader, zéro erreur JS**, deux builds, APK/AAB de contrôle **non signés** et lint réussis. Les parcours ont été exécutés, pas seulement hérités d'un ancien run.
+- [x] Comparaison HEAD de reprise/CI : seuls les quatre fichiers mémoire avaient changé depuis la source testée ; MYN-029 ajoute uniquement vérifications/documentation hors entrées de build. Comparaison au socle `cdb2ff4` et empreintes : **52 fichiers moteur/Android intacts** ; Gradle minSdk26, targetSdk36, version0.8.8/code17.
+- [x] MYN-029 local : 119 unités relancées, branding et deux builds réussis ; 8 contrôles DOM/API complémentaires (Android, iPhone coréen, iPad, lancement autonome, bureau, invite native acceptée/reportée et commandes plein écran/paysage avec refus) réussis. Script et limites dans docs/verification/myn029-install-check.mjs.
+- [x] Artefact exact de la CI téléchargé, SHA-256 vérifié et ses 27 fichiers publiables copiés byte-identiques ; cache SW différent du build5, activation volontaire et sauvegarde exacte vérifiées en CI.
+- [x] Publication publique de test réussie, **même origine HTTPS** : https://max-yutnori-web.gnrationsia.chatgpt.site ; source hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`, déploiement `appgdep_6ae6469acff481918f0b7e22ab22470a`. Manifeste HTTPS observé dans le navigateur : build6/commit19cb558. Audience publique révision2 préservée.
+- [x] Android officiel 0.8.8 et APK validé inchangés ; aucune nouvelle clé ni distribution Android. Clôture historique PR#2/Release v0.8.8 conservée.
+- [x] Cinq mémoires actualisées ; historique complet de l'ancien todo conservé dans sauvegarde.md. Rapport : docs/verification/myn029-build6.md ; empreintes/CI/déploiement : docs/verification/web-pwa-source-integrity.json.
 
-## Livré et vérifié
-- [x] Android0.8.8/code17 : PR#2 fusionnée cdb2ff4 ; Release v0.8.8, APK62243800octets et SHA2561b3ba30f… identiques au binaire validé. CI40589109427 ; mémoires de main réalignées4a96847.
-- [x] Archives intégrales des cinq mémoires avant clôture et avant consolidation PWA, avec source/empreintes dans sauvegarde.md. Aucune mission perdue.
-- [x] PWA0.1.0/build4 sur feature/web-pwa-v010, PR#3 brouillon. Source Web déployéeda25a4ae84084fa52b0c76249d7545f9c19798cb.
-- [x] HTTPS public (demande explicite de Fab, Sites révision2) : https://max-yutnori-web.gnrationsia.chatgpt.site ; déploiement source04e0cc4 confirmé succeeded.
-- [x] Manifest/icônes officiels, installation/plein écran dans Pause, responsive et safe areas, cache complet et MP3 fragmenté/reconstitué byte-identique, sauvegardes locales et mises à jour différées.
-- [x] Versions Web distinctes d'Android, build/semver/commit cohérents, signal hors ligne et gestion d'erreurs explicites.
-- [x]110 tests unitaires et15 parcours Chrome/SwiftShader PWA/caméra (CI40592283542), zéro erreur JS.52 fichiers moteur/Android intacts ; référence Android0.8.8 et ses56 parcours déjà verts conservés.
-- [x] CI40593243077 réussie : APK/AAB de compatibilité non signés assemblés et lint passé. La clé et la configuration de signature publiées ne sont pas remplacées ; aucun paquet de contrôle distribué. Les15 parcours sont réutilisés de40592283542 après preuve d'identité des entrées.
-- [x] Installation/publication reproductibles, passation et revue : docs/web-pwa-publication.md, docs/passation-web-pwa-v010.md, docs/revue-web-pwa-v010.md ; preuves docs/verification/web-pwa-source-integrity.json.
+## Réalisé, à tester sur appareil
+- [ ] Samsung **SM-A576B** : Chrome → bouton 📲 Installer/invite ou menu ; ouverture par icône, plein écran, paysage/portrait et zones de sécurité. Capteurs ON par défaut, éventuelle permission au premier toucher, OFF/refus persistants, réessai manuel.
+- [ ] iPhone XS de June en coréen : Safari → Partager **공유** → Sur l'écran d'accueil **홈 화면에 추가** → Ajouter **추가** ; ouverture autonome et retour au jeu.
+- [ ] Mise à jour réelle depuis build5 : Pause → Vérifier les mises à jour → Actualiser le jeu ; attendre le cache complet et vérifier partie exacte après fermeture/réouverture hors ligne. Conserver les données du site et la même origine. Fermer les autres fenêtres de ce jeu si demandé.
+- [ ] Commandes : réserves/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, noms longs pendant suivi et rotation ; vérifier recouvrement du nouveau bouton avec grossissement système.
+- [ ] Bol/capteurs : deux paysages, levage/inclinaison/descente/lancer, rangement et pause/reprise ; priorités Auto/IA/doigt/capteur, repos environ1s avant geste.
+- [ ] Panorama :24 chutes/brumes/nuages/raccord360°, lac et arbres/berges, modes normal/léger/réduit ; partie complète, musique prolongée, GPU/FPS/chauffe et confort.
+- [ ] Android APK : mise à jour, icône/cache OEM et accessibilité Samsung restent des essais matériels distincts.
 
-## Validation humaine encore ouverte
-- [ ] Installer la PWA depuis Chrome/Edge Android et ordinateur, vérifier lancement autonome, plein écran/paysage et zones de sécurité ; naviguer hors ligne après « Jeu hors ligne prêt » ; vérifier reprise après fermeture et actualisation réelle.
-- [x] Accès public confirmé par Sites et ouverture sans authentification dans le navigateur.
-- [x] MYN-025 : réponse de cache redirigée normalisée et build3 public déployé ;111 tests/16 parcours et Android/lint verts dans40595523867.
-- [x] Fab indique « Ça marche » pour le site après build3 ; détail des essais d’installation non attesté.
-- [ ] [FAB] Récupérer build5 depuis Pause → Vérifier les mises à jour → Actualiser le jeu ; au premier toucher, accepter la permission si proposée. Un OFF antérieur reste OFF : recocher le lancer au mouvement si souhaité. Auto désactivé, repos environ1s puis geste. Confirmer sens du bac et lancer dans les deux paysages, pause/reprise et conservation de la partie.
-- [ ] Samsung SM-A576B Android16 : mise à jour APK, cache/masques OEM de l'icône, logo/contrôles avec grossissement système.
-- [ ] Gestes : réserve/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, rotation avec noms longs pendant suivi.
-- [ ] Bol/capteurs : sens dans les deux paysages, levage/inclinaison/descente/lancer, rangement, pause/reprise et priorité auto/doigt/capteur.
-- [ ] Panorama :24 chutes, brumes violettes/turquoise, nuages/raccords360°, lac et arbres/berges en normal/léger/réduit ; partie complète, musique prolongée, FPS/chauffe/confort.
-- [ ] Mineur Web historique : surveiller le repli des cartes/vues et noms longs en portrait étroit.
-- [ ] Traiter les retours ciblés ; ne pas déclarer ces essais matériels réalisés par les seuls tests automatiques.
+## En attente
+- [ ] Traiter les retours des deux appareils. Mineur historique : repli cartes/vues et noms longs en portrait étroit. [AGENT] Mineur différé de revue : ajouter une assertion dédiée du scope au smoke CI (scope ./ contrôlé dans le manifeste pour cette livraison).
+- [ ] **Validation explicite de Fab avant fusion main ou Release PWA définitive. PR#3 reste ouverte en brouillon.** Aucun merge/release définitive dans MYN-029.
+- [ ] **Après publication effective Google Play seulement** : vérifier fiche officielle exacte, identité et minSdk réel ; activer priorité Store Android compatible, PWA si incompatible/sans Store, PWA guidée iOS. Le seul user-agent ne certifie pas la compatibilité.
+- [ ] Si publication Android demandée : restaurer la clé légitime existante depuis cache/sauvegarde/Secrets, puis AAB signé avec sauvegarde durable. Le contrôle unsigned n'est pas une preuve de signature ; aucun remplacement automatique.
 
-## Décisions et prochaines publications
-- [ ] Validation de Fab avant merge main/release PWA définitive. PR#3 reste en brouillon ; augmenter build pour tout nouveau déploiement différent.
-- [ ] Seulement si Fab demande Google Play : clé d'upload durable et AAB de publication. Aucun nouvel AAB0.8.8 de distribution ; clé/certificat officiels inchangés.
-- [ ] Avant une future distribution Android depuis une autre branche : restaurer légitimement la clé existante (cache historique ou sauvegarde/Secret), sans en générer une autre. Le contrôle unsigned ne prouve pas une nouvelle signature.
+## Bloqué / limites précises
+- Navigateur cloud : création du contexte WebGL impossible, donc rendu interactif local non validé dans cet environnement. Le vrai moteur/WebGL/Rapier a passé les 23 parcours CI avec SwiftShader.
+- Navigation directe vers le SW public bloquée par le navigateur cloud (`ERR_BLOCKED_BY_CLIENT`), sonde HTTP brute 403. Manifeste public build6 observé, archive du SW vérifiée et publication réussie ; activation de l'installation existante à confirmer sur appareil.
+- Pas de Samsung/iPhone physique relié ; dialogues OS, ouverture autonome réelle, capteurs/GPU et éviction du stockage restent non mesurés.
+- Cache de clé Android absent du runner PWA : APK/AAB de compatibilité construits unsigned sans modifier les sources de signature. L'APK officiel reste celui de sa Release vérifiée.
 
-## Reprise technique
-Lire ordres-de-mission.md, puis ce fichier, brain.md, brainmap.md et debughistorical.md. Les étapes intermédiaires et faux statuts « en cours » archivés ne sont pas des tâches ouvertes. Aucune release PWA définitive ni merge PWA main effectué.
-
-## MYN-025 — avancement
-Nouvelle conversation vocale autorise le public ; état actuel public confirmé, aucun changement d'audience à refaire. Le navigateur charge la page publique ; la réouverture arrive sur un protocole d'erreur interne non observable par l'outil. Service worker : un HTML obtenu après redirection était conservé avec redirected=true, incompatible avec une navigation redirect=manual. Reproduction HTTP réelle en test unitaire rouge, puis normalisation des bytes/headers verte. Fixture navigateur modifiée pour rediriger /index.html vers /, comme un hébergement à URL canonique. Build3 à vérifier et déployer.
-
-## Clôture technique MYN-025
-CI40595523867 réussie :111 tests,16 parcours réexécutés sur le build3 avec redirection302 réelle de la fixture, zéro erreur JS, compilation APK/AAB unsigned et lint. Déploiement public appgdep_6ae126ce9b14819182b5e5c4c9b527d9 succeeded, source edd60a821422b2fc09100d365819445fc75d8a49. Revue ciblée sans point bloquant : docs/revue-pwa-reopen-v003.md. La sonde HTTPS brute reçoit403 ; elle ne confirme donc pas la canonicalisation effective du fournisseur. La cause de code est reproduite et corrigée ; résultat sur l’ancienne installation à confirmer par Fab.
-
-## MYN-026 — capteurs Web, livré en test
-- [x] Cause corrigée : adaptateur devicemotion navigateur vers le pont attendu par le moteur, uniquement dans le build Web ; aucune modification des52 sources core/Android.
-- [x] Permissions au clic selon API, réception de mesures valides avant disponibilité, axes identiques Android, gravité filtrée, calibration et priorités existantes. Préférence OFF conservée. Bouton/état lisibles dans Réglages.
-- [x]117 unités et21 parcours navigateur (5 nouveaux capteurs) verts, zéro erreur JS ; deux builds et APK/AAB unsigned/lint réussis : CI40613733549. Revue indépendante sans point bloquant. Les événements de capteur de CI sont simulés, le moteur/physique est réel.
-- [x] Build4 sourceda25a4ae84084fa52b0c76249d7545f9c19798cb, hébergement04e0cc4409e3d028d8fe6392d6101196bf7acca6, versionappgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_d9292ca69d7481918dd7f59b29b0c678, déploiementappgdep_6ae14d01536081918ac7d51b5b763607 succeeded. Public préservé ; PR#3 reste brouillon, pas de merge main/release définitive.
-- [ ] Validation du geste et des permissions réelles sur Samsung de Fab, ainsi que dialogue natif Safari si cet appareil est visé. Les tests de CI ne valent pas essai matériel. Procédure et diagnostic : docs/revue-pwa-motion-v004.md.
-
-## MYN-027 — activation par défaut livrée en test
-- [x] Permission au premier clic réel, sans double demande ni répétition après refus ; OFF explicite et réessai manuel préservés. Deux tests Node rouges avant correction.
-- [x] CI40621831756 réussie :119 tests unitaires,22 parcours navigateur (dont6 capteurs), zéro erreur JS, deux builds,52 sources moteur/Android inchangées, APK/AAB de compatibilité unsigned et lint verts. Revue indépendante sans point bloquant.
-- [x] Build5 public publié, source 1dc39bbf7f946b241f54e549d80509242394a40e, hébergement 6d9751c95477a0e54c2275f4e35eca46b4161c30, version appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c, déploiement appgdep_6ae16110d7648191a25280bcdd27993e succeeded. Audience publique préservée, révision2. PR#3 toujours brouillon ; aucun merge main/release définitive.
-- [ ] Confirmer sur Samsung la demande native éventuelle au premier toucher et le lancer physique, avec réglage ON. Le navigateur peut exiger une autorisation ; aucun test simulé ne remplace cette validation. Procédure : docs/revue-pwa-motion-v005.md.
+## Reprise
+Lire ordres-de-mission.md puis ce fichier, brain.md, brainmap.md et debughistorical.md. Source Web build6 `19cb558fc293de1e0833c5578be077e044b266f0` ; les commits mémoire ultérieurs ne changent pas le bundle. Une version Sites n°7 correspond ici au **build PWA6** : compteurs distincts.

@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "1dc39bbf7f946b241f54e549d80509242394a40e",
+  "webSourceCommit": "19cb558fc293de1e0833c5578be077e044b266f0",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -227,25 +227,30 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "6d9751c95477a0e54c2275f4e35eca46b4161c30",
+    "sourceCommit": "8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf",
     "status": "succeeded",
     "audience": "public",
-    "id": "appgdep_6ae16110d7648191a25280bcdd27993e",
-    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_6ff2b13fd86081918ad5fdee25b70c2c"
+    "id": "appgdep_6ae6469acff481918f0b7e22ab22470a",
+    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_7bb8cbe4804c8191b8ec829b8bb822b9",
+    "hostingVersion": 7,
+    "pwaBuild": 6,
+    "uploadedArchiveFileSha256": "0a6922418eab6a073d9c3a1d1dfde6b512dc05e2293d23a32ed3a25836188d38",
+    "serverArchiveContentHash": "sha256:733c4df6feca06162e8beb23110c527a19bde9f8b13be9d1d72188fb0395b420"
   },
   "browserLimitations": [
-    "cloud preview WebGL context unavailable",
-    "sensor samples and permission results are simulated at the browser boundary in CI",
-    "Samsung physical gestures and native OS permission dialogs require human validation"
+    "cloud preview cannot create WebGL context",
+    "CI uses Chrome/SwiftShader; motion and permission inputs are API-boundary fixtures",
+    "direct public sw.js navigation blocked by cloud browser; raw HTTP receives 403",
+    "Samsung and iPhone XS physical installation, standalone opening, fullscreen/orientation and offline update remain untested"
   ],
-  "ciRun": 40621831756,
+  "ciRun": 41233773003,
   "ciStatus": "success",
   "pwaVersion": "0.1.0",
-  "pwaBuild": 5,
+  "pwaBuild": 6,
   "browserChecks": {
-    "run": 40621831756,
-    "sourceCommit": "1dc39bbf7f946b241f54e549d80509242394a40e",
-    "passed": 22,
+    "run": 41233773003,
+    "sourceCommit": "19cb558fc293de1e0833c5578be077e044b266f0",
+    "passed": 23,
     "failed": 0,
     "javascriptErrors": 0,
     "redirectedShellOfflineReload": "PASS",
@@ -267,7 +272,14 @@
   "publicAccess": {
     "revision": 2,
     "firstDocumentObservedWithoutAuthentication": true,
-    "rawHTTPProbeStatus": 403
+    "rawHTTPProbeStatus": 403,
+    "versionManifestObservedWithoutAuthentication": true,
+    "versionObserved": {
+      "build": 6,
+      "pwaVersion": "0.1.0",
+      "engineVersion": "0.8.8",
+      "commit": "19cb558fc293de1e0833c5578be077e044b266f0"
+    }
   },
   "webMotion": {
     "scope": "Web build only",
@@ -279,5 +291,36 @@
     "defaultActivation": "first trusted interaction when browser permission is required",
     "concurrentPermissionRequests": "guarded",
     "manualRetry": "preserved"
+  },
+  "installationBoundaryChecks": {
+    "passed": 8,
+    "failed": 0,
+    "script": "docs/verification/myn029-install-check.mjs",
+    "nativeOsInstallationVerified": false,
+    "fullscreenAndLandscapeLock": "API-boundary success/exit/denial/unsupported checks PASS; native behavior pending"
+  },
+  "artifact": {
+    "id": 13054258459,
+    "run": 41233773003,
+    "zipSha256": "bd3c428af278344d570a5ec5f957f01f663b121f83acb13358f93326416170e6",
+    "publishedFilesByteIdenticalToCI": 27
+  },
+  "serviceWorker": {
+    "cacheId": "max-yutnori-web-83378bf757c87c7f8bfae499",
+    "sha256": "43938623553dd73eb17bf382b8669a62b626929d90cd3684931d162d716f2eb1",
+    "changedFromBuild5": true,
+    "updateLifecycleCI": "PASS",
+    "publicDirectInspection": "blocked by cloud browser ERR_BLOCKED_BY_CLIENT; raw HTTP 403",
+    "physicalUpdateValidation": "pending"
+  },
+  "review": {
+    "independent": "completed",
+    "criticalFindings": 0,
+    "importantFindingsRemaining": 0,
+    "corrections": [
+      "distinct local archive SHA and returned server content_hash",
+      "fullscreen/landscape-lock command boundary coverage"
+    ],
+    "minorDeferred": "CI smoke scope label lacks an explicit scope assertion; manifest scope independently checked as ./"
   }
 }

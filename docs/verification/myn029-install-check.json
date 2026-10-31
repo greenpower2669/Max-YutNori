@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "checks": [
+    "Android shortcut opens PWA guide; no premature Play routing",
+    "Korean iPhone guide and return to game",
+    "Desktop-style iPad identity uses Apple guide from Pause",
+    "Installed standalone launch hides both install buttons on Chromium and iOS",
+    "Desktop manual installation guide",
+    "Native Chromium invitation accepted/dismissed keeps game open",
+    "Fullscreen completes before landscape lock; second command exits",
+    "Unsupported fullscreen, denial and refused orientation lock preserve fallback"
+  ],
+  "limits": "DOM/API-boundary fixtures only; real installation, fullscreen, orientation, sensors and Korean Safari still need device tests."
+}
