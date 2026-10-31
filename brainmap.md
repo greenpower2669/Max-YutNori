@@ -1,9 +1,9 @@
-# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build6
+# Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build7
 
-## MYN-030 — guide multilingue en vérification
-`web/pwa/install-language.mjs` : dictionnaire et résolution FR/KO/EN ; `client.js` : sélecteur Auto/manuellement, clé max-yutnori-web-language-v1 et languagechange. `tests/pwa-install-language.test.mjs` :7 régressions réelles du client dans une frontière DOM/API partagée `tests/helpers/pwa-client-fixture.mjs` ; `scripts/smoke_pwa_install.mjs` : langues navigateur et choix/reprise sur vrai build. État CI et livraison : todo.md. Publication build6 encore référence tant que build7 non confirmé.
+## MYN-030 — guide multilingue livré en test
+`web/pwa/install-language.mjs` : dictionnaire et résolution FR/KO/EN ; `client.js` : sélecteur Auto/manuellement, clé max-yutnori-web-language-v1 et languagechange. `tests/pwa-install-language.test.mjs` :7 régressions réelles du client dans une frontière DOM/API partagée `tests/helpers/pwa-client-fixture.mjs` ; `scripts/smoke_pwa_install.mjs` : langues navigateur et choix/reprise sur vrai build. CI41239685779 :126 unités/25 parcours/0 erreur JS, APK/AAB unsigned/lint. Build7 public, source `6f01fe0d7f9a8753f89e58b326968086b031c638`, déploiement `appgdep_6ae6539ef91c819182148f4c1175d078` succeeded. Rapport docs/verification/myn030-language.md ; limites matérielles dans todo.md.
 
-## Reprise active — MYN-029 (31 octobre 2026)
+## Historique de reprise — MYN-029 (31 octobre 2026)
 Branche `feature/web-pwa-v010`, source Web build6 `19cb558fc293de1e0833c5578be077e044b266f0`. Installation : `web/pwa/client.js` / `pwa.css` ; worker/cache : `sw-template.js` / `scripts/build-pwa-plugin.mjs` ; capteurs Web : `motion.mjs` / `motion-client.js`. Les 52 fichiers du moteur et d'Android restent identiques à `cdb2ff4`.
 Preuves actuelles : [rapport MYN-029](docs/verification/myn029-build6.md), [intégrité/CI/déploiement](docs/verification/web-pwa-source-integrity.json), [8 contrôles installation DOM/API](docs/verification/myn029-install-check.mjs). CI41233773003 :119 unités/23 parcours ; build6 public, source hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`. Publication de test autorisée ; PR#3 brouillon, règle Google Play différée dans ordres-de-mission.md. Essais matériels et limites dans todo.md. Cartographie détaillée conservée ci-dessous ; les anciennes références sont datées.
 

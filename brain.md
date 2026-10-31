@@ -1,9 +1,10 @@
 # Contrat courant — Max YutNori 0.8.8 / code17
 
-## Avenant MYN-030 — surcouche d’installation multilingue
-Build7 en préparation : seules les surfaces d’installation PWA sont traduites (FR/EN/KO). Choix Auto : première langue prise en charge de navigator.languages puis navigator.language, anglais de secours. Choix manuel prioritaire et stocké sous max-yutnori-web-language-v1 ; stockage indisponible : repli mémoire. Le mode Auto suit languagechange. Le moteur et ses réglages/sauvegardes restent inchangés. Contrôle CI/publication à confirmer dans todo.md ; la dernière publication confirmée reste build6 ci-dessous.
+## État courant MYN-030 — build7 public de test
+Seules les surfaces d’installation PWA sont traduites FR/EN/KO : détection navigator.languages puis navigator.language, anglais de secours ; choix manuel prioritaire Auto/Français/English/한국어 mémorisé sous max-yutnori-web-language-v1, repli mémoire si stockage refusé. Auto suit languagechange. Textes et lang du guide/messages synchronisés. Même moteur Android0.8.8/code17 et mêmes52 sources protégées ; règle Google Play différée intacte.
+Source Web `6f01fe0d7f9a8753f89e58b326968086b031c638`, CI41239685779 :126 unités/25 parcours/0 erreur JS, APK/AAB unsigned/lint ; publication `appgdep_6ae6539ef91c819182148f4c1175d078` succeeded, source hébergement `156d59f55b5c30b7d730b7e2869354c9f5329c2a`, même origine publique. Manifeste HTTPS build7 observé. Sauvegardes et signature préservées. Essais physiques et glyphes coréens sur appareils restent ouverts ; todo.md et docs/verification/myn030-language.md décrivent les limites.
 
-## État courant MYN-029 · 31/10/2026
+## Historique MYN-029 · 31/10/2026
 **PWA0.1.0/build6 public de test**, même moteur Android0.8.8/code17 et mêmes52 sources protégées. Installer accessible hors Pause et dans Pause, guide Android/iOS avec repères coréens, invite Chromium et masquage au lancement installé. Source Web `19cb558fc293de1e0833c5578be077e044b266f0`, hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`, publication `appgdep_6ae6469acff481918f0b7e22ab22470a` succeeded sur https://max-yutnori-web.gnrationsia.chatgpt.site. Manifeste HTTPS build6 observé ; cache SW nouveau publié dans l'archive identique à la CI. CI41233773003 :119 unités/23 parcours/0 erreur JS, APK/AAB unsigned/lint ; huit contrôles DOM/API d'installation et unités locales réussis. Installation, mise à jour de l'ancien raccourci, autonomie et capteurs matériels restent à valider. Règle Google Play différée intacte, aucune fusion main/Release PWA définitive. `todo.md` et docs/verification/myn029-build6.md font état des limites ; les états datés ci-dessous gardent l'historique.
 
 ## Produit et identité

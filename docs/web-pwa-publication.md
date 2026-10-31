@@ -72,3 +72,7 @@ Dans Réglages, **Activer les capteurs** reste disponible pour réessayer manuel
 
 ## MYN-029 — build6 livré en test
 Source Web `19cb558fc293de1e0833c5578be077e044b266f0`, CI41233773003 (119 unités/23 parcours), déploiement `appgdep_6ae6469acff481918f0b7e22ab22470a` succeeded. Rapport complet et limites : [myn029-build6.md](verification/myn029-build6.md). Le build PWA6 correspond à la version d’hébergement7 ; ce sont deux compteurs indépendants.
+
+## MYN-030 — choix de langue du guide (build7)
+Le guide et les boutons d’installation suivent les langues préférées du navigateur (FR/EN/KO, anglais de secours). Pour choisir : Pause → Voir les étapes → Langue → Français / English / 한국어. Auto rétablit la détection. Le choix est mémorisé sur ce navigateur, fonctionne hors ligne et ne change pas la partie. Le reste de l’interface du moteur conserve sa langue actuelle. Guide iOS et noms de menus s’adaptent à cette préférence ; si les menus système diffèrent, choisir manuellement leur langue.
+Build7 public vérifié, source `6f01fe0d7f9a8753f89e58b326968086b031c638`, CI41239685779 (126 unités/25 parcours), déploiement `appgdep_6ae6539ef91c819182148f4c1175d078` succeeded. Rapport : [myn030-language.md](verification/myn030-language.md).

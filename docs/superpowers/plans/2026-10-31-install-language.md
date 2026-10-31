@@ -8,9 +8,11 @@ Architecture : dictionnaire/résolveur web/pwa/install-language.mjs et intégrat
 
 Approche retenue : dictionnaire local sans réseau (hors ligne) ; pas de traduction distante ni de détection clavier. Cette portée correspond à la proposition approuvée, sans nouveau dialogue de conception.
 
-- [ ] Tests RED sur client réel à frontière DOM/API : guide FR sans coréen, KO choisi depuis languages, EN de secours, choix manuel/rechargement/Auto, stockage refusé, langue navigateur modifiée.
-- [ ] Implémenter dictionnaire et choix ; garder installation Chromium, standalone, plein écran, SW et sauvegardes.
-- [ ] Tests GREEN complets, smoke navigateur enrichi avec scope et préférences, PWA build7 et cinq mémoires dans le même commit ; pousser la branche et attendre CI.
-- [ ] Après CI verte, publier l’artefact exact sur le site existant ; documenter CI/déploiement/limites, maintenir PR#3 brouillon. Aucun merge/main/Release définitive ni nouvelle distribution Android.
+- [x] Tests RED sur client réel à frontière DOM/API : guide FR sans coréen, KO choisi depuis languages, EN de secours, choix manuel/rechargement/Auto, stockage refusé, langue navigateur modifiée.
+- [x] Implémenter dictionnaire et choix ; garder installation Chromium, standalone, plein écran, SW et sauvegardes.
+- [x] Tests GREEN complets, smoke navigateur enrichi avec scope et préférences, PWA build7 et cinq mémoires dans le même commit ; pousser la branche et attendre CI.
+- [x] Après CI verte, publier l’artefact exact sur le site existant ; documenter CI/déploiement/limites, maintenir PR#3 brouillon. Aucun merge/main/Release définitive ni nouvelle distribution Android.
 
 Révision : vérifier notamment lecteurs d’écran/lang, stockage privé refusé, locale régionale, préférences non prises en charge, conservation des parties. Les dialogues OS et appareils physiques restent à valider.
+
+Livraison vérifiée : source6f01fe0, CI41239685779 verte,126 unités/25 parcours ; build7 public appgdep_6ae6539ef91c819182148f4c1175d078 succeeded. Le test de statut ajouté en revue porte les régressions langue à7. Essais matériels restent distincts dans todo.md.

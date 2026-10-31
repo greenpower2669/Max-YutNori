@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "19cb558fc293de1e0833c5578be077e044b266f0",
+  "webSourceCommit": "6f01fe0d7f9a8753f89e58b326968086b031c638",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -218,7 +218,7 @@
     "byteIdentical": true
   },
   "unitTests": {
-    "passed": 119,
+    "passed": 126,
     "failed": 0
   },
   "builds": {
@@ -227,30 +227,32 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf",
+    "sourceCommit": "156d59f55b5c30b7d730b7e2869354c9f5329c2a",
     "status": "succeeded",
     "audience": "public",
-    "id": "appgdep_6ae6469acff481918f0b7e22ab22470a",
-    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_7bb8cbe4804c8191b8ec829b8bb822b9",
-    "hostingVersion": 7,
-    "pwaBuild": 6,
-    "uploadedArchiveFileSha256": "0a6922418eab6a073d9c3a1d1dfde6b512dc05e2293d23a32ed3a25836188d38",
-    "serverArchiveContentHash": "sha256:733c4df6feca06162e8beb23110c527a19bde9f8b13be9d1d72188fb0395b420"
+    "id": "appgdep_6ae6539ef91c819182148f4c1175d078",
+    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_e1f0d7bfcde88191a0103ba4b54a5137",
+    "hostingVersion": 8,
+    "pwaBuild": 7,
+    "uploadedArchiveFileSha256": "3771bc5474ab2223203e5c01f233eae376eba6c3e25cf6c1d746f7afdaff6dfb",
+    "serverArchiveContentHash": "sha256:40a7ec9735b39d23f680982f1bfe4f99789702d55b210f8c77f0eab058afe6dc"
   },
   "browserLimitations": [
-    "cloud preview cannot create WebGL context",
-    "CI uses Chrome/SwiftShader; motion and permission inputs are API-boundary fixtures",
-    "direct public sw.js navigation blocked by cloud browser; raw HTTP receives 403",
-    "Samsung and iPhone XS physical installation, standalone opening, fullscreen/orientation and offline update remain untested"
+    "cloud preview WebGL unavailable",
+    "Chrome/SwiftShader proves software rendering, not Samsung/iPhone GPU",
+    "iPhone guide selected with iPhone user agent in Chrome, not native Safari",
+    "CI runner lacks Hangul glyphs in screenshots; Korean DOM strings asserted and layout fits; native glyph rendering pending",
+    "sensor samples and permission responses are API-boundary fixtures",
+    "native install/fullscreen/orientation/screen-reader pronunciation and existing installed PWA update require device tests"
   ],
-  "ciRun": 41233773003,
+  "ciRun": 41239685779,
   "ciStatus": "success",
   "pwaVersion": "0.1.0",
-  "pwaBuild": 6,
+  "pwaBuild": 7,
   "browserChecks": {
-    "run": 41233773003,
-    "sourceCommit": "19cb558fc293de1e0833c5578be077e044b266f0",
-    "passed": 23,
+    "run": 41239685779,
+    "sourceCommit": "6f01fe0d7f9a8753f89e58b326968086b031c638",
+    "passed": 25,
     "failed": 0,
     "javascriptErrors": 0,
     "redirectedShellOfflineReload": "PASS",
@@ -259,7 +261,9 @@
     "permissionGrantedAndDenied": "PASS",
     "firstTrustedInteractionPermission": "PASS",
     "syntheticClickIgnored": "PASS",
-    "storedOffAndDenialRespected": "PASS"
+    "storedOffAndDenialRespected": "PASS",
+    "installationLanguage": "PASS: native browser locales FR/KO/unsupported-ES→EN; manual preference/reload/Auto and exact save",
+    "manifestScopeAndStartUrl": "explicit assertions PASS"
   },
   "androidCompatibility": {
     "apkAssembly": "PASS",
@@ -275,10 +279,10 @@
     "rawHTTPProbeStatus": 403,
     "versionManifestObservedWithoutAuthentication": true,
     "versionObserved": {
-      "build": 6,
+      "build": 7,
       "pwaVersion": "0.1.0",
       "engineVersion": "0.8.8",
-      "commit": "19cb558fc293de1e0833c5578be077e044b266f0"
+      "commit": "6f01fe0d7f9a8753f89e58b326968086b031c638"
     }
   },
   "webMotion": {
@@ -300,17 +304,16 @@
     "fullscreenAndLandscapeLock": "API-boundary success/exit/denial/unsupported checks PASS; native behavior pending"
   },
   "artifact": {
-    "id": 13054258459,
-    "run": 41233773003,
-    "zipSha256": "bd3c428af278344d570a5ec5f957f01f663b121f83acb13358f93326416170e6",
+    "id": 13057506352,
+    "run": 41239685779,
+    "zipSha256": "dac6e0025b54511f6c748eb58da29d1f32d8678ca9e03d29ca6b2a8967c6fb7a",
     "publishedFilesByteIdenticalToCI": 27
   },
   "serviceWorker": {
-    "cacheId": "max-yutnori-web-83378bf757c87c7f8bfae499",
-    "sha256": "43938623553dd73eb17bf382b8669a62b626929d90cd3684931d162d716f2eb1",
-    "changedFromBuild5": true,
+    "cacheId": "max-yutnori-web-d819f6fb3b835bc35d0756b1",
+    "sha256": "65ef8fdd90d43bf16aa24a19275f37bbe038f1dafb07a8e263c6081981278ee8",
+    "changedFromBuild6": true,
     "updateLifecycleCI": "PASS",
-    "publicDirectInspection": "blocked by cloud browser ERR_BLOCKED_BY_CLIENT; raw HTTP 403",
     "physicalUpdateValidation": "pending"
   },
   "review": {
@@ -318,9 +321,24 @@
     "criticalFindings": 0,
     "importantFindingsRemaining": 0,
     "corrections": [
-      "distinct local archive SHA and returned server content_hash",
-      "fullscreen/landscape-lock command boundary coverage"
+      "installation status updates text/lang; unrelated actions retain French",
+      "guide smoke uses Pause/Show steps to preserve native install prompt",
+      "locale scenes executed sequentially; full CI passes"
     ],
-    "minorDeferred": "CI smoke scope label lacks an explicit scope assertion; manifest scope independently checked as ./"
+    "minorDeferred": null
+  },
+  "installationLanguage": {
+    "supported": [
+      "fr",
+      "en",
+      "ko"
+    ],
+    "automatic": "first supported navigator.languages then navigator.language; English fallback",
+    "storageKey": "max-yutnori-web-language-v1",
+    "manualPriority": true,
+    "storageDenial": "session memory fallback",
+    "regressionTests": 7,
+    "result": "PASS",
+    "nativeOSLanguageDetection": false
   }
 }
