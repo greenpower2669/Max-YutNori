@@ -22,15 +22,22 @@ export async function webInstallLanguageScenario(browser,page,url,report){
  report.checks.push('Manual installation language persists across reload, returns to automatic and preserves exact game save');
  for(const [locale,want,menu] of [['ko-KR','ko','홈 화면에 추가'],['es-ES','en','Add to Home Screen']]){
   const context=await browser.newContext({viewport:{width:390,height:844},locale,userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'});
+  let guidePage;const diagnostic={locale,stage:'context',errors:[],requests:[]};
   try{
    await context.route('https://api.github.com/**',r=>r.fulfill({json:[]}));
-   const guidePage=await context.newPage();guidePage.setDefaultTimeout(90000);guidePage.on('pageerror',e=>report.errors.push(String(e)));
-   await guidePage.goto(url);await guidePage.waitForFunction(()=>window.__gameReady);
+   guidePage=await context.newPage();guidePage.setDefaultTimeout(90000);guidePage.on('pageerror',e=>{report.errors.push(String(e));diagnostic.errors.push(String(e));});
+   guidePage.on('console',m=>{if(m.type()==='error')diagnostic.errors.push(m.text().slice(0,500));});
+   guidePage.on('requestfailed',r=>diagnostic.requests.push({url:r.url(),error:r.failure()?.errorText}));
+   diagnostic.stage='navigate';await guidePage.goto(url);diagnostic.stage='game-ready';await guidePage.waitForFunction(()=>window.__gameReady);
+   diagnostic.stage='guide';
    await guide(guidePage);
    assert.equal(await guidePage.locator('#installGuide').getAttribute('lang'),want);
    assert.match(await guidePage.locator('#installGuideSteps').innerText(),new RegExp(menu));
    if(want==='en')assert.doesNotMatch(await guidePage.locator('#installGuideSteps').innerText(),/[가-힣]/);
    await guidePage.screenshot({path:'test-results/pwa-install-'+want+'.png'});
+  }catch(error){
+   try{diagnostic.page=await guidePage?.evaluate(()=>({url:location.href,ready:!!window.__gameReady,loading:document.getElementById('loading')?.innerText,body:document.body.innerText.slice(-1500),language:navigator.language,languages:navigator.languages}));await guidePage?.screenshot({path:'test-results/pwa-install-failure.png'});}catch{}
+   report.installationFailure=diagnostic;throw error;
   }finally{await context.close();}
  }
  report.checks.push('Real browser locale chooses Korean iPhone guide or English fallback for unsupported languages');
