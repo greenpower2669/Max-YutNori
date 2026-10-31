@@ -28,7 +28,7 @@ try{
  browser=await chromium.launch({executablePath:process.env.CHROME_PATH||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
  const context=await browser.newContext({viewport:{width:1000,height:600},serviceWorkers:'allow',locale:'fr-FR'});
  await context.route('https://api.github.com/**',r=>r.fulfill({json:[{tag_name:'v99.0.0',draft:false,prerelease:false}]}));
- const page=await context.newPage();activePage=page;page.setDefaultTimeout(60000);page.on('pageerror',e=>report.errors.push(String(e)));await page.goto(url);
+ let page=await context.newPage();activePage=page;page.setDefaultTimeout(60000);page.on('pageerror',e=>report.errors.push(String(e)));await page.goto(url);
  await page.waitForFunction(()=>window.__gameReady);report.checks.push('Real Three.js WebGL + Rapier WASM start');
  await page.waitForFunction(()=>navigator.serviceWorker.controller);await page.evaluate(()=>navigator.serviceWorker.ready);report.checks.push('Service worker install/activate and complete initial precache');
  const manifest=await page.evaluate(async()=>{const m=await fetch(document.querySelector('link[rel=manifest]').href);return m.json();});assert.equal(manifest.display,'standalone');assert.equal(manifest.orientation,'landscape');assert.equal(manifest.scope,'./');assert.equal(manifest.start_url,'./');assert.deepEqual(manifest.icons.map(i=>i.sizes),['192x192','512x512','512x512']);report.checks.push('Installable manifest, official icons, scope and landscape');
@@ -40,7 +40,7 @@ try{
  await page.locator('#closeInstallGuide').click();
  await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();
  report.checks.push('Visible installation shortcut and manual installation guide');
- await webInstallLanguageScenario(browser,page,url,report);
+ page=await webInstallLanguageScenario(browser,page,url,report);activePage=page;
  await webMotionScenario(page,()=>page.waitForFunction(()=>window.__gameReady),report);
  await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByText('À jour',{exact:true}).waitFor();assert.match(await page.locator('#webVersion').innerText(),/Moteur 0.8.8 · PWA/);report.checks.push('Android 99.0.0 never reported as Web update');
  const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('max-yutnori-native-v4')));await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();

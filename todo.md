@@ -42,3 +42,5 @@
 Lire ordres-de-mission.md puis ce fichier, brain.md, brainmap.md et debughistorical.md. Source Web build6 `19cb558fc293de1e0833c5578be077e044b266f0` ; les commits mémoire ultérieurs ne changent pas le bundle. Une version Sites n°7 correspond ici au **build PWA6** : compteurs distincts.
 
 MYN-030 CI41238705765 échouée :126 unités/deux builds/intégrité verts, scénario manuel/rechargement/save vert, puis timeout90s sur nouveau contexte locale ko-KR avec identité iPhone. Aucun résultat Android de ce run (étapes sautées). Cause encore inconnue ; diagnostics page/console/requêtes/screenshot ajoutés au contexte concerné sans modifier le produit ni augmenter le timeout. Build7 non publié.
+
+Isolement MYN-030 : deuxième passage de diagnostic encore bloqué au test multi-contextes après plus de6min. Exécuter les scènes de locales séquentiellement (fermer le document principal, conserver son contexte/cache/save, réouvrir après chaque contexte locale fermé) ; mêmes locales et même moteur. Diagnostic console émis avant screenshot borné5s. Hypothèse ressource/contexte non confirmée, aucune modification produit ; CI suivante doit départager.
