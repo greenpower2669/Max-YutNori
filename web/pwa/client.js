@@ -4,19 +4,45 @@ const $=id=>document.getElementById(id);
 const panel=document.createElement('section');panel.id='webApp';panel.setAttribute('aria-label','Installation et mises à jour');
 panel.innerHTML=`<h2>Max YutNori · Web</h2><p id="webVersion">Lecture de la version…</p><p id="offlineStatus" role="status">Préparation du jeu hors ligne…</p><p id="versionStatus" role="status">Vérification des versions…</p><p id="versionDetail" class="hint"></p><div class="web-actions"><button id="installWeb">Installer le jeu</button><button id="fullscreenWeb">Plein écran</button><button id="checkWeb">Vérifier les mises à jour</button><button id="updateWeb" hidden>Actualiser le jeu</button></div><p id="installHelp" class="hint">Android : menu du navigateur → Installer l’application ou Ajouter à l’écran d’accueil. Ordinateur : icône d’installation près de l’adresse dans Chrome ou Edge. iPhone/iPad : Safari → Partager → Sur l’écran d’accueil. Les possibilités dépendent du navigateur.</p><p id="webActionStatus" role="status"></p><p class="hint">La partie reste sauvegardée dans ce navigateur. Gardez les données du site pour la retrouver. L’APK et les autres navigateurs ont leurs propres sauvegardes.</p><p><a id="androidDownload" href="https://github.com/greenpower2669/Max-YutNori/releases/tag/v0.8.8" target="_blank" rel="noopener">Télécharger la version Android</a></p>`;
 $('pause').append(panel);
+// Installation entry point outside Pause, available only in the Web/PWA build.
+const shortcut=document.createElement('button');
+shortcut.id='installShortcut';shortcut.type='button';
+shortcut.textContent=/^ko(?:-|$)/i.test(navigator.language||'')?'📲 설치':'📲 Installer';
+shortcut.setAttribute('aria-label','Installer Max YutNori sur cet appareil');
+document.body.append(shortcut);
+const installGuide=document.createElement('dialog');
+installGuide.id='installGuide';
+installGuide.setAttribute('aria-label',"Aide à l’installation de Max YutNori");
+installGuide.innerHTML='<h1>Installer Max YutNori</h1><div id="installGuideSteps"></div><button id="closeInstallGuide" class="primary">Retour au jeu</button>';
+document.body.append(installGuide);
+$('closeInstallGuide').onclick=()=>installGuide.close();
+function showInstallGuide(){
+ const ua=navigator.userAgent||'';
+ const ios=/iPad|iPhone|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+ const android=/Android/i.test(ua)||navigator.userAgentData?.platform==='Android';
+ $('installGuideSteps').innerHTML=ios?
+  '<p>Sur votre iPhone ou iPad, ouvrez le jeu dans Safari, puis :</p><ol><li>Touchez <strong>Partager</strong> (공유, carré avec flèche vers le haut).</li><li>Choisissez <strong>Sur l’écran d’accueil</strong> (홈 화면에 추가).</li><li>Touchez <strong>Ajouter</strong> (추가), puis ouvrez le jeu avec sa nouvelle icône.</li></ol><p>Vous pourrez alors profiter de l’affichage autonome, selon la version d’iOS.</p>':
+  android?'<p>Dans le navigateur, ouvrez son menu (⋮), puis choisissez <strong>Installer l’application</strong> ou <strong>Ajouter à l’écran d’accueil</strong>. Ouvrez ensuite le jeu depuis son icône.</p>':
+  '<p>Dans Chrome ou Edge, utilisez l’icône d’installation près de l’adresse ou la commande <strong>Installer</strong> dans le menu du navigateur.</p>';
+ if(!installGuide.open)installGuide.showModal();
+}
 const tip=document.createElement('p');tip.className='hint';tip.textContent='Installation, plein écran et mises à jour sont disponibles dans Pause.';$('settings').append(tip);
 let current,registration,installEvent,checking=false,lastCheck=0,reloadRequested=false;
 let offlineReady=false;
 function action(text){$('webActionStatus').textContent=text;}
 function installed(){return matchMedia('(display-mode: standalone)').matches||matchMedia('(display-mode: fullscreen)').matches||navigator.standalone===true;}
-function installState(){const done=installed();$('installWeb').hidden=done;$('installHelp').hidden=done;if(done)$('webApp').dataset.installed='true';}
+function installState(){const done=installed();$('installWeb').hidden=done;$('installHelp').hidden=done;shortcut.hidden=done;if(done)$('webApp').dataset.installed='true';}
 window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installEvent=event;installState();});
 window.addEventListener('appinstalled',()=>{installEvent=null;installState();action('Le jeu est installé.');});
-$('installWeb').onclick=async()=>{
- if(installEvent){try{await installEvent.prompt();const result=await installEvent.userChoice;action(result.outcome==='accepted'?'Installation demandée au navigateur.':'Vous pourrez installer le jeu plus tard.');installEvent=null;}catch{action('Utilisez le menu de votre navigateur pour installer le jeu.');}}
- else{$('installHelp').hidden=false;action('Suivez les instructions ci-dessus.');}
+async function installWebApp(){
+ if(installEvent){
+  try{await installEvent.prompt();const result=await installEvent.userChoice;action(result.outcome==='accepted'?'Installation demandée au navigateur.':'Vous pourrez installer le jeu plus tard.');installEvent=null;}
+  catch{action('Installation depuis le navigateur : suivez le guide.');showInstallGuide();}
+ }else{action('Voici les étapes pour installer le jeu.');showInstallGuide();}
  try{await navigator.storage?.persist?.();}catch{}
-};
+}
+$('installWeb').onclick=installWebApp;
+shortcut.onclick=installWebApp;
 async function fullscreen(){try{
  if(document.fullscreenElement){await document.exitFullscreen();return;}
  if(!document.documentElement.requestFullscreen){action('Le plein écran dépend de ce navigateur. L’installation ouvre une fenêtre autonome lorsque le système le permet.');return;}
