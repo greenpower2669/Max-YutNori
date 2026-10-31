@@ -16,6 +16,10 @@ installGuide.setAttribute('aria-label',"Aide à l’installation de Max YutNori"
 installGuide.innerHTML='<h1>Installer Max YutNori</h1><div id="installGuideSteps"></div><button id="closeInstallGuide" class="primary">Retour au jeu</button>';
 document.body.append(installGuide);
 $('closeInstallGuide').onclick=()=>installGuide.close();
+const stepsButton=document.createElement('button');
+stepsButton.id='installSteps';stepsButton.type='button';stepsButton.textContent='Voir les étapes';
+$('installWeb').insertAdjacentElement('afterend',stepsButton);
+stepsButton.onclick=()=>showInstallGuide();
 function showInstallGuide(){
  const ua=navigator.userAgent||'';
  const ios=/iPad|iPhone|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
