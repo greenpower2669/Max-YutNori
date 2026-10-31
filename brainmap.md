@@ -1,5 +1,9 @@
 # Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build4
 
+## Reprise active — MYN-028 (31 octobre 2026)
+Branche `feature/web-pwa-v010`. Installation Web visible dans `web/pwa/client.js` et `web/pwa/pwa.css` : raccourci hors Pause, déclenchement commun avec `#installWeb`, guide Android/iOS avec repères coréens, masquage après installation ; scénario `scripts/smoke_pwa.mjs` étendu et build6 dans `web-release.json`. Règle immuable mais différée Google Play après publication dans `ordres-de-mission.md`. Niveau API Android non fiable via user-agent ; `todo.md` pour CI/déploiement/validation. Aucune publication ou fusion confirmée.
+
+
 Les entrées techniques historiques ci-dessous conservent les dépendances et causes/conséquences ; les blocs explicitement datés décrivent leur version. La carte actuelle résumée fait autorité. Tous les textes originaux sont conservés sans perte dans sauvegarde.md.
 
 ## Navigation actuelle
