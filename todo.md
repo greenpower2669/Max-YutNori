@@ -1,5 +1,15 @@
 # Max YutNori — état actuel 28 octobre 2026
 
+## MYN-028 — accès direct à l'installation / Google Play après publication (31/10/2026)
+- [x] Surcouche PWA : bouton visible « 📲 Installer » hors Pause, invite native quand disponible, guide alternatif (iOS avec libellés coréens), masquage en mode installé ; aucun changement du moteur ni de l'APK Android.
+- [x] Test navigateur de présence du bouton et du dialogue ajouté au scénario PWA.
+- [x] Build Web de test incrémenté de 5 à 6 ; ordre de mission avec **règle immuable Google Play prioritaire à activer uniquement après publication**.
+- [ ] CI du build6 : npm test, builds Web/Android de compatibilité, smoke navigateur et vérification d'absence de régression ; aucun résultat revendiqué avant retour de CI.
+- [ ] Déployer le build6 en **site public de test** seulement après validation ; contrôler l'URL active et l'intégrité du service worker, sans toucher aux sauvegardes.
+- [ ] Test réel iPhone XS (June, interface coréenne) : bouton, étapes Partager/écran d'accueil, ouverture autonome ; test Android Samsung SM-A576B : invite Chromium ou guide, présence de la commande, absence de recouvrement en paysage/portrait.
+- [ ] Après **publication effective sur Google Play**, vérifier fiche exacte, identité de package et minSdk du paquet proposé ; alors seulement activer la priorité Store sur Android compatible et le repli PWA si incompatible / sans Google Play. Le navigateur seul ne certifie pas le niveau API. Aucun faux lien Play avant l'heure.
+- [ ] Aucune fusion `main` ni release PWA définitive sans validation de Fab.
+
 ## Livré et vérifié
 - [x] Android0.8.8/code17 : PR#2 fusionnée cdb2ff4 ; Release v0.8.8, APK62243800octets et SHA2561b3ba30f… identiques au binaire validé. CI40589109427 ; mémoires de main réalignées4a96847.
 - [x] Archives intégrales des cinq mémoires avant clôture et avant consolidation PWA, avec source/empreintes dans sauvegarde.md. Aucune mission perdue.
