@@ -1,6 +1,6 @@
 {
   "reference": "cdb2ff429fc3d43252a3b4888e7fae2c59d81779",
-  "webSourceCommit": "6f01fe0d7f9a8753f89e58b326968086b031c638",
+  "webSourceCommit": "5c77d18078de2b49c86953b1d0f32921eda23081",
   "protectedFiles": {
     "android/app/build.gradle": {
       "gitBlob": "2e01c8a3bcced7c43f33cd7fd414bc870b4e7c55",
@@ -218,7 +218,7 @@
     "byteIdentical": true
   },
   "unitTests": {
-    "passed": 126,
+    "passed": 136,
     "failed": 0
   },
   "builds": {
@@ -227,15 +227,15 @@
   },
   "deployment": {
     "url": "https://max-yutnori-web.gnrationsia.chatgpt.site",
-    "sourceCommit": "156d59f55b5c30b7d730b7e2869354c9f5329c2a",
+    "sourceCommit": "077ea387532202126667135ab5e72056a1d78050",
     "status": "succeeded",
     "audience": "public",
-    "id": "appgdep_6ae6539ef91c819182148f4c1175d078",
-    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_e1f0d7bfcde88191a0103ba4b54a5137",
-    "hostingVersion": 8,
-    "pwaBuild": 7,
-    "uploadedArchiveFileSha256": "3771bc5474ab2223203e5c01f233eae376eba6c3e25cf6c1d746f7afdaff6dfb",
-    "serverArchiveContentHash": "sha256:40a7ec9735b39d23f680982f1bfe4f99789702d55b210f8c77f0eab058afe6dc"
+    "id": "appgdep_6ae7474b68ac819186bc15191a2e8a50",
+    "savedVersion": "appgprj_6ae11aa948088191a7b93cc0bbfa9652~appgver_e82e5ac959e0819189589a00299f32f5",
+    "hostingVersion": 9,
+    "pwaBuild": 8,
+    "uploadedArchiveFileSha256": "455323d2830d789cb7add9bb66b30189ea20bec9a4cdd21d1fe8c1e40dfe0b3f",
+    "serverArchiveContentHash": "sha256:a957d009cfc6e252a90d108455f0681c688881d3c5e74508be9db82d38382075"
   },
   "browserLimitations": [
     "cloud preview WebGL unavailable",
@@ -245,14 +245,14 @@
     "sensor samples and permission responses are API-boundary fixtures",
     "native install/fullscreen/orientation/screen-reader pronunciation and existing installed PWA update require device tests"
   ],
-  "ciRun": 41239685779,
+  "ciRun": 41313598457,
   "ciStatus": "success",
   "pwaVersion": "0.1.0",
-  "pwaBuild": 7,
+  "pwaBuild": 8,
   "browserChecks": {
-    "run": 41239685779,
-    "sourceCommit": "6f01fe0d7f9a8753f89e58b326968086b031c638",
-    "passed": 25,
+    "run": 41313598457,
+    "sourceCommit": "5c77d18078de2b49c86953b1d0f32921eda23081",
+    "passed": 27,
     "failed": 0,
     "javascriptErrors": 0,
     "redirectedShellOfflineReload": "PASS",
@@ -263,7 +263,8 @@
     "syntheticClickIgnored": "PASS",
     "storedOffAndDenialRespected": "PASS",
     "installationLanguage": "PASS: native browser locales FR/KO/unsupported-ES→EN; manual preference/reload/Auto and exact save",
-    "manifestScopeAndStartUrl": "explicit assertions PASS"
+    "manifestScopeAndStartUrl": "explicit assertions PASS",
+    "pwaFirstOptionalStore": "PASS: PWA first; no unverified popup/redirect on desktop or mobile with empty official catalogue"
   },
   "androidCompatibility": {
     "apkAssembly": "PASS",
@@ -279,10 +280,10 @@
     "rawHTTPProbeStatus": 403,
     "versionManifestObservedWithoutAuthentication": true,
     "versionObserved": {
-      "build": 7,
+      "build": 8,
       "pwaVersion": "0.1.0",
       "engineVersion": "0.8.8",
-      "commit": "6f01fe0d7f9a8753f89e58b326968086b031c638"
+      "commit": "5c77d18078de2b49c86953b1d0f32921eda23081"
     }
   },
   "webMotion": {
@@ -304,15 +305,15 @@
     "fullscreenAndLandscapeLock": "API-boundary success/exit/denial/unsupported checks PASS; native behavior pending"
   },
   "artifact": {
-    "id": 13057506352,
-    "run": 41239685779,
-    "zipSha256": "dac6e0025b54511f6c748eb58da29d1f32d8678ca9e03d29ca6b2a8967c6fb7a",
+    "id": 13086875158,
+    "run": 41313598457,
+    "zipSha256": "78274f7c27933ce6d1ae63dce36c60e38ef5965eb3729a572c722a43810cd1a2",
     "publishedFilesByteIdenticalToCI": 27
   },
   "serviceWorker": {
-    "cacheId": "max-yutnori-web-d819f6fb3b835bc35d0756b1",
-    "sha256": "65ef8fdd90d43bf16aa24a19275f37bbe038f1dafb07a8e263c6081981278ee8",
-    "changedFromBuild6": true,
+    "cacheId": "max-yutnori-web-3b72cffe30f8171ecc9f1e1e",
+    "sha256": "dfc1672efde1bef6d5f36f4224d12388a55a39abab7222f9267025ee5f5ff2c5",
+    "changedFromBuild7": true,
     "updateLifecycleCI": "PASS",
     "physicalUpdateValidation": "pending"
   },
@@ -321,9 +322,9 @@
     "criticalFindings": 0,
     "importantFindingsRemaining": 0,
     "corrections": [
-      "installation status updates text/lang; unrelated actions retain French",
-      "guide smoke uses Pause/Show steps to preserve native install prompt",
-      "locale scenes executed sequentially; full CI passes"
+      "reread Store refusal across already open tabs",
+      "reject ambiguous Play IDs and Apple non-listing paths",
+      "mobile browser check of actual empty catalog"
     ],
     "minorDeferred": null
   },
@@ -340,5 +341,18 @@
     "regressionTests": 7,
     "result": "PASS",
     "nativeOSLanguageDetection": false
+  },
+  "storeOffer": {
+    "policy": "PWA first; optional secondary Store popup; no automatic redirect",
+    "currentOfficialCatalogue": {
+      "android": null,
+      "ios": null
+    },
+    "livePopupActive": false,
+    "activationDependency": "Exact official published listing and native/engine versions must be verified",
+    "dismissal": "remembered per offer, reread across open tabs; session fallback if storage blocked",
+    "positiveDOMAPICases": 10,
+    "nativeInstalledVersionInferred": false,
+    "pwaVersionCheck": "unchanged"
   }
 }
