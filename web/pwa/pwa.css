@@ -1,0 +1,23 @@
+#webApp{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+#webApp h2{margin:0 0 8px;font-size:22px;color:var(--gold)}
+#webApp p{overflow-wrap:anywhere}#webVersion{font-size:13px;color:var(--muted)}
+.web-actions{display:flex;flex-wrap:wrap;gap:4px}#webApp a{color:var(--gold);text-underline-offset:3px}
+#versionStatus,#offlineStatus{font-weight:650}#webActionStatus{color:var(--gold)}
+:root{--web-header-y:2px;--web-controls-bottom:4px}
+@media(max-width:700px){:root{--web-header-y:3px;--web-controls-bottom:5px}}
+@supports(padding:max(0px)){header{padding-top:calc(var(--web-header-y) + env(safe-area-inset-top));padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}#controls{padding-bottom:calc(var(--web-controls-bottom) + env(safe-area-inset-bottom));padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}}
+@media(max-height:570px) and (min-width:701px){header{padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}#controls{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}}
+@media(max-width:700px){header{padding-left:max(8px,env(safe-area-inset-left));padding-right:max(8px,env(safe-area-inset-right))}#controls{padding-left:max(10px,env(safe-area-inset-left));padding-right:max(10px,env(safe-area-inset-right))}}
+
+/* PWA-only installation shortcut: visible before installation, never obstructs HUD controls. */
+#installShortcut{position:fixed;z-index:4;right:max(12px,env(safe-area-inset-right));bottom:calc(var(--controls-height,100px) + 12px);min-height:44px;padding:8px 14px;background:var(--gold);border-color:var(--gold);color:#182e25;font-size:14px;font-weight:750;box-shadow:0 6px 16px #0008}
+#installShortcut:hover{background:#f4d395}
+#installGuide{width:min(480px,92vw)}
+#storeOfferDialog{width:min(480px,92vw)}
+#storeOfferDialog a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;color:var(--gold);text-underline-offset:3px}
+#installGuide ol{padding-left:24px;line-height:1.65}
+#installGuide li{margin:7px 0}
+#installGuide strong{color:var(--gold)}
+#installGuide .install-language{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+#installLanguage{max-width:100%;min-height:44px}
+@media(max-width:700px){#installShortcut{right:max(8px,env(safe-area-inset-right));bottom:calc(var(--controls-height,110px) + 8px);padding:6px 10px;font-size:13px}}

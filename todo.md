@@ -1,27 +1,59 @@
-# Travail actif — 0.8.8 Android / MYN-023 puis MYN-024
+# Max YutNori — état courant MYN-031 · 1 novembre 2026
 
-## Clôture autorisée
-- [x] Vérifier PR #2 : tête 8debca3, 0.8.8/code17 et CI 40543163343 réussie sur source 08abcaed.
-- [x] Archiver intégralement les cinq anciens fichiers avec provenance/empreintes ; réaligner les fichiers actifs.
-- [x] PR #2 fusionnée cdb2ff4 ; Release v0.8.8 publiée/vérifiée par CI40589109427. APK62243800 octets, SHA2561b3ba30f… identique au binaire livré.
+## MYN-031 — build8 public, activation Store différée
+- [x] Avenant explicite enregistré : PWA principale, Store secondaire facultatif, ancien routage prioritaire remplacé.
+- [x] Popup FR/EN/KO après parcours d’installation, Continuer avec la WebApp en primaire ; refuser/Escape mémorisés par version ; stockage refusé géré en mémoire.
+- [x] Catalogue officiel validé (identité/URL/date/versions), comparaison des moteurs seulement ; Web checkVersions et activation SW/save inchangés.
+- [x] Dix nouveaux tests passent ; cinq premiers et trois cas de revue observés rouges avant correction. 136 unités et8 contrôles complémentaires verts ; deux builds/branding et CI complète réussis.
+- [x] CI41313598457 réussie :136 unités/27 parcours/0 erreur JS, builds, intégrité52 sources et APK/AAB unsigned/lint. Artefact13086875158 vérifié et27 fichiers exacts publiés, déploiement appgdep_6ae7474b68ac819186bc15191a2e8a50 succeeded ; manifeste HTTPS build8 observé.
+- [ ] Pour activer réellement la popup : fournir/vérifier la fiche officielle exacte et ses versions, puis renseigner STORE_CATALOG. Android/iOS restent null actuellement ; aucune proposition d’un autre jeu ni faux lien.
+- [ ] Validation matérielle Samsung/iPhone, fonctionnement réel de la fiche et versions publiées après activation.
 
-## Web/PWA — prochaine réalisation
-- [ ] Branche dédiée depuis la version intégrée ; design/plan de réalisation.
-- [ ] Build Web commun sans altérer le build Android ni caméra/physique/effets.
-- [ ] Manifest/icônes/install/plein écran, service worker hors ligne avec musique et mises à jour différées.
-- [ ] Versions moteur/PWA/commit ; recherche GitHub limitée aux releases Web ; gestion réseau/erreurs.
-- [ ] Tests automatisés et navigateur (jeu, physique, cadrage, localStorage, hors ligne, worker, installation), contrôle Android.
-- [ ] Publication HTTPS de test, procédure et instructions d'installation, PR brouillon, aucune release PWA définitive ni merge main.
+## MYN-030 — build7 public, réalisé et vérifié
+- [x] Détection navigator.languages / navigator.language, FR/KO/EN, repli anglais ; choix Auto/Français/English/한국어 dans le guide, mémorisé séparément des parties.
+- [x] Six régressions rouges puis vertes ;126 unités et8 contrôles installation/plein écran passent localement. Stockage bloqué : choix en mémoire, jeu préservé.
+- [x] Deux parcours navigateur multilingues ajoutés ; assertion scope/start_url du manifest ajoutée au smoke existant.
+- [x] CI41239685779 réussie :126 unités/25 parcours,0 erreur JS, deux builds et APK/AAB unsigned/lint. Artefact13057506352 vérifié par SHA-256,27 fichiers byte-identiques publiés ; déploiement appgdep_6ae6539ef91c819182148f4c1175d078 succeeded, manifeste HTTPS build7/commit6f01fe0 observé.
+- [ ] Essais réels Samsung et iPhone XS et langues des menus système à confirmer ; aucun essai matériel simulé déclaré réel.
 
-## Vérifications humaines conservées
-Ces tâches ne sont pas prétendues réalisées par l'autorisation de clôture.
-- [ ] Samsung SM-A576B Android 16 : installation en mise à jour, cache et masques OEM de l'icône, lisibilité logo/contrôles avec grossissement système.
-- [ ] Gestes : sélection/réserve/piles, glisser/déposer/annulation, pincement avec/sans pion, ×2, retours caméra, rotation avec noms longs pendant suivi.
-- [ ] Capteur et bol : gauche/droite dans les deux paysages, levage/inclinaison/descente/lancer, rangement, pause/reprise et priorité auto/doigt/capteur.
-- [ ] Panorama : toutes les 24 chutes, brumes violettes/turquoise, nuages, raccords 360°, lac et protection des arbres/berges en modes normal/léger/réduit.
-- [ ] Partie complète, musique prolongée, FPS/chauffe/confort ; traiter les retours ciblés.
-- [ ] Mineur Web historique : surveiller en portrait étroit le repli des cartes/vues et les noms longs.
-- [ ] Seulement si Fab demande Google Play : clé d'upload durable et AAB de publication. Les paquets actuels portent la signature debug de test ; aucun nouvel AAB 0.8.8 demandé.
+## Historique vérifié MYN-029 — build6
+- [x] PWA **0.1.0/build6**, moteur **0.8.8/code17**, branche `feature/web-pwa-v010` ; bouton Installer hors Pause et dans Pause, guides Android/iOS avec repères coréens. Routage Google Play différé conservé.
+- [x] CI [41233773003](https://github.com/greenpower2669/Max-YutNori/actions/runs/41233773003), source `19cb558fc293de1e0833c5578be077e044b266f0` : **119 unités, 23 parcours Chrome/SwiftShader, zéro erreur JS**, deux builds, APK/AAB de contrôle **non signés** et lint réussis. Les parcours ont été exécutés, pas seulement hérités d'un ancien run.
+- [x] Comparaison HEAD de reprise/CI : seuls les quatre fichiers mémoire avaient changé depuis la source testée ; MYN-029 ajoute uniquement vérifications/documentation hors entrées de build. Comparaison au socle `cdb2ff4` et empreintes : **52 fichiers moteur/Android intacts** ; Gradle minSdk26, targetSdk36, version0.8.8/code17.
+- [x] MYN-029 local : 119 unités relancées, branding et deux builds réussis ; 8 contrôles DOM/API complémentaires (Android, iPhone coréen, iPad, lancement autonome, bureau, invite native acceptée/reportée et commandes plein écran/paysage avec refus) réussis. Script et limites dans docs/verification/myn029-install-check.mjs.
+- [x] Artefact exact de la CI téléchargé, SHA-256 vérifié et ses 27 fichiers publiables copiés byte-identiques ; cache SW différent du build5, activation volontaire et sauvegarde exacte vérifiées en CI.
+- [x] Publication publique de test réussie, **même origine HTTPS** : https://max-yutnori-web.gnrationsia.chatgpt.site ; source hébergement `8e77dcbd19f9ac9d4edbbaa0d86a782ae9ab8faf`, déploiement `appgdep_6ae6469acff481918f0b7e22ab22470a`. Manifeste HTTPS observé dans le navigateur : build6/commit19cb558. Audience publique révision2 préservée.
+- [x] Android officiel 0.8.8 et APK validé inchangés ; aucune nouvelle clé ni distribution Android. Clôture historique PR#2/Release v0.8.8 conservée.
+- [x] Cinq mémoires actualisées ; historique complet de l'ancien todo conservé dans sauvegarde.md. Rapport : docs/verification/myn029-build6.md ; empreintes/CI/déploiement : docs/verification/web-pwa-source-integrity.json.
 
-## Référence et preuves
-APK livré : 0.8.8/code17 ; source 08abcaed, binaires 99543419, CI 40543163343 (96 tests, 56 parcours, WebGL, build/lint/signature Android). Preuve : temp/native-delivery-verification-v088.json ; passation : docs/passation-myn022-logo.md ; revue : docs/revue-v088.md. Les anciennes cases « en cours » sont des états datés remplacés par ces preuves, archivés sans perte dans sauvegarde.md.
+## Réalisé, à tester sur appareil
+- [ ] Samsung **SM-A576B** : Chrome → bouton 📲 Installer/invite ou menu ; ouverture par icône, plein écran, paysage/portrait et zones de sécurité. Capteurs ON par défaut, éventuelle permission au premier toucher, OFF/refus persistants, réessai manuel.
+- [ ] iPhone XS de June en coréen : Safari → Partager **공유** → Sur l'écran d'accueil **홈 화면에 추가** → Ajouter **추가** ; ouverture autonome et retour au jeu.
+- [ ] Mise à jour réelle depuis build5/6 vers build8 : Pause → Vérifier les mises à jour → Actualiser le jeu ; attendre le cache complet et vérifier partie exacte après fermeture/réouverture hors ligne. Conserver les données du site et la même origine. Fermer les autres fenêtres de ce jeu si demandé.
+- [ ] Commandes : réserves/piles, glisser/déposer/annulation, pinch avec/sans pion, ×2/retours caméra, noms longs pendant suivi et rotation ; vérifier recouvrement du nouveau bouton avec grossissement système.
+- [ ] Bol/capteurs : deux paysages, levage/inclinaison/descente/lancer, rangement et pause/reprise ; priorités Auto/IA/doigt/capteur, repos environ1s avant geste.
+- [ ] Panorama :24 chutes/brumes/nuages/raccord360°, lac et arbres/berges, modes normal/léger/réduit ; partie complète, musique prolongée, GPU/FPS/chauffe et confort.
+- [ ] Android APK : mise à jour, icône/cache OEM et accessibilité Samsung restent des essais matériels distincts.
+
+## En attente
+- [ ] Traiter les retours des deux appareils. Mineur historique : repli cartes/vues et noms longs en portrait étroit. [AGENT] Mineur soldé MYN-030 : assertions scope/start_url passent en CI.
+- [ ] **Validation explicite de Fab avant fusion main ou Release PWA définitive. PR#3 reste ouverte en brouillon.** Aucun merge/release définitive dans MYN-029.
+- [ ] **Après publication effective Google Play seulement** : vérifier fiche officielle exacte, identité et minSdk réel ; configurer uniquement la popup Store facultative de MYN-031 ; conserver la PWA comme premier parcours sur Android/iOS. Le seul user-agent ne certifie pas la compatibilité.
+- [ ] Si publication Android demandée : restaurer la clé légitime existante depuis cache/sauvegarde/Secrets, puis AAB signé avec sauvegarde durable. Le contrôle unsigned n'est pas une preuve de signature ; aucun remplacement automatique.
+
+## Bloqué / limites précises
+- Navigateur cloud : création du contexte WebGL impossible, donc rendu interactif local non validé dans cet environnement. Le vrai moteur/WebGL/Rapier a passé les 23 parcours CI avec SwiftShader.
+- Navigation directe vers le SW public bloquée par le navigateur cloud (`ERR_BLOCKED_BY_CLIENT`), sonde HTTP brute 403. Manifeste public build7 observé, archive du SW vérifiée et publication réussie ; activation de l'installation existante à confirmer sur appareil.
+- Pas de Samsung/iPhone physique relié ; dialogues OS, ouverture autonome réelle, capteurs/GPU et éviction du stockage restent non mesurés.
+- Cache de clé Android absent du runner PWA : APK/AAB de compatibilité construits unsigned sans modifier les sources de signature. L'APK officiel reste celui de sa Release vérifiée.
+
+## Reprise
+Lire ordres-de-mission.md puis ce fichier, brain.md, brainmap.md et debughistorical.md. Source Web build8 `5c77d18078de2b49c86953b1d0f32921eda23081` ; les commits mémoire ultérieurs ne changent pas le bundle. Une version Sites n°9 correspond ici au **build PWA8** : compteurs distincts.
+
+MYN-030 CI41238705765 échouée :126 unités/deux builds/intégrité verts, scénario manuel/rechargement/save vert, puis timeout90s sur nouveau contexte locale ko-KR avec identité iPhone. Aucun résultat Android de ce run (étapes sautées). Cause encore inconnue ; diagnostics page/console/requêtes/screenshot ajoutés au contexte concerné sans modifier le produit ni augmenter le timeout. Build7 non publié.
+
+Isolement MYN-030 : deuxième passage de diagnostic encore bloqué au test multi-contextes après plus de6min. Exécuter les scènes de locales séquentiellement (fermer le document principal, conserver son contexte/cache/save, réouvrir après chaque contexte locale fermé) ; mêmes locales et même moteur. Diagnostic console émis avant screenshot borné5s. Hypothèse ressource/contexte non confirmée, aucune modification produit ; CI suivante doit départager.
+
+Clôture MYN-030 : CI41239685779 réussie, y compris les deux parcours langues et tous les anciens tests. Les lignes de diagnostic antérieures sont un historique d’essais, plus un blocage courant. Rapport docs/verification/myn030-language.md et preuves JSON actualisés. Essais matériels, prononciation lecteur d’écran et glyphes coréens restent à valider.
+
+MYN-031 : publication PWA terminée, données de fiche officielle encore manquantes pour activer la popup ; ceci n’est pas un blocage de l’installation WebApp. Preuves et procédure : docs/verification/myn031-pwa-first-store.md.
