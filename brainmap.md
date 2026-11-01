@@ -1,5 +1,8 @@
 # Carte technique — Max YutNori moteur0.8.8 / PWA0.1.0 build7
 
+## MYN-031 — Store facultatif, build8 en vérification
+`web/pwa/store-offer.mjs` : catalogue natif null tant que non vérifié, URL/identité/semver/moteur ; `client.js` : popup secondaire après parcours PWA, refus mémoire/localStorage clé max-yutnori-store-offer-v1, jamais de routage imposé. `install-language.mjs` : textes FR/EN/KO ; `tests/pwa-store-offer.test.mjs` : dix scénarios ; fixture DOM/API partagée. `version.mjs`/SW et52 sources moteur/Android préservés. Règle actuelle et trace de l’ancienne : ordres-de-mission.md. État CI/déploiement et activation réelle par fiche manquante : todo.md.
+
 ## MYN-030 — guide multilingue livré en test
 `web/pwa/install-language.mjs` : dictionnaire et résolution FR/KO/EN ; `client.js` : sélecteur Auto/manuellement, clé max-yutnori-web-language-v1 et languagechange. `tests/pwa-install-language.test.mjs` :7 régressions réelles du client dans une frontière DOM/API partagée `tests/helpers/pwa-client-fixture.mjs` ; `scripts/smoke_pwa_install.mjs` : langues navigateur et choix/reprise sur vrai build. CI41239685779 :126 unités/25 parcours/0 erreur JS, APK/AAB unsigned/lint. Build7 public, source `6f01fe0d7f9a8753f89e58b326968086b031c638`, déploiement `appgdep_6ae6539ef91c819182148f4c1175d078` succeeded. Rapport docs/verification/myn030-language.md ; limites matérielles dans todo.md.
 
@@ -160,7 +163,7 @@ UI/cadrage : index.html, style.css, main.js, scene.js. Pulsation/zoom : comfort.
 - main.fit : ResizeObserver header/controls ; CSS de scène plein écran, safeInsets inclut le bas réel des vues +8px. scene.resize étend une projection commune au dessin et aux raycasts, sans laisser les réserves sous les boutons au cadrage initial.
 - living-panorama.js : sphère à l’infini, shader avec masques UV d’eau/chutes/brume/nuages/lampes ; horloge par dt, force réduite en qualité faible, effets figés en pause/réduit. Image et éclairage PMREM originaux conservés.
 - fresco.js : FrescoViewer, zoom 1–4, panoramique, deux doigts et boutons ; dialogue imbriqué conserve la pause des règles. web/public/art/rules-fresco.png est l’original docs/references/rules-fresco-25492.png.
-- scripts/smoke_comfort.mjs : sept scénarios ajoutés aux 34 historiques ; vrai tactile CDP, annulation autonome, pile directe échantillonnée à chaque frame, trois formats. Tests unitaires de support/mouvement/input/zoom/pulsation.
+- scripts/smoke_comfort.mjs : dix scénarios ajoutés aux 34 historiques ; vrai tactile CDP, annulation autonome, pile directe échantillonnée à chaque frame, trois formats. Tests unitaires de support/mouvement/input/zoom/pulsation.
 - Android 0.7.0/code8 ; CI .github/workflows/android.yml vérifie aussi certificat précédent 0.6.0. Preuve téléchargements : temp/native-delivery-verification-v070.json. Revue docs/revue-v070.md, passation docs/passation-2026-10-26.md.
 
 ## Marge des commandes 0.7.0

@@ -38,12 +38,15 @@ export async function webInstallLanguageScenario(browser,page,url,report){
    assert.match(await guidePage.locator('#installGuideSteps').innerText(),new RegExp(menu));
    if(want==='en')assert.doesNotMatch(await guidePage.locator('#installGuideSteps').innerText(),/[가-힣]/);
    await guidePage.screenshot({path:'test-results/pwa-install-'+want+'.png'});
+   await guidePage.locator('#closeInstallGuide').click();
+   assert.equal(await guidePage.locator('#storeOfferDialog').isVisible(),false);
   }catch(error){
    try{diagnostic.page=await guidePage?.evaluate(()=>({url:location.href,ready:!!window.__gameReady,loading:document.getElementById('loading')?.innerText,body:document.body.innerText.slice(-1500),language:navigator.language,languages:navigator.languages}));console.log(JSON.stringify({installationFailure:diagnostic}));await guidePage?.screenshot({path:'test-results/pwa-install-failure.png',timeout:5000});}catch{}
    report.installationFailure=diagnostic;throw error;
   }finally{await context.close();}
  }
  report.checks.push('Real browser locale chooses Korean iPhone guide or English fallback for unsupported languages');
+ report.checks.push('Mobile WebApp guide closes without unverified App Store proposal');
  const restored=await mainContext.newPage();restored.setDefaultTimeout(60000);restored.on('pageerror',e=>report.errors.push(String(e)));
  await restored.goto(url);await restored.waitForFunction(()=>window.__gameReady);
  return restored;

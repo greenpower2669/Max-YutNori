@@ -1,4 +1,13 @@
-# Max YutNori — état courant MYN-030 · 31 octobre 2026
+# Max YutNori — état courant MYN-031 · 1 novembre 2026
+
+## MYN-031 — build8 en vérification
+- [x] Avenant explicite enregistré : PWA principale, Store secondaire facultatif, ancien routage prioritaire remplacé.
+- [x] Popup FR/EN/KO après parcours d’installation, Continuer avec la WebApp en primaire ; refuser/Escape mémorisés par version ; stockage refusé géré en mémoire.
+- [x] Catalogue officiel validé (identité/URL/date/versions), comparaison des moteurs seulement ; Web checkVersions et activation SW/save inchangés.
+- [x] Dix nouveaux tests passent ; cinq premiers et trois cas de revue observés rouges avant correction. 136 unités et8 contrôles complémentaires verts ; deux builds/branding réussis, CI à confirmer.
+- [ ] CI complète puis publication de test build8, même origine HTTPS et mêmes52 sources protégées.
+- [ ] Pour activer réellement la popup : fournir/vérifier la fiche officielle exacte et ses versions, puis renseigner STORE_CATALOG. Android/iOS restent null actuellement ; aucune proposition d’un autre jeu ni faux lien.
+- [ ] Validation matérielle Samsung/iPhone, fonctionnement réel de la fiche et versions publiées après activation.
 
 ## MYN-030 — build7 public, réalisé et vérifié
 - [x] Détection navigator.languages / navigator.language, FR/KO/EN, repli anglais ; choix Auto/Français/English/한국어 dans le guide, mémorisé séparément des parties.
@@ -29,7 +38,7 @@
 ## En attente
 - [ ] Traiter les retours des deux appareils. Mineur historique : repli cartes/vues et noms longs en portrait étroit. [AGENT] Mineur soldé MYN-030 : assertions scope/start_url passent en CI.
 - [ ] **Validation explicite de Fab avant fusion main ou Release PWA définitive. PR#3 reste ouverte en brouillon.** Aucun merge/release définitive dans MYN-029.
-- [ ] **Après publication effective Google Play seulement** : vérifier fiche officielle exacte, identité et minSdk réel ; activer priorité Store Android compatible, PWA si incompatible/sans Store, PWA guidée iOS. Le seul user-agent ne certifie pas la compatibilité.
+- [ ] **Après publication effective Google Play seulement** : vérifier fiche officielle exacte, identité et minSdk réel ; configurer uniquement la popup Store facultative de MYN-031 ; conserver la PWA comme premier parcours sur Android/iOS. Le seul user-agent ne certifie pas la compatibilité.
 - [ ] Si publication Android demandée : restaurer la clé légitime existante depuis cache/sauvegarde/Secrets, puis AAB signé avec sauvegarde durable. Le contrôle unsigned n'est pas une preuve de signature ; aucun remplacement automatique.
 
 ## Bloqué / limites précises

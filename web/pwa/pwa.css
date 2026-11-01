@@ -13,6 +13,8 @@
 #installShortcut{position:fixed;z-index:4;right:max(12px,env(safe-area-inset-right));bottom:calc(var(--controls-height,100px) + 12px);min-height:44px;padding:8px 14px;background:var(--gold);border-color:var(--gold);color:#182e25;font-size:14px;font-weight:750;box-shadow:0 6px 16px #0008}
 #installShortcut:hover{background:#f4d395}
 #installGuide{width:min(480px,92vw)}
+#storeOfferDialog{width:min(480px,92vw)}
+#storeOfferDialog a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;color:var(--gold);text-underline-offset:3px}
 #installGuide ol{padding-left:24px;line-height:1.65}
 #installGuide li{margin:7px 0}
 #installGuide strong{color:var(--gold)}

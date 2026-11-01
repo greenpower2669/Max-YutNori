@@ -40,6 +40,8 @@ try{
  await page.locator('#closeInstallGuide').click();
  await page.getByRole('button',{name:'Reprendre la partie',exact:true}).click();
  report.checks.push('Visible installation shortcut and manual installation guide');
+ assert.equal(await page.locator('#storeOfferDialog').isVisible(),false);
+ report.checks.push('WebApp installation remains primary; no unverified Store popup or redirect');
  page=await webInstallLanguageScenario(browser,page,url,report);activePage=page;
  await webMotionScenario(page,()=>page.waitForFunction(()=>window.__gameReady),report);
  await page.getByRole('button',{name:'Pause',exact:true}).click();await page.getByText('À jour',{exact:true}).waitFor();assert.match(await page.locator('#webVersion').innerText(),/Moteur 0.8.8 · PWA/);report.checks.push('Android 99.0.0 never reported as Web update');

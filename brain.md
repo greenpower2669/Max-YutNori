@@ -1,6 +1,9 @@
 # Contrat courant — Max YutNori 0.8.8 / code17
 
-## État courant MYN-030 — build7 public de test
+## État courant MYN-031 — PWA principale, Store au choix
+Avenant01/11/2026 validé par Fab : l’installation WebApp/PWA reste principale ; Store proposé par popup secondaire facultative, fermable et mémorisant le refus. Bouton Continuer avec la WebApp primaire. FR/EN/KO conservés ; aucune redirection automatique. La vérification PWA conserve canal/semver/build/commit/hôte et l’actualisation volontaire sauvegardée. Catalogue natif séparé (URL/identité/publication/date/version app/version moteur) ; pas de déduction de version native installée ou de compatibilité SDK par user-agent. Une offre moteur périmée est refusée. Pas de fiche Store vérifiée actuellement : entrées null, popup non affichée ; lien exact et versions manquent pour l’activer. Build8 préparé, CI/publication à confirmer dans todo.md. Ancienne priorité Store remplacée explicitement dans ordres-de-mission.md. Moteur/Android/signatures inchangés.
+
+## Historique MYN-030 — build7 public de test
 Seules les surfaces d’installation PWA sont traduites FR/EN/KO : détection navigator.languages puis navigator.language, anglais de secours ; choix manuel prioritaire Auto/Français/English/한국어 mémorisé sous max-yutnori-web-language-v1, repli mémoire si stockage refusé. Auto suit languagechange. Textes et lang du guide/messages synchronisés. Même moteur Android0.8.8/code17 et mêmes52 sources protégées ; règle Google Play différée intacte.
 Source Web `6f01fe0d7f9a8753f89e58b326968086b031c638`, CI41239685779 :126 unités/25 parcours/0 erreur JS, APK/AAB unsigned/lint ; publication `appgdep_6ae6539ef91c819182148f4c1175d078` succeeded, source hébergement `156d59f55b5c30b7d730b7e2869354c9f5329c2a`, même origine publique. Manifeste HTTPS build7 observé. Sauvegardes et signature préservées. Essais physiques et glyphes coréens sur appareils restent ouverts ; todo.md et docs/verification/myn030-language.md décrivent les limites.
 
